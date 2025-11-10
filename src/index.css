@@ -1,0 +1,40 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* LIGHT MODE DEFAULT */
+.bg-light { @apply bg-mg-light-bg; }
+.text-light { @apply text-mg-light-text; }
+
+/* DARK MODE OVERRIDE */
+.dark .bg-light { @apply bg-mg-dark-bg; }
+.dark .text-light { @apply text-mg-dark-text; }
+
+/* GLOW ADJUSTMENT */
+.gold-glow { @apply shadow-gold-glow; }
+.dark .gold-glow { @apply shadow-gold-glow; }
+.gold-glow-light { @apply shadow-gold-glow-light; }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { @apply bg-mg-light-border dark:bg-mg-dark-border; }
+::-webkit-scrollbar-thumb { @apply bg-mg-gold; }
+::-webkit-scrollbar-thumb:hover { @apply bg-yellow-500; }
