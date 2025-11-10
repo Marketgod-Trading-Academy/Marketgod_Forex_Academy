@@ -73,12 +73,13 @@ const Header = () => {
     <>
       {/* DESKTOP HEADER */}
       {/* DESKTOP HEADER */}
+{/* DESKTOP HEADER */}
 <motion.header
   animate={{ y: visible ? 0 : -120 }}
   transition={{ duration: 0.35 }}
   style={{ height: headerHeight }}
   className={`
-    hidden md:flex justify-between items-center fixed top-0 left-0 w-full z-40 
+    hidden md:flex items-center fixed top-0 left-0 w-full z-40 
     px-6 py-3 
     backdrop-blur-md 
     border-b 
@@ -91,7 +92,7 @@ const Header = () => {
   `}
   style={blurStyle}
 >
-  {/* LOGO */}
+  {/* LOGO — FAR LEFT */}
   <a href="#home" className="flex items-center gap-3 group">
     <div className="relative bg-black rounded-full">
       <img
@@ -123,10 +124,9 @@ const Header = () => {
     </div>
   </a>
 
-  {/* CENTERED NAV + RIGHT CTA */}
-  <div className="flex items-center justify-center flex-1 gap-8">
-    {/* NAV LINKS - CENTERED */}
-    <nav className="flex items-center gap-6">
+  {/* CENTERED NAV — TRUE MIDDLE */}
+  <nav className="flex-1 flex justify-center">
+    <div className="flex items-center gap-6">
       {navLinks.map((link) => {
         const active = activeSection === link.id;
         return (
@@ -143,7 +143,6 @@ const Header = () => {
               }
             `}
           >
-            {/* HOVER: Push away + color shift */}
             <motion.span
               whileHover={{ 
                 y: -4, 
@@ -172,57 +171,57 @@ const Header = () => {
           </a>
         );
       })}
-    </nav>
-
-    {/* RIGHT: CTA + THEME */}
-  </div>
-    <div className="flex items-end gap-4 ml-8">
-      {/* CTA */}
-      <motion.a
-        href="#plans"
-        className="relative overflow-hidden bg-mg-gold text-mg-black px-6 py-2.5 rounded-full font-bold uppercase tracking-wide text-xs flex items-center gap-2 shadow-lg"
-        style={{
-          scale: pulse,
-          boxShadow: theme === "light"
-            ? "0 5px 20px rgba(212,175,55,0.4)"
-            : "0 6px 25px rgba(212,175,55,0.5), 0 0 30px rgba(212,175,55,0.3)",
-        }}
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.96 }}
-      >
-        <span className="relative z-10">Join Now</span>
-        {window.scrollY > 30 && (
-          <motion.div
-            className="absolute inset-0 rounded-full bg-[#00c896]/25"
-            animate={{ scale: [1, 1.5], opacity: [0.6, 0] }}
-            transition={{ repeat: Infinity, duration: 1.6 }}
-          />
-        )}
-        <motion.div
-          className="absolute inset-0 bg-white/40"
-          initial={{ x: "-120%" }}
-          whileHover={{ x: "120%" }}
-          transition={{ duration: 0.6 }}
-        />
-      </motion.a>
-
-      {/* THEME TOGGLE */}
-      <motion.button
-        onClick={toggleTheme}
-        className={`p-2 rounded-full transition-all ${
-          theme === "light" 
-            ? "bg-mg-light-border/40 hover:bg-mg-gold/15" 
-            : "bg-mg-dark-border/40 hover:bg-[#00c896]/15"
-        }`}
-        whileHover={{ rotate: 360, scale: 1.15 }}
-      >
-        {theme === "light" ? (
-          <Moon size={18} className="text-mg-light-text" />
-        ) : (
-          <Sun size={18} className="text-mg-gold" />
-        )}
-      </motion.button>
     </div>
+  </nav>
+
+  {/* CTA + THEME — FAR RIGHT */}
+  <div className="flex items-center gap-4">
+    {/* CTA */}
+    <motion.a
+      href="#plans"
+      className="relative overflow-hidden bg-mg-gold text-mg-black px-6 py-2.5 rounded-full font-bold uppercase tracking-wide text-xs flex items-center gap-2 shadow-lg"
+      style={{
+        scale: pulse,
+        boxShadow: theme === "light"
+          ? "0 5px 20px rgba(212,175,55,0.4)"
+          : "0 6px 25px rgba(212,175,55,0.5), 0 0 30px rgba(212,175,55,0.3)",
+      }}
+      whileHover={{ scale: 1.08 }}
+      whileTap={{ scale: 0.96 }}
+    >
+      <span className="relative z-10">Join Now</span>
+      {window.scrollY > 30 && (
+        <motion.div
+          className="absolute inset-0 rounded-full bg-[#00c896]/25"
+          animate={{ scale: [1, 1.5], opacity: [0.6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.6 }}
+        />
+      )}
+      <motion.div
+        className="absolute inset-0 bg-white/40"
+        initial={{ x: "-120%" }}
+        whileHover={{ x: "120%" }}
+        transition={{ duration: 0.6 }}
+      />
+    </motion.a>
+
+    {/* THEME TOGGLE */}
+    <motion.button
+      onClick={toggleTheme}
+      className={`p-2 rounded-full transition-all ${
+        theme === "light" 
+          ? "bg-mg-light-border/40 hover:bg-mg-gold/15" 
+          : "bg-mg-dark-border/40 hover:bg-[#00c896]/15"
+      }`}
+      whileHover={{ rotate: 360, scale: 1.15 }}
+    >
+      {theme === "light" ? (
+        <Moon size={18} className="text-mg-light-text" />
+      ) : (
+        <Sun size={18} className="text-mg-gold" />
+      )}
+    </motion.button>
+  </div>
 </motion.header>
 
       {/* MOBILE BOTTOM BAR */}
