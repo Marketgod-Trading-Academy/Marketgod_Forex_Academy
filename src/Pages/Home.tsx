@@ -3,6 +3,8 @@ import { useTheme } from "../context/ThemeContext";
 import Hero from "../Components/Home/Hero";
 import About from "../Components/Home/About";
 import WhyForex from "../Components/Home/WhyForex";
+import Services from "../Components/Home/Services";
+import Webinars from "../Components/Home/Webinars";
 
 const Home = () => {
   const { theme } = useTheme();
@@ -13,8 +15,10 @@ const Home = () => {
     }`}>
 
       <Hero />
+      <Services />
       <About />
       <WhyForex />
+      <Webinars />
       {/* <WhyForexInteractive /> */}
       
       {/* Future: About, Plans, Signals, Testimonials */}
