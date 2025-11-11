@@ -163,7 +163,7 @@ const handleDragEnd = (
   const currentSlide = slides[index];
 
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden mt-16">
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden md:mt-16">
       <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-600 via-yellow-500 to-green-600 opacity-90 z-50 shadow-md" />
 
       {currentSlide.bg && (
@@ -208,7 +208,7 @@ const handleDragEnd = (
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -50 }}
                 transition={{ duration: 0.5 }}
-                className="space-y-6"
+                className="space-y-3"
               >
                 <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/30 rounded-full px-5 py-2.5 text-white text-xs font-bold uppercase tracking-widest">
                   <Globe size={16} />
@@ -253,10 +253,10 @@ const handleDragEnd = (
         </motion.div>
       </motion.div>
 
-      <div className="hidden md:flex absolute bottom-5 left-1/2 -translate-x-1/2 items-center gap-6 z-10">
+      <div className="flex absolute bottom-0 left-1/2 -translate-x-1/2 items-center gap-6 z-10 mb-1">
         <button
           onClick={() => setIndex((prev) => (prev - 1 + slides.length) % slides.length)}
-          className="p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30"
+          className=" hidden md:flex p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30"
         >
           <ChevronLeft className="text-white" size={24} />
         </button>
@@ -275,7 +275,7 @@ const handleDragEnd = (
 
         <button
           onClick={() => setIndex((prev) => (prev + 1) % slides.length)}
-          className="p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30"
+          className="hidden md:flex p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30"
         >
           <ChevronRight className="text-white" size={24} />
         </button>
