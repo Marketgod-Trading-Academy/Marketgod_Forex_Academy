@@ -2,6 +2,7 @@
 import React from "react";
 import { useTheme } from "../context/ThemeContext";
 import Hero from "../Components/Home/Hero";
+import About from "../Components/Home/About";
 
 const Home = () => {
   const { theme } = useTheme();
@@ -12,6 +13,7 @@ const Home = () => {
     }`}>
 
       <Hero />
+      <About />
       {/* Future: About, Plans, Signals, Testimonials */}
     </div>
   );
