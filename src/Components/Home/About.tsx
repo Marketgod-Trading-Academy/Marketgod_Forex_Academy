@@ -1,5 +1,5 @@
 // src/components/About/About.tsx
-import React, { useState } from "react";
+import  { useState } from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { Users, Award, Zap, TrendingUp, ArrowRight, ChevronDown, ChevronUp, GraduationCap } from "lucide-react";

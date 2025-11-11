@@ -1,5 +1,4 @@
 // src/App.tsx
-import React from "react";
 import Header from "./Components/Header/Header";
 import Home from "./Pages/Home";
 import { useTheme } from "./context/ThemeContext";

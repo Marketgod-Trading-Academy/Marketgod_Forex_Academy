@@ -1,6 +1,12 @@
 // src/components/HeroCarousel/HeroCarousel.tsx
-import React, { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useSpring,
+} from "framer-motion";
+import type { PanInfo } from "framer-motion";
 import {
   ArrowRight,
   TrendingUp,
@@ -13,11 +19,26 @@ import {
 } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 
-const slides = [
-  // SLIDE 1: Clean + Mouse Gradient
+interface CTA {
+  label: string;
+  icon: React.ReactNode;
+  href: string;
+  primary?: boolean;
+}
+
+interface Slide {
+  id: number;
+  bg?: string;
+  title: React.ReactNode;
+  subtitle: string;
+  desc: React.ReactNode;
+  ctas: CTA[];
+}
+
+const slides: Slide[] = [
   {
     id: 1,
-      bg: "https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+    bg: "https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
     title: (
       <>
         <span className="text-mg-gold">Trade</span> Like a{" "}
@@ -39,7 +60,6 @@ const slides = [
       { label: "View Live Signals", icon: <TrendingUp size={18} />, href: "#signals" },
     ],
   },
-  // SLIDE 2: Mentorship
   {
     id: 2,
     bg: "https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
@@ -61,7 +81,6 @@ const slides = [
       { label: "Meet Mentors", icon: <GraduationCap size={18} />, href: "#mentors" },
     ],
   },
-  // SLIDE 3: Academy
   {
     id: 3,
     bg: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
@@ -90,15 +109,13 @@ const HeroCarousel = () => {
   const [index, setIndex] = useState(0);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
-  const constraintsRef = useRef(null);
+  const constraintsRef = useRef<HTMLDivElement>(null);
 
   const x = useMotionValue(0);
   const springX = useSpring(x, { stiffness: 300, damping: 30 });
 
-  // Mouse-following gradient (only on Slide 1)
   useEffect(() => {
     if (index !== 0) return;
-
     const handleMouse = (e: MouseEvent) => {
       const rect = document.body.getBoundingClientRect();
       setMousePos({
@@ -110,7 +127,6 @@ const HeroCarousel = () => {
     return () => window.removeEventListener("mousemove", handleMouse);
   }, [index]);
 
-  // Live GMT Clock
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(timer);
@@ -123,7 +139,6 @@ const HeroCarousel = () => {
     second: "2-digit",
   });
 
-  // Auto-slide
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
@@ -131,25 +146,26 @@ const HeroCarousel = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Swipe
-  const handleDragEnd = (_, info) => {
-    const threshold = 100;
-    if (info.offset.x > threshold) {
-      setIndex((prev) => (prev - 1 + slides.length) % slides.length);
-    } else if (info.offset.x < -threshold) {
-      setIndex((prev) => (prev + 1) % slides.length);
-    }
-    x.set(0);
-  };
+
+const handleDragEnd = (
+  _event: MouseEvent | TouchEvent | PointerEvent,
+  info: PanInfo
+) => {
+  const threshold = 100;
+  if (info.offset.x > threshold) {
+    setIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  } else if (info.offset.x < -threshold) {
+    setIndex((prev) => (prev + 1) % slides.length);
+  }
+  x.set(0);
+};
 
   const currentSlide = slides[index];
 
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden mt-16 ">
-      {/* GHANA FLAG STRIPE – ALWAYS VISIBLE */}
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden mt-16">
       <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-600 via-yellow-500 to-green-600 opacity-90 z-50 shadow-md" />
 
-      {/* BACKGROUND IMAGE + OVERLAY (Slides 2 & 3) */}
       {currentSlide.bg && (
         <>
           <div
@@ -160,7 +176,6 @@ const HeroCarousel = () => {
         </>
       )}
 
-      {/* MOUSE GRADIENT – ONLY ON SLIDE 1 */}
       {index === 0 && (
         <motion.div
           className="absolute inset-0 opacity-50 pointer-events-none"
@@ -169,12 +184,9 @@ const HeroCarousel = () => {
               ${theme === "light" ? "rgba(212,175,55,0.65)" : "rgba(0,200,150,0.35)"}, 
               ${theme === "light" ? "rgba(255,247,200,0.15)" : "transparent"} 70%)`,
           }}
-          animate={{}}
-          transition={{ type: "spring", stiffness: 50, damping: 30 }}
         />
       )}
 
-      {/* SWIPE CONTAINER */}
       <motion.div
         ref={constraintsRef}
         className="relative w-full h-full"
@@ -198,7 +210,6 @@ const HeroCarousel = () => {
                 transition={{ duration: 0.5 }}
                 className="space-y-6"
               >
-                {/* Clock Badge */}
                 <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/30 rounded-full px-5 py-2.5 text-white text-xs font-bold uppercase tracking-widest">
                   <Globe size={16} />
                   Accra, Ghana • GMT
@@ -242,7 +253,6 @@ const HeroCarousel = () => {
         </motion.div>
       </motion.div>
 
-      {/* Desktop Controls */}
       <div className="hidden md:flex absolute bottom-5 left-1/2 -translate-x-1/2 items-center gap-6 z-10">
         <button
           onClick={() => setIndex((prev) => (prev - 1 + slides.length) % slides.length)}
@@ -271,7 +281,6 @@ const HeroCarousel = () => {
         </button>
       </div>
 
-      {/* Scroll Indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
         animate={{ y: [0, 10, 0] }}

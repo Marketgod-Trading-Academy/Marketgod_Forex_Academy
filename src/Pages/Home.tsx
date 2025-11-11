@@ -1,8 +1,8 @@
 // src/pages/Home.tsx
-import React from "react";
 import { useTheme } from "../context/ThemeContext";
 import Hero from "../Components/Home/Hero";
 import About from "../Components/Home/About";
+import WhyForex from "../Components/Home/WhyForex";
 
 const Home = () => {
   const { theme } = useTheme();
@@ -14,6 +14,9 @@ const Home = () => {
 
       <Hero />
       <About />
+      <WhyForex />
+      {/* <WhyForexInteractive /> */}
+      
       {/* Future: About, Plans, Signals, Testimonials */}
     </div>
   );
