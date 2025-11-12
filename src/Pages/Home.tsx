@@ -25,6 +25,7 @@ import MarketGodQuotes from "../Components/Home/MarketGodQuotes";
 import JoinCommunity from "../Components/Home/JoinCommunity";
 import FAQ from "../Components/Home/FAQ";
 import FAQCTA from "../Components/Home/FAQCTA";
+import SeminarHighlight from "../Components/Home/SeminarHighlight";
 
 const Home = () => {
   const { theme } = useTheme();
@@ -37,10 +38,11 @@ const Home = () => {
     >
       {/* 1. HERO — GRAB ATTENTION */}
       <Hero />
+      <SeminarHighlight />
 
       {/* 2. ABOUT — WHO IS MARKETGOD */}
       <About />
-      
+
       {/* 9. SERVICES — WHAT YOU GET */}
       <Services />
 
