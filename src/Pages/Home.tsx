@@ -13,6 +13,8 @@ import ExnessPartner from "../Components/Home/ExnessPartner";
 import MarketGodQuotes from "../Components/Home/MarketGodQuotes";
 import FAQ from "../Components/Home/FAQ";
 import FAQCTA from "../Components/Home/FAQCTA";
+import Testimonials from "../Components/Home/Testimonials";
+import WhatIsForex from "../Components/Home/WhatIsForex";
 
 const Home = () => {
   const { theme } = useTheme();
@@ -35,6 +37,8 @@ const Home = () => {
       <MarketGodQuotes />
       <FAQ />
       <FAQCTA />
+      <Testimonials />
+      <WhatIsForex />
       
       {/* Future: About, Plans, Signals, Testimonials */}
     </div>
