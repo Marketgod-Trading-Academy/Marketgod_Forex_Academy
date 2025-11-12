@@ -8,6 +8,7 @@ import Webinars from "../Components/Home/Webinars";
 import WhyMarketGod from "../Components/Home/WhyMarketGod";
 import JoinCommunity from "../Components/Home/JoinCommunity";
 import WhyMentorshipMatters from "../Components/Home/WhyMentorshipMatters";
+import Plans from "../Components/Home/Plans";
 
 const Home = () => {
   const { theme } = useTheme();
@@ -25,6 +26,7 @@ const Home = () => {
       <WhyMarketGod />
       <JoinCommunity />
       <WhyMentorshipMatters />
+      <Plans />
       
       {/* Future: About, Plans, Signals, Testimonials */}
     </div>
