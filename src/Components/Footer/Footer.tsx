@@ -82,9 +82,9 @@ const Footer = () => {
       >
         {/* Cinematic Background */}
         <div
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0 opacity-10"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1518186287039-1a88e3e2b3a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80')`,
+            backgroundImage: `url('/logo.png')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             filter: isDark ? "brightness(0.3) contrast(1.3)" : "brightness(0.8) contrast(1.1)",
@@ -104,6 +104,33 @@ const Footer = () => {
         {/* Ghana Flag Stripe */}
         <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-600 via-yellow-500 to-green-600 opacity-90 shadow-lg z-50" />
 
+        {/* 3D PERSPECTIVE SLOGAN — FAR AWAY, FLOATING */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+          <div
+            className="relative w-full h-full flex items-center justify-center"
+            style={{
+              perspective: "1000px",
+            }}
+          >
+            <div
+              className="text-5xl md:text-9xl lg:text-[12rem] font-black tracking-[0.2em] uppercase select-none"
+              style={{
+                color: isDark ? "rgba(212, 175, 55, 0.06)" : "rgba(212, 175, 55, 0.1)",
+                transform: "translateZ(-600px) rotateX(45deg) scale(0.85)",
+                transformStyle: "preserve-3d",
+                textShadow: isDark
+                  ? "0 0 80px rgba(212,175,55,0.15), 0 0 160px rgba(0,200,150,0.08)"
+                  : "0 0 80px rgba(212,175,55,0.2), 0 0 160px rgba(0,200,150,0.12)",
+                filter: "blur(1.5px)",
+                lineHeight: "1",
+                letterSpacing: "0.3em",
+              }}
+            >
+              MarketGod Academy — Built in Ghana. For the World
+            </div>
+          </div>
+        </div>
+
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
           <div className="grid md:grid-cols-4 gap-12 lg:gap-16">
             {/* BRAND */}
@@ -117,7 +144,7 @@ const Footer = () => {
                 <img
                   src="/logo.png"
                   alt="MarketGod Academy"
-                  className="w-20 h-20 rounded-full border-4 border-mg-gold shadow-2xl p-1 bg-mg-paper"
+                  className="w-20 h-20 rounded-full border-4 border-mg-gold shadow-2xl p-1 bg-mg-charcoal"
                 />
                 <div>
                   <h3 className="text-2xl font-black text-mg-gold tracking-tight">MarketGod</h3>
