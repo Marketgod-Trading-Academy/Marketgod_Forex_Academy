@@ -11,6 +11,8 @@ import WhyMentorshipMatters from "../Components/Home/WhyMentorshipMatters";
 import Plans from "../Components/Home/Plans";
 import ExnessPartner from "../Components/Home/ExnessPartner";
 import MarketGodQuotes from "../Components/Home/MarketGodQuotes";
+import FAQ from "../Components/Home/FAQ";
+import FAQCTA from "../Components/Home/FAQCTA";
 
 const Home = () => {
   const { theme } = useTheme();
@@ -31,6 +33,8 @@ const Home = () => {
       <Plans />
       <ExnessPartner />
       <MarketGodQuotes />
+      <FAQ />
+      <FAQCTA />
       
       {/* Future: About, Plans, Signals, Testimonials */}
     </div>
