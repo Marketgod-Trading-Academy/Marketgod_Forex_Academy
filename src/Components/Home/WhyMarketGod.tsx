@@ -1,4 +1,3 @@
-// src/Components/Home/WhyMarketGod.tsx
 import React from "react";
 import { motion } from "framer-motion";
 import { Shield, TrendingUp, Brain, Users, Globe, Zap } from "lucide-react";
@@ -7,33 +6,33 @@ import { useTheme } from "../../context/ThemeContext";
 const features = [
   {
     icon: Globe,
-    title: "Trade Without Borders",
-    desc: "Access global markets directly from Africa — no restrictions, full reach.",
+    title: "Global Access, African Excellence",
+    desc: "Trade global markets confidently — powered by strategy, discipline, and a world-class Ghanaian foundation.",
   },
   {
     icon: Shield,
-    title: "Proven Credibility",
-    desc: "Led by Eyram Dela — Ghana’s most respected trading mentor, trusted worldwide.",
+    title: "Trusted by Professionals",
+    desc: "Learn under the mentorship of Eyram Dela — Ghana’s respected trading voice shaping traders across continents.",
   },
   {
     icon: TrendingUp,
-    title: "Growth & Consistency",
-    desc: "Learn the MarketGod discipline: patience, precision, and progress.",
+    title: "Built for Growth & Consistency",
+    desc: "We focus on mastery, not hype. Our programs are designed to grow traders — one skill, one mindset, one milestone at a time.",
   },
   {
     icon: Brain,
-    title: "Smart Analysis Mastery",
-    desc: "Understand the market like institutions do — not just signals, but skill.",
+    title: "Institutional Trading Insight",
+    desc: "Gain clarity into how banks and institutions think — liquidity, timing, and precision behind every market move.",
   },
   {
     icon: Users,
-    title: "A Global Tribe",
-    desc: "10K+ members trading and growing together — from Accra to Dubai to New York.",
+    title: "A Global Trader Community",
+    desc: "Join 10,000+ traders in our Academy network — united by discipline, results, and a shared pursuit of excellence.",
   },
   {
     icon: Zap,
-    title: "Time-Zone Synced",
-    desc: "Train in real-time with GMT — the heartbeat of the global market.",
+    title: "Aligned with the World’s Market Clock",
+    desc: "Our sessions follow GMT — the global heartbeat of financial markets. Trade and learn in real time.",
   },
 ];
 
@@ -43,8 +42,9 @@ const WhyMarketGod = () => {
 
   return (
     <section
-      className={`relative overflow-hidden py-28 px-6 transition-colors duration-500 ${
-        isDark ? "bg-black text-gray-100" : "bg-gray-50 text-gray-900"
+      id="why-marketgod"
+      className={`relative overflow-hidden py-32 transition-all duration-700 ${
+        isDark ? "bg-black text-white" : "bg-gray-50 text-gray-900"
       }`}
     >
       {/* 🎥 Background Video */}
@@ -58,92 +58,91 @@ const WhyMarketGod = () => {
         <source src="/videos/ghana-trading-bg.mp4" type="video/mp4" />
       </video>
 
-      {/* 🌍 Animated Gradient Overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,215,0,0.1),transparent_70%),radial-gradient(circle_at_80%_70%,rgba(220,38,38,0.1),transparent_70%),radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.08),transparent_70%)] animate-pulse-slow" />
+      {/* ✨ Gradient Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-yellow-600/10 to-transparent animate-pulse-slow" />
+      <div className="absolute inset-0 bg-black/70" />
 
-      {/* Subtle black fade overlay for readability */}
-      <div className="absolute inset-0 bg-black/60" />
-
-      <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center">
-        {/* LEFT SIDE — Headline & CTA */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
+      {/* 🏛️ Header */}
+      <div className="relative z-10 text-center max-w-4xl mx-auto px-6 mb-20">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-left space-y-8"
+          transition={{ duration: 0.6 }}
+          className="text-5xl md:text-7xl font-extrabold leading-tight"
         >
-          <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
-            <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
-              Why MarketGod?
-            </span>
-          </h2>
+          <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
+            Why Choose MarketGod Academy
+          </span>
+        </motion.h2>
 
-          <p className="text-lg leading-relaxed max-w-xl text-gray-300">
-            More than a trading academy — it’s a movement. Born in{" "}
-            <span className="text-yellow-500 font-semibold">Ghana</span>, built
-            for ambitious traders across the world. We don’t just teach charts;
-            we build mindset, mastery, and momentum.
-          </p>
-
-          <motion.a
-            href="#plans"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-yellow-500 text-black font-bold shadow-lg hover:shadow-yellow-400/40 transition-all"
-          >
-            Join The Movement
-            <Globe size={22} />
-          </motion.a>
-        </motion.div>
-
-        {/* RIGHT SIDE — Feature Cards */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="grid sm:grid-cols-2 gap-6"
+          transition={{ delay: 0.2, duration: 0.7 }}
+          className="mt-6 text-lg md:text-xl text-gray-300 leading-relaxed"
         >
-          {features.map((f, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ scale: 1.05, y: -5 }}
-              transition={{ duration: 0.3 }}
-              className={`group p-8 rounded-3xl border backdrop-blur-md relative overflow-hidden transition-all ${
-                isDark
-                  ? "bg-[#111]/60 border-yellow-500/20 hover:border-yellow-500/60"
-                  : "bg-white/90 border-yellow-400/20 hover:border-yellow-500/50"
-              }`}
-            >
-              <div
-                className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-all duration-500 ${
-                  isDark
-                    ? "bg-gradient-to-br from-yellow-500 to-red-600"
-                    : "bg-gradient-to-br from-yellow-300 to-green-400"
-                }`}
-              />
-              <div className="relative z-10 flex flex-col items-start space-y-4">
-                <div
-                  className={`p-3 rounded-2xl ${
-                    isDark ? "bg-yellow-500/10" : "bg-yellow-100/60"
-                  }`}
-                >
-                  <f.icon className="text-yellow-500" size={30} />
-                </div>
-                <h3 className="text-xl font-semibold">{f.title}</h3>
-                <p
-                  className={`text-sm ${
-                    isDark ? "text-gray-400" : "text-gray-600"
-                  }`}
-                >
-                  {f.desc}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+          MarketGod Academy isn’t just a trading school — it’s a legacy.  
+          Founded in <span className="text-yellow-400 font-semibold">Ghana</span>, built for traders across the globe.  
+          We combine education, mindset, and market precision to help you trade like a professional — from anywhere.
+        </motion.p>
+
+        <motion.a
+          href="#plans"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-flex items-center gap-3 mt-10 px-10 py-4 rounded-full bg-yellow-500 text-black font-bold shadow-lg hover:shadow-yellow-400/40 transition-all"
+        >
+          Join The Academy <Globe size={22} />
+        </motion.a>
       </div>
+
+      {/* ⚡ Numbered Feature Grid */}
+      <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
+        {features.map((f, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1, duration: 0.6 }}
+            whileHover={{ scale: 1.05, rotateX: 3, rotateY: -3 }}
+            className={`group relative p-8 rounded-3xl border overflow-hidden shadow-lg hover:shadow-yellow-500/20 transition-all backdrop-blur-xl ${
+              isDark
+                ? "bg-gradient-to-br from-[#111]/80 to-[#222]/60 border-yellow-500/10"
+                : "bg-white/70 border-yellow-400/20"
+            }`}
+          >
+            {/* Number Label */}
+            <div className="absolute top-6 right-6 text-6xl font-black opacity-10 text-yellow-400 select-none">
+              {String(i + 1).padStart(2, "0")}
+            </div>
+
+            {/* Icon + Text */}
+            <div className="relative z-10 flex flex-col items-start space-y-4">
+              <div
+                className={`p-3 rounded-2xl ${
+                  isDark ? "bg-yellow-500/10" : "bg-yellow-100/60"
+                }`}
+              >
+                <f.icon className="text-yellow-500" size={30} />
+              </div>
+              <h3 className="text-xl font-semibold">{f.title}</h3>
+              <p
+                className={`text-sm leading-relaxed ${
+                  isDark ? "text-gray-400" : "text-gray-600"
+                }`}
+              >
+                {f.desc}
+              </p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* ✨ Soft Ambient Glow */}
+      <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-yellow-500/10 rounded-full blur-[200px]" />
     </section>
   );
 };
