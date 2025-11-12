@@ -1,8 +1,8 @@
 // src/components/JoinCommunity/MarketGodStars.tsx
-import { useMemo, useRef, useState, useEffect } from "react";
+import { useMemo, useRef } from "react";
 import { useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
-import { TextureLoader } from "three/src/loaders/TextureLoader";
+import { TextureLoader, PointsMaterial } from "three";   // <-- public API
 import { useTheme } from "../../context/ThemeContext";
 
 import marketGodLogo from "/logo.png";
@@ -15,7 +15,9 @@ export default function MarketGodStars() {
   const globeRef = useRef<THREE.Mesh>(null);
   const texture = useLoader(TextureLoader, marketGodLogo);
 
-  // Generate random star positions on sphere surface
+  // -------------------------------------------------
+  // 1. Random star positions on a sphere
+  // -------------------------------------------------
   const geometry = useMemo(() => {
     const count = 1200;
     const positions = new Float32Array(count * 3);
@@ -37,7 +39,7 @@ export default function MarketGodStars() {
       positions[i * 3 + 1] = y;
       positions[i * 3 + 2] = z;
 
-      // Gold → Green gradient based on latitude (y)
+      // Gold to Green gradient based on latitude (y)
       const t = (y + radius) / (2 * radius); // 0 to 1
       const c = gold.clone().lerp(green, t * 0.8);
       colors[i * 3] = c.r;
@@ -51,21 +53,31 @@ export default function MarketGodStars() {
     return geom;
   }, []);
 
-  // Animate
+  // -------------------------------------------------
+  // 2. Animation loop
+  // -------------------------------------------------
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
+
     if (pointsRef.current) {
       pointsRef.current.rotation.y = t * 0.08;
-      pointsRef.current.material.opacity = 0.75 + Math.sin(t * 6) * 0.15;
+
+      // `pointsMaterial` is guaranteed to be PointsMaterial because we create it below
+      const mat = pointsRef.current.material as PointsMaterial;
+      mat.opacity = 0.75 + Math.sin(t * 6) * 0.15;
     }
+
     if (globeRef.current) {
       globeRef.current.rotation.y = t * 0.05;
     }
   });
 
+  // -------------------------------------------------
+  // 3. Render
+  // -------------------------------------------------
   return (
     <group>
-      {/* Globe with Logo */}
+      {/* Globe with logo */}
       <mesh ref={globeRef}>
         <sphereGeometry args={[1.02, 64, 64]} />
         <meshStandardMaterial
@@ -79,7 +91,7 @@ export default function MarketGodStars() {
         />
       </mesh>
 
-      {/* Orbiting Stars Only */}
+      {/* Orbiting stars */}
       <points ref={pointsRef}>
         <bufferGeometry attach="geometry" {...geometry} />
         <pointsMaterial
@@ -93,7 +105,7 @@ export default function MarketGodStars() {
         />
       </points>
 
-      {/* BRAND LIGHTING */}
+      {/* Lighting */}
       <ambientLight intensity={0.4} color={isDark ? "#D4AF37" : "#B8860B"} />
       <directionalLight position={[5, 5, 5]} intensity={1.2} color="#00c896" />
       <pointLight position={[0, 0, 0]} intensity={0.5} color="#D4AF37" />

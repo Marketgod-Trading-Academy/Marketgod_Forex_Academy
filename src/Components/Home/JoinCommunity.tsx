@@ -14,7 +14,7 @@ function GlobeWithLogos({ logos }: { logos: string[] }) {
   const groupRef = useRef<THREE.Group>(null);
   const textures = useLoader(THREE.TextureLoader, logos);
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (groupRef.current) groupRef.current.rotation.y += delta * 0.05;
   });
 

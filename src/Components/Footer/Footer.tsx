@@ -1,6 +1,6 @@
 // Eugene Afriyie UEB3502023
 // src/components/Footer/Footer.tsx
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { Instagram, Twitter, Youtube, Linkedin, MessageCircle, Shield, Globe, Mail, Phone, ArrowUp } from "lucide-react";
@@ -78,11 +78,11 @@ const Footer = () => {
           isDark
             ? "bg-gradient-to-t from-mg-black via-mg-charcoal to-mg-charcoal"
             : "bg-gradient-to-t from-mg-paper via-mg-light-bg to-mg-light-bg"
-        }`}
+        } mt-5`}
       >
         {/* Cinematic Background */}
         <div
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 opacity-30"
           style={{
             backgroundImage: `url('/logo.png')`,
             backgroundSize: "cover",

@@ -1,5 +1,5 @@
 // src/components/MarketGodQuotes/MarketGodQuotes.tsx
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { motion, AnimatePresence,  } from "framer-motion";
 import type { PanInfo } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
@@ -131,6 +131,7 @@ const MarketGodQuotes = () => {
             <div className="mt-6 flex justify-center md:justify-start gap-3">
               {quotes.map((_, i) => (
                 <button
+                aria-label="Go to quote"
                   key={i}
                   onClick={() => setCurrent(i)}
                   className={`w-3 h-3 rounded-full transition ${

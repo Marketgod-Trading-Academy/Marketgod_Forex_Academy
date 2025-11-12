@@ -1,5 +1,4 @@
 // src/components/ExnessPartner/ExnessPartner.tsx
-import React from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { ArrowRight, Zap, Shield, Globe, Clock, CreditCard } from "lucide-react";

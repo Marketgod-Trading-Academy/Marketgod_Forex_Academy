@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { motion } from "framer-motion";
 import { Shield, TrendingUp, Brain, Users, Globe, Zap } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";

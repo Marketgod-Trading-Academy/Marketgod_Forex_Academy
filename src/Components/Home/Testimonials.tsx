@@ -1,9 +1,9 @@
 // Eugene Afriyie UEB3502023
 // src/components/Testimonials/Testimonials.tsx
-import React, { useEffect, useRef, useState } from "react";
+import  { useEffect, useRef, useState } from "react";
 import { motion, useAnimation, useMotionValue } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
-import { Star, Quote, TrendingUp, Users, ArrowRight } from "lucide-react";
+import { Star,  TrendingUp, ArrowRight } from "lucide-react";
 
 const Testimonials = () => {
   const { theme } = useTheme();

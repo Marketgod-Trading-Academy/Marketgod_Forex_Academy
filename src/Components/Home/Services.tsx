@@ -8,7 +8,7 @@ import {
   Users,
   ArrowRight,
   Zap,
-  Globe,
+  
 } from "lucide-react";
 
 const Services = () => {

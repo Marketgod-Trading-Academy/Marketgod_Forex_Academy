@@ -1,5 +1,5 @@
 // src/components/Webinars/Webinars.tsx
-import React, { useState } from "react";
+import  { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { Calendar, Video, MapPin, X, ArrowRight, Send, Globe, Zap } from "lucide-react";
@@ -204,6 +204,7 @@ const Webinars = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <button
+              aria-label="Close popup"
                 onClick={() => setShowPopup(false)}
                 className="absolute top-4 right-4 p-2 rounded-full bg-white/20 hover:bg-white/30 transition"
               >

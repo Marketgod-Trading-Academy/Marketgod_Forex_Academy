@@ -1,6 +1,5 @@
 // Eugene Afriyie UEB3502023
 // src/components/WhatIsForex/WhatIsForex.tsx
-import React from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { Globe, TrendingUp, Clock, Users, Shield, ArrowRight } from "lucide-react";
@@ -114,7 +113,8 @@ const WhatIsForex = () => {
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-3 px-10 py-5 bg-mg-gold text-mg-charcoal rounded-full font-bold uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all"
           >
-            Download Free Forex Guide
+            Watch Free Forex Guide
+
             <ArrowRight size={24} />
           </motion.a>
           <p className={`mt-4 text-sm ${isDark ? "text-mg-paper/60" : "text-mg-charcoal/60"}`}>

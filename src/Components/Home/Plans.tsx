@@ -1,5 +1,4 @@
 // src/components/Services/Services.tsx
-import React from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { UserCheck, Users, Signal, BookOpen, ArrowRight, Zap, Crown } from "lucide-react";
@@ -74,7 +73,7 @@ const Services = () => {
           <h2 className={`text-4xl md:text-6xl font-black tracking-tight mb-4 ${
             isDark ? "text-mg-gold" : "text-mg-charcoal"
           }`}>
-            MarketGod <span className="text-mg-green">Services</span>
+            MarketGod <span className="text-mg-green">Plans Services</span>
           </h2>
           <p className={`text-xl md:text-2xl max-w-3xl mx-auto ${
             isDark ? "text-mg-dark-textSecondary" : "text-mg-light-textSecondary"

@@ -12,7 +12,7 @@
 //   ArrowRight 
 // } from "lucide-react";
 
-import { video } from "framer-motion/client";
+// import { video } from "framer-motion/client";
 
 // const Services = () => {
 //   const { theme } = useTheme();
