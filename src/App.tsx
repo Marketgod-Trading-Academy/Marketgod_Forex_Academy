@@ -1,4 +1,5 @@
 // src/App.tsx
+import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import Home from "./Pages/Home";
 import { useTheme } from "./context/ThemeContext";
@@ -14,6 +15,7 @@ function App() {
     >
       <Header />
       <Home />
+      <Footer />
       {/* Other sections below */}
       {/* <section id="about" className="py-20">...</section> */}
     </div>

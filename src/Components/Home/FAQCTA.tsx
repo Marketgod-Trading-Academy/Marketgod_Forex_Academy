@@ -13,7 +13,7 @@ const FAQCTA = () => {
   ];
 
   return (
-    <section className="py-16 px-6 bg-gradient-to-r from-mg-gold/10 via-yellow-50/20 to-mg-gold/10 rounded-3xl shadow-xl max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 transition-colors duration-700">
+    <section className="py-16 px-6 bg-gradient-to-r from-mg-gold/10 via-yellow-50/20 to-mg-gold/10 rounded-3xl shadow-2xl max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 transition-colors duration-700">
       
       {/* Headline & CTA */}
       <div className="flex-1 text-center md:text-left space-y-3">
