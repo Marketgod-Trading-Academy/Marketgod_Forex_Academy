@@ -107,21 +107,30 @@ const Webinars = () => {
                 }`}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <event.icon size={26} className="text-yellow-400" />
-                  <span className="text-sm font-bold uppercase text-yellow-300">
+                  <event.icon size={26} className="text-mg-gold" />
+                  <span className="text-sm font-bold uppercase text-mg-gold">
                     {event.type}
                   </span>
                 </div>
 
-                <h3 className="text-2xl font-bold mb-3 text-yellow-200">
+                <h3 className="text-2xl font-bold mb-3 text-yellow-500">
                   {event.title}
                 </h3>
-                <p className="text-base mb-2 text-gray-300">{event.date}</p>
-                <p className="text-base mb-4 text-gray-400">{event.desc}</p>
+                <p className={`text-base mb-2 text-black   ${
+                  theme === "light"
+                    ? "text-black/90 border-yellow-400/30 "
+                    : "text-white/70 "}`}>{event.date}</p>
+                <p className={`text-base mb-4 ${
+                  theme === "light"
+                    ? "text-black/90 border-yellow-400/30 "
+                    : "text-white/70 "}`}>{event.desc}</p>
 
                 <div className="space-y-2 mb-6">
-                  <p className="text-sm uppercase tracking-wider text-yellow-400">Topics:</p>
-                  <ul className="text-sm text-gray-400 space-y-1">
+                  <p className="text-sm uppercase tracking-wider text-yellow-500">Topics:</p>
+                  <ul className={`text-sm ${
+                  theme === "light"
+                    ? "text-black/90 border-yellow-400/30 "
+                    : "text-white/70 "} space-y-1`}>
                     {event.topics.map((topic, j) => (
                       <li key={j} className="flex items-center gap-2">
                         <Zap size={12} className="text-yellow-400" />
@@ -132,8 +141,11 @@ const Webinars = () => {
                 </div>
 
                 <div className="mb-4">
-                  <div className="text-xl font-bold text-yellow-300">{event.price}</div>
-                  <p className="text-sm text-gray-400">{event.join}</p>
+                  <div className="text-xl font-bold text-yellow-500">{event.price}</div>
+                  <p className={`text-sm ${
+                  theme === "light"
+                    ? "text-black/90 border-yellow-400/30 shadow-xl"
+                    : "text-white/70"}`}>{event.join}</p>
                 </div>
 
                 <motion.button

@@ -1,5 +1,4 @@
 // src/components/Services/Services.tsx
-import React from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import {
@@ -11,16 +10,12 @@ import {
   Zap,
   Globe,
 } from "lucide-react";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
 
 const Services = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
-  const particlesInit = async (main: any) => {
-    await loadFull(main);
-  };
+ 
 
   const services = [
     {
@@ -88,23 +83,7 @@ const Services = () => {
       <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-600 via-yellow-500 to-green-600 opacity-90 z-50 shadow-md" />
 
       {/* Background Particles */}
-      <Particles
-        id="particles"
-        init={particlesInit}
-        options={{
-          background: { color: { value: "transparent" } },
-          fpsLimit: 60,
-          particles: {
-            color: { value: "#FFD700" },
-            number: { value: 70, density: { enable: true, area: 800 } },
-            size: { value: { min: 0.5, max: 2 } },
-            opacity: { value: 0.3 },
-            move: { enable: true, speed: 0.4, outModes: "out" },
-          },
-          detectRetina: true,
-        }}
-        className="absolute inset-0"
-      />
+   
 
       {/* Animated Rotating Map */}
       <motion.div
@@ -158,7 +137,9 @@ const Services = () => {
             MarketGod Academy Services
           </span>
         </h2>
-        <p className="mt-6 text-lg md:text-xl text-gray-300 leading-relaxed">
+        <p className={`mt-6 text-lg md:text-xl  ${isDark
+                ? "text-white"
+                : "text-gray-800"} leading-relaxed`}>
           Born in <span className="text-yellow-400 font-bold">Ghana</span>. Built for <span className="text-yellow-400 font-bold">the world</span>.  
           The complete ecosystem for traders — learn, earn, and grow with real mentorship and global access.
         </p>

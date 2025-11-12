@@ -7,6 +7,7 @@ module.exports = {
       colors: {
         mg: {
           gold: "#D4AF37",
+          green: "#00c896",
           paper: "#F2F2F2",
           charcoal: "#111111",
           black: "#000000",
@@ -28,15 +29,18 @@ module.exports = {
         },
       },
       boxShadow: {
-        "gold-glow": "0 0 20px rgba(212,175,55,0.5)",
-        "gold-glow-light": "0 0 15px rgba(212,175,55,0.3)",
+        "gold-glow": "0 0 20px rgba(212, 175, 55, 0.5)",
+        "gold-glow-light": "0 0 15px rgba(212, 175, 55, 0.3)",
       },
       animation: {
-        ping: "ping 1.5s cubic-bezier(0,0,0.2,1) infinite",
+        lightStreak1: "lightStreak 4s linear infinite",
+        lightStreak2: "lightStreak 6s linear infinite reverse",
+        lightStreak3: "lightStreak 5s linear infinite",
       },
       keyframes: {
-        ping: {
-          "75%, 100%": { transform: "scale(2)", opacity: "0" },
+        lightStreak: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
         },
       },
     },

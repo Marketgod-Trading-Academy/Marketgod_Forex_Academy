@@ -6,6 +6,7 @@ import WhyForex from "../Components/Home/WhyForex";
 import Services from "../Components/Home/Services";
 import Webinars from "../Components/Home/Webinars";
 import WhyMarketGod from "../Components/Home/WhyMarketGod";
+import JoinCommunity from "../Components/Home/JoinCommunity";
 
 const Home = () => {
   const { theme } = useTheme();
@@ -21,6 +22,7 @@ const Home = () => {
       <WhyForex />
       <Webinars />
       <WhyMarketGod />
+      <JoinCommunity />
       {/* <WhyForexInteractive /> */}
       
       {/* Future: About, Plans, Signals, Testimonials */}

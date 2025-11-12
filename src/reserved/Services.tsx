@@ -12,6 +12,8 @@
 //   ArrowRight 
 // } from "lucide-react";
 
+import { video } from "framer-motion/client";
+
 // const Services = () => {
 //   const { theme } = useTheme();
 
@@ -186,3 +188,21 @@
 // };
 
 // export default Services;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// video https://res.cloudinary.com/dzqdfaghg/video/upload/v1762586468/SnapInsta.to_AQMpQmG3g_9Al3k25-LfRZkEq6JEbtpWYT-fVyNlGZ8o4QiDlxfqsAJG0CKq2U0YB4ama5M5g9AoYTx7akojN20A0S-8_Btwq23_3t0_iq74ns.mp4
