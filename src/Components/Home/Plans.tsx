@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { UserCheck, Users, Signal, BookOpen, ArrowRight, Zap, Crown } from "lucide-react";
+import GhanaFlagStripe from "../Ghana/GhanaFlagStripe";
 
 const Services = () => {
   const { theme } = useTheme();
@@ -60,8 +61,7 @@ const Services = () => {
   return (
     <section id="services" className="py-24 relative overflow-hidden">
       {/* Ghana Flag Stripe */}
-      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-600 via-yellow-500 to-green-600 opacity-80 z-50 shadow-md" />
-
+      <GhanaFlagStripe />
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div

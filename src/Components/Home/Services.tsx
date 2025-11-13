@@ -10,6 +10,7 @@ import {
   Zap,
   
 } from "lucide-react";
+import GhanaFlagStripe from "../Ghana/GhanaFlagStripe";
 
 const Services = () => {
   const { theme } = useTheme();
@@ -80,8 +81,7 @@ const Services = () => {
       }`}
     >
       {/* Ghana Flag Stripe */}
-      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-600 via-yellow-500 to-green-600 opacity-90 z-50 shadow-md" />
-
+  <GhanaFlagStripe />
       {/* Background Particles */}
    
 

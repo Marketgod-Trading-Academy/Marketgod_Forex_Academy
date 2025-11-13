@@ -31,7 +31,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* LOGO */}
           <Link to="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="MarketGod" className="w-12 h-12 rounded-full border-2 border-mg-gold" />
+            <img src="/logo.png" alt="MarketGod" className="bg-black w-12 h-12 rounded-full border-2 border-mg-gold" />
             <div>
               <h1 className="text-xl font-black text-mg-gold">MarketGod</h1>
               <p className="text-xs text-mg-green font-semibold">ACADEMY</p>

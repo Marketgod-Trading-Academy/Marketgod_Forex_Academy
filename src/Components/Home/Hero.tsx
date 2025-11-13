@@ -18,6 +18,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
+import GhanaFlagStripe from "../Ghana/GhanaFlagStripe";
 
 interface CTA {
   label: string;
@@ -163,8 +164,9 @@ const handleDragEnd = (
   const currentSlide = slides[index];
 
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden md:mt-16">
-      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-600 via-yellow-500 to-green-600 opacity-90 z-50 shadow-md" />
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden ">
+
+      <GhanaFlagStripe />
 
       {currentSlide.bg && (
         <>

@@ -48,7 +48,7 @@ const AboutStats = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2  lg:grid-cols-4 gap-4 items-center md:gap-8">
           {stats.map((stat, i) => (
             <motion.div
               key={i}
@@ -58,17 +58,17 @@ const AboutStats = () => {
               transition={{ delay: i * 0.15, type: "spring", stiffness: 100 }}
               className="group"
             >
-              <div className={`p-8 rounded-3xl border backdrop-blur-md transition-all duration-500
+              <div className={`p-2 py-4 md:p-8 rounded-3xl border backdrop-blur-md transition-all duration-500
                 ${isDark ? "bg-mg-black/50 border-mg-gold/30 hover:bg-mg-black/70" : "bg-white/80 border-mg-gold/20 hover:bg-white"}
                 hover:shadow-mg-gold/30 hover:scale-105`}
               >
                 <div className="flex justify-center mb-5">
-                  <div className="p-4 rounded-full bg-mg-gold/15 group-hover:bg-mg-gold/25 transition-all">
+                  <div className=" p-0 md:p-4 rounded-full bg-mg-gold/15 group-hover:bg-mg-gold/25 transition-all">
                     <stat.icon size={44} className="text-mg-gold group-hover:scale-110 transition-transform" />
                   </div>
                 </div>
 
-                <div className={`text-5xl md:text-6xl font-black text-center mb-2 ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+                <div className={`text-xl md:text-6xl font-black text-center mb-2 ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
                   {counts[i]}{stat.suffix}
                 </div>
 

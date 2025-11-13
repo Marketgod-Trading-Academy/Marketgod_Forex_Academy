@@ -4,6 +4,7 @@ import  { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { Instagram, Twitter, Youtube, Linkedin, MessageCircle, Shield, Globe, Mail, Phone, ArrowUp } from "lucide-react";
+import GhanaFlagStripe from "../Ghana/GhanaFlagStripe";
 
 const Footer = () => {
   const { theme } = useTheme();
@@ -102,8 +103,8 @@ const Footer = () => {
         />
 
         {/* Ghana Flag Stripe */}
-        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-600 via-yellow-500 to-green-600 opacity-90 shadow-lg z-50" />
-
+        <GhanaFlagStripe />
+ 
         {/* 3D PERSPECTIVE SLOGAN — FAR AWAY, FLOATING */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
           <div
