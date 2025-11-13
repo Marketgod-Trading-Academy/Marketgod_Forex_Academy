@@ -1,5 +1,5 @@
 // src/components/SeminarCarousel/SeminarCarousel.tsx
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { ArrowLeft, ArrowRight, Video } from "lucide-react";
@@ -121,12 +121,14 @@ const SeminarCarousel = () => {
 
           {/* Navigation Arrows */}
           <button
+            aria-label="Previous slide"
             onClick={prevSlide}
             className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-mg-gold/20 backdrop-blur-md border border-mg-gold/30 text-mg-gold hover:bg-mg-gold/40 transition-all"
           >
             <ArrowLeft size={24} />
           </button>
           <button
+           aria-label="Next slide"
             onClick={nextSlide}
             className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-mg-gold/20 backdrop-blur-md border border-mg-gold/30 text-mg-gold hover:bg-mg-gold/40 transition-all"
           >

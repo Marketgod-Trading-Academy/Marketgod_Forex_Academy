@@ -16,8 +16,7 @@ function App() {
       <Header />
       <Home />
       <Footer />
-      {/* Other sections below */}
-      {/* <section id="about" className="py-20">...</section> */}
+ 
     </div>
   );
 }
