@@ -2,75 +2,96 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
+import { ArrowRight } from "lucide-react";
 
 const AboutHero = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
   return (
-    <section className="relative overflow-hidden py-32 md:py-40">
-      {/* === BACKGROUND IMAGE === */}
-      <div
+    <section className="relative overflow-hidden py-32 md:py-44">
+      {/* === PARALLAX BG === */}
+      <motion.div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1518186287039-1a88e3e2b3a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80')`,
+          backgroundImage: `url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`,
         }}
+        initial={{ scale: 1 }}
+        animate={{ scale: 1.12 }}
+        transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
       />
 
-      {/* === DARK OVERLAY FOR READABILITY === */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+      {/* === OVERLAY === */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/90" />
 
-      {/* === GHANA FLAG STRIPE === */}
-      <div className="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-red-600 via-yellow-500 to-green-600 opacity-90 shadow-lg z-50" />
+      {/* === GHANA FLAG STRIPE WITH BLACK STAR === */}
+      <div className="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-red-600 via-yellow-500 to-green-600 shadow-lg z-50 flex items-center justify-center">
+        {/* BLACK STAR */}
+        <div className="absolute w-5 h-5 mt-0">
+          <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-md">
+            <path
+              d="M50 10 L61.8 35.5 L88.2 38.6 L67.7 56.4 L71.8 82.8 L50 69.5 L28.2 82.8 L32.3 56.4 L11.8 38.6 L38.2 35.5 Z"
+              fill="#000"
+              stroke="#000"
+              strokeWidth="2"
+            />
+          </svg>
+        </div>
+      </div>
 
       {/* === CONTENT === */}
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center text-white"
-        >
+        <motion.div className="text-center text-white">
           {/* Headline */}
-          <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-6 drop-shadow-lg">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-5xl md:text-7xl font-black tracking-tight mb-6 drop-shadow-2xl"
+          >
             The <span className="text-mg-green">MarketGod</span> Story
-          </h1>
+          </motion.h1>
 
-          {/* Subheadline */}
-          <p className="text-xl md:text-2xl max-w-4xl mx-auto mb-12 leading-relaxed drop-shadow-md">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-xl md:text-2xl max-w-4xl mx-auto mb-12 leading-relaxed drop-shadow-md"
+          >
             From a <span className="text-mg-gold font-bold">university dorm</span> to 
             <span className="text-mg-gold font-bold"> locked in a room</span> — 
-            this is the <span className="text-mg-green">real Ghanaian hustle</span> that built an empire.
-          </p>
+            this is the <span className="text-mg-green font-bold">real Ghanaian hustle</span> that built an empire.
+          </motion.p>
 
           {/* Portrait + Quote */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
-            {/* Portrait */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16">
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
+              transition={{ delay: 0.4, type: "spring", stiffness: 120 }}
               className="relative"
             >
+              <div className="absolute inset-0 w-72 h-72 rounded-full blur-3xl bg-mg-gold/30 -z-10" />
               <img
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
                 alt="MarketGod - Eyram Dela"
                 className="w-64 h-64 rounded-full object-cover border-8 border-mg-gold shadow-2xl"
               />
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-mg-green text-white px-6 py-2 rounded-full font-bold text-sm whitespace-nowrap">
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-mg-green text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg">
                 Founder & Lead Mentor
               </div>
             </motion.div>
 
-            {/* Quote */}
             <motion.blockquote
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 60 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="max-w-xl text-left p-8 rounded-3xl border-l-8 border-mg-gold bg-white/10 backdrop-blur-md"
+              transition={{ delay: 0.6 }}
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="max-w-xl text-left p-8 rounded-3xl border-l-8 border-mg-gold bg-white/10 backdrop-blur-lg shadow-2xl"
             >
               <p className="text-lg italic mb-4 leading-relaxed text-white drop-shadow">
                 "I used to <span className="text-mg-gold font-bold">beg my mother for money</span> to trade. 
@@ -82,6 +103,25 @@ const AboutHero = () => {
               </footer>
             </motion.blockquote>
           </div>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.8 }}
+            className="mt-16"
+          >
+            <motion.a
+              href="/plans"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="inline-flex items-center gap-3 px-8 py-4 bg-mg-gold text-mg-charcoal rounded-full font-bold text-lg shadow-2xl hover:shadow-mg-gold/50 transition-all"
+            >
+              Join the Legacy
+              <ArrowRight size={24} />
+            </motion.a>
+          </motion.div>
         </motion.div>
       </div>
     </section>
