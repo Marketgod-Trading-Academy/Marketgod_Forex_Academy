@@ -1,5 +1,5 @@
 // src/components/About/AboutHero.tsx
-import React from "react";
+
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { ArrowRight } from "lucide-react";

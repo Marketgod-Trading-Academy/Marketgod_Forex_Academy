@@ -3,7 +3,6 @@ import { useTheme } from "../context/ThemeContext";
 
 // HERO & CORE
 import Hero from "../Components/Home/Hero";
-import About from "../Components/Home/About";
 import WhatIsForex from "../Components/Home/WhatIsForex";
 import WhyForex from "../Components/Home/WhyForex";
 
@@ -26,6 +25,7 @@ import JoinCommunity from "../Components/Home/JoinCommunity";
 import FAQ from "../Components/Home/FAQ";
 import FAQCTA from "../Components/Home/FAQCTA";
 import SeminarHighlight from "../Components/Home/SeminarHighlight";
+import AboutMentor from "../Components/Home/AboutMentor";
 
 const Home = () => {
   const { theme } = useTheme();
@@ -41,7 +41,7 @@ const Home = () => {
       <SeminarHighlight />
 
       {/* 2. ABOUT — WHO IS MARKETGOD */}
-      <About />
+      <AboutMentor />
 
       {/* 9. SERVICES — WHAT YOU GET */}
       <Services />

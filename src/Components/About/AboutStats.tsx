@@ -1,5 +1,5 @@
 // src/components/About/AboutStats.tsx
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { Users, TrendingUp, Award, Globe } from "lucide-react";
