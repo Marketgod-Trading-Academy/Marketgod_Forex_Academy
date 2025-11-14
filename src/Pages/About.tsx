@@ -13,7 +13,6 @@ import FinalCTA from "../Components/About/AboutFinalCTA";
 import Testimonials from "../Components/Home/Testimonials";
 import FAQ from "../Components/Home/FAQ";
 import FAQCTA from "../Components/Home/FAQCTA";
-// import CTA from "../Components/Global/CTA";
 
 const About = () => {
   const { theme } = useTheme();
