@@ -3,9 +3,11 @@ import React from "react";
 import { useTheme } from "../../context/ThemeContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules"; // ← FIXED
+import { motion } from "framer-motion";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
+
 const slides = [
   {
     title: "Choose Your Path to Mastery",
@@ -35,7 +37,7 @@ const PlansHeroCarousel: React.FC = () => {
   const isDark = theme === "dark";
 
   return (
-    <section className={`relative overflow-hidden ${isDark ? "bg-mg-black" : "bg-mg-light-bg"} py-1 md:py-0`}>
+    <section className={`relative overflow-hidden ${isDark ? "bg-mg-black" : "bg-mg-light-bg"} py-16 md:py-20`}>
       <Swiper
         modules={[Autoplay, Pagination]}
         spaceBetween={0}
@@ -43,25 +45,28 @@ const PlansHeroCarousel: React.FC = () => {
         loop={true}
         autoplay={{ delay: 6000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
-        grabCursor={true} // Makes swiping feel natural
+        grabCursor={true}
         breakpoints={{
-          0: { // Mobile & small screens
-            allowTouchMove: true,
-          },
-          768: { // Medium screens & up
-            allowTouchMove: false,
-          },
+          0: { allowTouchMove: true },
+          768: { allowTouchMove: false },
         }}
       >
         {slides.map((slide, i) => (
           <SwiperSlide key={i}>
-            <div
+            <motion.div
               className="relative h-[320px] md:h-[400px] flex items-center justify-center text-center px-6 rounded-2xl overflow-hidden"
               style={{
                 backgroundImage: `url(${slide.bgImage})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
+              whileHover={{
+                rotateX: 5,
+                rotateY: 5,
+                scale: 1.03,
+                transition: { type: "spring", stiffness: 50, damping: 10 },
+              }}
+              initial={{ rotateX: 0, rotateY: 0, scale: 1 }}
             >
               {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 rounded-2xl" />
@@ -97,7 +102,7 @@ const PlansHeroCarousel: React.FC = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </SwiperSlide>
         ))}
       </Swiper>
