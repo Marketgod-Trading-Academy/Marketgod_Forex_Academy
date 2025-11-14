@@ -1,8 +1,8 @@
 // src/Components/Plans/PlansHeroCarousel.tsx
-import React from "react";
+
 import { useTheme } from "../../context/ThemeContext";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, EffectFade } from "swiper/modules"; // ← FIXED
+import { Autoplay, Pagination } from "swiper/modules"; // ← FIXED
 import { motion } from "framer-motion";
 import "swiper/css";
 import "swiper/css/pagination";
