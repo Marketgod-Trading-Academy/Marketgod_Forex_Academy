@@ -1,0 +1,30 @@
+
+
+.footer-perspective-container {
+  perspective: 1000px;
+}
+
+.footer-slogan {
+  color: var(--slogan-color);
+  transform: translateZ(-200px) rotateX(25deg) scale(0.7);
+  transform-style: preserve-3d;
+  text-shadow: var(--slogan-shadow);
+  filter: blur(1.5px);
+  line-height: 1;
+  letter-spacing: 0.3em;
+}
+
+@media (max-width: 760px) {
+  .footer-perspective-container {
+    perspective: 3000px;
+  margin-left: 30px;
+
+
+  }
+  .footer-slogan {
+    transform: translateZ(-600px) rotateX(45deg) scale(0.85);
+    line-height: 10;
+    letter-spacing: 0.1em;
+    color:red;
+  }
+}

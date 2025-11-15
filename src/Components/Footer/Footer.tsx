@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { Instagram, Twitter, Youtube, Linkedin, MessageCircle, Shield, Globe, Mail, Phone, ArrowUp } from "lucide-react";
 import GhanaFlagStripe from "../Ghana/GhanaFlagStripe";
+import './Footer.css'
 
 const Footer = () => {
   const { theme } = useTheme();
@@ -108,13 +109,13 @@ const Footer = () => {
         {/* 3D PERSPECTIVE SLOGAN — FAR AWAY, FLOATING */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
           <div
-            className="relative w-full h-full flex items-center justify-center"
+            className="relative w-full h-full flex items-center justify-center footer-perspective-container"
             style={{
-              perspective: "1000px",
+              
             }}
           >
             <div
-              className="text-5xl md:text-9xl lg:text-[12rem] font-black tracking-[0.2em] uppercase select-none"
+              className="text-5xl md:text-9xl lg:text-[12rem] font-black tracking-[0.2em] footer-slogan  uppercase select-none"
               style={{
                 color: isDark ? "rgba(212, 175, 55, 0.06)" : "rgba(212, 175, 55, 0.1)",
                 transform: "translateZ(-600px) rotateX(45deg) scale(0.85)",
@@ -122,9 +123,7 @@ const Footer = () => {
                 textShadow: isDark
                   ? "0 0 80px rgba(212,175,55,0.15), 0 0 160px rgba(0,200,150,0.08)"
                   : "0 0 80px rgba(212,175,55,0.2), 0 0 160px rgba(0,200,150,0.12)",
-                filter: "blur(1.5px)",
-                lineHeight: "1",
-                letterSpacing: "0.3em",
+              
               }}
             >
               MarketGod Academy — Built in Ghana. For the World
