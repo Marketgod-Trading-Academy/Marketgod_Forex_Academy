@@ -1,5 +1,7 @@
+import MarketGodQuiz from '../Components/Plans/MarketGodQuiz'
 import PlansHero from '../Components/Plans/PlansHero'
 import PricingPlans from '../Components/Plans/PricingPlans'
+import PromoBanner from '../Components/Plans/PromoBanner'
 import Signals from '../Components/Plans/Signals'
 import StillNotSure from '../Components/Plans/StillNotSure'
 import TradingSignals from '../Components/Plans/TradingSignals'
@@ -16,6 +18,8 @@ const Plans = () => {
       <StillNotSure />
       <PricingPlans />
       <Signals />
+      <PromoBanner />
+      <MarketGodQuiz />
     </div>
   )
 }
