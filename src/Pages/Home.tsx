@@ -26,62 +26,67 @@ import FAQ from "../Components/Home/FAQ";
 import FAQCTA from "../Components/Home/FAQCTA";
 import SeminarHighlight from "../Components/Home/SeminarHighlight";
 import AboutMentor from "../Components/Home/AboutMentor";
+import PlansNavFloating from "../Components/Plans/PlansNav";
+
+
+const homeSections = [
+  { id: "hero", label: "Hero" },
+  { id: "seminar-highlight", label: "Seminar Highlight" },
+  { id: "about", label: "About" },
+  { id: "services", label: "Services" },
+  { id: "what-is-forex", label: "What Is Forex?" },
+  { id: "why-forex", label: "Why Forex?" },
+  { id: "why-marketgod", label: "Why MarketGod?" },
+  { id: "webinars", label: "Webinars" },
+  { id: "mentorship", label: "Mentorship" },
+  { id: "plans", label: "Plans" },
+  { id: "exness", label: "Exness" },
+  { id: "testimonials", label: "Testimonials" },
+  { id: "quotes", label: "Quotes" },
+  { id: "join-community", label: "Community" },
+  { id: "faq", label: "FAQ" },
+  { id: "faq-cta", label: "CTA" },
+];
+
+
 
 const Home = () => {
   const { theme } = useTheme();
 
   return (
-    <div
-      className={`min-h-screen transition-colors duration-300 ${
-        theme === "light" ? "bg-mg-light-bg" : "bg-mg-dark-bg"
-      }`}
-    >
-      {/* 1. HERO — GRAB ATTENTION */}
-      <Hero />
-      <SeminarHighlight />
+    <div className={`min-h-screen transition-colors duration-300 ${theme === "light" ? "bg-mg-light-bg" : "bg-mg-dark-bg"}`}>
+      
+      {/* Section Navigation */}
+        {/* Section Navigation */}
+       
+      {/* Sticky Navigation */}
+      <div className="hidden md:block sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-md">
+    <PlansNavFloating sections={homeSections} />
+  </div>
 
-      {/* 2. ABOUT — WHO IS MARKETGOD */}
-      <AboutMentor />
+        {/* Mobile Dropdown Nav */}
+        <div className="md:hidden sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-md">
+          <PlansNavFloating sections={homeSections}  />
+        </div>
 
-      {/* 9. SERVICES — WHAT YOU GET */}
-      <Services />
-
-      {/* 3. WHAT IS FOREX? — EDUCATE BEGINNERS */}
-      <WhatIsForex />
-
-      {/* 4. WHY FOREX? — BUILD DESIRE */}
-      <WhyForex />
-
-      {/* 5. WHY MARKETGOD? — UNIQUE VALUE */}
-      <WhyMarketGod />
-
-      {/* 6. WEBINARS — FREE VALUE (TRUST) */}
-      <Webinars />
-
-      {/* 7. WHY MENTORSHIP? — PAIN → SOLUTION */}
-      <WhyMentorshipMatters />
-
-      {/* 8. PLANS — MONETIZE (OFFER) */}
-      <Plans />
-
-
-      {/* 10. EXNESS — TRUSTED BROKER */}
-      <ExnessPartner />
-
-      {/* 11. TESTIMONIALS — SOCIAL PROOF */}
-      <Testimonials />
-
-      {/* 12. QUOTES — INSPIRATION */}
-      <MarketGodQuotes />
-
-      {/* 13. JOIN COMMUNITY — ENGAGEMENT */}
-      <JoinCommunity />
-
-      {/* 14. FAQ — REMOVE DOUBT */}
-      <FAQ />
-
-      {/* 15. FINAL CTA — CONVERT */}
-      <FAQCTA />
+      {/* Sections */}
+      <div id="hero"><Hero /></div>
+      
+      <div id="seminar-highlight"><SeminarHighlight /></div>
+      <div id="about"><AboutMentor /></div>
+      <div id="services"><Services /></div>
+      <div id="what-is-forex"><WhatIsForex /></div>
+      <div id="why-forex"><WhyForex /></div>
+      <div id="why-marketgod"><WhyMarketGod /></div>
+      <div id="webinars"><Webinars /></div>
+      <div id="mentorship"><WhyMentorshipMatters /></div>
+      <div id="plans"><Plans /></div>
+      <div id="exness"><ExnessPartner /></div>
+      <div id="testimonials"><Testimonials /></div>
+      <div id="quotes"><MarketGodQuotes /></div>
+      <div id="join-community"><JoinCommunity /></div>
+      <div id="faq"><FAQ /></div>
+      <div id="faq-cta"><FAQCTA /></div>
     </div>
   );
 };

@@ -69,12 +69,14 @@ const Signals = () => {
   return (
     <section className="py-24">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-center text-4xl font-black mb-4">
+        <div className={`  ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
+          <h2 className="text-center text-4xl font-black mb-4">
           Premium Signal Packages
         </h2>
         <p className="text-center text-lg mb-16 opacity-70 max-w-2xl mx-auto">
           Whether you're starting out or scaling your trading, choose the package that fits your journey.
         </p>
+        </div>
 
         {/* MOBILE CAROUSEL */}
         <div className="md:hidden">
@@ -170,16 +172,16 @@ const CardInner = ({ plan, isDark }) => (
     <Signal className="w-10 h-10 text-mg-green mb-4" />
 
     {/* Title */}
-    <h3 className="text-2xl font-bold">{plan.title}</h3>
+    <h3 className={`}text-2xl font-bold ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>{plan.title}</h3>
     <p className="text-mg-green font-semibold mt-1">{plan.subtitle}</p>
 
     {/* Description */}
-    <p className="mt-4 opacity-70 text-sm leading-relaxed">{plan.desc}</p>
+    <p className={`mt-4 opacity-70 text-sm leading-relaxed ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>{plan.desc}</p>
 
     {/* Features */}
     <ul className="mt-6 space-y-3">
       {plan.features.map((item, i) => (
-        <li key={i} className="flex items-center gap-2">
+        <li key={i} className={`flex items-center gap-2 ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
           <span className="w-2 h-2 rounded-full bg-mg-green" />
           <span className="text-sm opacity-80">{item}</span>
         </li>
@@ -187,15 +189,15 @@ const CardInner = ({ plan, isDark }) => (
     </ul>
 
     {/* Price */}
-    <div className="mt-8 text-3xl font-black">{plan.price}</div>
+    <div className={`${isDark ? "text-mg-paper" : "text-mg-charcoal"} mt-8 text-3xl font-black`}>{plan.price}</div>
 
     {/* CTA */}
     <a
       href={plan.href}
       className={`
-        mt-6 block text-center py-3 rounded-full font-semibold transition-all
+        mt-6 block text-center py-3 rounded-full font-semibold transition-all border-2
         ${plan.highlight
-          ? "bg-white/10 text-white hover:bg-white/20"
+          ? `bg-white/10 ${isDark ? "text-mg-paper border-2 border-mg-charcoal hover:bg-mg-green" : "text-mg-charcoal hover:bg-mg-green"} `
           : "bg-mg-green text-white hover:bg-mg-gold"
         }`}
     >

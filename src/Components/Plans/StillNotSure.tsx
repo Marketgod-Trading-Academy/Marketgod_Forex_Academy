@@ -1,6 +1,8 @@
+// src/components/StillNotSurePremium.tsx
 import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
+import { useTheme } from "../../context/ThemeContext";
 
 const items = [
   {
@@ -22,69 +24,113 @@ const items = [
 ];
 
 const StillNotSurePremium: React.FC = () => {
-  return (
-    <section className="relative w-full py-24 md:py-28 overflow-hidden">
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
-      {/* Background Glow */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/2 left-1/3 w-[600px] h-[600px] bg-primary/20 blur-[150px] rounded-full opacity-30"></div>
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/10 blur-[120px] rounded-full opacity-20"></div>
+  return (
+    <section className={`relative w-full py-20 md:py-28 overflow-hidden ${isDark ? "bg-mg-black" : "bg-mg-light-bg"}`}>
+      {/* Dynamic Glow Background */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{ duration: 8, repeat: Infinity }}
+          className={`absolute top-1/2 left-1/3 w-[500px] h-[500px] rounded-full blur-[140px] ${
+            isDark 
+              ? "bg-mg-gold/20" 
+              : "bg-mg-green/20"
+          }`}
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.15, 1],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{ duration: 10, repeat: Infinity }}
+          className={`absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full blur-[120px] ${
+            isDark 
+              ? "bg-mg-green/15" 
+              : "bg-mg-gold/15"
+          }`}
+        />
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center px-6">
 
         {/* Image */}
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
+          initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
           className="relative"
         >
-          {/* Soft Glow Behind Image */}
-          <div className="absolute inset-0 bg-primary/30 blur-[90px] rounded-2xl opacity-20"></div>
+          {/* Glow Behind Image */}
+          <div className={`absolute inset-0 rounded-3xl blur-[90px] opacity-30 ${
+            isDark ? "bg-mg-gold/30" : "bg-mg-green/30"
+          }`} />
 
           <img
-            src="/workshop.jpg"
-            alt="Workshop"
-            className="relative w-full rounded-3xl shadow-[0_0_80px_-20px_rgba(0,0,0,0.6)] object-cover"
+            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+            alt="MarketGod Workshop"
+            className={`relative w-full rounded-3xl object-cover shadow-2xl border-2 ${
+              isDark 
+                ? "border-mg-gold/20 shadow-mg-gold/10" 
+                : "border-mg-green/20 shadow-mg-green/10"
+            }`}
           />
         </motion.div>
 
         {/* Right Content */}
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
+          initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-          className="space-y-10"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
+          className="space-y-8"
         >
-          {/* Premium Header */}
-          <h2 className="text-4xl md:text-5xl font-extrabold leading-tight bg-gradient-to-r from-white to-primary/60 bg-clip-text text-transparent">
-            Still Not Sure if This Workshop Is Right for You?
+          {/* Header */}
+          <h2 className={`text-4xl md:text-5xl font-black leading-tight`}>
+            <span className={`block ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+              Still Not Sure if This
+            </span>
+            <span className="block text-mg-green">
+              Workshop Is Right for You?
+            </span>
           </h2>
 
           {/* Description */}
-          <p className="text-gray-300 text-lg leading-relaxed">
-            This workshop is designed for real people — beginners, students, hustlers, 
-            and traders who want clarity, structure, and a proven roadmap. We remove the confusion 
-            and give you the exact steps to trade with confidence.
+          <p className={`text-lg leading-relaxed ${isDark ? "text-mg-paper/80" : "text-mg-charcoal/80"}`}>
+            This workshop is designed for <span className="font-bold text-mg-gold">real people</span> — 
+            beginners, students, hustlers, and traders who want clarity, structure, and a 
+            <span className="font-bold text-mg-green"> proven roadmap</span>. We remove the confusion 
+            and give you the <span className="underline decoration-mg-gold">exact steps</span> to trade with confidence.
           </p>
 
+          {/* Feature List */}
           <div className="space-y-6">
             {items.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="flex gap-4"
               >
-                <CheckCircle className="w-7 h-7 text-primary shrink-0" />
+                <CheckCircle 
+                  className={`w-7 h-7 shrink-0 ${
+                    isDark ? "text-mg-green" : "text-mg-green"
+                  }`} 
+                />
 
                 <div>
-                  <h3 className="text-lg font-semibold text-white">
+                  <h3 className={`text-lg font-bold ${isDark ? "text-white" : "text-mg-charcoal"}`}>
                     {item.title}
                   </h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <p className={`text-sm leading-relaxed ${isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"}`}>
                     {item.desc}
                   </p>
                 </div>

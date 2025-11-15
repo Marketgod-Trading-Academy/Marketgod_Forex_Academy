@@ -1,27 +1,56 @@
-import MarketGodQuiz from '../Components/Plans/MarketGodQuiz'
-import PlansHero from '../Components/Plans/PlansHero'
-import PricingPlans from '../Components/Plans/PricingPlans'
-import PromoBanner from '../Components/Plans/PromoBanner'
-import Signals from '../Components/Plans/Signals'
-import StillNotSure from '../Components/Plans/StillNotSure'
-import TradingSignals from '../Components/Plans/TradingSignals'
-import WhoIsThisFor from '../Components/Plans/WhoIsThisFor'
-import WhyThisCourse from '../Components/Plans/WhyThisCourse'
+// src/pages/Plans.tsx
+import React, { useState, useEffect } from "react";
+import PlansHero from "../Components/Plans/PlansHero";
+import WhyThisCourse from "../Components/Plans/WhyThisCourse";
+import TradingSignals from "../Components/Plans/TradingSignals";
+import WhoIsThisFor from "../Components/Plans/WhoIsThisFor";
+import StillNotSure from "../Components/Plans/StillNotSure";
+import PricingPlans from "../Components/Plans/PricingPlans";
+import Signals from "../Components/Plans/Signals";
+import PromoBanner from "../Components/Plans/PromoBanner";
+import PlansNav from "../Components/Plans/PlansNav";
+import PlansFinalCTA from "../Components/Plans/PlansFinalCTA";
 
-const Plans = () => {
+const sections = [
+  { id: "hero", label: "Hero" },
+  { id: "why-course", label: "Why This Course" },
+  { id: "trading-signals", label: "Trading Signals" },
+  { id: "who-is-this-for", label: "Who Is This For" },
+  { id: "still-not-sure", label: "Still Not Sure?" },
+  { id: "pricing-plans", label: "Pricing Plans" },
+  { id: "signals", label: "Signals" },
+  { id: "promo-banner", label: "Promo" },
+];
+
+const Plans: React.FC = () => {
+
+
   return (
-    <div>
-      <PlansHero />
-      <WhyThisCourse />
-      <TradingSignals />
-      <WhoIsThisFor />
-      <StillNotSure />
-      <PricingPlans />
-      <Signals />
-      <PromoBanner />
-      <MarketGodQuiz />
-    </div>
-  )
-}
+    <div className="relative">
+      {/* Sticky Navigation */}
+      <div className="hidden md:block sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-md">
+    <PlansNav sections={sections} />
+  </div>
 
-export default Plans
+  {/* Mobile Dropdown Nav */}
+  <div className="md:hidden sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-md">
+    <PlansNav sections={sections}  />
+  </div>
+     
+
+      {/* Sections */}
+      <div id="hero" className=""><PlansHero /></div>
+      <div id="why-course" className=""><WhyThisCourse /></div>
+      <div id="trading-signals" className=""><TradingSignals /></div>
+      <div id="who-is-this-for" className=""><WhoIsThisFor /></div>
+      <div id="still-not-sure" className=""><StillNotSure /></div>
+      <div id="pricing-plans" className=""><PricingPlans /></div>
+      <div id="signals" className=""><Signals /></div>
+      <div id="promo-banner" className=""><PromoBanner /></div>
+    <div id="final-cta"><PlansFinalCTA /></div>
+
+    </div>
+  );
+};
+
+export default Plans;

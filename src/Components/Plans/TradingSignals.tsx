@@ -6,25 +6,28 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
+import { Lightbulb, Target, Brain } from "lucide-react"; // icons
 
 const slides = [
   {
     title: "Discipline Over Emotion",
     time: "00:11",
-    desc: "Mastering trading requires more than just strategies; it demands self-discipline and a structured approach. Transitioning from being a gambler to a trader is essential for success.",
+    icon: Lightbulb,
+    desc: "Trading mastery begins with discipline. Strategies alone won’t save you — your mindset and execution determine everything.",
   },
   {
     title: "Simplify Your Approach",
     time: "02:05",
-    desc: "Implementing a single strategy and focusing on one trading pair creates clarity. This reduces confusion and enhances precision in trading decisions.",
+    icon: Target,
+    desc: "Clarity beats complexity. Focus on one pair, one setup, one system — and watch your results transform.",
   },
   {
     title: "Self-Mastery & Patience",
     time: "03:40",
-    desc: "A trader must first fix their mindset before expecting a strategy to yield positive results. Emotional control and patience are key for consistent success.",
+    icon: Brain,
+    desc: "Fix your mindset before fixing your charts. Patience and emotional control are the foundations of consistent profits.",
   },
 ];
 
@@ -33,59 +36,127 @@ const TradingSignals: React.FC = () => {
   const isDark = theme === "dark";
 
   return (
-    <section className={`py-24 ${isDark ? "bg-mg-black" : "bg-mg-light-bg"}`}>
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      className={`py-20 md:py-24 relative overflow-hidden ${
+        isDark ? "bg-mg-black" : "bg-mg-light-bg"
+      }`}
+    >
+      {/* Soft premium glow */}
+      <div className="absolute inset-0 pointer-events-none opacity-20 blur-3xl bg-gradient-to-r from-mg-gold via-transparent to-mg-gold"></div>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-6 relative">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="text-center mb-14 md:mb-20"
         >
-          <h2 className={`text-4xl md:text-5xl font-black mb-4 ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+          <h2
+            className={`text-3xl md:text-5xl font-extrabold leading-tight mb-4 ${
+              isDark ? "text-mg-gold" : "text-mg-charcoal"
+            }`}
+          >
             Key Trading Lessons
           </h2>
-          <p className={`text-lg md:text-xl max-w-3xl mx-auto ${isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"}`}>
-            Insights from real trading experience that turn repeated losses into a clear, profitable path.
+          <p
+            className={`text-sm md:text-lg max-w-2xl mx-auto ${
+              isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"
+            }`}
+          >
+            Elevate your discipline, clarity, and emotional control with premium insights rooted in real trading experience.
           </p>
         </motion.div>
 
-        {/* SWIPER CAROUSEL */}
+        {/* Swipe indicator (mobile only) */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="md:hidden text-center text-xs text-mg-gold mb-4"
+        >
+          👉 Swipe to explore
+        </motion.p>
+
+        {/* Slider */}
         <Swiper
           modules={[Navigation, Pagination]}
-          spaceBetween={30}
+          spaceBetween={20}
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
           breakpoints={{
-            768: {
-              slidesPerView: 3,
-            },
+            380: { slidesPerView: 1.1 },
+            480: { slidesPerView: 1.2 },
+            640: { slidesPerView: 1.4 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
           }}
+          className="pb-12"
         >
-          {slides.map((slide, index) => (
-            <SwiperSlide key={index}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                className={`p-6 md:p-8 rounded-3xl border shadow-xl ${
-                  isDark ? "bg-mg-charcoal/50 border-mg-gold/30" : "bg-white/80 border-mg-gold/20"
-                }`}
-              >
-                <h3 className={`text-2xl font-bold mb-2 ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
-                  {slide.title}
-                </h3>
-                <span className={`text-sm mb-4 block ${isDark ? "text-mg-paper/60" : "text-mg-charcoal/60"}`}>
-                  {slide.time}
-                </span>
-                <p className={`text-base ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
-                  {slide.desc}
-                </p>
-              </motion.div>
-            </SwiperSlide>
-          ))}
+          {slides.map((slide, index) => {
+            const Icon = slide.icon;
+
+            return (
+              <SwiperSlide key={index}>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  whileHover={{ rotateX: 6, rotateY: -6, scale: 1.02 }}
+                  className={`p-5 md:p-8 rounded-3xl shadow-2xl border group transition-all duration-300 backdrop-blur-xl 
+                  ${
+                    isDark
+                      ? "bg-white/5 border-mg-gold/20 hover:border-mg-gold hover:shadow-mg-gold/30"
+                      : "bg-white/80 border-mg-gold/30 hover:border-mg-gold/80 hover:shadow-mg-gold/40"
+                  }`}
+                >
+                  {/* Icon */}
+                  <div
+                    className={`w-12 h-12 mb-4 flex items-center justify-center rounded-xl border 
+                    ${
+                      isDark
+                        ? "border-mg-gold/40 bg-mg-gold/10"
+                        : "border-mg-gold/50 bg-mg-gold/10"
+                    }`}
+                  >
+                    <Icon className="w-6 h-6 text-mg-gold" />
+                  </div>
+
+                  {/* Title */}
+                  <h3
+                    className={`text-xl md:text-2xl font-bold mb-2 group-hover:text-mg-gold transition ${
+                      isDark ? "text-mg-gold" : "text-mg-charcoal"
+                    }`}
+                  >
+                    {slide.title}
+                  </h3>
+
+                  {/* Time badge */}
+                  <span
+                    className={`text-xs tracking-wider uppercase mb-4 inline-block px-3 py-1 rounded-full border 
+                    ${
+                      isDark
+                        ? "text-mg-paper/70 border-mg-paper/30"
+                        : "text-mg-charcoal/60 border-mg-charcoal/30"
+                    }`}
+                  >
+                    {slide.time}
+                  </span>
+
+                  {/* Description */}
+                  <p
+                    className={`text-sm md:text-base leading-relaxed ${
+                      isDark ? "text-mg-paper" : "text-mg-charcoal"
+                    }`}
+                  >
+                    {slide.desc}
+                  </p>
+                </motion.div>
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </div>
     </section>

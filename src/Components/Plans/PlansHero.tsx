@@ -37,7 +37,7 @@ const PlansHeroCarousel: React.FC = () => {
   const isDark = theme === "dark";
 
   return (
-    <section className={`relative overflow-hidden ${isDark ? "bg-mg-black" : "bg-mg-light-bg"} py-16 md:py-20`}>
+    <section className={`relative overflow-hidden ${isDark ? "bg-mg-black" : "bg-mg-light-bg"}  md:py-`}>
       <Swiper
         modules={[Autoplay, Pagination]}
         spaceBetween={0}

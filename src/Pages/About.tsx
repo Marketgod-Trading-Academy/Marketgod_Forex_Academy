@@ -13,6 +13,22 @@ import FinalCTA from "../Components/About/AboutFinalCTA";
 import Testimonials from "../Components/Home/Testimonials";
 import FAQ from "../Components/Home/FAQ";
 import FAQCTA from "../Components/Home/FAQCTA";
+import PlansNavFloating from "../Components/Plans/PlansNav";
+
+const aboutSections = [
+  { id: "hero", label: "Hero" },
+  { id: "stats", label: "Stats" },
+  { id: "mentor", label: "Mentor" },
+  { id: "journey", label: "Journey" },
+  { id: "values", label: "Values" },
+  { id: "team", label: "Our Team" },
+  { id: "featured", label: "Featured In" },
+  { id: "cta", label: "Final CTA" },
+  { id: "testimonials", label: "Testimonials" },
+  { id: "faq", label: "FAQ" },
+  { id: "faq-cta", label: "CTA" },
+];
+
 
 const About = () => {
   const { theme } = useTheme();
@@ -20,23 +36,34 @@ const About = () => {
 
   return (
     <div className={`min-h-screen ${isDark ? "bg-mg-black" : "bg-mg-light-bg"}`}>
-      <AboutHero />
-      <AboutStats />
-      <AboutMentor />
-      <AboutJourney />
-      <AboutValues />
-      <OurTeam />
-      <FeaturedIn />
-      <FinalCTA />
-      <Testimonials />
-      <FAQ />
-      <FAQCTA />
       
+      {/* Section Navigation */}
+      {/* Sticky Navigation */}
+      <div className="hidden md:block sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-md">
+    <PlansNavFloating sections={aboutSections} />
+  </div>
 
-    
-  
+        {/* Mobile Dropdown Nav */}
+        <div className="md:hidden sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-md">
+          <PlansNavFloating sections={aboutSections}  />
+        </div>
+
+      {/* Sections */}
+      <div id="hero"><AboutHero /></div>
+      <div id="stats"><AboutStats /></div>
+      <div id="mentor"><AboutMentor /></div>
+      <div id="journey"><AboutJourney /></div>
+      <div id="values"><AboutValues /></div>
+      <div id="team"><OurTeam /></div>
+      <div id="featured"><FeaturedIn /></div>
+      <div id="cta"><FinalCTA /></div>
+      <div id="testimonials"><Testimonials /></div>
+      <div id="faq"><FAQ /></div>
+      <div id="faq-cta"><FAQCTA /></div>
+
     </div>
   );
 };
+
 
 export default About;

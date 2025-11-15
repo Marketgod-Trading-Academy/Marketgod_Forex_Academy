@@ -31,7 +31,7 @@ const AppContent = () => {
   return (
     <div
       className={`min-h-screen flex flex-col transition-colors duration-300 ${
-        theme === "light" ? "bg-mg-light-bg" : "bg-mg-dark-bg"
+        theme === "light" ? "bg-mg-light-b" : "bg-mg-dark-bg"
       }`}
     >
       <Header />
