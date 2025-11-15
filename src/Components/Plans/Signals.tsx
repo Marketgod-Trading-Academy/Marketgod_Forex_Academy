@@ -1,110 +1,125 @@
-// src/Components/Plans/SignalsPackages.tsx
+// src/components/Plans/Signals.tsx
 import React from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
-import { Signal } from "lucide-react";
+import { Signal, Zap } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
-const packages = [
+const metallicGold = "bg-gradient-to-br from-[#F7E7B5] via-[#D4AF37] to-[#B8860B]";
+
+const signals = [
   {
     number: "01",
-    title: "Gold Inner Circle",
-    subtitle: "Master the Sniper Strategy",
-    desc: "Full mentorship package with exclusive strategies, live trade execution, and risk management guidance.",
-    features: ["Gold Strategy", "All Currency Strategy", "Market Structure", "Risk Management & Psychology", "1 Year Access to Mentorship", "Free VIP Signals"],
-    icon: Signal,
-    cta: "Join Now",
-    href: "#gold",
-    popular: true,
-    badge: "Limited",
+    title: "VIP Signals (Free)",
+    subtitle: "Trade Like MarketGod",
+    desc: "Real-time, high-probability signals delivered straight to your phone. Perfect for beginners getting started.",
+    features: [
+      "87% Win Rate Signals",
+      "Instant Telegram Alerts",
+      "Entry/Exit Breakdowns",
+      "24/7 Support",
+    ],
+    price: "Free",
+    badge: "Free Access",
+    limited: "321/1000 Spots Left",
+    href: "#vip-free",
+  },
+  {
+    number: "02",
+    title: "VIP Signals (Paid)",
+    subtitle: "Accelerated Growth Edition",
+    desc: "For serious traders who want faster results, deeper insights, and priority alerts.",
+    features: [
+      "87% Win Rate Signals",
+      "Instant Telegram Alerts",
+      "Entry/Exit Breakdowns",
+      "Daily Market Breakdowns",
+      "Priority Support",
+    ],
+    price: "$49/mo",
+    badge: "Best Value",
+    href: "#vip-pro",
+    highlight: true,
   },
   {
     number: "03",
-    title: "VIP Signals",
-    subtitle: "Trade Like MarketGod",
-    desc: "Real-time, high-probability signals delivered straight to your phone. Follow expert moves while building your own edge.",
-    features: ["87% Win Rate Signals", "Instant Telegram Alerts", "Entry/Exit Breakdowns", "24/7 Support"],
-    icon: Signal,
-    cta: "Get VIP Access",
-    href: "#vip",
-    popular: false,
+    title: "Gold Inner Circle",
+    subtitle: "Elite Trading Experience",
+    desc: "Exclusive access to master-level insights, deeper mentorship, and advanced institutional concepts.",
+    features: [
+      "Advanced Gold & Currency Strategies",
+      "Institutional Market Breakdown",
+      "Weekly Live Sessions",
+      "VIP Priority Support",
+    ],
+    price: "$120/mo",
     badge: "High Demand",
+    href: "#gold",
+    highlight: true,
   },
 ];
 
-const SignalsPackages = () => {
+const Signals = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
   return (
-    <section className={`py-24 ${isDark ? "bg-mg-black" : "bg-mg-light-bg"}`}>
+    <section className="py-24">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className={`text-4xl md:text-5xl font-black mb-4 ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
-            Choose Your Package
-          </h2>
-          <p className={`text-lg md:text-xl ${isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"}`}>
-            Whether you want full mentorship or just the signals, we’ve got you covered.
-          </p>
-        </motion.div>
+        <h2 className="text-center text-4xl font-black mb-4">
+          Premium Signal Packages
+        </h2>
+        <p className="text-center text-lg mb-16 opacity-70 max-w-2xl mx-auto">
+          Whether you're starting out or scaling your trading, choose the package that fits your journey.
+        </p>
 
-        {/* Cards */}
-        <div className="grid md:grid-cols-2 gap-12">
-          {packages.map((pkg, i) => (
+        {/* MOBILE CAROUSEL */}
+        <div className="md:hidden">
+          <Swiper
+            modules={[Pagination]}
+            pagination={{ clickable: true }}
+            spaceBetween={20}
+            slidesPerView={1}
+          >
+            {signals.map((plan, index) => (
+              <SwiperSlide key={index}>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  className={`relative p-[2px] rounded-3xl shadow-xl ${
+                    plan.highlight ? metallicGold : "bg-mg-green/20"
+                  }`}
+                >
+                  <CardInner plan={plan} isDark={isDark} />
+                </motion.div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
+        {/* DESKTOP GRID */}
+        <div className="hidden md:grid md:grid-cols-3 gap-10">
+          {signals.map((plan, index) => (
             <motion.div
-              key={i}
+              key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.2 }}
-              className={`relative p-8 md:p-10 rounded-3xl border backdrop-blur-md shadow-2xl hover:shadow-2xl transition-transform hover:scale-105 ${
-                isDark 
-                  ? "bg-mg-charcoal/50 border-mg-gold/30" 
-                  : "bg-white/90 border-mg-gold/20"
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              whileHover={{
+                rotateX: 6,
+                rotateY: -6,
+                scale: 1.04,
+                transition: { type: "spring", stiffness: 150, damping: 10 },
+              }}
+              style={{ transformPerspective: 1000 }}
+              className={`relative p-[2px] rounded-3xl shadow-xl ${
+                plan.highlight ? metallicGold : "bg-mg-green/20"
               }`}
             >
-              {/* Badge */}
-              <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-white font-bold text-sm shadow-lg ${
-                pkg.popular ? "bg-mg-green" : "bg-mg-gold"
-              }`}>
-                {pkg.badge}
-              </div>
-
-              {/* Icon */}
-              <div className={`w-16 h-16 rounded-full bg-gradient-to-br from-mg-gold to-mg-green p-4 flex items-center justify-center mb-4`}>
-                <pkg.icon size={32} className="text-white" />
-              </div>
-
-              {/* Title & Subtitle */}
-              <h3 className={`text-2xl md:text-3xl font-bold mb-2 ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>{pkg.title}</h3>
-              <p className={`text-lg font-semibold mb-4 ${isDark ? "text-mg-paper/80" : "text-mg-charcoal/80"}`}>{pkg.subtitle}</p>
-
-              {/* Description */}
-              <p className={`text-base md:text-lg mb-6 ${isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"}`}>{pkg.desc}</p>
-
-              {/* Features */}
-              <ul className="space-y-2 mb-6">
-                {pkg.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center gap-3">
-                    <span className="text-mg-green font-bold">✔</span>
-                    <span className={isDark ? "text-mg-paper/80" : "text-mg-charcoal/80"}>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* CTA */}
-              <a
-                href={pkg.href}
-                className="inline-block w-full text-center bg-mg-green text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg hover:bg-mg-gold hover:shadow-mg-gold/40 transition-all"
-              >
-                {pkg.cta}
-              </a>
+              <CardInner plan={plan} isDark={isDark} />
             </motion.div>
           ))}
         </div>
@@ -113,4 +128,80 @@ const SignalsPackages = () => {
   );
 };
 
-export default SignalsPackages;
+// Reusable inner card component
+const CardInner = ({ plan, isDark }) => (
+  <div
+    className={`rounded-3xl p-8 h-full ${
+      isDark ? "bg-mg-black" : "bg-white"
+    }`}
+  >
+    {/* Badge */}
+    <span
+      className={`absolute top-4 right-4 text-xs font-bold px-3 py-1 rounded-full 
+        ${
+          plan.highlight
+            ? "bg-white/20 text-white"
+            : "bg-mg-green/10 text-mg-green"
+        }`}
+    >
+      {plan.badge}
+    </span>
+
+    {/* LIMITED SPOTS — ONLY ON FREE CARD */}
+    {plan.limited && (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ type: "spring", stiffness: 200 }}
+        className="absolute top-4 left-4"
+      >
+        <div className="flex items-center gap-2 px-3 py-1.5 bg-red-600/90 backdrop-blur-sm rounded-full text-white text-xs font-black shadow-lg animate-pulse">
+          <Zap size={14} />
+          {plan.limited}
+        </div>
+      </motion.div>
+    )}
+
+    {/* Number */}
+    <div className="text-6xl font-black opacity-10">{plan.number}</div>
+
+    {/* Icon */}
+    <Signal className="w-10 h-10 text-mg-green mb-4" />
+
+    {/* Title */}
+    <h3 className="text-2xl font-bold">{plan.title}</h3>
+    <p className="text-mg-green font-semibold mt-1">{plan.subtitle}</p>
+
+    {/* Description */}
+    <p className="mt-4 opacity-70 text-sm leading-relaxed">{plan.desc}</p>
+
+    {/* Features */}
+    <ul className="mt-6 space-y-3">
+      {plan.features.map((item, i) => (
+        <li key={i} className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-mg-green" />
+          <span className="text-sm opacity-80">{item}</span>
+        </li>
+      ))}
+    </ul>
+
+    {/* Price */}
+    <div className="mt-8 text-3xl font-black">{plan.price}</div>
+
+    {/* CTA */}
+    <a
+      href={plan.href}
+      className={`
+        mt-6 block text-center py-3 rounded-full font-semibold transition-all
+        ${plan.highlight
+          ? "bg-white/10 text-white hover:bg-white/20"
+          : "bg-mg-green text-white hover:bg-mg-gold"
+        }`}
+    >
+      {plan.limited ? "Claim Your Free Spot" : "Get Started"}
+    </a>
+  </div>
+);
+
+export default Signals;
