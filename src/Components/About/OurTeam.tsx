@@ -14,7 +14,7 @@ import {
   Facebook,
   MessageSquare,
 } from 'lucide-react';
-import VanillaTilt from "vanilla-tilt";
+import VanillaTilt, { type TiltOptions } from "vanilla-tilt";
 
 // --- START: Updated SocialsBar Component ---
 interface SocialsProps {
@@ -185,30 +185,30 @@ const OurTeam = () => {
   const tiltCardRefs = React.useRef<HTMLDivElement[]>([]);
 
   React.useEffect(() => {
+  tiltCardRefs.current.forEach((card) => {
+    if (card && (card as any).vanillaTilt) {
+      (card as any).vanillaTilt.destroy();
+    }
+
+    if (card) {
+      VanillaTilt.init(card, {
+        max: 15,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.25,
+        perspective: 1000,
+      } as TiltOptions);
+    }
+  });
+
+  return () => {
     tiltCardRefs.current.forEach((card) => {
-      if (card && card.vanillaTilt) {
-        card.vanillaTilt.destroy();
-      }
-      
-      if (card) {
-          VanillaTilt.init(card as HTMLElement, {
-            max: 15,
-            speed: 400,
-            glare: true,
-            "max-glare": 0.25,
-            perspective: 1000, 
-          });
+      if (card && (card as any).vanillaTilt) {
+        (card as any).vanillaTilt.destroy();
       }
     });
-
-    return () => {
-        tiltCardRefs.current.forEach((card) => {
-            if (card && card.vanillaTilt) {
-                card.vanillaTilt.destroy();
-            }
-        });
-    };
-  }, []);
+  };
+}, []);
   
   const setCardRef = (element: HTMLDivElement | null, index: number) => {
     if (element) {

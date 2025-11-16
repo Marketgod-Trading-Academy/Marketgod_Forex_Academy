@@ -1,5 +1,4 @@
 // src/Pages/NotFound.tsx
-import React from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
 import { Home, ArrowLeft } from "lucide-react";

@@ -1,5 +1,5 @@
 // src/Components/About/FinalCTA.tsx
-import React from "react";
+
 import { motion } from "framer-motion";
 import { Twitter, Instagram, Youtube, Linkedin } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";

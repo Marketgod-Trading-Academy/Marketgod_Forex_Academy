@@ -1,5 +1,4 @@
 // src/components/Plans/Signals.tsx
-import React from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { Signal, Zap } from "lucide-react";
@@ -7,6 +6,23 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+interface Plan {
+  number: string;
+  title: string;
+  subtitle: string;
+  desc: string;
+  features: string[];
+  price: string;
+  badge: string;
+  limited?: string;
+  href: string;
+  highlight?: boolean;
+}
+
+interface CardInnerProps {
+  plan: Plan;
+  isDark: boolean;
+}
 
 const metallicGold = "bg-gradient-to-br from-[#F7E7B5] via-[#D4AF37] to-[#B8860B]";
 
@@ -131,7 +147,7 @@ const Signals = () => {
 };
 
 // Reusable inner card component
-const CardInner = ({ plan, isDark }) => (
+const CardInner: React.FC<CardInnerProps> = ({ plan, isDark }) => (
   <div
     className={`rounded-3xl p-8 h-full ${
       isDark ? "bg-mg-black" : "bg-white"
@@ -180,7 +196,7 @@ const CardInner = ({ plan, isDark }) => (
 
     {/* Features */}
     <ul className="mt-6 space-y-3">
-      {plan.features.map((item, i) => (
+      {plan.features.map((item:string, i:number) => (
         <li key={i} className={`flex items-center gap-2 ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
           <span className="w-2 h-2 rounded-full bg-mg-green" />
           <span className="text-sm opacity-80">{item}</span>

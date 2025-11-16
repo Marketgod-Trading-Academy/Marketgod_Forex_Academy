@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
-import { Eye, Target, HeartHandshake, Trophy, Star, X, ChevronRight } from "lucide-react";
+import { Eye, Target, HeartHandshake, Trophy,  X, ChevronRight } from "lucide-react";
 
 const sections = [
     {

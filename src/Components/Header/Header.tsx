@@ -1,5 +1,5 @@
 // src/Components/Header/Header.tsx
-import React, { useState } from "react";
+import  { useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";

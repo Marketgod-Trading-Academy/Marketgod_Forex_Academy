@@ -1,11 +1,9 @@
 // src/Components/Plans/PlansFinalCTA.tsx
 import React from "react";
 import { motion } from "framer-motion";
-import { useTheme } from "../../context/ThemeContext";
 
 const PlansFinalCTA: React.FC = () => {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
+
 
   const scrollToPlans = () => {
     const el = document.getElementById("pricing-plans");

@@ -1,5 +1,4 @@
 // src/components/About/AboutJourney.tsx
-import React from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import {
@@ -226,7 +225,7 @@ const AboutJourney = () => {
       </div>
 
       {/* Custom Pulse Animation */}
-      <style jsx>{`
+      <style >{`
         @keyframes pulse {
           0% { opacity: 0; transform: scale(1); }
           50% { opacity: 0.5; }

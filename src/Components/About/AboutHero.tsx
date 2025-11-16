@@ -1,13 +1,12 @@
 // src/components/About/AboutHero.tsx
 
 import { motion } from "framer-motion";
-import { useTheme } from "../../context/ThemeContext";
 import { ArrowRight } from "lucide-react";
 import GhanaFlagStripe from "../Ghana/GhanaFlagStripe";
 
 const AboutHero = () => {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
+
+
 
   return (
     <section className="relative overflow-hidden py-32 md:py-44">
@@ -76,9 +75,8 @@ const AboutHero = () => {
               initial={{ opacity: 0, x: 60 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
               animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut",delay: 0.6 }}
               className="max-w-xl text-left p-8 rounded-3xl border-l-8 border-mg-gold bg-white/10 backdrop-blur-lg shadow-2xl"
             >
               <p className="text-lg italic mb-4 leading-relaxed text-white drop-shadow">

@@ -1,5 +1,4 @@
 // src/Components/Plans/SniperMentorship.tsx
-import React from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { Check } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";

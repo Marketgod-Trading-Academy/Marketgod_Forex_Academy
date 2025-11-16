@@ -1,5 +1,4 @@
 // src/pages/Plans.tsx
-import React, { useState, useEffect } from "react";
 import PlansHero from "../Components/Plans/PlansHero";
 import WhyThisCourse from "../Components/Plans/WhyThisCourse";
 import TradingSignals from "../Components/Plans/TradingSignals";

@@ -1,5 +1,4 @@
 // src/pages/About.tsx
-import React from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
 import { 
@@ -16,9 +15,7 @@ import {
   GraduationCap,
   Lightbulb,
   Target,
-  Zap,
-  Clock,
-  CheckCircle
+
 } from "lucide-react";
 
 const About = () => {

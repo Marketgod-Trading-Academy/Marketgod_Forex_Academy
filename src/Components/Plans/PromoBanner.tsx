@@ -1,5 +1,5 @@
 // src/components/Plans/PromoBanner.tsx
-import React, { useState } from "react";
+import  { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import MarketGodQuiz from "./MarketGodQuiz";
