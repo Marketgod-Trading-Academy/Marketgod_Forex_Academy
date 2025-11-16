@@ -11,7 +11,7 @@ import PlansNav from "../Components/Plans/PlansNav";
 import PlansFinalCTA from "../Components/Plans/PlansFinalCTA";
 import Testimonials from "../Components/Home/Testimonials";
 import FAQ from "../Components/Home/FAQ";
-import FAQCTA from "../Components/Home/FAQCTA";
+import FAQCTA from "../Components/Home/MarketGodFAQSection";
 
 const sections = [
   { id: "hero", label: "Hero" },

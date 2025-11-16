@@ -1,8 +1,160 @@
+// src/pages/Blog.tsx
+import React, { useEffect, useState } from "react";
+import { Instagram, Search, Send, Youtube } from "lucide-react";
+import { motion } from "framer-motion";
+import { useTheme } from "../context/ThemeContext";
+import FeaturedResource from "../Components/Blog/FeaturedResource";
+import ResourceFilter from "../Components/Blog/ResourceFilter";
+import ResourceGrid from "../Components/Blog/ResourceGrid";
+import Testimonials from "../Components/Home/Testimonials";
+import FAQ from "../Components/Home/FAQ";
+import FAQCTA from "../Components/Home/MarketGodFAQSection";
+import { resources } from "../Components/data/data";
 
-const Blog = () => {
+const Blog: React.FC = () => {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [rawQuery, setRawQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // 300ms debounce for search
+  useEffect(() => {
+    const timer = setTimeout(() => setSearchQuery(rawQuery.toLowerCase()), 300);
+    return () => clearTimeout(timer);
+  }, [rawQuery]);
+
   return (
-    <div>Blog</div>
-  )
-}
+    <main className={`min-h-screen font-montserrat ${
+      isDark 
+        ? "bg-gradient-to-b from-mg-black via-mg-charcoal to-mg-black text-mg-paper" 
+        : "bg-gradient-to-b from-white via-gray-50 to-white text-mg-charcoal"
+    }`}>
+      {/* Hero Section */}
+    {/* HERO SECTION — INSIGHTS HUB */}
+<section className="relative py-28 text-center overflow-hidden">
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    className="max-w-5xl mx-auto px-6"
+  >
+    {/* MAIN TITLE */}
+    <h1 className={`text-5xl sm:text-6xl md:text-7xl font-black bg-clip-text text-transparent mb-6
+      ${isDark 
+        ? "bg-gradient-to-r from-mg-gold via-mg-green to-mg-gold" 
+        : "bg-gradient-to-r from-mg-green via-mg-gold to-mg-green"
+      }`}
+    >
+      MarketGod Insights
+    </h1>
 
-export default Blog
+    {/* SUBTITLE — SOCIAL, VIDEOS, SIGNALS, IDEAS */}
+    <p className={`text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed mb-8 ${
+      isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"
+    }`}>
+      Daily <span className="font-bold text-mg-green">trading ideas</span>, 
+      <span className="font-bold text-mg-gold"> live signals</span>, 
+      YouTube breakdowns, community updates, 
+      and <span className="font-bold">real market talk</span> — all in one place.
+    </p>
+
+    {/* SOCIAL PROOF BADGES */}
+    <div className="flex flex-wrap justify-center gap-4 mt-10">
+      <a 
+        href="https://youtube.com/@marketgod" 
+        target="_blank" 
+        rel="noopener"
+        className="flex items-center gap-2 px-4 py-2 bg-red-600/10 backdrop-blur-sm rounded-full text-red-400 text-sm font-medium hover:bg-red-600/20 transition"
+      >
+        <Youtube size={18} /> YouTube
+      </a>
+      <a 
+        href="https://t.me/marketgodsignals" 
+        target="_blank" 
+        rel="noopener"
+        className="flex items-center gap-2 px-4 py-2 bg-cyan-600/10 backdrop-blur-sm rounded-full text-cyan-400 text-sm font-medium hover:bg-cyan-600/20 transition"
+      >
+        <Send size={18} /> Telegram
+      </a>
+      <a 
+        href="https://instagram.com/marketgod" 
+        target="_blank" 
+        rel="noopener"
+        className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600/10 backdrop-blur-sm rounded-full text-mg-paper text-sm font-medium hover:from-purple-600/20 hover:to-pink-600/20 transition"
+      >
+        <Instagram size={18} /> Instagram
+      </a>
+    </div>
+  </motion.div>
+
+  {/* GLOW BACKGROUND */}
+  <div className={`absolute inset-0 -z-10 ${
+    isDark 
+      ? "bg-[radial-gradient(circle_at_center,rgba(255,215,0,0.15),transparent_70%)]" 
+      : "bg-[radial-gradient(circle_at_center,rgba(0,255,136,0.10),transparent_70%)]"
+  }`} />
+</section>
+
+      <div className="max-w-7xl mx-auto px-6 space-y-16">
+        {/* Featured Academy */}
+        <FeaturedResource
+          resource={{
+            title: "MarketGod Academy — NOW OPEN",
+            description: "In-person mentorship, live signals, prop lab, and 1-on-1 with MarketGod.",
+            image: "https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?auto=format&fit=crop&w=1200&q=80",
+            link: "/academy",
+          }}
+        />
+
+        {/* Filter + Search */}
+        <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+          <ResourceFilter 
+            selectedCategory={selectedCategory} 
+            setSelectedCategory={setSelectedCategory} 
+          />
+          <div className="relative w-full md:w-80">
+            <Search className={`absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 ${
+              isDark ? "text-mg-paper/50" : "text-mg-charcoal/50"
+            }`} />
+            <input
+              type="text"
+              placeholder="Search MarketGod resources..."
+              value={rawQuery}
+              onChange={(e) => setRawQuery(e.target.value)}
+              className={`w-full pl-10 pr-4 py-3 rounded-full text-sm transition-all focus:outline-none focus:ring-2 focus:ring-mg-green/50
+                ${isDark 
+                  ? "bg-mg-charcoal/50 border border-mg-gold/20 text-mg-paper placeholder-mg-paper/40" 
+                  : "bg-white/80 border border-mg-green/20 text-mg-charcoal placeholder-mg-charcoal/40"
+                }`}
+            />
+          </div>
+        </div>
+
+        {/* Resource Grid */}
+        <ResourceGrid
+          resources={resources}
+          selectedCategory={selectedCategory}
+          searchQuery={searchQuery}
+        />
+
+        {/* Giveaway Feature */}
+        <FeaturedResource
+          resource={{
+            title: "MarketGod $200K Funded Giveaway",
+            description: "Trade with Exness → Win a $200K account + $1,000 cash. 10 winners monthly.",
+            image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+            link: "https://one.exness.link/a/vm10eq60",
+          }}
+        />
+
+        {/* Testimonials + FAQ */}
+        <Testimonials />
+        <FAQ />
+        <FAQCTA />
+      </div>
+    </main>
+  );
+};
+
+export default Blog;

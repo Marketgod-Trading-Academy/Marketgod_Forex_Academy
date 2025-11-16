@@ -12,7 +12,7 @@ import FeaturedIn from "../Components/About/FeaturedIn";
 import FinalCTA from "../Components/About/AboutFinalCTA";
 import Testimonials from "../Components/Home/Testimonials";
 import FAQ from "../Components/Home/FAQ";
-import FAQCTA from "../Components/Home/FAQCTA";
+import FAQCTA from "../Components/Home/MarketGodFAQSection";
 import PlansNavFloating from "../Components/Plans/PlansNav";
 
 const aboutSections = [
