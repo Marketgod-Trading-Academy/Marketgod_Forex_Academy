@@ -1,11 +1,14 @@
 // src/components/Plans/Signals.tsx
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { Signal, Zap } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import MarketGodQuiz from "./MarketGodQuiz";
+import { useState } from "react";
+
 interface Plan {
   number: string;
   title: string;
@@ -22,6 +25,7 @@ interface Plan {
 interface CardInnerProps {
   plan: Plan;
   isDark: boolean;
+  onFreeClick: () => void;   // ← NEW
 }
 
 const metallicGold = "bg-gradient-to-br from-[#F7E7B5] via-[#D4AF37] to-[#B8860B]";
@@ -41,7 +45,7 @@ const signals = [
     price: "Free",
     badge: "Free Access",
     limited: "321/1000 Spots Left",
-    href: "#vip-free",
+    href: "", // not used for free
   },
   {
     number: "02",
@@ -81,145 +85,214 @@ const signals = [
 const Signals = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
+  const [open, setOpen] = useState(false); // ← Start closed
+
+  const handleFreeClick = () => {
+    setOpen(true);
+  };
 
   return (
-    <section className="py-24">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className={`  ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
-          <h2 className="text-center text-4xl font-black mb-4">
-          Premium Signal Packages
-        </h2>
-        <p className="text-center text-lg mb-16 opacity-70 max-w-2xl mx-auto">
-          Whether you're starting out or scaling your trading, choose the package that fits your journey.
-        </p>
-        </div>
+    <>
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className={`${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
+            <h2 className="text-center text-4xl font-black mb-4">
+              Premium Signal Packages
+            </h2>
+            <p className="text-center text-lg mb-16 opacity-70 max-w-2xl mx-auto">
+              Whether you're starting out or scaling your trading, choose the package that fits your journey.
+            </p>
+          </div>
+           {/* Swipe indicator (mobile only) */}
+                  <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    className="md:hidden text-center text-xs text-mg-gold mb-4"
+                  >
+                    👉 Swipe to explore
+                  </motion.p>
 
-        {/* MOBILE CAROUSEL */}
-        <div className="md:hidden">
-          <Swiper
-            modules={[Pagination]}
-            pagination={{ clickable: true }}
-            spaceBetween={20}
-            slidesPerView={1}
-          >
-            {signals.map((plan, index) => (
-              <SwiperSlide key={index}>
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className={`relative p-[2px] rounded-3xl shadow-xl ${
-                    plan.highlight ? metallicGold : "bg-mg-green/20"
-                  }`}
-                >
-                  <CardInner plan={plan} isDark={isDark} />
-                </motion.div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-
-        {/* DESKTOP GRID */}
-        <div className="hidden md:grid md:grid-cols-3 gap-10">
-          {signals.map((plan, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              whileHover={{
-                rotateX: 6,
-                rotateY: -6,
-                scale: 1.04,
-                transition: { type: "spring", stiffness: 150, damping: 10 },
-              }}
-              style={{ transformPerspective: 1000 }}
-              className={`relative p-[2px] rounded-3xl shadow-xl ${
-                plan.highlight ? metallicGold : "bg-mg-green/20"
-              }`}
+          {/* MOBILE CAROUSEL */}
+          <div className="md:hidden">
+            <Swiper
+              modules={[Pagination]}
+              pagination={{ clickable: true }}
+              spaceBetween={20}
+              slidesPerView={1}
             >
-              <CardInner plan={plan} isDark={isDark} />
-            </motion.div>
-          ))}
+              {signals.map((plan, index) => (
+                <SwiperSlide key={index}>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className={`relative p-[2px] rounded-3xl shadow-xl ${
+                      plan.highlight ? metallicGold : "bg-mg-green/20"
+                    }`}
+                  >
+                    <CardInner plan={plan} isDark={isDark} onFreeClick={handleFreeClick} />
+                  </motion.div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+
+          {/* DESKTOP GRID */}
+          <div className="hidden md:grid md:grid-cols-3 gap-10">
+            {signals.map((plan, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                whileHover={{
+                  rotateX: 6,
+                  rotateY: -6,
+                  scale: 1.04,
+                  transition: { type: "spring", stiffness: 150, damping: 10 },
+                }}
+                style={{ transformPerspective: 1000 }}
+                className={`relative p-[2px] rounded-3xl shadow-xl ${
+                  plan.highlight ? metallicGold : "bg-mg-green/20"
+                }`}
+              >
+                <CardInner plan={plan} isDark={isDark} onFreeClick={handleFreeClick} />
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* MODAL */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[999] flex items-center justify-center p-4 bg-black/60"
+            onClick={() => setOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.95 }}
+              className={`relative w-full max-w-md max-h-[85vh] overflow-y-auto rounded-2xl p-5 shadow-2xl ${
+                isDark ? "bg-mg-charcoal border border-mg-gold/30" : "bg-white border border-yellow-400/30"
+              }`}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setOpen(false)}
+                className="absolute top-3 right-3 p-1.5 rounded-full bg-mg-charcoal/50 hover:bg-red-600/50 text-mg-paper/70 hover:text-white transition"
+                aria-label="Close modal"
+              >
+                X
+              </button>
+
+              <MarketGodQuiz />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
 // Reusable inner card component
-const CardInner: React.FC<CardInnerProps> = ({ plan, isDark }) => (
-  <div
-    className={`rounded-3xl p-8 h-full ${
-      isDark ? "bg-mg-black" : "bg-white"
-    }`}
-  >
-    {/* Badge */}
-    <span
-      className={`absolute top-4 right-4 text-xs font-bold px-3 py-1 rounded-full 
-        ${
-          plan.highlight
-            ? "bg-white/20 text-white"
-            : "bg-mg-green/10 text-mg-green"
-        }`}
-    >
-      {plan.badge}
-    </span>
+const CardInner: React.FC<CardInnerProps> = ({ plan, isDark, onFreeClick }) => {
+  const isFree = plan.price === "Free";
 
-    {/* LIMITED SPOTS — ONLY ON FREE CARD */}
-    {plan.limited && (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ type: "spring", stiffness: 200 }}
-        className="absolute top-4 left-4"
+  return (
+    <div
+      className={`rounded-3xl p-8 h-full ${
+        isDark ? "bg-mg-black" : "bg-white"
+      }`}
+    >
+      {/* Badge */}
+      <span
+        className={`absolute top-4 right-4 text-xs font-bold px-3 py-1 rounded-full 
+          ${
+            plan.highlight
+              ? "bg-white/20 text-white"
+              : "bg-mg-green/10 text-mg-green"
+          }`}
       >
-        <div className="flex items-center gap-2 px-3 py-1.5 bg-red-600/90 backdrop-blur-sm rounded-full text-white text-xs font-black shadow-lg animate-pulse">
-          <Zap size={14} />
-          {plan.limited}
-        </div>
-      </motion.div>
-    )}
+        {plan.badge}
+      </span>
 
-    {/* Number */}
-    <div className="text-6xl font-black opacity-10">{plan.number}</div>
+      {/* LIMITED SPOTS — ONLY ON FREE CARD */}
+      {plan.limited && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", stiffness: 200 }}
+          className="absolute top-4 left-4"
+        >
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-red-600/90 backdrop-blur-sm rounded-full text-white text-xs font-black shadow-lg animate-pulse">
+            <Zap size={14} />
+            {plan.limited}
+          </div>
+        </motion.div>
+      )}
 
-    {/* Icon */}
-    <Signal className="w-10 h-10 text-mg-green mb-4" />
+      {/* Number */}
+      <div className="text-6xl font-black opacity-10">{plan.number}</div>
 
-    {/* Title */}
-    <h3 className={`}text-2xl font-bold ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>{plan.title}</h3>
-    <p className="text-mg-green font-semibold mt-1">{plan.subtitle}</p>
+      {/* Icon */}
+      <Signal className="w-10 h-10 text-mg-green mb-4" />
 
-    {/* Description */}
-    <p className={`mt-4 opacity-70 text-sm leading-relaxed ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>{plan.desc}</p>
+      {/* Title */}
+      <h3 className={`text-2xl font-bold ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
+        {plan.title}
+      </h3>
+      <p className="text-mg-green font-semibold mt-1">{plan.subtitle}</p>
 
-    {/* Features */}
-    <ul className="mt-6 space-y-3">
-      {plan.features.map((item:string, i:number) => (
-        <li key={i} className={`flex items-center gap-2 ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
-          <span className="w-2 h-2 rounded-full bg-mg-green" />
-          <span className="text-sm opacity-80">{item}</span>
-        </li>
-      ))}
-    </ul>
+      {/* Description */}
+      <p className={`mt-4 opacity-70 text-sm leading-relaxed ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
+        {plan.desc}
+      </p>
 
-    {/* Price */}
-    <div className={`${isDark ? "text-mg-paper" : "text-mg-charcoal"} mt-8 text-3xl font-black`}>{plan.price}</div>
+      {/* Features */}
+      <ul className="mt-6 space-y-3">
+        {plan.features.map((item, i) => (
+          <li key={i} className={`flex items-center gap-2 ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
+            <span className="w-2 h-2 rounded-full bg-mg-green" />
+            <span className="text-sm opacity-80">{item}</span>
+          </li>
+        ))}
+      </ul>
 
-    {/* CTA */}
-    <a
-      href={plan.href}
-      className={`
-        mt-6 block text-center py-3 rounded-full font-semibold transition-all border-2
-        ${plan.highlight
-          ? `bg-white/10 ${isDark ? "text-mg-paper border-2 border-mg-charcoal hover:bg-mg-green" : "text-mg-charcoal hover:bg-mg-green"} `
-          : "bg-mg-green text-white hover:bg-mg-gold"
-        }`}
-    >
-      {plan.limited ? "Claim Your Free Spot" : "Get Started"}
-    </a>
-  </div>
-);
+      {/* Price */}
+      <div className={`${isDark ? "text-mg-paper" : "text-mg-charcoal"} mt-8 text-3xl font-black`}>
+        {plan.price}
+      </div>
+
+      {/* CTA */}
+      {isFree ? (
+        <button
+          onClick={onFreeClick}
+          className="mt-6 block w-full text-center py-3 rounded-full font-semibold transition-all bg-mg-green text-white hover:bg-mg-gold"
+        >
+          Claim Your Free Spot
+        </button>
+      ) : (
+        <a
+          href={plan.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`
+            mt-6 block text-center py-3 rounded-full font-semibold transition-all border-2
+            ${plan.highlight
+              ? `bg-white/10 ${isDark ? "text-mg-paper border-2 border-mg-charcoal hover:bg-mg-green" : "text-mg-charcoal hover:bg-mg-green"}`
+              : "bg-mg-green text-white hover:bg-mg-gold"
+            }`}
+        >
+          Get Started
+        </a>
+      )}
+    </div>
+  );
+};
 
 export default Signals;

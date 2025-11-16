@@ -57,18 +57,16 @@ const MarketGodQuiz: React.FC = () => {
             className="space-y-4 text-center"
           >
             <h3 className="text-xl font-black text-mg-gold">Awesome</h3>
-            <p className="text-xs">Please confirm your EXNESS email address so we can verify and grant you instant access.</p>
+            <p className={`text-xs ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>Please confirm your EXNESS email address so we can verify and grant you instant access.</p>
 
-            <div className="flex items-center gap-2 px-3 py-2 bg-mg-charcoal/30 rounded-lg border border-mg-gold/30">
-              <span className="text-lg">Email</span>
+            <div className="flex items-center gap-2 px-3 py-2 bg-mg-charcoal/70 rounded-lg border border-mg-gold/30">
+              <span className={`text-xs ${isDark ? "text-mg-paper" : "text-mg-paper"} font-bold`}>Email</span>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your EXNESS email"
-                className={`flex-1 p-2 rounded bg-transparent text-xs ${
-                  isDark ? "text-mg-paper" : "text-mg-charcoal"
-                } focus:outline-none`}
+                className={`flex-1 p-2 rounded bg-transparent text-xs text-mg-paper focus:outline-none`}
               />
             </div>
 
@@ -107,25 +105,25 @@ const MarketGodQuiz: React.FC = () => {
             className="space-y-3 text-xs"
           >
             <h3 className="text-xl font-black text-mg-gold text-center">Perfect</h3>
-            <p className="text-center">To connect your existing EXNESS account under Eyram’s partnership, follow these steps carefully:</p>
+            <p className={`text-center ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>To connect your existing EXNESS account under Eyram’s partnership, follow these steps carefully:</p>
 
-            <ol className="space-y-1.5">
+            <ol className={`space-y-1.5  ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
               <li><strong>1.</strong> Go to your EXNESS Personal Area</li>
               <li><strong>2.</strong> Click on the Chat Icon</li>
-              <li><strong>3.</strong> Type: <code className="bg-mg-charcoal/50 px-1.5 py-0.5 rounded">“Partner Change”</code></li>
+              <li><strong>3.</strong> Type: <code className="bg-mg-gold text-mg-charcoal font-bold px-1.5 py-0.5 rounded">“Partner Change”</code></li>
               <li><strong>4.</strong> Fill out the form they provide</li>
               <li><strong>5.</strong> When they ask for the partner link, send them this:</li>
             </ol>
 
             <div className="flex items-center justify-between p-2 bg-mg-charcoal/30 rounded-lg border border-mg-gold/30">
-              <code className="text-xs text-mg-gold break-all">https://one.exness.link/a/vm10eq60</code>
-              <button onClick={copyLink} className="p-1">
-                {copied ? <CheckCircle size={16} className="text-mg-green" /> : <Copy size={16} />}
+              <code className={`text-xs text-mg-gol break-all ${isDark ? "text-mg-gold" : "text-mg-charcoal"} `}>https://one.exness.link/a/vm10eq60</code>
+              <button onClick={copyLink} className={`p-1 text-mg-pape ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+                {copied ? <CheckCircle size={16} className="text-mg-paper" /> : <Copy size={16} />}
               </button>
             </div>
 
-            <p className="text-center mt-3">Once done, wait for EXNESS to confirm the change.</p>
-            <p className="text-center font-bold">After that, come back here and click below</p>
+            <p className={` ${isDark ? "text-mg-gold" : "text-mg-charcoal" } text-center mt-3`}>Once done, wait for EXNESS to confirm the change.</p>
+            <p className={`text-center font-bold ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>After that, come back here and click below</p>
 
             <button
               onClick={() => setStep(0)}
@@ -147,7 +145,7 @@ const MarketGodQuiz: React.FC = () => {
             className="space-y-4 text-center"
           >
             <h3 className="text-xl font-black text-mg-gold">No worries</h3>
-            <p className="text-xs">You can create one right now using Eyram’s official EXNESS link below</p>
+            <p className={`text-xs ${isDark ? "text-mg-paper" : "text-mg-charcoal"} font-bold`}>You can create one right now using Eyram’s official EXNESS link below</p>
 
             <a
               href="https://one.exnessonelink.com/boarding/sign-up/303589/a/eyram"
@@ -158,7 +156,7 @@ const MarketGodQuiz: React.FC = () => {
               Create EXNESS Account <ExternalLink size={16} />
             </a>
 
-            <p className="text-xs">Once your account is created, come back here and restart the process.</p>
+            <p className={`text-xs ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>Once your account is created, come back here and restart the process.</p>
 
             <button onClick={handleBack} className="text-mg-green text-xs underline">Back</button>
           </motion.div>
@@ -173,7 +171,7 @@ const MarketGodQuiz: React.FC = () => {
             className="space-y-4 text-center"
           >
             <h3 className="text-xl font-black text-mg-gold">No problem!</h3>
-            <p className="text-xs">You can still join MarketGod’s VIP & Mentorship Programs by making payment through our official payment bot.</p>
+            <p className={`text-xs ${isDark ? "text-mg-paper" : "text-mg-charcoal"} `}>You can still join MarketGod’s VIP & Mentorship Programs by making payment through our official payment bot.</p>
 
             <a
               href={TELEGRAM_BOT}
@@ -184,7 +182,7 @@ const MarketGodQuiz: React.FC = () => {
               Tap below to proceed with your VIP subscription <Bot size={16} />
             </a>
 
-            <button onClick={handleBack} className="text-mg-green text-xs underline">Back</button>
+            <button onClick={handleBack} className="text-mg-green text-xs underline ml-1">Back</button>
           </motion.div>
         );
 

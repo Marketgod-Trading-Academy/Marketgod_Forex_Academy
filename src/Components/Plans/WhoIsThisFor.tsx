@@ -28,6 +28,13 @@ const WhoIsFor = () => {
 
   return (
     <section className="py-24 relative overflow-hidden">
+       <h2 className="text-3xl md:text-5xl font-black mb-6 text-center">
+            <span className="text-mg-gold">Who Is</span>{" "}
+            <span className={isDark ? "text-white" : "text-mg-charcoal"}>
+              This Course For?
+            </span>
+          </h2>
+
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
         {/* IMAGE SECTION */}
@@ -71,13 +78,7 @@ const WhoIsFor = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-3xl md:text-5xl font-black mb-6">
-            <span className="text-mg-gold">Who Is</span>{" "}
-            <span className={isDark ? "text-white" : "text-mg-charcoal"}>
-              This Course For?
-            </span>
-          </h2>
-
+         
           <p className={`text-lg md:text-xl max-w-xl mb-10 ${
             isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"
           }`}>

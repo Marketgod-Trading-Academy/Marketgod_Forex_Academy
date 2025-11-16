@@ -9,16 +9,21 @@ import Signals from "../Components/Plans/Signals";
 import PromoBanner from "../Components/Plans/PromoBanner";
 import PlansNav from "../Components/Plans/PlansNav";
 import PlansFinalCTA from "../Components/Plans/PlansFinalCTA";
+import Testimonials from "../Components/Home/Testimonials";
+import FAQ from "../Components/Home/FAQ";
+import FAQCTA from "../Components/Home/FAQCTA";
 
 const sections = [
   { id: "hero", label: "Hero" },
   { id: "why-course", label: "Why This Course" },
   { id: "trading-signals", label: "Trading Signals" },
-  { id: "who-is-this-for", label: "Who Is This For" },
-  { id: "still-not-sure", label: "Still Not Sure?" },
   { id: "pricing-plans", label: "Pricing Plans" },
   { id: "signals", label: "Signals" },
-  { id: "promo-banner", label: "Promo" },
+  { id: "promo-banner", label: "Trade for free" },
+  { id: "still-not-sure", label: "Still Not Sure?" },
+  { id: "who-is-this-for", label: "Who Is This For" },
+  { id: "faq", label: "FAQ" },
+
 ];
 
 const Plans: React.FC = () => {
@@ -42,11 +47,14 @@ const Plans: React.FC = () => {
       <div id="why-course" className=""><WhyThisCourse /></div>
       <div id="trading-signals" className=""><TradingSignals /></div>
       <div id="who-is-this-for" className=""><WhoIsThisFor /></div>
-      <div id="still-not-sure" className=""><StillNotSure /></div>
       <div id="pricing-plans" className=""><PricingPlans /></div>
       <div id="signals" className=""><Signals /></div>
       <div id="promo-banner" className=""><PromoBanner /></div>
+      <div id="still-not-sure" className=""><StillNotSure /></div>
     <div id="final-cta"><PlansFinalCTA /></div>
+    <div id="final-cta"><Testimonials /></div>
+    <div id="faq"><FAQ /></div>
+    <div id="final-cta"><FAQCTA /></div>
 
     </div>
   );

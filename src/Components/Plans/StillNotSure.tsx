@@ -29,6 +29,17 @@ const StillNotSurePremium: React.FC = () => {
 
   return (
     <section className={`relative w-full py-20 md:py-28 overflow-hidden ${isDark ? "bg-mg-black" : "bg-mg-light-bg"}`}>
+      
+          {/* Header */}
+          <h2 className={`text-4xl md:text-5xl font-black leading-tight text-center mb-5`}>
+            <span className={`block ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+              Still Not Sure if This
+            </span>
+            <span className="block text-mg-green">
+              Workshop Is Right for You?
+            </span>
+          </h2>
+
       {/* Dynamic Glow Background */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <motion.div
@@ -73,7 +84,7 @@ const StillNotSurePremium: React.FC = () => {
           }`} />
 
           <img
-            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+            src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
             alt="MarketGod Workshop"
             className={`relative w-full rounded-3xl object-cover shadow-2xl border-2 ${
               isDark 
@@ -91,16 +102,6 @@ const StillNotSurePremium: React.FC = () => {
           transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
           className="space-y-8"
         >
-          {/* Header */}
-          <h2 className={`text-4xl md:text-5xl font-black leading-tight`}>
-            <span className={`block ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
-              Still Not Sure if This
-            </span>
-            <span className="block text-mg-green">
-              Workshop Is Right for You?
-            </span>
-          </h2>
-
           {/* Description */}
           <p className={`text-lg leading-relaxed ${isDark ? "text-mg-paper/80" : "text-mg-charcoal/80"}`}>
             This workshop is designed for <span className="font-bold text-mg-gold">real people</span> — 
