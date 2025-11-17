@@ -62,7 +62,7 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="px-6 sm:px-10 md:px-16 py-16"
+        className="px-0 sm:px-10 md:px-16 py-16"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {filteredResources.map((resource, index) => (
@@ -73,7 +73,7 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({
               transition={{ duration: 0.5, delay: index * 0.08 }}
               viewport={{ once: true }}
               onClick={() => handleCardClick(resource)}
-              className={`
+              className={`grid md:block grid-cols-2 gap-4
                 cursor-pointer rounded-3xl overflow-hidden shadow-xl
                 transition-all duration-500 group
                 ${isDark 
@@ -83,7 +83,7 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({
               `}
             >
               {/* Image Container */}
-              <div className="relative overflow-hidden h-56">
+              <div className="relative overflow-hidden h-28 md:h-56">
                 <img
                   src={resource.image}
                   alt={resource.title}
@@ -120,10 +120,10 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({
               </div>
 
               {/* Content */}
-              <div className="p-6 space-y-3">
+              <div className=" p-1 md:p-6 space-y-3  h-28 md:h-56">
                 {/* Title */}
-                <h3 className={`
-                  text-xl font-black line-clamp-2
+                <h3 className={` text-[.6rem]
+                  md:text-xl font-black line-clamp-2
                   ${isDark 
                     ? "bg-clip-text text-transparent bg-gradient-to-r from-mg-gold via-mg-green to-mg-gold" 
                     : "text-mg-charcoal"
@@ -133,8 +133,7 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({
                 </h3>
 
                 {/* Description */}
-                <p className={`
-                  text-sm leading-relaxed line-clamp-3
+                <p className={`text-[.4rem] md:text-sm leading-relaxed line-clamp-3
                   ${isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"}
                 `}>
                   {resource.description}
@@ -142,10 +141,10 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({
 
                 {/* Meta */}
                 <div className={`
-                  flex items-center justify-between text-xs font-medium
+                  flex items-center justify-between text-[.5rem] md:text-xs font-medium
                   ${isDark ? "text-mg-paper/50" : "text-mg-charcoal/50"}
                 `}>
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1.5 ">
                     <User size={14} className="text-mg-gold" />
                     <span>{resource.author ?? "MarketGod"}</span>
                   </div>

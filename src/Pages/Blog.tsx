@@ -96,7 +96,7 @@ const Blog: React.FC = () => {
   }`} />
 </section>
 
-      <div className="max-w-7xl mx-auto px-6 space-y-16">
+      <div className="max-w-7xl mx-auto px-2 space-y-16">
         {/* Featured Academy */}
         <FeaturedResource
           resource={{
@@ -108,7 +108,7 @@ const Blog: React.FC = () => {
         />
 
         {/* Filter + Search */}
-        <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+        <div className="flex flex-col md:flex-row gap-4 items-center justify-between overflow-x-auto scrollbar-hide">
           <ResourceFilter 
             selectedCategory={selectedCategory} 
             setSelectedCategory={setSelectedCategory} 

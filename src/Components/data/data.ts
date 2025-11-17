@@ -19,7 +19,7 @@ export const resources = [
   {
   id: 16,
   title: "Exness Forex Seminar Highlights – Strategy, Q&A, Giveaways & More",
-  category: "Announcements",
+  category: "Announcement",
   description: "Big Coffie + 7 top traders (Koman Forex, Freeman Forex, Cwesi Forex, Rick FX, Eram Dela, Stanle Forex) and Exness deliver live strategy development, open Q&A, and exclusive giveaways for 250+ young traders.",
   author: "Big Coffie & Multi-Trader Panel",
   date: "2025-11-01",
@@ -176,7 +176,7 @@ CoffieFX Academy — Where Ghana Gets Funded.
 {
   id: 2,
   title: "The Power of Fundamental Analysis: Turn News Into Profits",
-  category: "Tutorials",
+  category: "Tutorial",
   description: "Master NFP, CPI, FOMC, and central bank speeches. Learn how to read economic calendars, interpret data, and trade the news like a funded pro.",
   author: "Big Coffie",
   date: "2025-11-01",
@@ -303,7 +303,7 @@ CoffieFX Academy — Where Ghana Gets Funded.
 {
   id: 3,
   title: "Prop Firm Mastery: Pass $200K Challenges & Scale to $1M+",
-  category: "Tutorials",
+  category: "Tutoria",
   description: "Exact 7-phase system to pass FTMO, MyForexFunds, The5ers. Includes risk rules, drawdown recovery, payout scaling, and live $180K account breakdown.",
   author: "Big Coffie",
   date: "2025-11-01",
@@ -456,7 +456,7 @@ CoffieFX Academy — Where Ghana Gets Funded.
 {
   id: 4,
   title: "MASSIVE GIVEAWAY: Win a  Prop Account +  Cash Bonus!",
-  category: "Announcements",
+  category: "Announceme",
   description: "Trade 1 standard lot with Exness + engage on socials (IG Reels/Stories, YouTube tutorials, TikTok) — enter to win a fully funded  prop account +  instant cash. Open to all CoffieFX traders!",
   author: "Big Coffie",
   date: "2025-10-15",
