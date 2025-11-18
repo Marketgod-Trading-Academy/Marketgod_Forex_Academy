@@ -1,6 +1,6 @@
 // src/pages/Blog.tsx
 import React, { useEffect, useState } from "react";
-import { Instagram, Search, Send, Youtube } from "lucide-react";
+import { Filter, Instagram, Search, Send, Youtube } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
 import FeaturedResource from "../Components/Blog/FeaturedResource";
@@ -10,6 +10,7 @@ import Testimonials from "../Components/Home/Testimonials";
 import FAQ from "../Components/Home/FAQ";
 import FAQCTA from "../Components/Home/MarketGodFAQSection";
 import { resources } from "../Components/data/data";
+import SearchInput from "../Components/Blog/Search";
 
 const Blog: React.FC = () => {
   const { theme } = useTheme();
@@ -96,7 +97,7 @@ const Blog: React.FC = () => {
   }`} />
 </section>
 
-      <div className="max-w-7xl mx-auto px-2 space-y-16">
+      <div className="max-w-7xl mx-auto md:px-2 space-y-16">
         {/* Featured Academy */}
         <FeaturedResource
           resource={{
@@ -108,28 +109,54 @@ const Blog: React.FC = () => {
         />
 
         {/* Filter + Search */}
-        <div className="flex flex-col md:flex-row gap-4 items-center justify-between overflow-x-auto scrollbar-hide">
+
+        <div className="">
+         
+                <div className={`${
+      isDark 
+        ? "bg-gradient-to-b from-mg-black via-mg-charcoal to-mg-black text-mg-paper" 
+        : "bg-gradient-to-b from-white via-gray-50 to-white text-mg-charcoal z-50"}
+     sticky top-0 md:pt-5  w-full `}>
+                  <div
+                  className={`hidden md:flex items-center justify-center gap-2 text-sm font-medium mb-4 ${
+                    isDark ? "text-mg-paper/60" : "text-mg-charcoal/60"
+                  }`}
+                >
+                  <Filter size={18} className="text-mg-green" />
+                  <span>Filter by Category</span>
+                </div>
+       <div className="grid md:grid-flow-col  items-cente  ">
+         
           <ResourceFilter 
             selectedCategory={selectedCategory} 
             setSelectedCategory={setSelectedCategory} 
+            
+
           />
-          <div className="relative w-full md:w-80">
-            <Search className={`absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 ${
-              isDark ? "text-mg-paper/50" : "text-mg-charcoal/50"
-            }`} />
-            <input
-              type="text"
-              placeholder="Search MarketGod resources..."
-              value={rawQuery}
-              onChange={(e) => setRawQuery(e.target.value)}
-              className={`w-full pl-10 pr-4 py-3 rounded-full text-sm transition-all focus:outline-none focus:ring-2 focus:ring-mg-green/50
-                ${isDark 
-                  ? "bg-mg-charcoal/50 border border-mg-gold/20 text-mg-paper placeholder-mg-paper/40" 
-                  : "bg-white/80 border border-mg-green/20 text-mg-charcoal placeholder-mg-charcoal/40"
+        <div className={`relative w-full md:w-80 m-aut items-center flex`}>
+              <Search
+                className={`absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 ${
+                  isDark ? "text-mg-paper/50" : "text-mg-charcoal/50"
                 }`}
-            />
-          </div>
-        </div>
+              />
+              <input
+                value={rawQuery}
+            onChange={(e) => setRawQuery(e.target.value)}
+            placeholder="Search MarketGod resources..."
+                className={`
+                  w-full pl-10 pr-4 py-3 rounded-full text-sm transition-all
+                  focus:outline-none focus:ring-2 focus:ring-mg-green/50
+                  ${isDark
+                    ? "bg-mg-charcoal/50 border border-mg-gold/20 text-mg-paper placeholder-mg-paper/40"
+                    : "bg-white/80 border border-mg-green/20 text-mg-charcoal placeholder-mg-charcoal/40"
+                  } 
+                `}
+              />
+            </div>
+       </div>
+                 </div>
+          
+
 
         {/* Resource Grid */}
         <ResourceGrid
@@ -137,6 +164,7 @@ const Blog: React.FC = () => {
           selectedCategory={selectedCategory}
           searchQuery={searchQuery}
         />
+        </div>
 
         {/* Giveaway Feature */}
         <FeaturedResource

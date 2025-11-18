@@ -15,7 +15,7 @@ interface Props {
   active: string;
 }
 
-const MobileMenuDrawer: React.FC<Props> = ({ menuOpen, setMenuOpen, navLinks, active }) => {
+const MobileMenuDrawer: React.FC<Props> = ({ menuOpen, setMenuOpen, navLinks }) => {
   return (
     <AnimatePresence>
       {menuOpen && (
@@ -42,14 +42,16 @@ const MobileMenuDrawer: React.FC<Props> = ({ menuOpen, setMenuOpen, navLinks, ac
             </button>
             <div className="mt-16 space-y-6">
               {navLinks.map((link) => {
-                const isActive = active === link.href.slice(1);
+                // const isActive = active === location.pathname;
+              const active = location.pathname === link.href;
+
                 return (
                   <a
                     key={link.name}
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
                     className={`block text-xl font-bold uppercase tracking-widest transition ${
-                      isActive ? "text-mg-gold" : "text-mg-paper hover:text-mg-gold"
+                      active ? "text-mg-gold" : "text-mg-paper hover:text-mg-gold"
                     }`}
                   >
                     {link.name}
