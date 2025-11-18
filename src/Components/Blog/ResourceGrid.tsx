@@ -5,19 +5,7 @@ import ResourceModal from "./ResourceModal";
 import { Calendar, User, Youtube, Instagram, Send } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 
-export interface Resource {
-  id: number;
-  title: string;
-  category: string;
-  description: string;
-  fullText?: string;
-  link?: string;
-  image: string;
-  video?: string;
-  author?: string;
-  date?: string;
-  platform?: "youtube" | "instagram" | "telegram" | "article";
-}
+import type { Resource } from "../../types";
 
 interface ResourceGridProps {
   resources: Resource[];

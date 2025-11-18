@@ -1,26 +1,20 @@
 // src/components/Blog/ResourceModal.tsx
 'use client';
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Link2, Copy, ArrowLeft, Share2, Youtube, Instagram, Send } from "lucide-react";
+import { X, Link2, Copy, ArrowLeft, Share2, Youtube, Instagram, Send, ChevronLeft, ChevronRight } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useTheme } from "../../context/ThemeContext";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Thumbs } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-interface Resource {
-  id: number;
-  title: string;
-  category: string;
-  description: string;
-  fullText?: string;
-  link?: string;
-  image: string;
-  video?: string;
-  author?: string;
-  date?: string;
-  platform?: "youtube" | "instagram" | "telegram" | "article";
-}
+
+import {type Resource } from "../../types";
 
 const getYouTubeEmbedSrc = (url?: string) => {
   if (!url) return null;
@@ -49,6 +43,44 @@ const formatDate = (date?: string) =>
       })
     : "Nov 2025";
 
+
+
+    const detectPlatform = (url: string) => {
+  if (!url) return "image";
+
+  if (url.includes("instagram.com")) return "instagram";
+  if (url.includes("tiktok.com")) return "tiktok";
+  if (url.includes("youtu")) return "youtube";
+  if (url.includes("cloudinary")) return "cloudinary";
+  return "image";
+};
+
+declare global {
+  interface Window {
+    instgrm?: {
+      Embeds: {
+        process: () => void;
+      };
+    };
+  }
+}
+
+const getEmbedSrc = (url: string) => {
+  if (url.includes("tiktok.com"))
+    return url.replace("/video/", "/embed/");
+
+  if (url.includes("youtube.com/watch?v="))
+    return "https://www.youtube.com/embed/" + url.split("v=")[1];
+
+  if (url.includes("youtu.be"))
+    return "https://www.youtube.com/embed/" + url.split("youtu.be/")[1];
+
+  return url;
+};
+
+
+
+
 export default function ResourceModal({
   resource,
   onClose,
@@ -60,6 +92,9 @@ export default function ResourceModal({
   const isDark = theme === "dark";
   const overlayRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+const [mainSwiper, setMainSwiper] = useState<any>(null);
+
 
   // Lock scroll + ESC
   useEffect(() => {
@@ -151,6 +186,74 @@ export default function ResourceModal({
       default: return null;
     }
   };
+
+
+  // Inside ResourceModal component, above return
+const MediaRenderer = ({ src }: { src: string }) => {
+  const platform = detectPlatform(src);
+  const embed = getEmbedSrc(src);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  switch (platform) {
+    case "instagram":
+      useEffect(() => {
+        const scriptId = "instagram-embed-script";
+        let script = document.getElementById(scriptId) as HTMLScriptElement;
+
+        const processEmbed = () => {
+          if (window.instgrm) {
+            window.instgrm.Embeds.process();
+          }
+        };
+
+        if (!script) {
+          script = document.createElement("script");
+          script.id = scriptId;
+          script.async = true;
+          script.src = "https://www.instagram.com/embed.js";
+          script.onload = processEmbed;
+          document.body.appendChild(script);
+        } else {
+          processEmbed();
+        }
+
+        return () => {
+          // The cleanup logic might be complex if you need to remove the embed
+          // but for now, we can leave the script in the body.
+        };
+      }, [src]);
+
+      return (
+        <div ref={containerRef} className="w-full h-full flex justify-center items-center p-4 bg-black">
+          <blockquote className="instagram-media" data-instgrm-permalink={src} data-instgrm-version="14" style={{ maxWidth: '540px', width: 'calc(100% - 2px)', background: 'white', border: '1px solid rgb(219, 219, 219)', borderRadius: '3px', boxShadow: 'none', display: 'block', margin: '0 0 12px', minWidth: '326px', padding: '0' }}></blockquote>
+        </div>
+      );
+    case "youtube":
+    case "tiktok":
+      return (
+        <iframe
+          src={embed}
+          className="w-full h-full"
+          allow="fullscreen; autoplay; encrypted-media;"
+        />
+      );
+    case "cloudinary":
+      return (
+        <video controls className="w-full h-full object-cover">
+          <source src={src} type="video/mp4" />
+        </video>
+      );
+    default:
+      return (
+        <img
+          src={src}
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+      );
+  }
+};
+
 
   return (
     <AnimatePresence>
@@ -264,32 +367,89 @@ export default function ResourceModal({
           </header>
 
           {/* Media */}
-          <div className="bg-gradient-to-b from-mg-charcoal/20 to-transparent">
-            {cloudinarySrc ? (
-              <video controls className="w-full h-[50vh] md:h-[70vh] object-cover">
-                <source src={cloudinarySrc} type="video/mp4" />
-              </video>
-            ) : youtubeSrc ? (
-              <div className="w-full h-[50vh] md:h-[70vh] bg-black">
-                <iframe
-                  title={resource.title}
-                  src={`${youtubeSrc}?rel=0&modestbranding=1&autoplay=0`}
-                  allowFullScreen
-                  className="w-full h-full"
-                  loading="lazy"
-                />
-              </div>
-            ) : (
-              <div className="w-full h-[40vh] md:h-[60vh] overflow-hidden">
-                <img
-                  src={resource.image}
-                  alt={resource.title}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-            )}
+         <div className="bg-gradient-to-b from-mg-charcoal/20 to-transparent">
+  {resource.media && resource.media.length > 0 ? (
+  <>
+    {/* MAIN SLIDER */}
+    <Swiper
+      modules={[Navigation, Pagination, Thumbs]}
+      navigation={{
+        nextEl: ".next-btn",
+        prevEl: ".prev-btn",
+      }}
+      pagination={{ clickable: true }}
+      thumbs={{ swiper: thumbsSwiper }}
+      onSwiper={(swiper) => setMainSwiper(swiper)}
+      className="w-full h-[50vh] md:h-[70vh] rounded-2xl overflow-hidden"
+    >
+      {resource.media.map((item, idx) => (
+        <SwiperSlide key={idx}>
+          <div className="w-full h-full bg-black relative">
+            <MediaRenderer src={item.src} />
           </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+
+    {/* CUSTOM ARROWS */}
+    <div className="flex justify-between mt-3 px-4">
+      <button className="prev-btn w-10 h-10 flex items-center justify-center rounded-full bg-white/90 shadow hover:bg-gray-100">
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+
+      <button className="next-btn w-10 h-10 flex items-center justify-center rounded-full bg-white/90 shadow hover:bg-gray-100">
+        <ChevronRight className="w-6 h-6" />
+      </button>
+    </div>
+
+    {/* THUMBNAILS */}
+    <Swiper
+      modules={[Thumbs]}
+      onSwiper={setThumbsSwiper}
+      slidesPerView={4}
+      spaceBetween={12}
+      watchSlidesProgress
+      className="mt-4"
+    >
+      {resource.media.map((item, idx) => (
+        <SwiperSlide key={idx + Math.random() * 100}>
+          <div className="aspect-square rounded-lg overflow-hidden border cursor-pointer">
+            <img
+              src={item.thumbnail || item.src}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </>
+) : (
+  // fallback
+  <>
+    {cloudinarySrc ? (
+      <video controls className="w-full h-[50vh] md:h-[70vh] object-cover">
+        <source src={cloudinarySrc} type="video/mp4" />
+      </video>
+    ) : youtubeSrc ? (
+      <iframe
+        title={resource.title}
+        src={`${youtubeSrc}?rel=0&modestbranding=1&autoplay=0`}
+        allowFullScreen
+        className="w-full h-[50vh] md:h-[70vh]"
+        loading="lazy"
+      />
+    ) : (
+      <img
+        src={resource.image}
+        alt={resource.title}
+        className="w-full h-[40vh] md:h-[60vh] object-cover"
+      />
+    )}
+  </>
+)}
+
+</div>
+
 
           {/* Content */}
           <div className="max-w-5xl mx-auto px-6 py-10 space-y-8">
