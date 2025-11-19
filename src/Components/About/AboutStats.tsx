@@ -1,8 +1,39 @@
 // src/components/About/AboutStats.tsx
-import  { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import { motion, useInView, animate } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
-import { Users, TrendingUp, Award, Globe } from "lucide-react";
+import { Users, TrendingUp, Award, Globe, Instagram, Youtube, Send, Facebook } from "lucide-react";
+
+const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.08 1.07.9 1.9 1.9 2.23.69.22 1.43.16 2.12-.08.83-.29 1.5-.81 1.88-1.58.21-.43.3-.91.3-1.4v-8.41c-.45-.34-.85-.73-1.23-1.17-.02-.02-.03-.03-.05-.05-.21-.2-.4-.4-.58-.61-.01-.01-.02-.02-.02-.03-.3-.39-.59-.81-.84-1.25-.14-.24-.28-.5-.41-.75-.1-.19-.19-.39-.28-.59-.02-.05-.04-.09-.06-.14-.09-.2-.18-.4-.26-.6-.09-.23-.17-.46-.25-.7-.07-.2-.13-.4-.19-.6-.02-.06-.04-.12-.06-.18-.06-.19-.11-.38-.16-.57-.03-.12-.06-.24-.09-.36a.99.99 0 0 1-.03-.12c-.09-.3-.17-.6-.24-.91s-.13-.61-.17-.92c-.01-.07-.02-.14-.03-.21-.05-.3-.09-.6-.12-.91-.02-.15-.03-.3-.04-.45-.01-.15-.01-.3-.01-.45v-.01Z" />
+  </svg>
+);
+
+const AnimatedCounter = ({ to, isDark }: { to: number; isDark: boolean }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
+
+  useEffect(() => {
+    if (isInView && ref.current) {
+      const controls = animate(0, to, {
+        duration: 2,
+        onUpdate(value) {
+          if (ref.current) {
+            ref.current.textContent = Math.round(value).toLocaleString();
+          }
+        },
+      });
+      return () => controls.stop();
+    }
+  }, [isInView, to]);
+
+  return (
+    <span ref={ref} className={`text-2xl font-black ${isDark ? "text-white" : "text-mg-charcoal"}`}>
+      0
+    </span>
+  );
+};
 
 const AboutStats = () => {
   const { theme } = useTheme();
@@ -13,6 +44,14 @@ const AboutStats = () => {
     { icon: TrendingUp, value: 87, suffix: "%", label: "VIP Win Rate", sub: "Sniper Strategy Verified" },
     { icon: Award, value: 1, suffix: "", label: "Exness Partner", sub: "Regulated & Trusted", logo: true },
     { icon: Globe, value: 1, suffix: "#", label: "Forex Academy", sub: "By Volume & Results" },
+  ];
+
+  const socials = [
+    { name: "YouTube", icon: <Youtube className="w-7 h-7 text-red-500" />, followers: 21500, link: "https://www.youtube.com/@marketgod" },
+    { name: "Instagram", icon: <Instagram className="w-7 h-7 text-pink-500" />, followers: 44200, link: "https://www.instagram.com/eyram_dela" },
+    { name: "Telegram", icon: <Send className="w-7 h-7 text-cyan-500" />, followers: 25400, link: "https://t.me/marketgodcommunity" },
+    { name: "TikTok", icon: <TikTokIcon className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 10500, link: "https://www.tiktok.com/@marketgod" },
+    { name: "Facebook", icon: <Facebook className="w-7 h-7 text-blue-600" />, followers: 5000, link: "https://www.facebook.com/marketgod" },
   ];
 
   const [counts, setCounts] = useState(stats.map(() => 0));
@@ -86,6 +125,40 @@ const AboutStats = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 1 }}
+          className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto mt-12"
+        >
+          {socials.map((social) => (
+            <a
+              key={social.name}
+              href={social.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`
+                col-span-1 md:col-span-1
+                p-6 rounded-2xl flex flex-col items-center justify-center gap-3
+                transition-all duration-300 transform hover:-translate-y-2
+                ${isDark
+                  ? "bg-mg-black/50 border border-mg-gold/30 hover:shadow-lg hover:shadow-mg-gold/10"
+                  : "bg-white/80 border border-mg-green/10 hover:shadow-lg hover:shadow-mg-green/10"
+                }
+              `}
+            >
+              {social.icon}
+              <div className="text-center">
+                <AnimatedCounter to={social.followers} isDark={isDark} />
+                <p className={`text-xs font-medium uppercase tracking-wider ${isDark ? "text-mg-paper/50" : "text-mg-charcoal/50"}`}>
+                  {social.name}
+                </p>
+              </div>
+            </a>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

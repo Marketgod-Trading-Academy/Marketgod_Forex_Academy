@@ -101,8 +101,8 @@ const Blog: React.FC = () => {
         {/* Featured Academy */}
         <FeaturedResource
           resource={{
-            title: "MarketGod Academy — NOW OPEN",
-            description: "In-person mentorship, live signals, prop lab, and 1-on-1 with MarketGod.",
+            title: "Mentorship Slots Are Open! Lock In With Eyram Dela",
+            description: "Online mentorship with 1-year access, sniper entry strategy, live trading, signals, risk management & more. First 5 get a discount!",
             image: "https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?auto=format&fit=crop&w=1200&q=80",
             link: "/academy",
           }}
@@ -169,10 +169,10 @@ const Blog: React.FC = () => {
         {/* Giveaway Feature */}
         <FeaturedResource
           resource={{
-            title: "MarketGod $200K Funded Giveaway",
-            description: "Trade with Exness → Win a $200K account + $1,000 cash. 10 winners monthly.",
+            title: "Gold Inner Circle Closing, FREE VIP Slots Now Open!",
+            description: "I'm closing Gold Inner Circle but opening FREE VIP slots until the end of the year. Join now for a chance at our 1,000-member live trading day!",
             image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
-            link: "https://one.exness.link/a/vm10eq60",
+            link: "https://t.me/livetradewithmarketgodbot",
           }}
         />
 

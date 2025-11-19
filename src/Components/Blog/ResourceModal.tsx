@@ -589,17 +589,7 @@ const MediaRenderer = ({ src }: { src: string }) => {
 
 
 
-// author: "MarketGod",
-//   date: "2024-01-27",
-//   platform: "youtube",
-//   image: "https://img.youtube.com/vi/dkzZAr64oW8/hqdefault.jpg",
-//   link: "https://www.youtube.com/watch?v=dkzZAr64oW8",
-//   media: [
-//     {
-//       src: "https://www.youtube.com/watch?v=dkzZAr64oW8",
-//       thumbnail: "https://img.youtube.com/vi/dkzZAr64oW8/hqdefault.jpg"
-//     }
-//   ]
+
 
 
 

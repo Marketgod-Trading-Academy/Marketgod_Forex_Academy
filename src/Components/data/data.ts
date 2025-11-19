@@ -82,15 +82,15 @@ Focus on taking the best trades at the best possible times. It's not about the n
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela",
-  date: "2022-09-30",
+author: "Eyram Dela(MarketGod)",
+  date: "2024-01-27",
   platform: "youtube",
-  image: "https://img.youtube.com/vi/1_yUn4t322M/hqdefault.jpg",
-  link: "https://www.youtube.com/watch?v=1_yUn4t322M",
+  image: "https://img.youtube.com/vi/dkzZAr64oW8/hqdefault.jpg",
+  link: "https://www.youtube.com/watch?v=dkzZAr64oW8",
   media: [
     {
-      src: "https://www.youtube.com/watch?v=1_yUn4t322M",
-      thumbnail: "https://img.youtube.com/vi/1_yUn4t322M/hqdefault.jpg"
+      src: "https://www.youtube.com/watch?v=dkzZAr64oW8",
+      thumbnail: "https://img.youtube.com/vi/dkzZAr64oW8/hqdefault.jpg"
     }
   ]
 },
@@ -127,7 +127,7 @@ This approach helps you gather precise data on what works, avoid low-quality set
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela",
+  author: "Eyram Dela(MarketGod)",
   date: "2022-09-29",
   platform: "youtube",
   image: "https://img.youtube.com/vi/e3dinV9FiOM/hqdefault.jpg",
@@ -173,7 +173,7 @@ This video serves as a cautionary tale for traders evaluating prop firms, emphas
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela",
+  author: "Eyram Dela(MarketGod)",
   date: "2023-09-25",
   platform: "youtube",
   image: "https://img.youtube.com/vi/LaGwSAdp7nk/hqdefault.jpg",
@@ -231,7 +231,7 @@ In this essential video, Eyram Dela emphasizes that trading success is 80% psych
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela",
+  author: "Eyram Dela(MarketGod)",
   date: "2022-09-13",
   platform: "youtube",
   image: "https://img.youtube.com/vi/49k7iFSwl58/hqdefault.jpg",
@@ -281,7 +281,7 @@ This conversation is packed with gems for both new and experienced traders, high
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela",
+  author: "Eyram Dela(MarketGod)",
   date: "2023-09-05",
   platform: "youtube",
   image: "https://img.youtube.com/vi/_Oo7Zo9WNdA/hqdefault.jpg",
@@ -345,7 +345,7 @@ The video concludes with a simple, effective strategy combining trend identifica
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela",
+  author: "Eyram Dela(MarketGod)",
   date: "2023-08-10",
   platform: "youtube",
   image: "https://img.youtube.com/vi/TDDPHx9G8dQ/hqdefault.jpg",
@@ -393,7 +393,7 @@ This event highlights the core message that with passion, consistency, and the r
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela",
+  author: "Eyram Dela(MarketGod)",
   date: "2023-04-15",
   platform: "youtube",
   image: "https://img.youtube.com/vi/Wq7yXqwU6e8/hqdefault.jpg",
@@ -438,7 +438,7 @@ The event was praised for being inspiring and eye-opening, providing attendees w
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela",
+  author: "Eyram Dela(MarketGod)",
   date: "2023-04-12",
   platform: "youtube",
   image: "https://img.youtube.com/vi/gtj-gYgf0Ls/hqdefault.jpg",
@@ -488,7 +488,7 @@ This video is a testament to the idea that your journey in trading is not just a
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela",
+  author: "Eyram Dela(MarketGod)",
   date: "2022-11-26",
   platform: "youtube",
   image: "https://img.youtube.com/vi/GdvwFjctAu4/hqdefault.jpg",
@@ -537,7 +537,7 @@ This structured approach helps maintain discipline and keeps your trading decisi
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela",
+  author: "Eyram Dela(MarketGod)",
   date: "2024-04-22",
   platform: "youtube",
   image: "https://img.youtube.com/vi/EsQT8aHKR-k/hqdefault.jpg",
@@ -583,7 +583,7 @@ By using this rule, you can avoid being trapped in false breakouts and instead p
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela",
+  author: "Eyram Dela(MarketGod)",
   date: "2024-05-30",
   platform: "youtube",
   image: "https://img.youtube.com/vi/Bjbml8VH07o/hqdefault.jpg",
@@ -623,7 +623,7 @@ Don't miss this opportunity to invest in your trading education and secure your 
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela",
+  author: "Eyram Dela(MarketGod)",
   date: "2024-06-10",
   platform: "telegram",
   image: "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?auto=format&fit=crop&w=800&q=80", // Placeholder image
@@ -647,7 +647,7 @@ In this personal post, Eyram Dela shares a powerful message about the source of 
 
 This tribute highlights the human side of a trader's journey and the importance of acknowledging the people who make it all possible.
 `,
-  author: "Eyram Dela",
+  author: "Eyram Dela(MarketGod)",
   date: "2022-12-28",
   platform: "instagram",
   image: "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?auto=format&fit=crop&w=800&q=80", // Placeholder image
@@ -675,7 +675,7 @@ When major assets like Gold hit all-time highs, volatility can be your best frie
 *   **What to Look For:** A reliable broker maintains stable, low spreads even during peak market events. This demonstrates robust liquidity and a commitment to fair trading conditions.
 *   **What to Expect:** By choosing a broker with better spread management, you can trade with more confidence during volatile periods, knowing that your execution costs are controlled and your profits are better protected.
 `,
-  author: "Eyram Dela",
+  author: "Eyram Dela(MarketGod)",
   date: "2017-11-07",
   platform: "instagram",
   image: "https://images.unsplash.com/photo-1589792923962-537704632e20?auto=format&fit=crop&w=800&q=80", // Placeholder image
@@ -703,7 +703,7 @@ The goal is to break stereotypes and empower the youth of Africa by introducing 
 
 This event is a call to action for aspiring traders to learn, connect, and position themselves for financial independence.
 `,
-  author: "Eyram Dela",
+  author: "Eyram Dela(MarketGod)",
   date: "2023-01-24",
   platform: "instagram",
   image: "https://images.unsplash.com/photo-1593697821252-0c9137d9fc45?auto=format&fit=crop&w=800&q=80", // Placeholder image
@@ -736,7 +736,7 @@ Once we hit 1,000 members, we’re dedicating a full LIVE TRADING DAY just for t
 
 Let’s go, family — this is your time! 💪✨
 `,
-  author: "Eyram Dela",
+  author: "Eyram Dela(MarketGod)",
   date: "2025-11-14",
   platform: "telegram",
   image: "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?auto=format&fit=crop&w=800&q=80", // Placeholder image
@@ -767,7 +767,7 @@ This post celebrates the success of a community member, Kenzie, who turned a pro
 *   **Value of Knowledge:** Specialized, hard-won knowledge (especially on Gold) has immense value and is a premium offering.
 *   **Upcoming Ebook:** An ebook focused on strategies for flipping small accounts is in the works, aimed at helping traders with smaller capital.
 `,
-  author: "Eyram Dela",
+  author: "Eyram Dela(MarketGod)",
   date: "2024-02-15",
   platform: "telegram",
   image: "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?auto=format&fit=crop&w=800&q=80", // Placeholder image
