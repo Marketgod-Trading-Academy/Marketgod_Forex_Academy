@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useInView, animate } from "framer-motion";
 import ResourceModal from "./ResourceModal";
-import { Calendar, User, Youtube, Instagram, Send, Facebook, Twitter } from "lucide-react";
+import { Calendar, User, Youtube, Instagram, Send,  Twitter, Facebook } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 
 import type { Resource } from "../../types";
@@ -266,6 +266,7 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({
               { name: "Telegram", icon: <Send className="w-7 h-7 text-cyan-500" />, followers: 13000, link: "https://t.me/marketgodcommunity" },
               { name: "TikTok", icon: <TikTokIcon className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 10000, link: "https://www.tiktok.com/@marketgodcommunity" },
               { name: "X (Twitter)", icon: <Twitter className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 5200, link: "https://x.com/eyramdela" },
+              { name: "Facebook", icon: <Facebook className="w-7 h-7 text-blue-600" />, followers: 5200, link: "https://web.facebook.com/eyram.akpey" },
             ].map((social) => (
               <motion.a
                 key={social.name}

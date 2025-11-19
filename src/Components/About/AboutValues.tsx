@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView, animate } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
-import { Eye, Target, HeartHandshake, Trophy,  X, ChevronRight, Instagram, Youtube, Send, Facebook, Shield, Zap, Globe, Twitter } from "lucide-react";
+import { Eye, Target, HeartHandshake, Trophy,  X, ChevronRight, Instagram, Youtube, Send, Twitter } from "lucide-react";
 
 const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
