@@ -50,6 +50,7 @@ const formatDate = (date?: string) =>
 
   if (url.includes("instagram.com")) return "instagram";
   if (url.includes("tiktok.com")) return "tiktok";
+  if (url.includes("t.me") || url.includes("telegram.org")) return "telegram";
   if (url.includes("youtu")) return "youtube";
   if (url.includes("cloudinary")) return "cloudinary";
   return "image";
@@ -226,6 +227,33 @@ const MediaRenderer = ({ src }: { src: string }) => {
       return (
         <div ref={containerRef} className="w-full h-full flex justify-center items-center p-4 bg-black">
           <blockquote className="instagram-media" data-instgrm-permalink={src} data-instgrm-version="14" style={{ maxWidth: '540px', width: 'calc(100% - 2px)', background: 'white', border: '1px solid rgb(219, 219, 219)', borderRadius: '3px', boxShadow: 'none', display: 'block', margin: '0 0 12px', minWidth: '326px', padding: '0' }}></blockquote>
+        </div>
+      );
+    case "telegram":
+      useEffect(() => {
+        const scriptId = "telegram-widget-script";
+        let script = document.getElementById(scriptId) as HTMLScriptElement;
+
+        if (!script) {
+          script = document.createElement("script");
+          script.id = scriptId;
+          script.async = true;
+          script.src = "https://telegram.org/js/telegram-widget.js?22";
+          document.body.appendChild(script);
+        }
+      }, []);
+
+      const postPath = new URL(src).pathname.slice(1);
+
+      return (
+        <div className="w-full h-full flex justify-center items-start p-4 bg-black overflow-y-auto">
+          <div className="w-full max-w-xl">
+            <blockquote
+              className="telegram-post"
+              data-telegram-post={postPath}
+              data-width="100%"
+            ></blockquote>
+          </div>
         </div>
       );
     case "youtube":
@@ -561,3 +589,18 @@ const MediaRenderer = ({ src }: { src: string }) => {
 
 
 
+// author: "MarketGod",
+//   date: "2024-01-27",
+//   platform: "youtube",
+//   image: "https://img.youtube.com/vi/dkzZAr64oW8/hqdefault.jpg",
+//   link: "https://www.youtube.com/watch?v=dkzZAr64oW8",
+//   media: [
+//     {
+//       src: "https://www.youtube.com/watch?v=dkzZAr64oW8",
+//       thumbnail: "https://img.youtube.com/vi/dkzZAr64oW8/hqdefault.jpg"
+//     }
+//   ]
+
+
+
+// q/
