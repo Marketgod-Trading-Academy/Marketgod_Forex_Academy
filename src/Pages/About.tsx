@@ -7,7 +7,7 @@ import AboutStats from "../Components/About/AboutStats";
 import AboutJourney from "../Components/About/AboutJourney";
 import AboutMentor from "../Components/Home/AboutMentor";
 import AboutValues from "../Components/About/AboutValues";
-import OurTeam from "../Components/About/OurTeam";
+// import OurTeam from "../Components/About/OurTeam";
 import FeaturedIn from "../Components/About/FeaturedIn";
 import FinalCTA from "../Components/About/AboutFinalCTA";
 import Testimonials from "../Components/Home/Testimonials";
@@ -15,6 +15,7 @@ import FAQ from "../Components/Home/FAQ";
 import FAQCTA from "../Components/Home/MarketGodFAQSection";
 import PlansNavFloating from "../Components/Plans/PlansNav";
 import SEO from "../Components/About/SEO";
+import OurTeam from "../Components/About/OurTeam";
 
 const aboutSections = [
   { id: "hero", label: "Hero" },

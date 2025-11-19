@@ -2,7 +2,7 @@
 import { useEffect,  useRef } from "react";
 import { motion, useInView, animate } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
-import { Users, TrendingUp, Award, Globe, Instagram, Youtube, Send,  Twitter, Facebook } from "lucide-react";
+import { Users, TrendingUp, Award, Globe, Instagram, Youtube, Send,  Twitter, FacebookIcon } from "lucide-react";
 
 const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -10,7 +10,7 @@ const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const AnimatedCounter = ({ to }: { to: number }) => {
+const AnimatedCounter = ({ to, _isDark }: { to: number; isDark: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
 
@@ -52,7 +52,7 @@ const AboutStats = () => {
     { name: "Telegram", icon: <Send className="w-7 h-7 text-cyan-500" />, followers: 13000, link: "https://t.me/marketgodcommunity" },
     { name: "TikTok", icon: <TikTokIcon className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 10000, link: "https://www.tiktok.com/@marketgodcommunity" },
     { name: "X (Twitter)", icon: <Twitter className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 5200, link: "https://x.com/eyramdela" },
-    { name: "Facebook", icon: <Facebook className="w-7 h-7 text-blue-600" />, followers: 5200, link: "https://web.facebook.com/eyram.akpey" },
+    { name: "Facebook", icon: <FacebookIcon className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 5200, link: "https://web.facebook.com/eyram.akpey" },
   ];
 
   return (
@@ -102,7 +102,7 @@ const AboutStats = () => {
 
                 <div className={`text-4xl md:text-6xl font-black text-center mb-2 ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
                   {typeof stat.value === 'number' ? (
-                    <><AnimatedCounter to={stat.value} />{stat.suffix}</>
+                    <><AnimatedCounter to={stat.value} isDark={isDark} />{stat.suffix}</>
                   ) : (
                     stat.value
                   )}
@@ -150,7 +150,7 @@ const AboutStats = () => {
             >
               {social.icon}
               <div className="text-center">
-                <AnimatedCounter to={social.followers} />
+                <AnimatedCounter to={social.followers} isDark={isDark} />
                 <p className={`text-xs font-medium uppercase tracking-wider ${isDark ? "text-mg-paper/50" : "text-mg-charcoal/50"}`}>
                   {social.name}
                 </p>

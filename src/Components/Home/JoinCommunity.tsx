@@ -143,7 +143,7 @@ export default function JoinCommunity3D() {
               backgroundBlendMode: "overlay",
             }}
           >
-            <div className="absolute inset-0 bg-mg-paper/30 dark:bg-mg-black/80 rounded-3xl" />
+            <div className="absolute inset-0  bg-mg-black/80 rounded-3xl" />
             <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
               <div className="absolute top-0 left-[-50%] w-[200%] h-[2px] bg-gradient-to-r from-transparent via-mg-gold/50 to-transparent animate-lightStreak1" />
               <div className="absolute top-[30%] left-[-50%] w-[200%] h-[1px] bg-gradient-to-r from-transparent via-mg-green/50 to-transparent animate-lightStreak2" />
@@ -154,7 +154,7 @@ export default function JoinCommunity3D() {
               Connect with <span className="text-mg-green">MarketGod Academy</span>
             </motion.h3>
 
-            <motion.p className="relative text-mg-charcoal dark:text-mg-paper text-lg sm:text-xl mt-4 z-10">
+            <motion.p className="relative text-mg-paper text-lg sm:text-xl mt-4 z-10">
               VIP signals, mentorship, webinars — all guided by MarketGod experts.
             </motion.p>
 

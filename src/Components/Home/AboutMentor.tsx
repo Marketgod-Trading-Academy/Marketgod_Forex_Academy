@@ -13,7 +13,7 @@ import {
   GraduationCap 
 } from "lucide-react";
 
-const AnimatedCounter = ({ to }: { to: number }) => {
+const AnimatedCounter = ({ to, isDark }: { to: number; isDark: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
 
@@ -226,7 +226,7 @@ const AboutMentor = () => {
               </div>
               <div className={`text-3xl md:text-4xl font-black mb-1 ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
                 {typeof stat.value === 'number' ? (
-                  <><AnimatedCounter to={stat.value} />{stat.suffix}</>
+                  <><AnimatedCounter to={stat.value} isDark={isDark} />{stat.suffix}</>
                 ) : (
                   stat.value
                 )}
@@ -239,7 +239,7 @@ const AboutMentor = () => {
         </motion.div>
       </div>
     </section>
-  )
+  );
 };
 
 export default AboutMentor;

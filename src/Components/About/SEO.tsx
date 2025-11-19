@@ -9,7 +9,7 @@ interface SEOProps {
   imageUrl?: string;
 }
 
-const SEO: React.FC<SEOProps> = ({ title, description, type = "website", imageUrl }) => {
+const SEO: React.FC<SEOProps> = ({ title, description, name = "MarketGod Academy", type = "website", imageUrl }) => {
   const fullTitle = `${title} | MarketGod Academy`;
   
   return (
