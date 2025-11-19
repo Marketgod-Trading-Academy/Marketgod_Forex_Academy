@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Send, Instagram, MessageSquare, Ticket, MapPin, Clock } from "lucide-react";
 import FAQ from "../Components/Home/FAQ";
 import MarketGodSupportTicketModal from "../Components/data/Contact/MarketgodSupportTicketModal";
+import SEO from "../Components/About/SEO";
 
 export default function MarketGodContactHero() {
   const [showContacts, setShowContacts] = useState(false);
@@ -23,6 +24,12 @@ export default function MarketGodContactHero() {
 
   return (
     <>
+
+      <SEO
+        title="Contact MarketGod Academy"
+        description="Get in touch with the MarketGod team. Reach out for mentorship inquiries, support, partnership opportunities, or to join our global trading community."
+        imageUrl="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=1200&q=80" // A relevant contact image
+      />
       <section
         className="relative h-screen min-h-[600px] flex flex-col items-center justify-center text-center text-white px-6 bg-gradient-to-b from-[#090d14] via-[#0e1624] to-[#090d14] overflow-hidden"
       >

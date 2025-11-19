@@ -10,7 +10,7 @@ import Testimonials from "../Components/Home/Testimonials";
 import FAQ from "../Components/Home/FAQ";
 import FAQCTA from "../Components/Home/MarketGodFAQSection";
 import { resources } from "../Components/data/data";
-import SearchInput from "../Components/Blog/Search";
+import SEO from "../Components/About/SEO";
 
 const Blog: React.FC = () => {
   const { theme } = useTheme();
@@ -26,12 +26,18 @@ const Blog: React.FC = () => {
   }, [rawQuery]);
 
   return (
-    <main className={`min-h-screen font-montserrat ${
-      isDark 
-        ? "bg-gradient-to-b from-mg-black via-mg-charcoal to-mg-black text-mg-paper" 
-        : "bg-gradient-to-b from-white via-gray-50 to-white text-mg-charcoal"
-    }`}>
-      {/* Hero Section */}
+    <>
+      <SEO
+        title="Insights Hub"
+        description="Daily trading ideas, live signals, YouTube breakdowns, and real market talk from MarketGod Academy. Your central hub for all Forex content."
+        imageUrl="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80"
+      />
+      <main className={`min-h-screen font-montserrat ${
+        isDark 
+          ? "bg-gradient-to-b from-mg-black via-mg-charcoal to-mg-black text-mg-paper" 
+          : "bg-gradient-to-b from-white via-gray-50 to-white text-mg-charcoal"
+      }`}>
+        {/* Hero Section */}
     {/* HERO SECTION — INSIGHTS HUB */}
 <section className="relative py-28 text-center overflow-hidden">
   <motion.div
@@ -182,6 +188,7 @@ const Blog: React.FC = () => {
         <FAQCTA />
       </div>
     </main>
+    </>
   );
 };
 

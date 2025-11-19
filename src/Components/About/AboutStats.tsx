@@ -29,7 +29,7 @@ const AnimatedCounter = ({ to, isDark }: { to: number; isDark: boolean }) => {
   }, [isInView, to]);
 
   return (
-    <span ref={ref} className={`text-2xl font-black ${isDark ? "text-white" : "text-mg-charcoal"}`}>
+    <span ref={ref} className="font-black">
       0
     </span>
   );
@@ -54,19 +54,6 @@ const AboutStats = () => {
     { name: "Facebook", icon: <Facebook className="w-7 h-7 text-blue-600" />, followers: 5000, link: "https://www.facebook.com/marketgod" },
   ];
 
-  const [counts, setCounts] = useState(stats.map(() => 0));
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCounts(prev =>
-        prev.map((val, i) =>
-          val < stats[i].value ? val + Math.ceil(stats[i].value / 40) : stats[i].value
-        )
-      );
-    }, 30);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className={`py-20 relative overflow-hidden ${isDark ? "bg-mg-charcoal.qty" : "bg-mg-paper"}`}>
       {/* Subtle Glow */}
@@ -75,8 +62,8 @@ const AboutStats = () => {
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          whileInView={{ opacity: 1, y: 0, transition: { duration: 0.7 } }}
+          viewport={{ once: false, amount: 0.5 }}
           className="text-center mb-16"
         >
           <h2 className={`text-4xl md:text-5xl font-black ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
@@ -87,14 +74,19 @@ const AboutStats = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2  lg:grid-cols-4 gap-4 items-center md:gap-8">
+        <motion.div 
+          className="grid grid-cols-2  lg:grid-cols-4 gap-4 items-center md:gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ staggerChildren: 0.15 }}
+        >
           {stats.map((stat, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15, type: "spring", stiffness: 100 }}
+              variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0 } }}
+              transition={{ type: "spring", stiffness: 100, damping: 20 }}
+              whileHover={{ y: -8, scale: 1.03 }}
               className="group"
             >
               <div className={`p-2 py-4 md:p-8 rounded-3xl border backdrop-blur-md transition-all duration-500
@@ -107,8 +99,12 @@ const AboutStats = () => {
                   </div>
                 </div>
 
-                <div className={`text-xl md:text-6xl font-black text-center mb-2 ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
-                  {counts[i]}{stat.suffix}
+                <div className={`text-4xl md:text-6xl font-black text-center mb-2 ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+                  {typeof stat.value === 'number' ? (
+                    <><AnimatedCounter to={stat.value} isDark={isDark} />{stat.suffix}</>
+                  ) : (
+                    stat.value
+                  )}
                 </div>
 
                 <h3 className={`text-base md:text-lg font-bold text-center ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
@@ -124,21 +120,23 @@ const AboutStats = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 1 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ staggerChildren: 0.1 }}
           className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto mt-12"
         >
           {socials.map((social) => (
-            <a
+            <motion.a
               key={social.name}
               href={social.link}
               target="_blank"
               rel="noopener noreferrer"
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+              whileHover={{ y: -8, scale: 1.05 }}
               className={`
                 col-span-1 md:col-span-1
                 p-6 rounded-2xl flex flex-col items-center justify-center gap-3
@@ -156,7 +154,7 @@ const AboutStats = () => {
                   {social.name}
                 </p>
               </div>
-            </a>
+            </motion.a>
           ))}
         </motion.div>
       </div>

@@ -14,6 +14,7 @@ import Testimonials from "../Components/Home/Testimonials";
 import FAQ from "../Components/Home/FAQ";
 import FAQCTA from "../Components/Home/MarketGodFAQSection";
 import PlansNavFloating from "../Components/Plans/PlansNav";
+import SEO from "../Components/About/SEO";
 
 const aboutSections = [
   { id: "hero", label: "Hero" },
@@ -35,7 +36,13 @@ const About = () => {
   const isDark = theme === "dark";
 
   return (
-    <div className={`min-h-screen ${isDark ? "bg-mg-black" : "bg-mg-light-bg"}`}>
+    <>
+      <SEO
+        title="About MarketGod Academy & Eyram Dela"
+        description="Discover the story behind MarketGod Academy. Learn about Eyram Dela's journey from a curious student to Ghana's top Forex mentor, and the vision, mission, and values that drive our global community."
+        imageUrl="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      />
+      <div className={`min-h-screen ${isDark ? "bg-mg-black" : "bg-mg-light-bg"}`}>
       
       {/* Section Navigation */}
       {/* Sticky Navigation */}
@@ -61,7 +68,8 @@ const About = () => {
       <div id="faq"><FAQ /></div>
       <div id="faq-cta"><FAQCTA /></div>
 
-    </div>
+      </div>
+    </>
   );
 };
 

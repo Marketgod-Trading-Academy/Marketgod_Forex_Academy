@@ -1,6 +1,6 @@
 // src/components/About/AboutMentor.tsx
-import  { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { motion, useInView, animate } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { 
   Users, 
@@ -13,16 +13,41 @@ import {
   GraduationCap 
 } from "lucide-react";
 
+const AnimatedCounter = ({ to, isDark }: { to: number; isDark: boolean }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
+
+  useEffect(() => {
+    if (isInView && ref.current) {
+      const controls = animate(0, to, {
+        duration: 2,
+        onUpdate(value) {
+          if (ref.current) {
+            ref.current.textContent = Math.round(value).toLocaleString();
+          }
+        },
+      });
+      return () => controls.stop();
+    }
+  }, [isInView, to]);
+
+  return (
+    <span ref={ref} className="font-black">
+      0
+    </span>
+  );
+};
+
 const AboutMentor = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
   const [isExpanded, setIsExpanded] = useState(false);
 
   const stats = [
-    { icon: Users, value: "10K+", label: "Active Traders" },
-    { icon: Award, value: "87%", label: "Win Rate" },
-    { icon: Zap, value: "24/7", label: "Live Alerts" },
-    { icon: TrendingUp, value: "5+", label: "Years of Mastery" },
+    { icon: Users, value: 10000, suffix: "+", label: "Active Traders" },
+    { icon: Award, value: 87, suffix: "%", label: "Win Rate" },
+    { icon: Zap, value: "24/7", label: "Live Alerts" }, // This is not a number, so it won't be animated
+    { icon: TrendingUp, value: 5, suffix: "+", label: "Years of Mastery" },
   ];
 
   return (
@@ -35,7 +60,7 @@ const AboutMentor = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.3 }}
           className="text-center mb-16"
         >
           <h2 className={`text-4xl md:text-6xl font-black tracking-tight mb-4 ${
@@ -52,30 +77,30 @@ const AboutMentor = () => {
 
         {/* Founder Bio */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          viewport={{ once: true }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ staggerChildren: 0.2 }}
           className="grid md:grid-cols-2 gap-12 items-center mb-16"
         >
           {/* Image */}
-          <div className="order-2 md:order-1">
+          <motion.div className="order-2 md:order-1" variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} transition={{ duration: 0.7 }}>
             <img
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
               alt="Eyram Dela - The MarketGod"
               className="w-full h-96 object-cover rounded-3xl shadow-2xl border-4 border-mg-gold/30"
             />
-          </div>
+          </motion.div>
 
           {/* Text */}
-          <div className="space-y-6 order-1 md:order-2">
-            <h3 className={`text-3xl font-bold ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+          <motion.div className="space-y-6 order-1 md:order-2" variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
+            <motion.h3 variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0 } }} className={`text-3xl font-bold ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
               Eyram Dela – The MarketGod
-            </h3>
+            </motion.h3>
 
-            <p className={`text-lg leading-relaxed ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
+            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className={`text-lg leading-relaxed ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
               Renowned Ghanaian forex trader, mentor, and digital entrepreneur. With a sharp eye for market trends and a passion for teaching, Eyram has empowered thousands of traders across Africa to master the markets with precision and confidence — using only price action, institutional order flow, and unbreakable discipline.
-            </p>
+            </motion.p>
 
             {/* Expandable Content */}
             <motion.div
@@ -92,12 +117,12 @@ const AboutMentor = () => {
               </p>
             </motion.div>
 
-            <p className={`text-lg italic ${isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"}`}>
+            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className={`text-lg italic ${isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"}`}>
               "Not for cry babies. Built for traders who want to WIN."
-            </p>
+            </motion.p>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 mt-6">
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row gap-3 mt-6">
               <motion.button
                 onClick={() => setIsExpanded(!isExpanded)}
                 whileHover={{ scale: 1.05 }}
@@ -127,20 +152,20 @@ const AboutMentor = () => {
               >
                 Meet Eyram <ArrowRight size={20} />
               </motion.a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </motion.div>
 
         {/* Mission & Who It's For */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          viewport={{ once: true }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
           className="grid md:grid-cols-2 gap-12 text-center"
+          transition={{ staggerChildren: 0.2 }}
         >
           {/* Mission */}
-          <div className="space-y-6">
+          <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} className="space-y-6">
             <h3 className={`text-2xl font-bold ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
               Our Mission
             </h3>
@@ -150,10 +175,10 @@ const AboutMentor = () => {
             <div className="flex justify-center">
               <div className="w-24 h-1 bg-gradient-to-r from-mg-gold to-mg-green"></div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Who It's For */}
-          <div className="space-y-6">
+          <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} className="space-y-6">
             <h3 className={`text-2xl font-bold ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
               Who It's For
             </h3>
@@ -167,8 +192,8 @@ const AboutMentor = () => {
                 <motion.li
                   key={i}
                   initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  whileInView={{ opacity: 1, x: 0, transition: { delay: i * 0.1 } }}
+                  viewport={{ once: false }}
                   className={`flex items-center gap-3 ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}
                 >
                   <item.icon size={20} className="text-mg-gold flex-shrink-0" />
@@ -176,23 +201,21 @@ const AboutMentor = () => {
                 </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* Stats Grid */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          viewport={{ once: true }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ staggerChildren: 0.15 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-16 border-t border-mg-gold/20"
         >
           {stats.map((stat, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
               whileHover={{ y: -6, scale: 1.05 }}
               className="text-center group"
             >
@@ -202,7 +225,11 @@ const AboutMentor = () => {
                 </div>
               </div>
               <div className={`text-3xl md:text-4xl font-black mb-1 ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
-                {stat.value}
+                {typeof stat.value === 'number' ? (
+                  <><AnimatedCounter to={stat.value} isDark={isDark} />{stat.suffix}</>
+                ) : (
+                  stat.value
+                )}
               </div>
               <div className={`text-sm uppercase tracking-widest ${isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"}`}>
                 {stat.label}

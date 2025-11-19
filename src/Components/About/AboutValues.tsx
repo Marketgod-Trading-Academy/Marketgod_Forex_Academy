@@ -1,8 +1,39 @@
 // src/components/About/AboutVisionMissionValues.tsx
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence, useInView, animate } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
-import { Eye, Target, HeartHandshake, Trophy,  X, ChevronRight } from "lucide-react";
+import { Eye, Target, HeartHandshake, Trophy,  X, ChevronRight, Instagram, Youtube, Send, Facebook, Shield, Zap, Globe } from "lucide-react";
+
+const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.08 1.07.9 1.9 1.9 2.23.69.22 1.43.16 2.12-.08.83-.29 1.5-.81 1.88-1.58.21-.43.3-.91.3-1.4v-8.41c-.45-.34-.85-.73-1.23-1.17-.02-.02-.03-.03-.05-.05-.21-.2-.4-.4-.58-.61-.01-.01-.02-.02-.02-.03-.3-.39-.59-.81-.84-1.25-.14-.24-.28-.5-.41-.75-.1-.19-.19-.39-.28-.59-.02-.05-.04-.09-.06-.14-.09-.2-.18-.4-.26-.6-.09-.23-.17-.46-.25-.7-.07-.2-.13-.4-.19-.6-.02-.06-.04-.12-.06-.18-.06-.19-.11-.38-.16-.57-.03-.12-.06-.24-.09-.36a.99.99 0 0 1-.03-.12c-.09-.3-.17-.6-.24-.91s-.13-.61-.17-.92c-.01-.07-.02-.14-.03-.21-.05-.3-.09-.6-.12-.91-.02-.15-.03-.3-.04-.45-.01-.15-.01-.3-.01-.45v-.01Z" />
+  </svg>
+);
+
+const AnimatedCounter = ({ to, isDark }: { to: number; isDark: boolean }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
+
+  useEffect(() => {
+    if (isInView && ref.current) {
+      const controls = animate(0, to, {
+        duration: 2,
+        onUpdate(value) {
+          if (ref.current) {
+            ref.current.textContent = Math.round(value).toLocaleString();
+          }
+        },
+      });
+      return () => controls.stop();
+    }
+  }, [isInView, to]);
+
+  return (
+    <span ref={ref} className={`text-2xl font-black ${isDark ? "text-white" : "text-mg-charcoal"}`}>
+      0
+    </span>
+  );
+};
 
 const sections = [
     {
@@ -125,6 +156,14 @@ const AboutVisionMissionValues: React.FC = () => {
   const isDark = theme === "dark";
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const socials = [
+    { name: "YouTube", icon: <Youtube className="w-7 h-7 text-red-500" />, followers: 21500, link: "https://www.youtube.com/@marketgod" },
+    { name: "Instagram", icon: <Instagram className="w-7 h-7 text-pink-500" />, followers: 44200, link: "https://www.instagram.com/eyram_dela" },
+    { name: "Telegram", icon: <Send className="w-7 h-7 text-cyan-500" />, followers: 25400, link: "https://t.me/marketgodcommunity" },
+    { name: "TikTok", icon: <TikTokIcon className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 10500, link: "https://www.tiktok.com/@marketgod" },
+    { name: "Facebook", icon: <Facebook className="w-7 h-7 text-blue-600" />, followers: 5000, link: "https://www.facebook.com/marketgod" },
+  ];
+
   return (
     <>
       <section className={`py-32 relative overflow-hidden ${isDark ? "bg-gradient-to-b from-mg-black via-mg-charcoal to-black" : "bg-gradient-to-b from-mg-light-bg via-white to-mg-light-bg"}`}>
@@ -146,28 +185,57 @@ const AboutVisionMissionValues: React.FC = () => {
           return (
             <div key={i} className={`grid md:grid-cols-2 gap-16 p-4 md:gap-10 items-center mb-32 last:mb-0 ${isEven ? "md:[&>:first-child]:order-1 md:[&>:last-child]:order-2" : "md:[&>:first-child]:order-2 md:[&>:last-child]:order-1"}`}>
               
-              {/* Image with lazy load + shimmer */}
-              <motion.div initial={{ opacity: 0, x: isEven ? -60 : 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: section.delay + 0.1, type: "spring", stiffness: 70 }} className="relative group">
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-mg-gold/20 to-mg-green/20 blur-3xl scale-95 group-hover:scale-100 transition-transform duration-700 -z-10 animate-pulse" />
-                <img
+              {/* Image */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="relative group"
+              >
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-mg-gold/20 to-mg-green/20 blur-3xl scale-95 group-hover:scale-100 transition-transform duration-700 -z-10" />
+                <motion.img
                   src={section.image}
                   loading="lazy"
                   alt={section.title}
-                  className="w-full h-48 md:h-[420px] object-cover rounded-3xl shadow-2xl border-4 border-mg-gold/30 group-hover:border-mg-gold/60 group-hover:scale-[1.02] transition-all duration-700"
+                  className="w-full h-48 md:h-[420px] object-cover rounded-3xl shadow-2xl border-4 border-mg-gold/30 group-hover:border-mg-gold/60 transition-all duration-700"
+                  whileHover={{ scale: 1.03 }}
                 />
               </motion.div>
 
               {/* Text */}
-              <motion.div initial={{ opacity: 0, x: isEven ? 60 : -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: section.delay + 0.2, type: "spring", stiffness: 70 }} className="space-y-8 px-4 md:px-0">
-                <div className="flex items-center gap-5">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ staggerChildren: 0.15 }}
+                className="space-y-8 px-4 md:px-0"
+              >
+                <motion.div
+                  variants={{ hidden: { opacity: 0, x: isEven ? 50 : -50 }, visible: { opacity: 1, x: 0 } }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="flex items-center gap-5"
+                >
                   <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${section.gradient} p-4 shadow-2xl`}>
                     <section.icon size={44} className="text-white" />
                   </div>
                   <h3 className={`text-4xl md:text-5xl font-black ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>{section.title}</h3>
-                </div>
-                <p className={`  text-sm sm:text-lg md:text-xl leading-relaxed font-medium ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>{section.desc}</p>
-                <motion.blockquote initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: section.delay + 0.4 }} className="relative pl-8 border-l-4 border-mg-green">
-                  <p className="text-2xl md:text-3xl font-bold italic text-mg-green leading-tight">“{section.highlight}”</p>
+                </motion.div>
+                <motion.p
+                  variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className={`text-sm sm:text-lg md:text-xl leading-relaxed font-medium ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}
+                >
+                  {section.desc}
+                </motion.p>
+                <motion.blockquote
+                  variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="relative pl-8 border-l-4 border-mg-green"
+                >
+                  <p className="text-2xl md:text-3xl font-bold italic text-mg-green leading-tight">
+                    “{section.highlight}”
+                  </p>
                 </motion.blockquote>
               </motion.div>
             </div>
@@ -235,6 +303,38 @@ const AboutVisionMissionValues: React.FC = () => {
                   Join the Movement Now <Trophy size={28} />
                 </motion.a>
               </div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 1 }}
+                className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto mt-16"
+              >
+                {socials.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`
+                      col-span-1 md:col-span-1
+                      p-6 rounded-2xl flex flex-col items-center justify-center gap-3
+                      transition-all duration-300 transform hover:-translate-y-2
+                      bg-mg-charcoal/60 border border-mg-gold/10 hover:shadow-lg hover:shadow-mg-gold/10
+                    `}
+                  >
+                    {social.icon}
+                    <div className="text-center">
+                      <AnimatedCounter to={social.followers} isDark={isDark} />
+                      <p className={`text-xs font-medium uppercase tracking-wider text-mg-paper/50`}>
+                        {social.name}
+                      </p>
+                    </div>
+                  </a>
+                ))}
+              </motion.div>
+            
             </motion.div>
           </motion.div>
         )}

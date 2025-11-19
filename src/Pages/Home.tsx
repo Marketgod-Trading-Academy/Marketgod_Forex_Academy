@@ -27,6 +27,7 @@ import FAQCTA from "../Components/Home/MarketGodFAQSection";
 import SeminarHighlight from "../Components/Home/SeminarHighlight";
 import AboutMentor from "../Components/Home/AboutMentor";
 import PlansNavFloating from "../Components/Plans/PlansNav";
+import SEO from "../Components/About/SEO";
 
 
 const homeSections = [
@@ -54,6 +55,12 @@ const Home = () => {
   const { theme } = useTheme();
 
   return (
+   <>
+     <SEO
+        title="MarketGod Academy | Master Forex Trading with Eyram Dela"
+        description="Join MarketGod Academy to learn Forex trading from Eyram Dela. Access our Sniper Strategy, VIP signals, and a community of 10,000+ traders. Built for traders who want to win."
+        imageUrl="https://images.unsplash.com/photo-1642543348745-03b1219c3664?auto=format&fit=crop&w=1200&q=80" // A relevant hero image
+      />
     <div className={`min-h-screen transition-colors duration-300 ${theme === "light" ? "bg-mg-light-bg" : "bg-mg-dark-bg"}`}>
       
       {/* Section Navigation */}
@@ -88,6 +95,7 @@ const Home = () => {
       <div id="faq"><FAQ /></div>
       <div id="faq-cta"><FAQCTA /></div>
     </div>
+   </>
   );
 };
 

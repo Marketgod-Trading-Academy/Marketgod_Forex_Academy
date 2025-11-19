@@ -12,6 +12,7 @@ import PlansFinalCTA from "../Components/Plans/PlansFinalCTA";
 import Testimonials from "../Components/Home/Testimonials";
 import FAQ from "../Components/Home/FAQ";
 import FAQCTA from "../Components/Home/MarketGodFAQSection";
+import SEO from "../Components/About/SEO";
 
 const sections = [
   { id: "hero", label: "Hero" },
@@ -30,7 +31,13 @@ const Plans: React.FC = () => {
 
 
   return (
-    <div className="relative">
+    <>
+      <SEO
+        title="Mentorship & VIP Signals Plans"
+        description="Join the MarketGod Academy. Choose from our lifetime mentorship, VIP signals, or combo plans. Learn the Sniper Strategy and get live trading access."
+        imageUrl="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?auto=format&fit=crop&w=1200&q=80"
+      />
+      <div className="relative">
       {/* Sticky Navigation */}
       <div className="hidden md:block sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-md">
     <PlansNav sections={sections} />
@@ -56,7 +63,8 @@ const Plans: React.FC = () => {
     <div id="faq"><FAQ /></div>
     <div id="final-cta"><FAQCTA /></div>
 
-    </div>
+      </div>
+    </>
   );
 };
 

@@ -130,14 +130,14 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {visibleResources.map((resource, index) => (
-            <motion.div
+            <motion.article
               key={resource.id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              viewport={{ once: true }}
+              transition={{ type: "spring", stiffness: 100, damping: 20, delay: (index % 3) * 0.1 }}
+              viewport={{ once: true, amount: 0.1 }}
               onClick={() => handleCardClick(resource)}
-              className={`grid md:block grid-cols-2 gap-4
+              className={`grid md:block grid-cols-2 gap-4 
                 cursor-pointer rounded-3xl overflow-hidden shadow-xl
                 transition-all duration-500 group
                 ${isDark 
@@ -225,7 +225,7 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
 
@@ -267,15 +267,16 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({
               { name: "TikTok", icon: <TikTokIcon className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 10500, link: "https://www.tiktok.com/@marketgod" },
               { name: "Facebook", icon: <Facebook className="w-7 h-7 text-blue-600" />, followers: 5000, link: "https://www.facebook.com/marketgod" },
             ].map((social) => (
-              <a
+              <motion.a
                 key={social.name}
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
+                whileHover={{ y: -8, scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
                 className={`
                   col-span-1 md:col-span-1
                   p-6 rounded-2xl flex flex-col items-center justify-center gap-3
-                  transition-all duration-300 transform hover:-translate-y-2
                   ${isDark 
                     ? "bg-mg-charcoal/60 border border-mg-gold/10 hover:shadow-lg hover:shadow-mg-gold/10" 
                     : "bg-white/80 border border-mg-green/10 hover:shadow-lg hover:shadow-mg-green/10"
@@ -289,7 +290,7 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({
                     {social.name}
                   </p>
                 </div>
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>

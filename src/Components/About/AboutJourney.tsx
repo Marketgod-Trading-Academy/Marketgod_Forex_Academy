@@ -153,8 +153,8 @@ const AboutJourney = () => {
             <motion.div
               key={i}
               initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              whileInView={{ opacity: 1, x: 0, transition: { type: "spring", stiffness: 100, damping: 20 } }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ delay: i * 0.2, duration: 0.8 }}
               className={`flex items-center justify-center mb-16 ${
                 i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
@@ -175,9 +175,9 @@ const AboutJourney = () => {
                 </p>
                 {item.quote && (
                   <motion.p
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.5 }}
                     transition={{ delay: 0.3 }}
                     className="mt-4 italic text-mg-gold/80 text-sm"
                   >
@@ -208,8 +208,8 @@ const AboutJourney = () => {
         {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          whileInView={{ opacity: 1, y: 0, transition: { duration: 0.8 } }}
+          viewport={{ once: false, amount: 0.5 }}
           transition={{ duration: 0.8 }}
           className="text-center mt-24"
         >
@@ -233,22 +233,23 @@ const AboutJourney = () => {
 
           {/* Social Links */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 1 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ staggerChildren: 0.1 }}
             className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto mt-12"
           >
             {socials.map((social) => (
-              <a
+              <motion.a
                 key={social.name}
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                whileHover={{ y: -8, scale: 1.05 }}
                 className={`
                   col-span-1 md:col-span-1
                   p-6 rounded-2xl flex flex-col items-center justify-center gap-3
-                  transition-all duration-300 transform hover:-translate-y-2
                   ${isDark 
                     ? "bg-mg-charcoal/60 border border-mg-gold/10 hover:shadow-lg hover:shadow-mg-gold/10" 
                     : "bg-white/80 border border-mg-green/10 hover:shadow-lg hover:shadow-mg-green/10"
@@ -262,7 +263,7 @@ const AboutJourney = () => {
                     {social.name}
                   </p>
                 </div>
-              </a>
+              </motion.a>
             ))}
           </motion.div>
         </motion.div>

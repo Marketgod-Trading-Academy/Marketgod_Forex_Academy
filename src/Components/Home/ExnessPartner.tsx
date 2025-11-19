@@ -60,30 +60,39 @@ const ExnessPartner = () => {
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
+        <motion.div 
+          className="grid md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ staggerChildren: 0.1 }}
+        >
           {features.map((feat, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
               className={`p-5 rounded-2xl border backdrop-blur-xl text-center shadow-xl ${
                 isDark
                   ? "bg-mg-black/70 border-mg-gold/40"
                   : "bg-mg-paper/85 border-mg-gold/30"
               }`}
             >
-              <feat.icon size={36} className="mx-auto mb-3 text-mg-gold drop-shadow-md" />
-              <h3 className={`text-sm font-bold mb-1 text-mg-gold drop-shadow`}>
-                {feat.title}
-              </h3>
-              <p className={`text-xs ${isDark ? "text-mg-paper/80" : "text-mg-charcoal/80"} drop-shadow`}>
-                {feat.text}
-              </p>
+              <div className="flex flex-col items-center">
+                <feat.icon size={36} className="mx-auto mb-3 text-mg-gold drop-shadow-md" />
+                <h3 className={`text-sm font-bold mb-1 text-mg-gold drop-shadow`}>
+                  {feat.title}
+                </h3>
+                <p className={`text-xs ${isDark ? "text-mg-paper/80" : "text-mg-charcoal/80"} drop-shadow`}>
+                  {feat.text}
+                </p>
+              </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* CTA Card */}
         <motion.div

@@ -282,6 +282,32 @@ const MediaRenderer = ({ src }: { src: string }) => {
   }
 };
 
+const StructuredData = ({ resource }: { resource: Resource }) => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": resource.title,
+    "description": resource.description,
+    "image": resource.image,
+    "author": {
+      "@type": "Person",
+      "name": resource.author || "Eyram Dela(MarketGod)"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MarketGod Academy",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.marketgodacademy.com/logo.png" // Replace with your actual logo URL
+      }
+    },
+    "datePublished": resource.date,
+  };
+
+  return (
+    <script type="application/ld+json">{JSON.stringify(schema)}</script>
+  );
+};
 
   return (
     <AnimatePresence>
@@ -292,6 +318,12 @@ const MediaRenderer = ({ src }: { src: string }) => {
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-[9999] flex items-center justify-center"
       >
+        <>
+          <title>{`${resource.title} | MarketGod Insights`}</title>
+          <meta name="description" content={resource.description} />
+          <StructuredData resource={resource} />
+        </>
+
         <motion.div
           ref={overlayRef}
           initial={{ opacity: 0 }}
