@@ -94,7 +94,7 @@ export default function ResourceModal({
   const overlayRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
-const [mainSwiper, setMainSwiper] = useState<any>(null);
+const [_mainSwiper, setMainSwiper] = useState<any>(null);
 
 
   // Lock scroll + ESC

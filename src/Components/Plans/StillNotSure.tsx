@@ -84,7 +84,7 @@ const StillNotSurePremium: React.FC = () => {
           }`} />
 
           <img
-            src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+            src="https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522351/SnapInsta.to_322660411_898835291127050_9203872977349659886_n_bdajly.jpg"
             alt="MarketGod Workshop"
             className={`relative w-full rounded-3xl object-cover shadow-2xl border-2 ${
               isDark 

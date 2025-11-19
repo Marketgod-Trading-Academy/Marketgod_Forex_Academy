@@ -137,7 +137,7 @@ export default function JoinCommunity3D() {
           <div
             className="relative p-8 rounded-3xl border border-mg-gold/30 shadow-gold-glow backdrop-blur-md overflow-hidden"
             style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')",
+              backgroundImage: "url('https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522353/SnapInsta.to_572477469_18538014796003421_360178860850559894_n_uuic8a.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundBlendMode: "overlay",

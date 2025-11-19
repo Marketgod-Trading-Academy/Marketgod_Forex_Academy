@@ -63,7 +63,7 @@ const Webinars = () => {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('/images/webinars-bg.jpg')", // Add your image in /public/images/webinars-bg.jpg
+              "url('https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522353/SnapInsta.to_344115183_2414894028679317_1325419865450439379_n_uqflwo.jpg')", // Add your image in /public/images/webinars-bg.jpg
           }}
         />
 

@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView, animate } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
-import { Eye, Target, HeartHandshake, Trophy,  X, ChevronRight, Instagram, Youtube, Send, Facebook, Shield, Zap, Globe } from "lucide-react";
+import { Eye, Target, HeartHandshake, Trophy,  X, ChevronRight, Instagram, Youtube, Send, Facebook, Shield, Zap, Globe, Twitter } from "lucide-react";
 
 const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -42,7 +42,7 @@ const sections = [
       gradient: "from-mg-gold to-yellow-600",
       desc: "To ignite a global revolution in trading mastery — where every individual, from Accra to Nigeria,Kenya,South Afica,Tokyo, Mumbai to New York, rises through pure skill. We see a world where financial freedom is earned, not inherited — built on discipline, precision, and relentless execution.",
       highlight: "The World Will Trade Like Gods.",
-      image: "https://images.unsplash.com/photo-1519389950474-79c9c99b4f3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522351/SnapInsta.to_476486638_18486717355003421_7261407871444466837_n_tzqjpz.jpg",
       delay: 0.2
     },
     {
@@ -51,7 +51,7 @@ const sections = [
       gradient: "from-mg-green to-emerald-700",
       desc: "To empower 1,000,000 traders worldwide with institutional-grade price action systems — no indicators, no bots, no excuses. From live trade rooms to real-time signals, we forge elite traders who dominate any market, any session, anywhere on Earth.",
       highlight: "We Don’t Teach. We Transform.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522351/SnapInsta.to_475926916_18485769319003421_8435447212825371714_n_lh3gee.jpg",
       delay: 0.4
     },
     {
@@ -60,7 +60,7 @@ const sections = [
       gradient: "from-red-600 to-orange-700",
       desc: "Precision in every move. Discipline in every breath. Hustle in every hour. Integrity in every trade. Community across continents. We are a global army of market warriors — bound by one code: Win clean. Win big. Win together.",
       highlight: "One Code. One World. One Victory.",
-      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763528004/SnapInsta.to_475264988_18485506594003421_2211319760570591478_n_q0hxkd.jpg",
       delay: 0.6
     },
   ];
@@ -78,7 +78,7 @@ const sections = [
         </ul>
         <p class="text-xl font-bold text-mg-green italic">This is not a Ghanaian dream. This is a <span class="underline">global destiny</span>.</p>
       `,
-      image: "https://images.unsplash.com/photo-1519389950474-79c9c99b4f3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=90"
+      image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522356/SnapInsta.to_474859260_18484062667003421_7213063944480426565_n_t6f0nh.jpg"
     },
     {
       title: "The Full Mission",
@@ -101,7 +101,7 @@ const sections = [
         </div>
         <p class="text-xl font-bold text-mg-green italic">We don’t just teach trading. We <span class="underline">globalize dominance</span>.</p>
       `,
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=90"
+      image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522356/SnapInsta.to_470877567_18477335110003421_828290523445540008_n_bbbsya.jpg"
     },
     {
       title: "The Full Values",
@@ -147,7 +147,7 @@ const sections = [
         </div>
         <p class="text-xl font-bold text-mg-green italic mt-8">This is not a course. This is a <span class="underline">global movement</span>.</p>
       `,
-      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=90"
+      image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763528004/SnapInsta.to_475264988_18485506594003421_2211319760570591478_n_q0hxkd.jpg"
     },
   ];
 
@@ -157,11 +157,11 @@ const AboutVisionMissionValues: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const socials = [
-    { name: "YouTube", icon: <Youtube className="w-7 h-7 text-red-500" />, followers: 21500, link: "https://www.youtube.com/@marketgod" },
-    { name: "Instagram", icon: <Instagram className="w-7 h-7 text-pink-500" />, followers: 44200, link: "https://www.instagram.com/eyram_dela" },
-    { name: "Telegram", icon: <Send className="w-7 h-7 text-cyan-500" />, followers: 25400, link: "https://t.me/marketgodcommunity" },
-    { name: "TikTok", icon: <TikTokIcon className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 10500, link: "https://www.tiktok.com/@marketgod" },
-    { name: "Facebook", icon: <Facebook className="w-7 h-7 text-blue-600" />, followers: 5000, link: "https://www.facebook.com/marketgod" },
+    { name: "YouTube", icon: <Youtube className="w-7 h-7 text-red-500" />, followers: 21200, link: "https://www.youtube.com/@marketgodcommunity" },
+    { name: "Instagram", icon: <Instagram className="w-7 h-7 text-pink-500" />, followers: 33700, link: "https://www.instagram.com/eyram_dela" },
+    { name: "Telegram", icon: <Send className="w-7 h-7 text-cyan-500" />, followers: 13000, link: "https://t.me/marketgodcommunity" },
+    { name: "TikTok", icon: <TikTokIcon className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 10000, link: "https://www.tiktok.com/@marketgodcommunity" },
+    { name: "X (Twitter)", icon: <Twitter className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 5200, link: "https://x.com/eyramdela" },
   ];
 
   return (

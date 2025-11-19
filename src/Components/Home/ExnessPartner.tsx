@@ -24,7 +24,7 @@ const ExnessPartner = () => {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')`,
+          backgroundImage: `url('https://res.cloudinary.com/dzqdfaghg/image/upload/v1763526791/43981ea6-0bd8-44b8-be03-01a3659c1ac8.png')`,
           filter: isDark ? "brightness(0.25) contrast(1.2)" : "brightness(0.9) contrast(1.1)",
         }}
       />

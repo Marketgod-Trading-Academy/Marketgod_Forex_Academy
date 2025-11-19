@@ -39,7 +39,7 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    bg: "https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+    bg: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/SnapInsta.to_285991748_3240193386223050_1023995396682830775_n_j2rm79.jpg",
     title: (
       <>
         <span className="text-mg-gold">Trade</span> Like a{" "}
@@ -63,7 +63,7 @@ const slides: Slide[] = [
   },
   {
     id: 2,
-    bg: "https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+    bg: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522351/SnapInsta.to_476509192_18486717382003421_4782699282482123506_n_llwtyx.jpg",
     title: (
       <>
         Learn From <span className="text-mg-gold">Top African Traders</span>
@@ -84,7 +84,7 @@ const slides: Slide[] = [
   },
   {
     id: 3,
-    bg: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+    bg: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/SnapInsta.to_475855951_18485769310003421_2639630250731726422_n_ov7o6i.jpg",
     title: (
       <>
         Join the <span className="text-mg-gold">MarketGod Academy</span>

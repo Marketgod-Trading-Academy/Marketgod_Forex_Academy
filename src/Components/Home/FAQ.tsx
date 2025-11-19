@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { ChevronDown, ChevronUp, TrendingUp } from "lucide-react";
 import { useSwipeable } from "react-swipeable";
-const faqIllustration = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"; // replace with your image
+const faqIllustration = "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/SnapInsta.to_475913101_18485769337003421_2628299053802728044_n_or0wbw.jpg"; // replace with your image
 
 interface FAQItem {
   question: string;

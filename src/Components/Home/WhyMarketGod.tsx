@@ -55,12 +55,12 @@ const WhyMarketGod = () => {
         muted
         playsInline
       >
-        <source src="/videos/ghana-trading-bg.mp4" type="video/mp4" />
+        <source src="https://res.cloudinary.com/dzqdfaghg/video/upload/v1763522358/SnapInsta.to_AQP0tcL1lrqBV9tJmnWw2gz7dabRB843S2VJqC_RVgoV48eubGC22GfznUeiLS9vIhAjtapLVa3fDJAutZzyhNk7mwedL4JKUMyshm8_aod3wo.mp4" type="video/mp4" />
       </video>
 
       {/* ✨ Gradient Overlays */}
       <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-yellow-600/10 to-transparent animate-pulse-slow" />
-      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-black/10" />
 
       {/* 🏛️ Header */}
       <div className="relative z-10 text-center max-w-4xl mx-auto px-6 mb-20">

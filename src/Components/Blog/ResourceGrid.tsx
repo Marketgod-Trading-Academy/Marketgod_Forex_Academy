@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useInView, animate } from "framer-motion";
 import ResourceModal from "./ResourceModal";
-import { Calendar, User, Youtube, Instagram, Send, Facebook } from "lucide-react";
+import { Calendar, User, Youtube, Instagram, Send, Facebook, Twitter } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 
 import type { Resource } from "../../types";
@@ -261,11 +261,11 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto mt-12">
             {[
-              { name: "YouTube", icon: <Youtube className="w-7 h-7 text-red-500" />, followers: 21500, link: "https://www.youtube.com/@marketgod" },
-              { name: "Instagram", icon: <Instagram className="w-7 h-7 text-pink-500" />, followers: 44200, link: "https://www.instagram.com/eyram_dela" },
-              { name: "Telegram", icon: <Send className="w-7 h-7 text-cyan-500" />, followers: 25400, link: "https://t.me/marketgodcommunity" },
-              { name: "TikTok", icon: <TikTokIcon className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 10500, link: "https://www.tiktok.com/@marketgod" },
-              { name: "Facebook", icon: <Facebook className="w-7 h-7 text-blue-600" />, followers: 5000, link: "https://www.facebook.com/marketgod" },
+              { name: "YouTube", icon: <Youtube className="w-7 h-7 text-red-500" />, followers: 21200, link: "https://www.youtube.com/@marketgodcommunity" },
+              { name: "Instagram", icon: <Instagram className="w-7 h-7 text-pink-500" />, followers: 33700, link: "https://www.instagram.com/eyram_dela" },
+              { name: "Telegram", icon: <Send className="w-7 h-7 text-cyan-500" />, followers: 13000, link: "https://t.me/marketgodcommunity" },
+              { name: "TikTok", icon: <TikTokIcon className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 10000, link: "https://www.tiktok.com/@marketgodcommunity" },
+              { name: "X (Twitter)", icon: <Twitter className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 5200, link: "https://x.com/eyramdela" },
             ].map((social) => (
               <motion.a
                 key={social.name}

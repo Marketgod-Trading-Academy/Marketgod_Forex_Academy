@@ -45,7 +45,7 @@ const WhyMentorshipMatters = () => {
           className="flex-1"
         >
           <img
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            src="https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/SnapInsta.to_475855951_18485769310003421_2639630250731726422_n_ov7o6i.jpg"
             alt="MarketGod Mentorship"
             className="rounded-3xl shadow-2xl w-full object-cover"
           />

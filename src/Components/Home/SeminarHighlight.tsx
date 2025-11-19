@@ -12,14 +12,14 @@ const SeminarCarousel = () => {
 
   // 7 Photos + 1 Video
   const media = [
-    { type: "image", src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", alt: "Eyram Dela on stage" },
-    { type: "image", src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", alt: "Audience networking" },
-    { type: "image", src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", alt: "Live trading demo" },
-    { type: "image", src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", alt: "Expert panel" },
-    { type: "image", src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", alt: "Ghana flag group photo" },
-    { type: "image", src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", alt: "Exness merch giveaway" },
-    { type: "image", src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", alt: "Closing session" },
-    { type: "video", src: "dQw4w9WgXcQ", alt: "Event highlight video" }, // YouTube ID
+    { type: "image", src: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763525187/SnapInsta.to_572477469_18538014796003421_360178860850559894_n_ucgfhu.jpg", alt: "Eyram Dela on stage" },
+    { type: "image", src: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763525186/SnapInsta.to_574261719_18538314220003421_959973786091435173_n_ydzw2o.jpg", alt: "Audience networking" },
+    { type: "image", src: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763525187/SnapInsta.to_572477469_18538014796003421_360178860850559894_n_ucgfhu.jpg", alt: "Live trading demo" },
+    { type: "image", src: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763525172/SnapInsta.to_572678060_18538014811003421_2297806020413631308_n_bwlxew.jpg0", alt: "Expert panel" },
+    { type: "image", src: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763525170/SnapInsta.to_573290402_18538014832003421_3796424749225276508_n_yui0or.jpg", alt: "Ghana flag group photo" },
+    { type: "image", src: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763525169/SnapInsta.to_573626362_18538014823003421_6315298945725636023_n_jy5iic.jpg", alt: "Exness merch giveaway" },
+    { type: "image", src: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763525163/SnapInsta.to_573691633_18538014814003421_3174334620940786836_n_rhdkcl.jpg", alt: "Closing session" },
+    // { type: "video", src: "dQw4w9WgXcQ", alt: "Event highlight video" }, // YouTube ID
   ];
 
   // Auto-play every 4s
@@ -35,14 +35,14 @@ const SeminarCarousel = () => {
 
   // Speaker Data
   const speakers = [
-    { name: "Eyram Dela", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" },
-    { name: "Freeman Forex", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" },
+    { name: "Eyram Dela", avatar: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522351/SnapInsta.to_320260939_5672262492849628_1617341641572155430_n_ruuewh.jpg" },
+    { name: "Freeman Forex", avatar: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763524386/SnapInsta.to_574035044_18199291999320144_2690177713676601397_n_mpnj3u.jpg" },
     { name: "Cofi FX", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" },
-    { name: "Rick FX", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" },
-    { name: "Stanley Forex", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" },
-    { name: "Cwesi Forex", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" },
-    { name: "Kommon Forex", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" },
-    { name: "Rick FX", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" },
+    { name: "Cwesi4rex", avatar: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763524387/SnapInsta.to_486789163_18453841771079946_2830125092578146791_n_yyzbbv.jpg" },
+    { name: "Stanley Forex", avatar: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763524385/SnapInsta.to_363418876_18279355348179504_5968346792387616560_n_xlzxuy.jpg" },
+   
+    { name: "Kommon Forex", avatar: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763524385/SnapInsta.to_574230747_18101788825632546_3954020213374966873_n_elos1b.jpg" },
+    { name: "Rick FX", avatar: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763524385/SnapInsta.to_461250841_1225534388640246_7146829018733467744_n_omytpf.jpg" },
   ];
 
   return (

@@ -51,7 +51,8 @@ import type { Resource } from "../../types";
 
 
 
-export const resources: Resource[] = [{
+export const resources: Resource[] = [
+  {
   id: 1, // Unique ID for this resource
   title: "The Dangers of Overtrading: Why Patience Pays in Forex Trading",
   category: "Mindset",
@@ -626,12 +627,12 @@ Don't miss this opportunity to invest in your trading education and secure your 
   author: "Eyram Dela(MarketGod)",
   date: "2024-06-10",
   platform: "telegram",
-  image: "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?auto=format&fit=crop&w=800&q=80", // Placeholder image
+  image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/mentorhip_card_ynedl1.jpg?auto=format&fit=crop&w=800&q=80", // Placeholder image
   link: "https://t.me/marketgodcommunity/9113",
   media: [
     {
       src: "https://t.me/marketgodcommunity/9113",
-      thumbnail: "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?auto=format&fit=crop&w=400&q=60" // Placeholder thumbnail
+      thumbnail: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/mentorhip_card_ynedl1.jpg?auto=format&fit=crop&w=400&q=60" // Placeholder thumbnail
     }
   ]
 },
@@ -650,7 +651,7 @@ This tribute highlights the human side of a trader's journey and the importance 
   author: "Eyram Dela(MarketGod)",
   date: "2022-12-28",
   platform: "instagram",
-  image: "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?auto=format&fit=crop&w=800&q=80", // Placeholder image
+  image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763532513/SnapInsta.to_321797694_856108169002885_9045583581530635678_n_px3ggb.jpg", // Placeholder image
   link: "https://www.instagram.com/p/CmswL_fI2GO/",
   media: [
     {
@@ -678,7 +679,7 @@ When major assets like Gold hit all-time highs, volatility can be your best frie
   author: "Eyram Dela(MarketGod)",
   date: "2017-11-07",
   platform: "instagram",
-  image: "https://images.unsplash.com/photo-1589792923962-537704632e20?auto=format&fit=crop&w=800&q=80", // Placeholder image
+  image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/SnapInsta.to_285991748_3240193386223050_1023995396682830775_n_j2rm79.jpg", // Placeholder image
   link: "https://www.instagram.com/p/DN-XV9PjElk/",
   media: [
     {
@@ -706,7 +707,7 @@ This event is a call to action for aspiring traders to learn, connect, and posit
   author: "Eyram Dela(MarketGod)",
   date: "2023-01-24",
   platform: "instagram",
-  image: "https://images.unsplash.com/photo-1593697821252-0c9137d9fc45?auto=format&fit=crop&w=800&q=80", // Placeholder image
+  image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522356/SnapInsta.to_474859260_18484062667003421_7213063944480426565_n_t6f0nh.jpg", // Placeholder image
   link: "https://www.instagram.com/p/DFNXdz5oerS/",
   media: [
     {

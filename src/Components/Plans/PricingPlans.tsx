@@ -61,7 +61,7 @@ const SniperMentorship = () => {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                src="https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/mentorhip_card_ynedl1.jpg"
                 alt="Sniper Mentorship"
                 className="w-full h-full object-cover"
               />

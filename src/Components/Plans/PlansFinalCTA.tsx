@@ -24,7 +24,7 @@ const PlansFinalCTA: React.FC = () => {
       <div
         className="absolute inset-0 bg-cover bg-center opacity30"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')", // replace with your image path
+          backgroundImage: "url('https://res.cloudinary.com/dzqdfaghg/image/upload/v1763530484/SnapInsta.to_468951874_18474324778003421_9174265825508903679_n_u7nfxb.jpg')", // replace with your image path
         }}
       />
       {/* Overlay */}

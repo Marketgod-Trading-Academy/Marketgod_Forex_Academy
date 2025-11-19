@@ -1,7 +1,7 @@
 // src/Components/About/FinalCTA.tsx
 
 import { motion } from "framer-motion";
-import { Twitter, Instagram, Youtube, Linkedin } from "lucide-react";
+import { Twitter, Instagram, Youtube, Music, Send } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 
 const FinalCTA = () => {
@@ -9,10 +9,12 @@ const FinalCTA = () => {
   const isDark = theme === "dark";
 
   const socials = [
-    { name: "Twitter", icon: Twitter, link: "https://twitter.com/marketgod" },
-    { name: "Instagram", icon: Instagram, link: "https://instagram.com/marketgod" },
-    { name: "YouTube", icon: Youtube, link: "https://youtube.com/marketgod" },
-    { name: "LinkedIn", icon: Linkedin, link: "https://linkedin.com/in/marketgod" },
+    { name: "Twitter", icon: Twitter, link: "https://x.com/eyramdela " },
+    { name: "Instagram", icon: Instagram, link: "https://www.instagram.com/eyram_dela" },
+    { name: "YouTube", icon: Youtube, link: "https://www.youtube.com/@marketgodcommunity" },
+    { name: "Tictok", icon: Music, link: "https://www.tiktok.com/@marketgodcommunity" },
+    { name: "Telegram", icon: Send, link: "https://t.me/marketgodcommunity" },
+    
   ];
 
   return (

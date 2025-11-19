@@ -13,6 +13,7 @@ import {
   Instagram,
   Facebook,
   MessageSquare,
+  Youtube,
 } from 'lucide-react';
 import VanillaTilt, { type TiltOptions } from "vanilla-tilt";
 
@@ -70,27 +71,26 @@ const teamMembers = [
   {
     name: "Eyram Dela",
     role: "Founder & Lead Mentor",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522353/SnapInsta.to_337662499_1402452373902499_6787092292694936212_n_h6bccv.jpg",
     socials: {
-      twitter: "https://twitter.com/eyram",
-      linkedin: "https://linkedin.com/in/eyram",
-      telegram: "https://t.me/eyram", 
-      instagram: "#",
-      facebook: "https://facebook.com/eyram",
+      twitter: "https://x.com/eyramdela",
+      telegram: "https://t.me/delatrade", 
+      instagram: "https://www.instagram.com/eyram_dela",
+      facebook: "https://web.facebook.com/eyram.akpey",
       whatsapp: "#",
+      Youtube : "https://www.youtube.com/@marketgodcommunity"
     },
   },
   {
-    name: "Ama Serwaa",
-    role: "Senior Mentor",
-    image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    name: "Reuben Donasei",
+    role: "Senior Tutor",
+    image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763528538/55805e4a-88cd-4d12-ba4f-67e5bb9b119d.png",
     socials: {
       twitter: "#",
-      linkedin: "https://linkedin.com/in/ama",
       telegram: "#",
-      instagram: "https://instagram.com/ama",
+      instagram: "https://instagram.com/Reuben_Donasei",
       facebook: "#",
-      whatsapp: "https://wa.me/1234567890",
+     
     },
   },
   {
@@ -106,45 +106,9 @@ const teamMembers = [
       whatsapp: "#",
     },
   },
-  {
-    name: "Adwoa Asare",
-    role: "Support Specialist",
-    image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    socials: {
-      twitter: "https://twitter.com/adwoa",
-      linkedin: "#",
-      telegram: "https://t.me/adwoa",
-      instagram: "https://instagram.com/adwoa",
-      facebook: "#",
-      whatsapp: "#",
-    },
-  },
-  {
-    name: "Kwame Boateng",
-    role: "Trading Strategist",
-    image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    socials: {
-      twitter: "https://twitter.com/kwame",
-      linkedin: "https://linkedin.com/in/kwame",
-      telegram: "https://t.me/kwame",
-      instagram: "https://instagram.com/kwame",
-      facebook: "https://facebook.com/kwame",
-      whatsapp: "https://wa.me/2455551212",
-    },
-  },
-  {
-    name: "Naa Ayeley",
-    role: "Content Creator",
-    image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    socials: {
-      twitter: "#",
-      linkedin: "https://linkedin.com/in/naa",
-      telegram: "#",
-      instagram: "#",
-      facebook: "#",
-      whatsapp: "#",
-    },
-  },
+
+ 
+
 ];
 
 // --- START: New TeamMemberCard Component ---

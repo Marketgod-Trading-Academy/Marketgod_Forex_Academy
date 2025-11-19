@@ -13,6 +13,7 @@ import Blog from "./Pages/Blog";
 import Contact from "./Pages/Contact";
 import NotFound from "./Pages/NotFound";
 import About from "./Pages/About";
+import AnnouncementPopup from "./Components/Plans/AnnouncementPopup";
 
 
 function App() {
@@ -37,6 +38,7 @@ const AppContent = () => {
       <Header />
 
       <main className="flex-1">
+            <AnnouncementPopup />
         <Routes>
           {/* HOME */}
           <Route path="/" element={<Home />} />

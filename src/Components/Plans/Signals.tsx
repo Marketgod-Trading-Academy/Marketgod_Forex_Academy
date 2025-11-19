@@ -93,8 +93,27 @@ const Signals = () => {
 
   return (
     <>
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-24 relative overflow-hidden">
+        {/* Background Image & Overlay */}
+         <video
+        className="absolute inset-0 w-full h-full object-cover opacity-20"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src="https://res.cloudinary.com/dzqdfaghg/video/upload/v1763530440/In_march_we_marching_on__480p_pukfkg.mp4" type="video/mp4" />
+      </video>
+        <div 
+          className={`absolute inset-0 ${
+            isDark 
+              ? 'bg-gradient-to-b from-mg-black/50 via-mg-black/80 to-mg-black' 
+              : 'bg-gradient-to-b from-white/50 via-white/80 to-white'
+          }`}
+        />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          
           <div className={`${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
             <h2 className="text-center text-4xl font-black mb-4">
               Premium Signal Packages

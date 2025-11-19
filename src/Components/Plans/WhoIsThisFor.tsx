@@ -61,7 +61,7 @@ const WhoIsFor = () => {
             className="relative rounded-3xl overflow-hidden shadow-2xl border border-mg-gold/30"
           >
             <img
-              src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" // Replace later
+              src="https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/SnapInsta.to_475805185_18485769334003421_4253108973963297143_n_otuucy.jpg" // Replace later
               alt="Who This Course Is For"
               className="w-full h-full object-cover"
             />

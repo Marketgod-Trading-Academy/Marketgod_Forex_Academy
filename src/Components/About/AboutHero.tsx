@@ -14,7 +14,7 @@ const AboutHero = () => {
       <motion.div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`,
+          backgroundImage: `url('https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522351/SnapInsta.to_322660411_898835291127050_9203872977349659886_n_bdajly.jpg')`,
         }}
         initial={{ scale: 1 }}
         animate={{ scale: 1.12 }}
@@ -22,7 +22,7 @@ const AboutHero = () => {
       />
 
       {/* === OVERLAY === */}
-      <div className="absolute z-10 inset- bg-gradient-to-b from-black/90 via-black/70 to-black/90" />
+      <div className="absolute z-10 inset-0 bg-gradient-to-t from-black/70 via-black/70 to-black/90" />
 
      <GhanaFlagStripe />
 
@@ -62,7 +62,7 @@ const AboutHero = () => {
             >
               <div className="absolute inset-0 w-72 h-72 rounded-full blur-3xl bg-mg-gold/30 -z-10" />
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                src="https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/SnapInsta.to_320260939_5672262492849628_1617341641572155430_n_1_zsx8li.jpg"
                 alt="MarketGod - Eyram Dela"
                 className="w-64 h-64 rounded-full object-cover border-8 border-mg-gold shadow-2xl"
               />

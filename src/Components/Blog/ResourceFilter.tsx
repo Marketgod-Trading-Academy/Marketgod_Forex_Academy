@@ -3,10 +3,8 @@
 
 import React, { useMemo, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Filter } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { resources } from "../data/data";
-import SearchInput from "./Search";
 
 interface ResourceFilterProps {
   selectedCategory: string;

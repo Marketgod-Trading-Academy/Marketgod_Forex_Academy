@@ -109,7 +109,7 @@ const Blog: React.FC = () => {
           resource={{
             title: "Mentorship Slots Are Open! Lock In With Eyram Dela",
             description: "Online mentorship with 1-year access, sniper entry strategy, live trading, signals, risk management & more. First 5 get a discount!",
-            image: "https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?auto=format&fit=crop&w=1200&q=80",
+            image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/mentorhip_card_ynedl1.jpg",
             link: "/academy",
           }}
         />
@@ -177,7 +177,7 @@ const Blog: React.FC = () => {
           resource={{
             title: "Gold Inner Circle Closing, FREE VIP Slots Now Open!",
             description: "I'm closing Gold Inner Circle but opening FREE VIP slots until the end of the year. Join now for a chance at our 1,000-member live trading day!",
-            image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+            image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/SnapInsta.to_285991748_3240193386223050_1023995396682830775_n_j2rm79.jpg",
             link: "https://t.me/livetradewithmarketgodbot",
           }}
         />

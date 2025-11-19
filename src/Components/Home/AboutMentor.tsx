@@ -86,7 +86,7 @@ const AboutMentor = () => {
           {/* Image */}
           <motion.div className="order-2 md:order-1" variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} transition={{ duration: 0.7 }}>
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              src="https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522352/SnapInsta.to_511469271_18512807728003421_2788928110292631837_n_shzro3.jpg"
               alt="Eyram Dela - The MarketGod"
               className="w-full h-96 object-cover rounded-3xl shadow-2xl border-4 border-mg-gold/30"
             />
