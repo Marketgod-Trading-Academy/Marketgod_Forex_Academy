@@ -2,7 +2,7 @@
 import  { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
-import { Calendar, Video, MapPin, X, ArrowRight, Send, Globe, Zap } from "lucide-react";
+import { Calendar, Video, MapPin, X, ArrowRight, Send, Globe, Zap, Youtube } from "lucide-react";
 
 const Webinars = () => {
   const { theme } = useTheme();
@@ -17,7 +17,7 @@ const Webinars = () => {
       topics: ["Price action entries", "Risk management", "Live trade analysis"],
       price: "Free",
       join: "Register via Telegram",
-      href: "/webinars",
+      href: "https://t.me/delatrades",
       icon: Video,
     },
     {
@@ -27,9 +27,10 @@ const Webinars = () => {
       desc: "Half-day interactive session with live trading simulations and 1-on-1 feedback. Limited to 100 spots.",
       topics: ["Building trading systems", "Psychology mastery", "Ghana case studies"],
       price: "$67 (Early Bird)",
-      join: "Book on WhatsApp",
-      href: "/seminars",
+      join: "Book on Telegram",
+      href: "#",
       icon: Calendar,
+       triggerPopup: true,
     },
     {
       type: "Free Physical Seminar",
@@ -46,9 +47,10 @@ const Webinars = () => {
   ];
 
   const socials = [
-    { name: "Telegram", icon: Send, link: "https://t.me/TheMarketGod" },
-    { name: "Facebook", icon: Globe, link: "https://facebook.com/MarketGodAcademy" },
-    { name: "Instagram", icon: Globe, link: "https://instagram.com/themarketgod" },
+    { name: "Telegram", icon: Send, link: "https://t.me/marketgodcommunity" },
+    { name: "Facebook", icon: Globe, link: "https://web.facebook.com/eyram.akpey" },
+    { name: "Instagram", icon: Globe, link: "https://www.instagram.com/eyram_dela" },
+    { name: "Youtube", icon: Youtube, link: "https://www.youtube.com/@marketgodcommunity" },
   ];
 
   return (
@@ -149,6 +151,7 @@ const Webinars = () => {
                 </div>
 
                 <motion.button
+                
                   onClick={() => event.triggerPopup && setShowPopup(true)}
                   whileHover={{ scale: 1.05 }}
                   className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wide transition-all w-full justify-center ${
@@ -173,7 +176,8 @@ const Webinars = () => {
             className="text-center mt-16"
           >
             <motion.a
-              href="/events"
+            target="_blank"
+              href="https://www.instagram.com/eyram_dela"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-3 px-10 py-5 bg-yellow-500 text-black rounded-full font-bold uppercase tracking-wider shadow-xl"

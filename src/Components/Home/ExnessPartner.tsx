@@ -121,7 +121,7 @@ const ExnessPartner = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <motion.a
-              href="https://one.exness.link/a/marketgodacademy" // REPLACE WITH YOUR LINK
+              href="https://one.exnessonelink.com/boarding/sign-up/303589/a/eyram" // REPLACE WITH YOUR LINK
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
@@ -133,7 +133,7 @@ const ExnessPartner = () => {
             </motion.a>
 
             <motion.a
-              href="#vip"
+              href="plans/#signals"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-mg-green text-mg-green hover:bg-mg-green/10 font-semibold transition-all"
               whileHover={{ scale: 1.05 }}
             >

@@ -127,7 +127,7 @@ const WhyThisCourse: React.FC = () => {
             {/* CTA WITH LIMITED-BADGE */}
             <div className="flex items-center gap-3 mt-6">
               <a
-                href="#plans"
+                href="#pricing-plans"
                 className="inline-block bg-mg-green text-white px-8 py-3 rounded-full 
                   font-bold shadow-lg hover:bg-mg-gold hover:shadow-mg-gold/40 
                   transition-all"

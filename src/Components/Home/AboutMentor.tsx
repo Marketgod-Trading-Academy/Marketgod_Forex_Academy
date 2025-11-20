@@ -12,6 +12,7 @@ import {
   ChevronUp, 
   GraduationCap 
 } from "lucide-react";
+import CommunityModal from "./CommunityModal";
 
 const AnimatedCounter = ({ to, isDark }: { to: number; isDark: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -42,6 +43,8 @@ const AboutMentor = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
   const [isExpanded, setIsExpanded] = useState(false);
+    const [open, setOpen] = useState(false);
+  
 
   const stats = [
     { icon: Users, value: 10000, suffix: "+", label: "Active Traders" },
@@ -51,6 +54,7 @@ const AboutMentor = () => {
   ];
 
   return (
+    <>
     <section id="about" className="py-20 relative overflow-hidden">
       {/* Subtle Background Gradient */}
       <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-mg-gold/10 via-transparent to-mg-green/10" />
@@ -140,8 +144,9 @@ const AboutMentor = () => {
                 )}
               </motion.button>
 
-              <motion.a
-                href="/plans"
+              <motion.button
+                
+                onClick={() => setOpen(true)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wide border-2 transition-all ${
@@ -151,7 +156,7 @@ const AboutMentor = () => {
                 }`}
               >
                 Meet Eyram <ArrowRight size={20} />
-              </motion.a>
+              </motion.button>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -239,6 +244,11 @@ const AboutMentor = () => {
         </motion.div>
       </div>
     </section>
+
+         <CommunityModal open={open} onClose={() => setOpen(false)}  />
+   
+    </>
+
   );
 };
 

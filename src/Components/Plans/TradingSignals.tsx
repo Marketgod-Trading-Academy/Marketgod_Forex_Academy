@@ -13,19 +13,19 @@ import { Lightbulb, Target, Brain } from "lucide-react"; // icons
 const slides = [
   {
     title: "Discipline Over Emotion",
-    time: "00:11",
+    time: "1",
     icon: Lightbulb,
     desc: "Trading mastery begins with discipline. Strategies alone won’t save you — your mindset and execution determine everything.",
   },
   {
     title: "Simplify Your Approach",
-    time: "02:05",
+    time: "2",
     icon: Target,
     desc: "Clarity beats complexity. Focus on one pair, one setup, one system — and watch your results transform.",
   },
   {
     title: "Self-Mastery & Patience",
-    time: "03:40",
+    time: "3",
     icon: Brain,
     desc: "Fix your mindset before fixing your charts. Patience and emotional control are the foundations of consistent profits.",
   },

@@ -108,7 +108,7 @@ const WhatIsForex = () => {
           className="text-center"
         >
           <motion.a
-            href="#free-pdf"
+            href="https://www.youtube.com/@marketgodcommunity"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-3 px-10 py-5 bg-mg-gold text-mg-charcoal rounded-full font-bold uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all"

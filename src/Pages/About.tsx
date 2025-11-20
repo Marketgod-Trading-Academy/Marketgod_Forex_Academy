@@ -28,7 +28,6 @@ const aboutSections = [
   { id: "cta", label: "Final CTA" },
   { id: "testimonials", label: "Testimonials" },
   { id: "faq", label: "FAQ" },
-  { id: "faq-cta", label: "CTA" },
 ];
 
 
@@ -67,7 +66,6 @@ const About = () => {
       <div id="cta"><FinalCTA /></div>
       <div id="testimonials"><Testimonials /></div>
       <div id="faq"><FAQ /></div>
-      <div id="faq-cta"><FAQCTA /></div>
 
       </div>
     </>

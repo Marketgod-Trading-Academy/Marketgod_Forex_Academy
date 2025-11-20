@@ -13,21 +13,21 @@ const slides = [
     title: "Choose Your Path to Mastery",
     subtitle: "Unlock the MarketGod Method. Access VIP mentorship and start trading like a pro today.",
     bgImage: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522352/SnapInsta.to_323366471_856911432307051_8922110729981919576_n_fhs0t5.jpg",
-    cta1: { text: "View Plans", link: "#plans", primary: true },
+    cta1: { text: "View Plans", link: "#pricing-plans", primary: true },
     cta2: { text: "Why This Course", link: "#why-this-course", primary: false },
   },
   {
     title: "VIP Signals Included",
     subtitle: "Get real-time trading signals delivered directly to you. Trade alongside MarketGod and stay ahead of the market.",
     bgImage: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/SnapInsta.to_285991748_3240193386223050_1023995396682830775_n_j2rm79.jpg",
-    cta1: { text: "Join VIP Signals", link: "#plans", primary: true },
-    cta2: { text: "Learn More", link: "#why-this-course", primary: false },
+    cta1: { text: "Join VIP Signals", link: "#signals", primary: true },
+    cta2: { text: "Learn More", link: "https://t.me/livetradewithmarketgodbot", primary: false },
   },
   {
     title: "Your Trading Journey Starts Here",
     subtitle: "Select the plan that fits your goals and take the first step toward financial freedom.",
     bgImage: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522353/SnapInsta.to_240486111_201792035182182_4884390349298402290_n_kxaalr.jpg",
-    cta1: { text: "Get Started", link: "#plans", primary: true },
+    cta1: { text: "Get Started", link: "#pricing-plans", primary: true },
     cta2: { text: "Watch Video", link: "#why-this-course", primary: false },
   },
 ];
@@ -81,6 +81,7 @@ const PlansHeroCarousel: React.FC = () => {
                 </p>
                 <div className="flex flex-col md:flex-row justify-center gap-4">
                   <a
+                   
                     href={slide.cta1.link}
                     className={`inline-block px-6 py-2 rounded-full font-bold shadow transition-all ${
                       slide.cta1.primary

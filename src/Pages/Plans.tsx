@@ -11,12 +11,11 @@ import PlansNav from "../Components/Plans/PlansNav";
 import PlansFinalCTA from "../Components/Plans/PlansFinalCTA";
 import Testimonials from "../Components/Home/Testimonials";
 import FAQ from "../Components/Home/FAQ";
-import FAQCTA from "../Components/Home/MarketGodFAQSection";
 import SEO from "../Components/About/SEO";
 
 const sections = [
   { id: "hero", label: "Hero" },
-  { id: "why-course", label: "Why This Course" },
+  { id: "why-this-course", label: "Why This Course" },
   { id: "trading-signals", label: "Trading Signals" },
   { id: "pricing-plans", label: "Pricing Plans" },
   { id: "signals", label: "Signals" },
@@ -51,7 +50,7 @@ const Plans: React.FC = () => {
 
       {/* Sections */}
       <div id="hero" className=""><PlansHero /></div>
-      <div id="why-course" className=""><WhyThisCourse /></div>
+      <div id="why-this-course" className=""><WhyThisCourse /></div>
       <div id="trading-signals" className=""><TradingSignals /></div>
       <div id="who-is-this-for" className=""><WhoIsThisFor /></div>
       <div id="pricing-plans" className=""><PricingPlans /></div>
@@ -61,7 +60,6 @@ const Plans: React.FC = () => {
     <div id="final-cta"><PlansFinalCTA /></div>
     <div id="final-cta"><Testimonials /></div>
     <div id="faq"><FAQ /></div>
-    <div id="final-cta"><FAQCTA /></div>
 
       </div>
     </>

@@ -61,7 +61,7 @@ const signals = [
     ],
     price: "$49/mo",
     badge: "Best Value",
-    href: "#vip-pro",
+    href: "https://t.me/livetradewithmarketgodbot",
     highlight: true,
   },
   {
@@ -77,7 +77,7 @@ const signals = [
     ],
     price: "$120/mo",
     badge: "High Demand",
-    href: "#gold",
+    href: "https://t.me/livetradewithmarketgodbot",
     highlight: true,
   },
 ];

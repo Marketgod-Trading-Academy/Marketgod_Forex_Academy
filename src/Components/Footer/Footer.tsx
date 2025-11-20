@@ -3,7 +3,7 @@
 import  { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
-import { Instagram, Twitter, Youtube, Linkedin, MessageCircle, Shield, Globe, Mail, Phone, ArrowUp } from "lucide-react";
+import { Instagram, Twitter, Youtube, MessageCircle, Shield, Globe, Mail, Phone, ArrowUp, Send, LucideFacebook } from "lucide-react";
 import GhanaFlagStripe from "../Ghana/GhanaFlagStripe";
 import './Footer.css'
 
@@ -36,24 +36,25 @@ const Footer = () => {
   };
 
   const socials = [
-    { Icon: Instagram, href: "https://instagram.com/themarketgod", label: "Instagram" },
-    { Icon: Twitter, href: "https://x.com/themarketgod", label: "X (Twitter)" },
-    { Icon: Youtube, href: "https://youtube.com/@marketgodacademy", label: "YouTube" },
-    { Icon: Linkedin, href: "https://linkedin.com/company/marketgodacademy", label: "LinkedIn" },
+    { Icon: Instagram, href: "https://www.instagram.com/eyram_dela", label: "Instagram" },
+    { Icon: Twitter, href: "https://x.com/eyramdela", label: "X (Twitter)" },
+    { Icon: Youtube, href: "https://www.youtube.com/@marketgodcommunity ", label: "YouTube" },
+    { Icon: Send, href: "https://t.me/marketgodcommunity ", label: "Telegram" },
+    { Icon: LucideFacebook, href: "https://web.facebook.com/eyram.akpey ", label: "Facebook" },
   ];
 
   const links = {
     company: [
-      { label: "About Us", href: "#about" },
-      { label: "Careers", href: "#careers" },
-      { label: "Blog", href: "#blog" },
-      { label: "Contact", href: "#contact" },
+      { label: "About Us", href: "/about" },
+      { label: "Blog", href: "/blog" },
+      { label: "Contact", href: "/contact" },
+      { label: "Plans", href: "/plans" },
     ],
     resources: [
-      { label: "Courses", href: "#courses" },
-      { label: "Mentorship", href: "#mentorship" },
-      { label: "VIP Signals", href: "#vip" },
-      { label: "Free PDF", href: "/free-pdf" },
+      { label: "Community", href: "https://t.me/marketgodcommunity" },
+      { label: "Mentorship", href: "/plans" },
+      { label: "VIP Signals", href: "/plans/#signals" },
+      { label: "Free Content", href: "https://www.youtube.com/@marketgodcommunity " },
     ],
   };
 
@@ -236,7 +237,7 @@ const Footer = () => {
               </div>
 
               <motion.a
-                href="https://t.me/TheMarketGod"
+                href="https://t.me/delatrades"
                 target="_blank"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}

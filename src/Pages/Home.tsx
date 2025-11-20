@@ -23,7 +23,6 @@ import MarketGodQuotes from "../Components/Home/MarketGodQuotes";
 // ENGAGEMENT & CONVERSION
 import JoinCommunity from "../Components/Home/JoinCommunity";
 import FAQ from "../Components/Home/FAQ";
-import FAQCTA from "../Components/Home/MarketGodFAQSection";
 import SeminarHighlight from "../Components/Home/SeminarHighlight";
 import AboutMentor from "../Components/Home/AboutMentor";
 import PlansNavFloating from "../Components/Plans/PlansNav";
@@ -93,7 +92,7 @@ const Home = () => {
       <div id="quotes"><MarketGodQuotes /></div>
       <div id="join-community"><JoinCommunity /></div>
       <div id="faq"><FAQ /></div>
-      <div id="faq-cta"><FAQCTA /></div>
+      
     </div>
    </>
   );

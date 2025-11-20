@@ -126,7 +126,7 @@ const SniperMentorship = () => {
             </ul>
 
             <a
-              href="/join"
+              href="https://t.me/delatrades"
               className="block text-center mt-10 py-4 rounded-full font-bold bg-mg-gold text-black hover:bg-mg-green hover:text-white transition-all relative z-10"
             >
               Join Sniper Mentorship

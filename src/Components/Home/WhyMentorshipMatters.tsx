@@ -170,7 +170,7 @@ const WhyMentorshipMatters = () => {
 
           {/* CTA */}
           <motion.a
-            href="#mentorship"
+            href="/plans"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 200 }}

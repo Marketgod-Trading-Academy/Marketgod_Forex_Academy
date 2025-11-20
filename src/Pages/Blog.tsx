@@ -8,7 +8,6 @@ import ResourceFilter from "../Components/Blog/ResourceFilter";
 import ResourceGrid from "../Components/Blog/ResourceGrid";
 import Testimonials from "../Components/Home/Testimonials";
 import FAQ from "../Components/Home/FAQ";
-import FAQCTA from "../Components/Home/MarketGodFAQSection";
 import { resources } from "../Components/data/data";
 import SEO from "../Components/About/SEO";
 
@@ -53,7 +52,7 @@ const Blog: React.FC = () => {
         : "bg-gradient-to-r from-mg-green via-mg-gold to-mg-green"
       }`}
     >
-      MarketGod Insights
+      MarketGod Blog
     </h1>
 
     {/* SUBTITLE — SOCIAL, VIDEOS, SIGNALS, IDEAS */}
@@ -77,7 +76,7 @@ const Blog: React.FC = () => {
         <Youtube size={18} /> YouTube
       </a>
       <a 
-        href="https://t.me/marketgodsignals" 
+        href="https://www.youtube.com/@marketgodcommunity" 
         target="_blank" 
         rel="noopener"
         className="flex items-center gap-2 px-4 py-2 bg-cyan-600/10 backdrop-blur-sm rounded-full text-cyan-400 text-sm font-medium hover:bg-cyan-600/20 transition"
@@ -85,7 +84,7 @@ const Blog: React.FC = () => {
         <Send size={18} /> Telegram
       </a>
       <a 
-        href="https://instagram.com/marketgod" 
+        href="https://www.instagram.com/eyram_dela" 
         target="_blank" 
         rel="noopener"
         className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600/10 backdrop-blur-sm rounded-full text-mg-paper text-sm font-medium hover:from-purple-600/20 hover:to-pink-600/20 transition"
@@ -110,7 +109,7 @@ const Blog: React.FC = () => {
             title: "Mentorship Slots Are Open! Lock In With Eyram Dela",
             description: "Online mentorship with 1-year access, sniper entry strategy, live trading, signals, risk management & more. First 5 get a discount!",
             image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/mentorhip_card_ynedl1.jpg",
-            link: "/academy",
+            link: "https://t.me/delatrades",
           }}
         />
 
@@ -185,7 +184,6 @@ const Blog: React.FC = () => {
         {/* Testimonials + FAQ */}
         <Testimonials />
         <FAQ />
-        <FAQCTA />
       </div>
     </main>
     </>

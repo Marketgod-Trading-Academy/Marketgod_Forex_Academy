@@ -30,7 +30,7 @@ const Services = () => {
         "Personal trade reviews",
       ],
       cta: "Join Mentorship",
-      href: "#mentorship",
+      href: "plans/#pricing-plans",
     },
     {
       number: "02",
@@ -43,7 +43,7 @@ const Services = () => {
         "London & NY session focus",
       ],
       cta: "Get VIP Signals",
-      href: "#signals",
+      href: "plans/#signals",
     },
     {
       number: "03",
@@ -56,7 +56,7 @@ const Services = () => {
         "Interactive market breakdowns",
       ],
       cta: "View Events",
-      href: "#events",
+      href: "#webinars",
     },
     {
       number: "04",
@@ -69,7 +69,7 @@ const Services = () => {
         "Ghanaian success stories",
       ],
       cta: "Join Community",
-      href: "#community",
+      href: "https://t.me/marketgodcommunity",
     },
   ];
 

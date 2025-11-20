@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Twitter, Instagram, YoutubeIcon, Send } from "lucide-react";
 
 const FAQCTA = () => {
   const { theme } = useTheme();
 
   const socials = [
-    { icon: <Facebook size={20} />, href: "https://facebook.com" },
-    { icon: <Twitter size={20} />, href: "https://twitter.com" },
-    { icon: <Instagram size={20} />, href: "https://instagram.com" },
-    { icon: <Linkedin size={20} />, href: "https://linkedin.com" },
+    { icon: <Send size={20} />, href: "https://t.me/marketgodcommunity" },
+    { icon: <Facebook size={20} />, href: "https://web.facebook.com/eyram.akpey" },
+    { icon: <Twitter size={20} />, href: "https://x.com/eyramdela" },
+    { icon: <Instagram size={20} />, href: "https://x.com/eyramdela " },
+    { icon: <YoutubeIcon size={20} />, href: "https://www.youtube.com/@marketgodcommunity" },
   ];
 
   return (

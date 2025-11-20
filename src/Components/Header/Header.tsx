@@ -171,7 +171,7 @@ const Header = () => {
 
         <div className="flex items-center gap-4">
           <motion.a
-            href="plans"
+            href="/plans"
             className="relative overflow-hidden bg-mg-gold text-mg-black px-6 py-2.5 rounded-full font-bold uppercase tracking-wide text-xs flex items-center gap-2 shadow-lg"
             style={{
               scale: pulse,

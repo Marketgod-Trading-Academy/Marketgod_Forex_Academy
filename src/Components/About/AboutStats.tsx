@@ -10,7 +10,7 @@ const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const AnimatedCounter = ({ to, _isDark }: { to: number; isDark: boolean }) => {
+const AnimatedCounter = ({ to, _isDark }: { to: number; _isDark: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
 

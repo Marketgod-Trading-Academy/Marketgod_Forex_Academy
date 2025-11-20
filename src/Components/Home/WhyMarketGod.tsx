@@ -89,7 +89,7 @@ const WhyMarketGod = () => {
         </motion.p>
 
         <motion.a
-          href="#plans"
+          href="https://t.me/delatrades"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="inline-flex items-center gap-3 mt-10 px-10 py-4 rounded-full bg-yellow-500 text-black font-bold shadow-lg hover:shadow-yellow-400/40 transition-all"

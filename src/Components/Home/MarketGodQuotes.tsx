@@ -81,6 +81,40 @@ const MarketGodQuotes = () => {
   return (
     <section className="relative py-20 bg-gradient-to-b from-transparent to-mg-gold/5 overflow-hidden">
       <div className="max-w-5xl mx-auto px-6">
+        import { motion } from "framer-motion";
+
+<div className="text-center mb-16 max-w-3xl mx-auto">
+  {/* Title */}
+  <motion.h2
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    viewport={{ once: true }}
+    className="text-3xl md:text-4xl font-bold tracking-tight text-mg-gold relative inline-block pb-3"
+  >
+    Wisdom That Shapes Traders
+
+    {/* Golden underline */}
+    <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-16 h-1 bg-gradient-to-r from-mg-gold to-mg-gold/40 rounded-full"></span>
+  </motion.h2>
+
+  {/* Description */}
+  <motion.p
+    initial={{ opacity: 0, y: 15 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+    viewport={{ once: true }}
+    className={`mt-4 text-base md:text-lg leading-relaxed ${
+      theme === "light"
+        ? "text-mg-light-textSecondary"
+        : "text-mg-paper/70"
+    }`}
+  >
+    Insights, principles, and trading philosophy from the MarketGod Academy —
+    crafted to guide you toward discipline, consistency, and mastery in the markets.
+  </motion.p>
+</div>
+
         <div className="relative flex flex-col md:flex-row items-center bg-white/90 dark:bg-mg-dark-bg/80 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden">
           {/* Left: Author Image */}
           <div className="md:w-1/3 w-full flex justify-center md:justify-start p-6">

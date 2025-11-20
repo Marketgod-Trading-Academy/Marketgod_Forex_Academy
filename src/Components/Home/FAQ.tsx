@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { ChevronDown, ChevronUp, TrendingUp } from "lucide-react";
 import { useSwipeable } from "react-swipeable";
+import FAQCTA from "./MarketGodFAQSection";
 const faqIllustration = "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/SnapInsta.to_475913101_18485769337003421_2628299053802728044_n_or0wbw.jpg"; // replace with your image
 
 interface FAQItem {
@@ -50,6 +51,7 @@ const FAQ: React.FC = () => {
   });
 
   return (
+    <>
     <section
       className={`py-20 px-6 md:px-12 ${
         theme === "light" ? "bg-mg-light-bg" : "bg-mg-dark-bg"
@@ -154,18 +156,20 @@ const FAQ: React.FC = () => {
             className="mt-8 flex justify-center lg:justify-start"
           >
             <motion.a
-              href="#plans"
+              href="/https://t.me/marketgodcommunity"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-3 px-8 py-4 bg-mg-gold text-mg-black rounded-full font-bold uppercase tracking-wide shadow-xl"
             >
-              Join MarketGod Academy
+              Join MarketGod Community
               <TrendingUp size={20} />
             </motion.a>
           </motion.div>
         </div>
       </div>
     </section>
+    <div id="faq-cta"><FAQCTA /></div>
+    </>
   );
 };
 

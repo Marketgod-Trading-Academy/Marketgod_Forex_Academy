@@ -57,8 +57,8 @@ const slides: Slide[] = [
       </>
     ),
     ctas: [
-      { label: "Join Academy Now", icon: <ArrowRight size={18} />, href: "#plans", primary: true },
-      { label: "View Live Signals", icon: <TrendingUp size={18} />, href: "#signals" },
+      { label: "Join Academy Now", icon: <ArrowRight size={18} />, href: "plans#pricing-plans", primary: true },
+      { label: "View Live Signals", icon: <TrendingUp size={18} />, href: "https://t.me/marketgodcommunity" },
     ],
   },
   {
@@ -78,8 +78,8 @@ const slides: Slide[] = [
       </>
     ),
     ctas: [
-      { label: "Start Learning", icon: <BookOpen size={18} />, href: "#courses", primary: true },
-      { label: "Meet Mentors", icon: <GraduationCap size={18} />, href: "#mentors" },
+      { label: "Start Learning", icon: <BookOpen size={18} />, href: "plans#pricing-plans", primary: true },
+      { label: "Meet Mentors", icon: <GraduationCap size={18} />, href: "/about" },
     ],
   },
   {
@@ -99,8 +99,8 @@ const slides: Slide[] = [
       </>
     ),
     ctas: [
-      { label: "Join Now", icon: <ArrowRight size={18} />, href: "#academy", primary: true },
-      { label: "See Pricing", icon: <TrendingUp size={18} />, href: "#plans" },
+      { label: "Join Now", icon: <ArrowRight size={18} />, href: "/plans/#pricing-plans", primary: true },
+      { label: "See Pricing", icon: <TrendingUp size={18} />, href: "/plans#pricing-plans" },
     ],
   },
 ];
@@ -234,6 +234,7 @@ const handleDragEnd = (
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
                   {currentSlide.ctas.map((cta, i) => (
                     <motion.a
+                    
                       key={i}
                       href={cta.href}
                       whileHover={{ scale: 1.05 }}

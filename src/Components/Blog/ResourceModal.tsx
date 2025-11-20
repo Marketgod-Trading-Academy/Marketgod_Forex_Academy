@@ -594,7 +594,7 @@ const StructuredData = ({ resource }: { resource: Resource }) => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
               <a
-                href="https://t.me/marketgodsignals"
+                href="https://t.me/livetradewithmarketgodbot"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-mg-green text-white font-black rounded-full shadow-xl hover:shadow-mg-green/40 hover:scale-105 transition-all text-lg"
@@ -602,7 +602,7 @@ const StructuredData = ({ resource }: { resource: Resource }) => {
                 Join VIP Signals
               </a>
               <a
-                href="/academy"
+                href="https://t.me/delatrades"
                 className={`px-8 py-4 border-2 font-black rounded-full transition-all hover:scale-105
                   ${isDark 
                     ? "border-mg-gold text-mg-gold hover:bg-mg-gold/10" 

@@ -100,10 +100,10 @@ export default function JoinCommunity3D() {
 
   const links = useMemo(
     () => [
-      { name: "Telegram", href: "https://t.me/MarketGodAcademy", icon: <Send /> },
-      { name: "Instagram", href: "https://instagram.com/marketgodacademy", icon: <Instagram /> },
-      { name: "YouTube", href: "https://youtube.com/MarketGodAcademy", icon: <Youtube /> },
-      { name: "Twitter (X)", href: "https://x.com/MarketGodAcademy", icon: <Twitter /> },
+      { name: "Telegram", href: "https://t.me/marketgodcommunityy", icon: <Send /> },
+      { name: "Instagram", href: "https://www.instagram.com/eyram_dela", icon: <Instagram /> },
+      { name: "YouTube", href: "https://www.youtube.com/@marketgodcommunity", icon: <Youtube /> },
+      { name: "Twitter (X)", href: "https://x.com/eyramdela ", icon: <Twitter /> },
     ],
     []
   );
@@ -204,7 +204,7 @@ export default function JoinCommunity3D() {
         </div>
       </div>
 
-      <CommunityModal open={open} onClose={() => setOpen(false)} links={links} />
+      <CommunityModal open={open} onClose={() => setOpen(false)}  />
     </section>
   );
 }

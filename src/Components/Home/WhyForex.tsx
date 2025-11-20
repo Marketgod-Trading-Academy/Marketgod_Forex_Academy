@@ -108,7 +108,7 @@ const WhyForex = () => {
           </p>
 
           <motion.a
-            href="#plans"
+            href="plans"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
             className="inline-flex items-center gap-3 px-8 py-4 bg-mg-gold text-mg-black rounded-full font-bold uppercase tracking-wide shadow-gold-glow hover:shadow-gold-glow-lg transition"
