@@ -1,6 +1,5 @@
 // src/Components/Shared/SEO.tsx
 import React from "react";
-import { Helmet } from "react-helmet";
 
 interface SEOProps {
   title: string;
@@ -40,10 +39,10 @@ const SEO: React.FC<SEOProps> = ({ title, description, url, image, type = "websi
   } : null;
 
   return (
-    <Helmet>
+    <>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={url} />
+      {url && <link rel="canonical" href={url} />}
       <meta name="robots" content="index, follow" />
 
       <meta property="og:type" content={type} />
@@ -58,9 +57,9 @@ const SEO: React.FC<SEOProps> = ({ title, description, url, image, type = "websi
       <meta name="twitter:description" content={description} />
       {image && <meta name="twitter:image" content={image} />}
 
-      <script type="application/ld+json">{JSON.stringify(structuredDataOrg)}</script>
-      {structuredDataArticle && <script type="application/ld+json">{JSON.stringify(structuredDataArticle)}</script>}
-    </Helmet>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredDataOrg) }} />
+      {structuredDataArticle && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredDataArticle) }} />}
+    </>
   );
 };
 
