@@ -73,10 +73,10 @@ const PlansHeroCarousel: React.FC = () => {
 
               {/* Content */}
               <div className="relative z-10 max-w-3xl mx-auto">
-                <h1 className={`text-3xl md:text-4xl font-black mb-4 tracking-tight ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+                <h1 className={`text-3xl md:text-4xl font-black mb-4 tracking-tight text-mg-gold`}>
                   {slide.title}
                 </h1>
-                <p className={`text-base md:text-lg mb-6 ${isDark ? "text-mg-paper/80" : "text-mg-charcoal/80"}`}>
+                <p className={`text-base md:text-lg mb-6 text-mg-paper }`}>
                   {slide.subtitle}
                 </p>
                 <div className="flex flex-col md:flex-row justify-center gap-4">

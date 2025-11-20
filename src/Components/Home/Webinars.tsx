@@ -33,17 +33,18 @@ const Webinars = () => {
        triggerPopup: true,
     },
     {
-      type: "Free Physical Seminar",
-      title: "Accra Live Trading Day",
-      date: "Occasional In-Person Events (Accra)",
-      desc: "We host powerful in-person trading days in Accra — live trading, networking, and free lunch.",
-      topics: ["Live market execution", "Trader meetups", "Strategy reviews"],
-      price: "Free",
-      join: "Get Notified",
-      href: "#",
-      icon: MapPin,
-      triggerPopup: true,
-    },
+  type: "Free Physical Seminar",
+  title: "Live Trading Experience Day",
+  date: "Occasional In-Person Events (Global)",
+  desc: "We host exclusive in-person trading experience days across different cities — live market execution, networking, mentorship, and intensive strategy reviews.",
+  topics: ["Live market execution", "Trader networking", "Strategy reviews"],
+  price: "Free",
+  join: "Get Notified",
+  href: "#",
+  icon: MapPin,
+  triggerPopup: true,
+}
+
   ];
 
   const socials = [
@@ -150,19 +151,32 @@ const Webinars = () => {
                     : "text-white/70"}`}>{event.join}</p>
                 </div>
 
-                <motion.button
-                
-                  onClick={() => event.triggerPopup && setShowPopup(true)}
-                  whileHover={{ scale: 1.05 }}
-                  className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wide transition-all w-full justify-center ${
-                    event.price === "Free"
-                      ? "bg-yellow-500 text-black"
-                      : "border-2 border-yellow-500 text-yellow-400 hover:bg-yellow-500/10"
-                  }`}
-                >
-                  {event.price === "Free" ? "Register Free" : "Book Now"}
-                  <ArrowRight size={18} />
-                </motion.button>
+               {/* CTA Button */}
+{event.triggerPopup ? (
+  <motion.button
+    onClick={() => setShowPopup(true)}
+    whileHover={{ scale: 1.05 }}
+    className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wide transition-all w-full justify-center ${
+      event.price === "Free"
+        ? "bg-yellow-500 text-black"
+        : "border-2 border-yellow-500 text-yellow-400 hover:bg-yellow-500/10"
+    }`}
+  >
+    {event.price === "Free" ? "Register Free" : "Book Now"}
+    <ArrowRight size={18} />
+  </motion.button>
+) : (
+  <a
+    href={event.href}
+    target="_blank"
+    rel="noreferrer"
+    className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wide transition-all w-full justify-center bg-yellow-500 text-black"
+  >
+    Join Now
+    <ArrowRight size={18} />
+  </a>
+)}
+
               </motion.div>
             ))}
           </div>

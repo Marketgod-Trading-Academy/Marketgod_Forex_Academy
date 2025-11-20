@@ -4,10 +4,9 @@ import { useTheme } from "../../context/ThemeContext";
 
 const partnerLogos = [
   { name: "Exness", src: "/exness-logo.png", link: "https://www.exness.com/" },
-  { name: "Investopedia", src: "/investopedia-logo.png", link: "https://www.investopedia.com/" },
-  { name: "Bloomberg", src: "/bloomberg-logo.png", link: "https://www.bloomberg.com/" },
-  { name: "Forbes", src: "/forbes-logo.png", link: "https://www.forbes.com/" },
-  { name: "Yahoo Finance", src: "/yahoo-finance-logo.png", link: "https://finance.yahoo.com/" },
+  { name: "FundingPips", src: "/fundingPips.png", link: "https://app.fundingpips.com/en/register?ref=515657bd" },
+  { name: "Pay4Sub", src: "/pay4sub.png", link: "https://www.pay4sub.com/b/marketgod?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnUlAn8ZqJhpqWhqMTOvcOkhXVEkSWwRmzOArxHeyewDhqbbOekVgwJ4Pp-MQ_aem_-_gHFiBGo7GPY6D-lg_e-g" },
+ 
 ];
 
 const FeaturedIn = () => {

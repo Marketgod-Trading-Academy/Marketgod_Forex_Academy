@@ -14,39 +14,39 @@ interface Quote {
 const quotes: Quote[] = [
   {
     text: "Discipline is the bridge between goals and achievement.",
-    name: "Eugene Afriyie",
-    role: "Founder, MarketGod Academy",
-    img: "/authors/eugene.png",
+    img :"https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522352/SnapInsta.to_511469271_18512807728003421_2788928110292631837_n_shzro3.jpg",
+    name : "Eyram Dela - The MarketGod",
+    role: "Founder, MarketGod Academy"
   },
   {
     text: "Patience and consistency beat emotions and impulsiveness.",
-    name: "MarketGod Mentor",
     role: "Senior Mentor",
-    img: "/authors/mentor1.png",
+    name: "Reuben Donasei",
+    img:"https://res.cloudinary.com/dzqdfaghg/image/upload/v1763528538/55805e4a-88cd-4d12-ba4f-67e5bb9b119d.png",
   },
   {
     text: "Trade with a plan, not a hope.",
-    name: "Eugene Afriyie",
     role: "Founder, MarketGod Academy",
-    img: "/authors/eugene.png",
+      img :"https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522352/SnapInsta.to_511469271_18512807728003421_2788928110292631837_n_shzro3.jpg",
+    name : "Eyram Dela - The MarketGod",
   },
   {
     text: "Every loss is a lesson. Every win is confirmation.",
-    name: "MarketGod Mentor",
-    role: "Mentor",
-    img: "/authors/mentor2.png",
+   role: "Founder, MarketGod Academy",
+      img :"https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522352/SnapInsta.to_511469271_18512807728003421_2788928110292631837_n_shzro3.jpg",
+    name : "Eyram Dela - The MarketGod",
   },
   {
     text: "Risk management is the difference between success and failure.",
-    name: "Eugene Afriyie",
-    role: "Founder, MarketGod Academy",
-    img: "/authors/eugene.png",
+     role: "Founder, MarketGod Academy",
+      img :"https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522352/SnapInsta.to_511469271_18512807728003421_2788928110292631837_n_shzro3.jpg",
+    name : "Eyram Dela - The MarketGod",
   },
   {
     text: "Consistency compounds like interest. Trade smart, not often.",
-    name: "Senior Trader",
-    role: "MarketGod Academy",
-    img: "/authors/trader1.png",
+    role: "Founder, MarketGod Academy",
+      img :"https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522352/SnapInsta.to_511469271_18512807728003421_2788928110292631837_n_shzro3.jpg",
+    name : "Eyram Dela - The MarketGod",
   },
 ];
 
@@ -81,7 +81,6 @@ const MarketGodQuotes = () => {
   return (
     <section className="relative py-20 bg-gradient-to-b from-transparent to-mg-gold/5 overflow-hidden">
       <div className="max-w-5xl mx-auto px-6">
-        import { motion } from "framer-motion";
 
 <div className="text-center mb-16 max-w-3xl mx-auto">
   {/* Title */}

@@ -292,7 +292,7 @@ const AboutVisionMissionValues: React.FC = () => {
 
 
               {fullStory.map((item, i) => (
-                <div key={i} className="mb-16 last:mb-0 mt-9 md-mt-0">
+                <div key={i} className="mb-16 last:mb-0 mt-9 md-mt-0 text-mg-paper">
                   <h3 className="text-3xl md:text-4xl font-black text-mg-gold mb-6 text-center">{item.title}</h3>
                   <img src={item.image} loading="lazy" alt={item.title} className="w-full h-80 object-cover rounded-3xl shadow-xl mb-8" />
                   <div className={`prose prose-lg max-w-none ${isDark ? "prose-invert" : ""}`} dangerouslySetInnerHTML={{ __html: item.body }} />

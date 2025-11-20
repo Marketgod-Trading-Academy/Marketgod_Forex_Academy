@@ -11,20 +11,18 @@ const AnnouncementPopup: React.FC = () => {
 
   useEffect(() => {
     const hasSeenPopup = sessionStorage.getItem('hasSeenVipPopup');
-    
+
     const timer = setTimeout(() => {
       if (!hasSeenPopup) {
         setIsOpen(true);
         sessionStorage.setItem('hasSeenVipPopup', 'true');
       }
-    }, 3500); // Show popup after 3.5 seconds
+    }, 3500);
 
     return () => clearTimeout(timer);
   }, []);
 
-  const handleClose = () => {
-    setIsOpen(false);
-  };
+  const handleClose = () => setIsOpen(false);
 
   return (
     <AnimatePresence>
@@ -40,49 +38,93 @@ const AnnouncementPopup: React.FC = () => {
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             onClick={(e) => e.stopPropagation()}
             className={`relative max-w-lg w-full rounded-3xl border-2 shadow-2xl overflow-hidden
-              ${isDark 
-                ? "bg-gradient-to-br from-mg-charcoal via-mg-black to-mg-black border-mg-gold/40" 
-                : "bg-white border-mg-green/30"
+              ${
+                isDark
+                  ? 'bg-gradient-to-br from-mg-charcoal via-mg-black to-mg-black border-mg-gold/40'
+                  : 'bg-white border-mg-green/30'
               }`}
           >
-            {/* Header */}
-            <div className={`p-6 text-center border-b ${isDark ? "border-mg-gold/20" : "border-gray-200"}`}>
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-mg-green/10 flex items-center justify-center border-2 border-mg-green">
-                <Gift size={32} className="text-mg-green" />
-              </div>
-              <h2 className={`text-2xl font-black ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
-                🚨 BAD NEWS & GOOD NEWS! 🚨
+            {/* FULL-WIDTH DUMMY IMAGE */}
+            <div className="w-full h-40 sm:h-48 md:h-52 overflow-hidden">
+              <img
+              src="https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522352/SnapInsta.to_511469271_18512807728003421_2788928110292631837_n_shzro3.jpg"
+                alt="MarketGod VIP Dummy"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* HEADER */}
+            <div
+              className={`p-6 text-center border-b ${
+                isDark ? 'border-mg-gold/20' : 'border-gray-200'
+              }`}
+            >
+              <h2
+                className={`text-xl sm:text-2xl font-black leading-tight ${
+                  isDark ? 'text-mg-gold' : 'text-mg-charcoal'
+                }`}
+              >
+                Do you know you can{' '}
+                <span className="text-mg-green">trade with MarketGod for FREE</span>?
               </h2>
             </div>
 
-            {/* Body */}
-            <div className="p-8 space-y-4 text-sm">
-              <p className={`${isDark ? "text-mg-paper/80" : "text-mg-charcoal/80"}`}>
-                ❌ <span className="font-bold">Bad news:</span> I’m officially closing down GOLD INNER CIRCLE!
-              </p>
-              <p className={`${isDark ? "text-mg-paper/80" : "text-mg-charcoal/80"}`}>
-                ✅ <span className="font-bold text-mg-green">Good news:</span> I’m opening <span className="font-bold">FREE VIP SLOTS</span> till the end of the year!
+            {/* BODY */}
+            <div className="p-2 space-y-0 text-sm sm:text-base">
+              <p
+                className={`${
+                  isDark ? 'text-mg-paper/80' : 'text-mg-charcoal/80'
+                }`}
+              >
+                VIP access is now open to everyone — no subscription required.
               </p>
 
-              <div className={`p-4 rounded-lg border ${isDark ? "bg-mg-black/40 border-mg-gold/20" : "bg-gray-50 border-gray-200"}`}>
-                <p className={`font-bold ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>All you need to do is:</p>
-                <p className={`${isDark ? "text-mg-paper/80" : "text-mg-charcoal/80"}`}>
-                  👉 Go to <a href="https://t.me/livetradewithmarketgodbot" target="_blank" rel="noopener noreferrer" className="text-mg-green font-bold underline">@livetradewithmarketgodbot</a>
+              <div
+                className={`p-4 rounded-lg border ${
+                  isDark
+                    ? 'bg-mg-black/40 border-mg-gold/20'
+                    : 'bg-gray-50 border-gray-200'
+                }`}
+              >
+                <p
+                  className={`font-bold ${
+                    isDark ? 'text-mg-paper' : 'text-mg-charcoal'
+                  }`}
+                >
+                  🎁 Join FREE VIP:
                 </p>
-                <p className={`${isDark ? "text-mg-paper/80" : "text-mg-charcoal/80"}`}>
-                  👉 Follow the simple instructions and join — it’s completely FREE!
-                </p>
+
+                <a
+                  href="https://t.me/livetradewithmarketgodbot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-mg-green font-bold underline block mt-1"
+                >
+                  @livetradewithmarketgodbot
+                </a>
               </div>
 
-              <p className={`text-xs italic ${isDark ? "text-mg-paper/60" : "text-mg-charcoal/60"}`}>
-                ⚠️ Just make sure your trading account is funded with at least $50, so you don’t miss out on the life-changing moves we’re about to catch together!
+              <p
+                className={`${
+                  isDark ? 'text-mg-paper/80' : 'text-mg-charcoal/80'
+                }`}
+              >
+                Receive live signals, breakdowns, mentorship, and market guidance.
+              </p>
+
+              <p
+                className={`text-xs italic ${
+                  isDark ? 'text-mg-paper/60' : 'text-mg-charcoal/60'
+                }`}
+              >
+                ⚠️ Fund at least $50 to take trades effectively.
               </p>
             </div>
 
-            {/* Footer / CTA */}
+            {/* CTA */}
             <div className="p-6 border-t bg-black/10">
               <a
                 href="https://t.me/livetradewithmarketgodbot"
@@ -95,15 +137,20 @@ const AnnouncementPopup: React.FC = () => {
               </a>
             </div>
 
-            {/* Close Button */}
-            <button
-              onClick={handleClose}
-              className={`absolute top-4 right-4 p-2 rounded-full transition-colors
-                ${isDark ? "text-mg-paper/50 hover:bg-mg-gold/10 hover:text-mg-paper" : "text-mg-charcoal/50 hover:bg-gray-200 hover:text-mg-charcoal"}`}
-              aria-label="Close popup"
-            >
-              <X size={24} />
-            </button>
+            {/* CLOSE BUTTON */}
+           {/* CLOSE BUTTON */}
+          <button
+            onClick={handleClose}
+            className={`absolute top-4 right-4 p-2 rounded-full bg-black/40 backdrop-blur-sm transition-colors
+              ${isDark
+                ? 'text-mg-gold hover:bg-mg-gold/20 hover:text-mg-black'
+                : 'text-white hover:bg-gray-200 hover:text-mg-charcoal'
+              }`}
+            aria-label="Close popup"
+          >
+            <X size={24} />
+          </button>
+
           </motion.div>
         </motion.div>
       )}
