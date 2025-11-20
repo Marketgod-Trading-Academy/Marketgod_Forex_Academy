@@ -1,7 +1,7 @@
 // src/components/Shared/AnnouncementPopup.tsx
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Zap, Gift } from 'lucide-react';
+import { X, Zap } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
 const AnnouncementPopup: React.FC = () => {

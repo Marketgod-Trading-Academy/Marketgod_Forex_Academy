@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 import { Instagram, Send, Twitter, X, Youtube } from "lucide-react";
 
-type LinkItem = { name: string; href: string; icon: React.ReactNode; subtitle?: string };
+type LinkItem = { name: string; href: string; icon: React.ReactNode; subtitle?: string; };
 
-const links =  [
+const links: LinkItem[] =  [
       { name: "Telegram", href: "https://t.me/marketgodcommunityy", icon: <Send /> },
       { name: "Instagram", href: "https://www.instagram.com/eyram_dela", icon: <Instagram /> },
       { name: "YouTube", href: "https://www.youtube.com/@marketgodcommunity", icon: <Youtube /> },
       { name: "Twitter (X)", href: "https://x.com/eyramdela ", icon: <Twitter /> },
-    ];
+];
 
 
 
@@ -20,7 +20,6 @@ export default function CommunityModal({
 }: {
   open: boolean;
   onClose: () => void;
-  links: LinkItem[];
 }) {
   if (!open) return null;
 

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Sun, Moon, Menu, Home, Info, Layers, BookOpen, Phone } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
 import {
   motion,
@@ -7,15 +8,15 @@ import {
   useTransform,
   useSpring,
 } from "framer-motion";
-import MobileMenuDrawer from "../MobileMenuDrawer/MobileMenuDrawer";
+import Drawer from "../MobileMenuDrawer/MobileMenuDrawer";
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const [lastY, setLastY] = useState(0);
-  const [activeSection, setActiveSection] = useState("home");
 
   const { scrollY } = useScroll();
   const headerHeight = useTransform(scrollY, [0, 120], [84, 64]);
@@ -39,23 +40,6 @@ const Header = () => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, [lastY]);
-
-  useEffect(() => {
-    const sections = ["home", "about", "plans", "blog", "contact"];
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActiveSection(e.target.id);
-        });
-      },
-      { rootMargin: "-20% 0px -70% 0px" }
-    );
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) obs.observe(el);
-    });
-    return () => obs.disconnect();
-  }, []);
 
   const navLinks = [
     { name: "Home", icon: <Home size={22} />, id: "/" },
@@ -92,7 +76,7 @@ const Header = () => {
         <a href="home" className="flex items-center gap-3 group">
           <div className="relative bg-black rounded-full">
             <img
-              src="/logo.png"
+              src="/logo-2.png"
               alt="MarketGod"
               className={`
                 w-12 h-12 rounded-full object-cover border-2 
@@ -274,12 +258,14 @@ const Header = () => {
         </button>
       </motion.nav>
 
-      <MobileMenuDrawer
+<Drawer
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
-        navLinks={navLinks.map((l) => ({ name: l.name, href: `${l.id}` }))}
-        active={activeSection}
+        navLinks={navLinks.map(l => ({ name: l.name, href: l.id }))}
+        active={location.pathname}
       />
+
+
     </>
   );
 };

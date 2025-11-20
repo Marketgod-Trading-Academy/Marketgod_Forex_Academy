@@ -30,7 +30,7 @@ const FAQCTA = () => {
         </p>
 
         <motion.a
-          href="#contact"
+          href="contact"
           whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
           whileTap={{ scale: 0.95 }}
           className="inline-flex items-center gap-2 mt-4 px-6 py-3 bg-mg-gold text-mg-black rounded-full font-bold uppercase tracking-wide shadow-lg"

@@ -25,8 +25,7 @@ import JoinCommunity from "../Components/Home/JoinCommunity";
 import FAQ from "../Components/Home/FAQ";
 import SeminarHighlight from "../Components/Home/SeminarHighlight";
 import AboutMentor from "../Components/Home/AboutMentor";
-import PlansNavFloating from "../Components/Plans/PlansNav";
-import SEO from "../Components/About/SEO";
+import PlansNavFloating from "../Components/Plans/PlansNav"; 
 
 
 const homeSections = [
@@ -55,23 +54,16 @@ const Home = () => {
 
   return (
    <>
-     <SEO
-        title="MarketGod Academy | Master Forex Trading with Eyram Dela"
-        description="Join MarketGod Academy to learn Forex trading from Eyram Dela. Access our Sniper Strategy, VIP signals, and a community of 10,000+ traders. Built for traders who want to win."
-        imageUrl="https://images.unsplash.com/photo-1642543348745-03b1219c3664?auto=format&fit=crop&w=1200&q=80" // A relevant hero image
-      />
+     
     <div className={`min-h-screen transition-colors duration-300 ${theme === "light" ? "bg-mg-light-bg" : "bg-mg-dark-bg"}`}>
       
       {/* Section Navigation */}
         {/* Section Navigation */}
        
-      {/* Sticky Navigation */}
-      <div className="hidden md:block sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-md">
-    <PlansNavFloating sections={homeSections} />
-  </div>
+  
 
         {/* Mobile Dropdown Nav */}
-        <div className="md:hidden sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-md">
+        <div className=" sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-md">
           <PlansNavFloating sections={homeSections}  />
         </div>
 

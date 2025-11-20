@@ -90,7 +90,7 @@ export default function MarketGodSupportTicketModal({
         clearCooldown();
         return;
       }
-      const h = Math.floor(remaining / (1000 * 60 * 60));
+      const h = Math.floor(remaining / (1000 * 60 * 60 * 3 ));
       const m = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
       const s = Math.floor((remaining % (1000 * 60)) / 1000);
       setRemainingTime(`${h}h ${m}m ${s}s`);

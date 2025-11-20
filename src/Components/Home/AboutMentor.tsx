@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import CommunityModal from "./CommunityModal";
 
-const AnimatedCounter = ({ to, isDark }: { to: number; isDark: boolean }) => {
+const AnimatedCounter = ({ to }: { to: number }) => {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
 
@@ -90,7 +90,8 @@ const AboutMentor = () => {
           {/* Image */}
           <motion.div className="order-2 md:order-1" variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} transition={{ duration: 0.7 }}>
             <img
-              src="https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522352/SnapInsta.to_511469271_18512807728003421_2788928110292631837_n_shzro3.jpg"
+              src="const AnimatedCounter = ({ to }: { to: number }) => {
+              https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522352/SnapInsta.to_511469271_18512807728003421_2788928110292631837_n_shzro3.jpg"
               alt="Eyram Dela - The MarketGod"
               className="w-full h-96 object-cover rounded-3xl shadow-2xl border-4 border-mg-gold/30"
             />
@@ -231,7 +232,7 @@ const AboutMentor = () => {
               </div>
               <div className={`text-3xl md:text-4xl font-black mb-1 ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
                 {typeof stat.value === 'number' ? (
-                  <><AnimatedCounter to={stat.value} isDark={isDark} />{stat.suffix}</>
+                  <><AnimatedCounter to={stat.value} />{stat.suffix}</>
                 ) : (
                   stat.value
                 )}
@@ -245,7 +246,7 @@ const AboutMentor = () => {
       </div>
     </section>
 
-         <CommunityModal open={open} onClose={() => setOpen(false)}  />
+         <CommunityModal open={open} onClose={() => setOpen(false)} />
    
     </>
 

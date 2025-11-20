@@ -1,19 +1,26 @@
-// src/App.tsx
+import { useLocation } from "react-router-dom";
+import { useTheme } from "./context/ThemeContext";
+import Header from "./Components/Header/Header";
+import AnnouncementPopup from "./Components/Plans/AnnouncementPopup";
+
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // COMPONENTS
-import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 
 // PAGES
 import Home from "./Pages/Home";
-import { useTheme } from "./context/ThemeContext";
 import Plans from "./Pages/Plans";
 import Blog from "./Pages/Blog";
 import Contact from "./Pages/Contact";
 import NotFound from "./Pages/NotFound";
 import About from "./Pages/About";
-import AnnouncementPopup from "./Components/Plans/AnnouncementPopup";
+import { SEOData } from "./Components/SEO/SEOData";
+import BlogPostPage from "./Components/Blog/BlogPostPage";
+import { getBlogSEO } from "./Components/SEO/SEOData";
+import SEO from "./Components/SEO/SEO";
+
 
 
 function App() {
@@ -28,17 +35,23 @@ function App() {
 
 const AppContent = () => {
   const { theme } = useTheme();
+  const location = useLocation();
+
+
+  let seo;
+  if (location.pathname.startsWith("/blog/")) {
+    const slug = location.pathname.split("/blog/")[1];
+    seo = getBlogSEO(slug) || SEOData["/blog"];
+  } else {
+    seo = SEOData[location.pathname] || SEOData["/"];
+  }
 
   return (
-    <div
-      className={`min-h-screen flex flex-col transition-colors duration-300 ${
-        theme === "light" ? "bg-mg-light-b" : "bg-mg-dark-bg"
-      }`}
-    >
+    <div className={`min-h-screen flex flex-col ${theme === "light" ? "bg-mg-light-b" : "bg-mg-dark-bg"}`}>
+      <SEO {...seo} />
       <Header />
-
       <main className="flex-1">
-            <AnnouncementPopup />
+        <AnnouncementPopup />
         <Routes>
           {/* HOME */}
           <Route path="/" element={<Home />} />
@@ -51,7 +64,7 @@ const AppContent = () => {
 
           {/* BLOG */}
           <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
 
           {/* CONTACT */}
           <Route path="/contact" element={<Contact />} />
@@ -60,10 +73,10 @@ const AppContent = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-
       <Footer />
     </div>
   );
 };
+
 
 export default App;

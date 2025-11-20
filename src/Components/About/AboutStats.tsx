@@ -10,7 +10,7 @@ const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const AnimatedCounter = ({ to, _isDark }: { to: number; _isDark: boolean }) => {
+const AnimatedCounter = ({ to }: { to: number }) => {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
 
@@ -102,7 +102,7 @@ const AboutStats = () => {
 
                 <div className={`text-4xl md:text-6xl font-black text-center mb-2 ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
                   {typeof stat.value === 'number' ? (
-                    <><AnimatedCounter to={stat.value} isDark={isDark} />{stat.suffix}</>
+                    <><AnimatedCounter to={stat.value} />{stat.suffix}</>
                   ) : (
                     stat.value
                   )}
@@ -150,7 +150,7 @@ const AboutStats = () => {
             >
               {social.icon}
               <div className="text-center">
-                <AnimatedCounter to={social.followers} isDark={isDark} />
+                <AnimatedCounter to={social.followers}  />
                 <p className={`text-xs font-medium uppercase tracking-wider ${isDark ? "text-mg-paper/50" : "text-mg-charcoal/50"}`}>
                   {social.name}
                 </p>

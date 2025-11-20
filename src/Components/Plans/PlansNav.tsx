@@ -29,7 +29,7 @@ const PlansNavFloating: React.FC<PlansNavFloatingProps> = ({ sections }) => {
     <>
       {/* Desktop floating box */}
       <motion.div
-        className="hidden md:flex fixed top-24 right-6 z-40 bg-white/90 dark:bg-mg-charcoal/90 backdrop-blur-md rounded-xl shadow-lg border border-mg-gold/30 px-4 py-2 flex-col gap-2"
+        className="hidden md:lex fixed top-24 right-6 z-40 bg-white/90 dark:bg-mg-charcoal/90 backdrop-blur-md rounded-xl shadow-lg border border-mg-gold/30 px-4 py-2 flex-col gap-2"
         initial={{ x: 50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 120, damping: 20 }}
@@ -46,10 +46,10 @@ const PlansNavFloating: React.FC<PlansNavFloatingProps> = ({ sections }) => {
       </motion.div>
 
       {/* Mobile circular button */}
-      <div className="md:hidden fixed top-20 right-4 z-40">
+      <div className="md:hidde fixed top-20 right-4 z-40">
         <button
           onClick={() => setOpen(!open)}
-          className="w-14 h-14 rounded-full bg-mg-gold text-white flex items-center justify-center shadow-xl hover:bg-mg-green transition-all"
+          className="w-10 h-10 rounded-full bg-mg-gold text-white flex items-center justify-center shadow-xl hover:bg-mg-green transition-all"
         >
           {open ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
         </button>

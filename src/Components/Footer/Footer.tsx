@@ -69,10 +69,10 @@ const Footer = () => {
           whileHover={{ scale: 1.1, rotate: -5 }}
           whileTap={{ scale: 0.95 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-4 rounded-full bg-mg-gold text-mg-charcoal shadow-2xl hover:shadow-gold-glow transition-all duration-300 group"
+          className="fixed bottom-20 right-8 z-50 p-2 rounded-full bg-mg-gold text-mg-charcoal shadow-2xl hover:shadow-gold-glow transition-all duration-300 group"
           aria-label="Back to top"
         >
-          <ArrowUp size={24} className="group-hover:-translate-y-1 transition-transform" />
+          <ArrowUp size={18} className="group-hover:-translate-y-1 transition-transform" />
         </motion.button>
       )}
 

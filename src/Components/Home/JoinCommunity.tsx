@@ -205,6 +205,7 @@ export default function JoinCommunity3D() {
       </div>
 
       <CommunityModal open={open} onClose={() => setOpen(false)}  />
+    
     </section>
   );
 }
