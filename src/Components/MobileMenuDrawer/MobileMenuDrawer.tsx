@@ -2,7 +2,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronRight, Instagram, Send, MessageCircle, Facebook, Mail, Sun, Moon } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import {  useLocation, useNavigate } from "react-router-dom"; // ← ADD useNavigate
 import { useTheme } from "../../context/ThemeContext";
 
 interface NavLink {
@@ -17,9 +17,10 @@ interface MobileMenuDrawerProps {
   active: string;
 }
 
-const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOpen, navLinks, active }) => {
+const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOpen, navLinks }) => {
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
+  const navigate = useNavigate(); // ← THIS IS THE KEY
 
   const isDark = theme === "dark";
   const bgClass = isDark ? "bg-gradient-to-t from-[#0b0f19] via-[#111827] to-[#0b0f19]" : "bg-gradient-to-t from-gray-50 via-white to-gray-50";
@@ -27,10 +28,13 @@ const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOp
   const accentClass = "text-[#00ff88]";
 
   const handleBackdropClick = () => setMenuOpen(false);
-  const handleNavClick = (e: React.MouseEvent, href: string) => {
-    e.preventDefault();
+
+  // INSTANT NAVIGATION — NO REFRESH
+  const handleNavClick = (href: string) => {
     setMenuOpen(false);
-    setTimeout(() => window.location.href = href, 300);
+    if (location.pathname !== href) {
+      navigate(href); // ← SPA navigation, no reload
+    }
   };
 
   const socials = [
@@ -51,7 +55,6 @@ const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOp
           className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm"
           onClick={handleBackdropClick}
         >
-          {/* MENU PANEL — BOTTOM SLIDE UP */}
           <motion.div
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
@@ -64,26 +67,19 @@ const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOp
             <button
               onClick={() => setMenuOpen(false)}
               className="absolute top-5 right-5 p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 transition z-10"
-              aria-label="Close menu"
             >
               <X size={28} className={accentClass} />
             </button>
 
-            {/* HERO WITH IMAGE */}
+            {/* HERO */}
             <div className="relative mt-0 px-6 mb-10">
               <div
                 className="h-48 bg-cover bg-center rounded-3xl shadow-2xl overflow-hidden border-4 border-[#00ff88]/30"
                 style={{
                   backgroundImage: "url('https://res.cloudinary.com/dzqdfaghg/image/upload/v1763578745/Black_White_Gradient_Digital_Marketing_Instagram_Post_f2zh1x.png')",
                   backgroundBlendMode: "overlay",
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
                 }}
-              >
-                {/* <div className="absolute inset-0 bg-" /> */}
-                
-              </div>
+              />
             </div>
 
             {/* THEME TOGGLE */}
@@ -97,20 +93,19 @@ const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOp
               </button>
             </div>
 
-            {/* NAV LINKS */}
+            {/* NAV LINKS — NOW USING navigate() */}
             <nav className="flex-1 px-8 pb-6">
               <div className="space-y-6">
                 {navLinks.map((link) => {
-                  const isActive = location.pathname === link.href || active === link.name;
+                  const isActive = location.pathname === link.href;
 
                   return (
-                    <motion.a
+                    <motion.div
                       key={link.name}
-                      href={link.href}
-                      onClick={(e) => handleNavClick(e, link.href)}
+                      onClick={() => handleNavClick(link.href)}
                       whileHover={{ scale: 1.02, x: 8 }}
                       whileTap={{ scale: 0.98 }}
-                      className={`block border-b-2 pb-5 transition-all duration-300 ${
+                      className={`block border-b-2 pb-5 transition-all duration-300 cursor-pointer ${
                         isActive
                           ? `border-[#00ff88] ${accentClass} font-bold`
                           : `border-white/10 ${textClass} hover:text-[#00ff88]`
@@ -129,7 +124,7 @@ const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOp
                         </div>
                         <ChevronRight size={26} className={`transition-all ${isActive ? accentClass : "opacity-50"}`} />
                       </div>
-                    </motion.a>
+                    </motion.div>
                   );
                 })}
               </div>
@@ -154,21 +149,19 @@ const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOp
               </div>
             </div>
 
-            {/* JOIN CTA */}
+            {/* JOIN CTA — ALSO NO REFRESH */}
             <div className="px-8 pb-12">
-              <motion.a
-                href="/plans"
-                onClick={(e) => {
-                  e.preventDefault();
+              <motion.div
+                onClick={() => {
                   setMenuOpen(false);
-                  setTimeout(() => window.location.href = "/plans", 400);
+                  navigate("/plans");
                 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="block text-center py-6 rounded-3xl bg-gradient-to-r from-[#00ff88] to-[#00c896] text-black font-black text-2xl shadow-2xl shadow-[#00ff88]/50 hover:shadow-[#00ff88]/70 transition-all duration-300"
+                className="block text-center py-6 rounded-3xl bg-gradient-to-r from-[#00ff88] to-[#00c896] text-black font-black text-2xl shadow-2xl shadow-[#00ff88]/50 hover:shadow-[#00ff88]/70 transition-all duration-300 cursor-pointer"
               >
                 Join VIP Now
-              </motion.a>
+              </motion.div>
             </div>
 
             {/* FOOTER */}

@@ -1,18 +1,15 @@
+// src/components/Header.tsx
 import { useState, useEffect } from "react";
 import { Sun, Moon, Menu, Home, Info, Layers, BookOpen, Phone } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom"; // ← Added useNavigate + Link
 import { useTheme } from "../../context/ThemeContext";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-} from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Drawer from "../MobileMenuDrawer/MobileMenuDrawer";
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
+  const navigate = useNavigate(); // ← THIS IS THE KEY
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [visible, setVisible] = useState(true);
@@ -25,11 +22,7 @@ const Header = () => {
     backdropFilter: `blur(${blurAmount.get()}px)`,
     WebkitBackdropFilter: `blur(${blurAmount.get()}px)`,
   };
-
-  const headerStyle = {
-    ...blurStyle,
-    height: headerHeight.get(),
-  };
+  const headerStyle = { ...blurStyle, height: headerHeight.get() };
 
   useEffect(() => {
     const onScroll = () => {
@@ -54,66 +47,62 @@ const Header = () => {
     pulse.set(window.scrollY > 30 ? 1.05 : 1);
   }, [scrollY, pulse]);
 
+  // SMOOTH NAVIGATION WITHOUT REFRESH
+  const handleNavClick = (path: string) => {
+    navigate(path);
+    window.scrollTo(0, 0); // Optional: scroll to top
+  };
+
   return (
     <>
+      {/* DESKTOP HEADER */}
       <motion.header
         animate={{ y: visible ? 0 : -120 }}
         transition={{ duration: 0.35 }}
         style={headerStyle}
         className={`
           hidden lg:flex items-center fixed top-0 left-0 w-full z-40 
-          px-6 py-3 
-          backdrop-blur-md 
-          border-b 
-          shadow-lg
-          transition-all duration-300
+          px-6 py-3 backdrop-blur-md border-b shadow-lg transition-all duration-300
           ${theme === "light"
             ? "bg-mg-light-surface/90 border-mg-light-border"
             : "bg-mg-dark-surface/95 border-mg-dark-border"
           }
         `}
       >
-        <a href="home" className="flex items-center gap-3 group">
+        {/* LOGO */}
+        <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleNavClick("/")}>
           <div className="relative bg-black rounded-full">
             <img
               src="/logo-2.png"
               alt="MarketGod"
-              className={`
-                w-12 h-12 rounded-full object-cover border-2 
-                ${theme === "light" 
-                  ? "border-mg-gold/70 shadow-gold-glow-light" 
-                  : "border-mg-gold shadow-gold-glow"
-                }
+              className={`w-12 h-12 rounded-full object-cover border-2 
+                ${theme === "light" ? "border-mg-gold/70 shadow-gold-glow-light" : "border-mg-gold shadow-gold-glow"}
               `}
             />
-            <div className="absolute -top-1 -right-1 w-4 h-4 bg-[#00c896] rounded-full animate-ping opacity-75" />
+            <div className="absolute -top-1 -right128 w-4 h-4 bg-[#00c896] rounded-full animate-ping opacity-75" />
             <div className="absolute -top-1 -right-1 w-4 h-4 bg-[#00c896] rounded-full" />
           </div>
           <div>
             <h1 className="text-sm font-black text-mg-gold tracking-tighter">
-              Market
-              <span className={theme === "light" ? "text-mg-light-text" : "text-mg-paper"}>
-                God
-              </span>
+              Market<span className={theme === "light" ? "text-mg-light-text" : "text-mg-paper"}>God</span>
             </h1>
-            <p className={`text-xs uppercase tracking-widest ${
-              theme === "light" ? "text-mg-light-textSecondary" : "text-mg-dark-textSecondary"
-            }`}>
+            <p className={`text-xs uppercase tracking-widest ${theme === "light" ? "text-mg-light-textSecondary" : "text-mg-dark-textSecondary"}`}>
               Academy
             </p>
           </div>
-        </a>
+        </div>
 
+        {/* DESKTOP NAV */}
         <nav className="flex-1 flex justify-center">
           <div className="flex items-center gap-6">
             {navLinks.map((link) => {
               const active = location.pathname === link.id;
               return (
-                <a
+                <button
                   key={link.id}
-                  href={`${link.id}`}
+                  onClick={() => handleNavClick(link.id)}
                   className={`
-                    relative font-medium uppercase tracking-widest text-xs transition-all duration-300
+                    relative font-medium uppercase tracking-widest text-xs transition-all duration-300 cursor-pointer
                     ${active 
                       ? "text-mg-gold" 
                       : theme === "light" 
@@ -123,13 +112,7 @@ const Header = () => {
                   `}
                 >
                   <motion.span
-                    whileHover={{ 
-                      y: -4, 
-                      scale: 1.08, 
-                      x: 2, 
-                      color: "#00c896",
-                      transition: { type: "spring", stiffness: 400 }
-                    }}
+                    whileHover={{ y: -4, scale: 1.08, x: 2, color: "#00c896", transition: { type: "spring", stiffness: 400 } }}
                     className="inline-block"
                   >
                     {link.name}
@@ -147,22 +130,18 @@ const Header = () => {
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}
-                </a>
+                </button>
               );
             })}
           </div>
         </nav>
 
+        {/* JOIN BUTTON + THEME */}
         <div className="flex items-center gap-4">
-          <motion.a
-            href="/plans"
+          <motion.button
+            onClick={() => handleNavClick("/plans")}
             className="relative overflow-hidden bg-mg-gold text-mg-black px-6 py-2.5 rounded-full font-bold uppercase tracking-wide text-xs flex items-center gap-2 shadow-lg"
-            style={{
-              scale: pulse,
-              boxShadow: theme === "light"
-                ? "0 5px 20px rgba(212,175,55,0.4)"
-                : "0 6px 25px rgba(212,175,55,0.5), 0 0 30px rgba(212,175,55,0.3)",
-            }}
+            style={{ scale: pulse }}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.96 }}
           >
@@ -180,56 +159,44 @@ const Header = () => {
               whileHover={{ x: "120%" }}
               transition={{ duration: 0.6 }}
             />
-          </motion.a>
+          </motion.button>
 
           <motion.button
             onClick={toggleTheme}
             className={`p-2 rounded-full transition-all ${
-              theme === "light" 
-                ? "bg-mg-light-border/40 hover:bg-mg-gold/15" 
-                : "bg-mg-dark-border/40 hover:bg-[#00c896]/15"
+              theme === "light" ? "bg-mg-light-border/40 hover:bg-mg-gold/15" : "bg-mg-dark-border/40 hover:bg-[#00c896]/15"
             }`}
             whileHover={{ rotate: 360, scale: 1.15 }}
           >
-            {theme === "light" ? (
-              <Moon size={18} className="text-mg-light-text" />
-            ) : (
-              <Sun size={18} className="text-mg-gold" />
-            )}
+            {theme === "light" ? <Moon size={18} className="text-mg-light-text" /> : <Sun size={18} className="text-mg-gold" />}
           </motion.button>
         </div>
       </motion.header>
 
+      {/* MOBILE BOTTOM NAV */}
       <motion.nav
         animate={{ y: visible ? 0 : 100, opacity: visible ? 1 : 0 }}
         transition={{ duration: 0.35 }}
         className={`
           fixed bottom-0 left-0 w-full lg:hidden flex justify-around items-center py-3 
           backdrop-blur-md border-t z-50
-          ${theme === "light"
-            ? "bg-mg-light-surface/90 border-mg-light-border"
-            : "bg-mg-dark-surface/95 border-mg-dark-border"
-          }
+          ${theme === "light" ? "bg-mg-light-surface/90 border-mg-light-border" : "bg-mg-dark-surface/95 border-mg-dark-border"}
         `}
       >
         {navLinks.map((link) => {
-                        const active = location.pathname === link.id;
-
+          const active = location.pathname === link.id;
           return (
-            <a
+            <button
               key={link.id}
-              href={`${link.id}`}
+              onClick={() => handleNavClick(link.id)}
               className={`flex flex-col items-center gap-1 transition-all ${
-                active 
-                  ? "text-[#00c896]" 
-                  : theme === "light" 
-                    ? "text-mg-light-textSecondary" 
-                    : "text-mg-dark-textSecondary"
+                active ? "text-[#00ff88]" : theme === "light" ? "text-mg-light-textSecondary" : "text-mg-dark-textSecondary"
               }`}
             >
               <motion.div
-                className={`p-2.5 rounded-xl ${active ? "bg-[#00c896]/20" : ""}`}
+                className={`p-2.5 rounded-xl ${active ? "bg-[#00ff88]/20" : ""}`}
                 whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
               >
                 {link.icon}
               </motion.div>
@@ -237,35 +204,36 @@ const Header = () => {
               {active && (
                 <motion.div
                   layoutId="mobileDot"
-                  className="h-1.5 w-1.5 bg-mg-gold rounded-full mt-1 shadow-lg"
-                  style={{ boxShadow: "0 0 10px rgba(212,175,55,0.8)" }}
+                  className="h-1.5 w-1.5 bg-[#00ff88] rounded-full mt-1 shadow-lg shadow-[#00ff88]/50"
                 />
               )}
-            </a>
+            </button>
           );
         })}
 
+        {/* MENU BUTTON */}
         <button
           onClick={() => setMenuOpen(true)}
-          className={`flex flex-col items-center gap-1 ${
-            theme === "light" ? "text-mg-light-textSecondary" : "text-mg-dark-textSecondary"
-          }`}
+          className="flex flex-col items-center gap-1 text-mg-gold"
         >
-          <div className="p-2.5 rounded-xl">
-            <Menu size={22} />
-          </div>
-          <span className="text-xs font-medium">Menu</span>
+          <motion.div
+            className="p-2.5 rounded-xl bg-mg-gold/20"
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Menu size={24} />
+          </motion.div>
+          <span className="text-xs font-bold">Menu</span>
         </button>
       </motion.nav>
 
-<Drawer
+      {/* MOBILE DRAWER */}
+      <Drawer
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
         navLinks={navLinks.map(l => ({ name: l.name, href: l.id }))}
         active={location.pathname}
       />
-
-
     </>
   );
 };
