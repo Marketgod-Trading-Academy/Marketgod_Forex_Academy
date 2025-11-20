@@ -82,7 +82,7 @@ export default function MarketGodContactHero() {
           <div className="flex flex-col sm:flex-row justify-center gap-6 mb-8 text-sm text-[#ffffff99]">
             <div className="flex items-center gap-2">
               <MapPin className="w-5 h-5 text-[#00ff88]" />
-              <span>Madina – Accra, Ghana (HQ)</span>
+              <span> Accra, Ghana (HQ)</span>
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-5 h-5 text-[#FFD700]" />
