@@ -79,8 +79,8 @@ const Header = () => {
                 ${theme === "light" ? "border-mg-gold/70 shadow-gold-glow-light" : "border-mg-gold shadow-gold-glow"}
               `}
             />
-            <div className="absolute -top-1 -right128 w-4 h-4 bg-[#00c896] rounded-full animate-ping opacity-75" />
-            <div className="absolute -top-1 -right-1 w-4 h-4 bg-[#00c896] rounded-full" />
+            <div className="absolute -top-1 -right-1 w-4 h-4 bg-mg-gold rounded-full animate-ping opacity-75" />
+            <div className="absolute -top-1 -right-1 w-4 h-4 bg-mg-gold rounded-full" />
           </div>
           <div>
             <h1 className="text-sm font-black text-mg-gold tracking-tighter">
@@ -112,7 +112,7 @@ const Header = () => {
                   `}
                 >
                   <motion.span
-                    whileHover={{ y: -4, scale: 1.08, x: 2, color: "#00c896", transition: { type: "spring", stiffness: 400 } }}
+                    whileHover={{ y: -4, scale: 1.08, x: 2, color: "#D4AF37", transition: { type: "spring", stiffness: 400 } }}
                     className="inline-block"
                   >
                     {link.name}
@@ -124,8 +124,8 @@ const Header = () => {
                       className="absolute -bottom-1.5 left-0 w-full h-0.5 bg-mg-gold rounded-full"
                       style={{
                         boxShadow: theme === "light"
-                          ? "0 0 10px rgba(212,175,55,0.5)"
-                          : "0 0 12px rgba(212,175,55,0.7), 0 0 20px rgba(0,200,150,0.3)",
+                          ? "0 0 10px rgba(212, 175, 55, 0.5)"
+                          : "0 0 12px rgba(212, 175, 55, 0.7)",
                       }}
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
@@ -140,21 +140,14 @@ const Header = () => {
         <div className="flex items-center gap-4">
           <motion.button
             onClick={() => handleNavClick("/plans")}
-            className="relative overflow-hidden bg-mg-gold text-mg-black px-6 py-2.5 rounded-full font-bold uppercase tracking-wide text-xs flex items-center gap-2 shadow-lg"
+            className="relative overflow-hidden px-6 py-2.5 rounded-full font-bold uppercase tracking-wide text-xs flex items-center gap-2 shadow-lg bg-mg-black text-mg-paper dark:bg-mg-paper dark:text-mg-black"
             style={{ scale: pulse }}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.96 }}
           >
             <span className="relative z-10">Join Now</span>
-            {window.scrollY > 30 && (
-              <motion.div
-                className="absolute inset-0 rounded-full bg-[#00c896]/25"
-                animate={{ scale: [1, 1.5], opacity: [0.6, 0] }}
-                transition={{ repeat: Infinity, duration: 1.6 }}
-              />
-            )}
             <motion.div
-              className="absolute inset-0 bg-white/40"
+              className="absolute inset-0 bg-mg-gold/80"
               initial={{ x: "-120%" }}
               whileHover={{ x: "120%" }}
               transition={{ duration: 0.6 }}
@@ -164,7 +157,7 @@ const Header = () => {
           <motion.button
             onClick={toggleTheme}
             className={`p-2 rounded-full transition-all ${
-              theme === "light" ? "bg-mg-light-border/40 hover:bg-mg-gold/15" : "bg-mg-dark-border/40 hover:bg-[#00c896]/15"
+              theme === "light" ? "bg-mg-light-border/40 hover:bg-mg-gold/15" : "bg-mg-dark-border/40 hover:bg-mg-gold/15"
             }`}
             whileHover={{ rotate: 360, scale: 1.15 }}
           >
@@ -190,11 +183,11 @@ const Header = () => {
               key={link.id}
               onClick={() => handleNavClick(link.id)}
               className={`flex flex-col items-center gap-1 transition-all ${
-                active ? "text-[#00ff88]" : theme === "light" ? "text-mg-light-textSecondary" : "text-mg-dark-textSecondary"
+                active ? "text-mg-gold" : theme === "light" ? "text-mg-light-textSecondary" : "text-mg-dark-textSecondary"
               }`}
             >
               <motion.div
-                className={`p-2.5 rounded-xl ${active ? "bg-[#00ff88]/20" : ""}`}
+                className={`p-2.5 rounded-xl ${active ? "bg-mg-gold/20" : ""}`}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -204,7 +197,7 @@ const Header = () => {
               {active && (
                 <motion.div
                   layoutId="mobileDot"
-                  className="h-1.5 w-1.5 bg-[#00ff88] rounded-full mt-1 shadow-lg shadow-[#00ff88]/50"
+                  className="h-1.5 w-1.5 bg-mg-gold rounded-full mt-1 shadow-lg shadow-mg-gold/50"
                 />
               )}
             </button>

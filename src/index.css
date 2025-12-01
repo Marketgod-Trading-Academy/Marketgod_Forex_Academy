@@ -16,14 +16,26 @@ html {
 
 body {
   font-family: "Montserrat", sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  background-color: #FAFAFA; /* light default */
-  color: #1F2937;
+  @apply bg-mg-light-bg text-mg-light-text transition-colors duration-300;
 }
 
-.dark {
-  background-color: #000000;
-  color: #F2F2F2;
+/* Dark mode */
+.dark body {
+  @apply bg-mg-dark-bg text-mg-dark-text;
+}
+
+/* Headline accent */
+.text-accent {
+  @apply text-mg-gold;
+}
+
+/* Buttons */
+.btn-primary {
+  @apply bg-mg-black text-mg-paper px-6 py-2 rounded hover:shadow-gold-glow transition;
+}
+
+.btn-secondary {
+  @apply bg-mg-paper text-mg-black border border-mg-black px-6 py-2 rounded hover:shadow-lg transition;
 }
 
 /* Scrollbar */
@@ -38,12 +50,6 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-yellow-500;
-}
-
-/* Light Streak Animation */
-@keyframes lightStreak {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
 }
 
 /* Hide scrollbar for Chrome, Safari, Opera */

@@ -1,4 +1,3 @@
-// tailwind.config.js
 module.exports = {
   darkMode: "class",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -7,10 +6,8 @@ module.exports = {
       colors: {
         mg: {
           gold: "#D4AF37",
-          green: "#00c896",
-          paper: "#F2F2F2",
-          charcoal: "#111111",
           black: "#000000",
+          paper: "#FFFFFF",
 
           light: {
             bg: "#FAFAFA",

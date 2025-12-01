@@ -2,7 +2,7 @@ Let me tell you a little bit about MarketGold. His journey started when he was i
 
 
 
-
+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
 
 
 telegram channel:https://t.me/marketgodcommunity - 13k members
@@ -313,3 +313,297 @@ const Webinars = () => {
 };
 
 export default Webinars;
+
+
+I RECEIVE THIS MESSAGE FROM MY CLIENT CONCERNING HIS reviews ON THE SITE I CREATED hello good evrning So, he sent me the link of your website, the website you created for him, and he wants you to do a little changes. His colors are black and white, the marker code looks mostly black and white. So, he wants you to change the red, green, like the colors. But then I'm still looking for it, so I'll jot down the things that you need to change and I'll let you know. Yes, but this is just by the way, I just wanted to let you know that this is what he said. So yeah, I'll get back to you. Thank you.  
+
+SO I DECIDED TO DO THIS
+
+
+MarketGod Color Customization Guideline
+1. Overall Theme
+
+Primary Colors: Black (#000000) and White (#FFFFFF)
+
+Purpose: Keep a clean, modern, premium look. Use high contrast for readability and simplicity.
+
+2. Headlines / Text
+
+Main Headings (H1, H2, H3): Black (#000000)
+
+Body Text: Dark Grey (#1A1A1A) for readability
+
+Keywords: Optional accent color (one per headline if needed)
+
+Examples: Gold (#C9A227) or Blue (#1E90FF)
+
+Rules:
+
+Avoid using multiple colors in a single headline
+
+Only highlight key words in accent color
+
+3. Backgrounds
+
+Primary Background: White (#FFFFFF)
+
+Section Backgrounds / Cards: Light Grey (#F5F5F5) or Medium Grey (#E6E6E6)
+
+Call-to-Action Sections / Hero Sections: Black (#000000) with White text
+
+4. Buttons
+
+Primary Buttons: Black background (#000000) + White text (#FFFFFF)
+
+Secondary Buttons: White background (#FFFFFF) + Black border + Black text (#000000)
+
+Hover States: Invert colors or use subtle grey accent
+
+5. Icons / Borders / Lines
+
+Stick to Black (#000000) or Grey (#808080)
+
+Keep it consistent across all pages
+
+6. Links / Interactive Text
+
+Use Black (#000000) by default
+
+Accent color only for key actions or keywords
+
+Avoid multiple colors on the same line
+
+7. Popups / Modals
+
+Background: White (#FFFFFF)
+
+Text: Dark Grey (#1A1A1A)
+
+Buttons: Follow button rules above
+
+8. Key Considerations
+
+Maintain high contrast for readability
+
+Keep accent colors minimal — only for emphasis
+
+Headlines should generally be single color, except key words
+
+Consistency is crucial across pages                so i changed this file from // tailwind.config.js
+module.exports = {
+  darkMode: "class",
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        mg: {
+          gold: "#D4AF37",
+          green: "#00c896",
+          paper: "#F2F2F2",
+          charcoal: "#111111",
+          black: "#000000",
+
+          light: {
+            bg: "#FAFAFA",
+            surface: "#FFFFFF",
+            border: "#E5E7EB",
+            text: "#1F2937",
+            textSecondary: "#6B7280",
+          },
+          dark: {
+            bg: "#000000",
+            surface: "#111111",
+            border: "#1F2937",
+            text: "#F2F2F2",
+            textSecondary: "#9CA3AF",
+          },
+        },
+      },
+      boxShadow: {
+        "gold-glow": "0 0 20px rgba(212, 175, 55, 0.5)",
+        "gold-glow-light": "0 0 15px rgba(212, 175, 55, 0.3)",
+      },
+      animation: {
+        lightStreak1: "lightStreak 4s linear infinite",
+        lightStreak2: "lightStreak 6s linear infinite reverse",
+        lightStreak3: "lightStreak 5s linear infinite",
+      },
+      keyframes: {
+        lightStreak: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+      },
+    },
+  },
+  plugins: [],
+};                        @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #FAFAFA; /* light default */
+  color: #1F2937;
+}
+
+.dark {
+  background-color: #000000;
+  color: #F2F2F2;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-mg-light-border dark:bg-mg-dark-border;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-mg-gold;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-yellow-500;
+}
+
+/* Light Streak Animation */
+@keyframes lightStreak {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Hide scrollbar for Chrome, Safari, Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for IE & Edge */
+.no-scrollbar {
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-ms-scrollbar {
+  display: none;
+}               to      module.exports = {
+  darkMode: "class",
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        mg: {
+          gold: "#D4AF37",
+          black: "#000000",
+          paper: "#FFFFFF",
+
+          light: {
+            bg: "#FAFAFA",
+            surface: "#FFFFFF",
+            border: "#E5E7EB",
+            text: "#1F2937",
+            textSecondary: "#6B7280",
+          },
+          dark: {
+            bg: "#000000",
+            surface: "#111111",
+            border: "#1F2937",
+            text: "#F2F2F2",
+            textSecondary: "#9CA3AF",
+          },
+        },
+      },
+      boxShadow: {
+        "gold-glow": "0 0 20px rgba(212, 175, 55, 0.5)",
+        "gold-glow-light": "0 0 15px rgba(212, 175, 55, 0.3)",
+      },
+    },
+  },
+  plugins: [],
+};
+                    @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  @apply bg-mg-light-bg text-mg-light-text transition-colors duration-300;
+}
+
+/* Dark mode */
+.dark body {
+  @apply bg-mg-dark-bg text-mg-dark-text;
+}
+
+/* Headline accent */
+.text-accent {
+  @apply text-mg-gold;
+}
+
+/* Buttons */
+.btn-primary {
+  @apply bg-mg-black text-mg-paper px-6 py-2 rounded hover:shadow-gold-glow transition;
+}
+
+.btn-secondary {
+  @apply bg-mg-paper text-mg-black border border-mg-black px-6 py-2 rounded hover:shadow-lg transition;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-mg-light-border dark:bg-mg-dark-border;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-mg-gold;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-yellow-500;
+}
+
+/* Hide scrollbar for Chrome, Safari, Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for IE & Edge */
+.no-scrollbar {
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-ms-scrollbar {
+  display: none;
+}
