@@ -73,7 +73,7 @@ const Services = () => {
           <h2 className={`text-4xl md:text-6xl font-black tracking-tight mb-4 ${
             isDark ? "text-mg-gold" : "text-mg-charcoal"
           }`}>
-            MarketGod <span className="text-mg-green">Plans Services</span>
+            MarketGod <span className="text-mg-green"> Services</span>
           </h2>
           <p className={`text-xl md:text-2xl max-w-3xl mx-auto ${
             isDark ? "text-mg-dark-textSecondary" : "text-mg-light-textSecondary"
@@ -176,7 +176,7 @@ const Services = () => {
           className="text-center mt-16"
         >
           <motion.a
-            href="#pro"
+            href="/plans#pricing-plans"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-3 px-10 py-5 bg-mg-gold text-mg-charcoal rounded-full font-bold uppercase tracking-wider shadow-xl"

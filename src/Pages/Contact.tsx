@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Send, Instagram, MessageSquare, Ticket, MapPin, Clock } from "lucide-react";
+import {  Send, Instagram, MessageSquare, Ticket, MapPin, Clock } from "lucide-react";
 import FAQ from "../Components/Home/FAQ";
 import MarketGodSupportTicketModal from "../Components/data/Contact/MarketgodSupportTicketModal";
 
@@ -121,15 +121,17 @@ export default function MarketGodContactHero() {
                     exit={{ opacity: 0, y: 20 }}
                     className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 bg-[#0e1624] border border-[#00ff88]/30 rounded-2xl p-5 shadow-2xl flex flex-col items-center gap-4"
                   >
-                    <a
-                      href="tel:+233592112233"
+                   <a
+                      href="https://wa.me/233599002863"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="group flex flex-col items-center gap-1 text-[#00ff88] hover:scale-110 transition-transform"
                     >
-                      <Phone className="w-8 h-8" />
-                      <span className="text-xs font-medium">Call</span>
+                      <MessageSquare className="w-8 h-8" />
+                      <span className="text-xs font-medium">WhatsApp</span>
                     </a>
                     <a
-                      href="https://t.me/marketgodfx"
+                      href="https://t.me/delatrades"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group flex flex-col items-center gap-1 text-[#00ff88] hover:scale-110 transition-transform"
@@ -138,7 +140,7 @@ export default function MarketGodContactHero() {
                       <span className="text-xs font-medium">Telegram</span>
                     </a>
                     <a
-                      href="https://instagram.com/marketgodacademy"
+                      href="https://www.instagram.com/eyram_dela"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group flex flex-col items-center gap-1 text-[#FFD700] hover:scale-110 transition-transform"

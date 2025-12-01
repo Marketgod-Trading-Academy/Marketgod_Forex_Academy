@@ -138,7 +138,7 @@ const WhyThisCourse: React.FC = () => {
               {/* BADGE */}
               <span className="text-xs font-bold px-4 py-2 rounded-full 
                 bg-mg-gold/20 text-mg-gold border border-mg-gold/40">
-                🔥 Limited Spots — 230/1000
+                🔥 Limited Spots available
               </span>
             </div>
           </motion.div>

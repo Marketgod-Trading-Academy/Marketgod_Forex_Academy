@@ -165,7 +165,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center gap-1 text-xs font-semibold text-mg-gold">
                   <Globe size={14} />
-                  <span>2M+ Traders</span>
+                  <span>12k+ Traders</span>
                 </div>
               </div>
 

@@ -4,7 +4,7 @@ import { Instagram, Send, Twitter, X, Youtube } from "lucide-react";
 type LinkItem = { name: string; href: string; icon: React.ReactNode; subtitle?: string; };
 
 const links: LinkItem[] =  [
-      { name: "Telegram", href: "https://t.me/marketgodcommunityy", icon: <Send /> },
+      { name: "Telegram", href: "https://t.me/marketgodcommunity", icon: <Send /> },
       { name: "Instagram", href: "https://www.instagram.com/eyram_dela", icon: <Instagram /> },
       { name: "YouTube", href: "https://www.youtube.com/@marketgodcommunity", icon: <Youtube /> },
       { name: "Twitter (X)", href: "https://x.com/eyramdela ", icon: <Twitter /> },

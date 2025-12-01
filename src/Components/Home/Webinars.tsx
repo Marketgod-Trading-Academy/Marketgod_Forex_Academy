@@ -23,11 +23,11 @@ const Webinars = () => {
     {
       type: "Sniper Seminar",
       title: "Sniper MarketGod Strategy Workshop",
-      date: "Dec 15, 2025 – 9 AM GMT (Virtual)",
-      desc: "Half-day interactive session with live trading simulations and 1-on-1 feedback. Limited to 100 spots.",
+      date: "Scheduled Periodically (Virtual)",
+      desc: "An intensive virtual workshop covering the Sniper MarketGod Strategy. Includes live simulations and Q&A. Spots are limited.",
       topics: ["Building trading systems", "Psychology mastery", "Ghana case studies"],
-      price: "$67 (Early Bird)",
-      join: "Book on Telegram",
+      price: "Paid Workshop",
+      join: "Get Notified for Openings",
       href: "#",
       icon: Calendar,
        triggerPopup: true,
@@ -189,16 +189,15 @@ const Webinars = () => {
             transition={{ delay: 0.5 }}
             className="text-center mt-16"
           >
-            <motion.a
-            target="_blank"
-              href="https://www.instagram.com/eyram_dela"
+            <motion.button
+              onClick={() => setShowPopup(true)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-3 px-10 py-5 bg-yellow-500 text-black rounded-full font-bold uppercase tracking-wider shadow-xl"
             >
               Stay Updated on Events
               <Calendar size={24} />
-            </motion.a>
+            </motion.button>
           </motion.div>
         </div>
       </section>
@@ -236,13 +235,11 @@ const Webinars = () => {
               </div>
 
               <h3 className="text-2xl font-black text-center mb-4 text-yellow-300">
-                No Events Right Now
+                No Events Scheduled Currently
               </h3>
 
               <p className="text-center mb-8 leading-relaxed text-gray-400">
-                We currently don’t have upcoming physical seminars.  
-                Follow us to be notified when the next one drops in{" "}
-                <span className="text-yellow-400 font-bold">Accra</span>.
+                There are no upcoming workshops or seminars at the moment. Follow our social channels to get instant notifications for new event dates.
               </p>
 
               <div className="space-y-3">

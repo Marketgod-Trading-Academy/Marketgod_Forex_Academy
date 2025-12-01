@@ -50,7 +50,7 @@ const FeaturedIn = () => {
                   <img
                     src={partner.src}
                     alt={`${partner.name} logo`}
-                    className={`h-6 md:h-10 object-contain ${isDark && partner.name !== "Exness" ? "brightness-0 invert" : ""}`}
+                    className={`h-6 md:h-10 object-cover`}
                   />
                 </a>
               ))}
