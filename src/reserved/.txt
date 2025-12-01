@@ -501,7 +501,7 @@ body {
 }
 .no-scrollbar::-ms-scrollbar {
   display: none;
-}               to      module.exports = {
+}               to     module.exports = {
   darkMode: "class",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -532,11 +532,23 @@ body {
         "gold-glow": "0 0 20px rgba(212, 175, 55, 0.5)",
         "gold-glow-light": "0 0 15px rgba(212, 175, 55, 0.3)",
       },
+      animation: {
+        lightStreak1: "lightStreak 4s linear infinite",
+        lightStreak2: "lightStreak 6s linear infinite reverse",
+        lightStreak3: "lightStreak 5s linear infinite",
+      },
+      keyframes: {
+        lightStreak: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+      },
     },
   },
   plugins: [],
 };
-                    @tailwind base;
+
+};@tailwind base;
 @tailwind components;
 @tailwind utilities;
 

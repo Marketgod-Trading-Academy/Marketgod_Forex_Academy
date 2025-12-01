@@ -1,11 +1,7 @@
+// Eugene Afriyie UEB3502023
 // src/components/HeroCarousel/HeroCarousel.tsx
 import { useEffect, useState, useRef } from "react";
-import {
-  motion,
-  AnimatePresence,
-  useMotionValue,
-  useSpring,
-} from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 import type { PanInfo } from "framer-motion";
 import {
   ArrowRight,
@@ -42,23 +38,18 @@ const slides: Slide[] = [
     bg: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/SnapInsta.to_285991748_3240193386223050_1023995396682830775_n_j2rm79.jpg",
     title: (
       <>
-        <span className="text-mg-gold">Trade</span> Like a{" "}
-        <span className="inline-block bg-gradient-to-r from-mg-gold via-yellow-500 to-[#00c896] bg-clip-text text-transparent">
-          MarketGod
-        </span>
+        Learn to Trade <span className="text-mg-gold">Professionally</span>
       </>
     ),
-    subtitle: "From Accra to Wall Street",
+    subtitle: "Structured Mentorship. Practical Skills.",
     desc: (
       <>
-        Join <strong>10,000+ African traders</strong> mastering{" "}
-        <strong>price action and institutional order flow</strong> — real-time
-        signals, proven strategies, and daily market breakdowns, all from Ghana.
+        Gain access to clear, actionable strategies and guidance from experienced traders. Build consistent trading skills through practical lessons and structured mentorship.
       </>
     ),
     ctas: [
-      { label: "Join Academy Now", icon: <ArrowRight size={18} />, href: "plans#pricing-plans", primary: true },
-      { label: "View Live Signals", icon: <TrendingUp size={18} />, href: "https://t.me/marketgodcommunity" },
+      { label: "Start Learning", icon: <BookOpen size={18} />, href: "plans#pricing-plans", primary: true },
+      { label: "View Programs", icon: <TrendingUp size={18} />, href: "/programs" },
     ],
   },
   {
@@ -66,20 +57,18 @@ const slides: Slide[] = [
     bg: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522351/SnapInsta.to_476509192_18486717382003421_4782699282482123506_n_llwtyx.jpg",
     title: (
       <>
-        Learn From <span className="text-mg-gold">Top African Traders</span>
+        Global Trading <span className="text-mg-gold">Mentorship</span>
       </>
     ),
-    subtitle: "Real Skills. Real Profits.",
+    subtitle: "Learn from professionals worldwide",
     desc: (
       <>
-        Access <strong>premium mentorship, live sessions</strong> and{" "}
-        <strong>real-time market analysis</strong> built for African traders.
-        Learn how to trade like a pro — not a gambler.
+        Access mentorship from top traders with proven experience. Develop a professional approach to trading and decision-making without the guesswork.
       </>
     ),
     ctas: [
-      { label: "Start Learning", icon: <BookOpen size={18} />, href: "plans#pricing-plans", primary: true },
-      { label: "Meet Mentors", icon: <GraduationCap size={18} />, href: "/about" },
+      { label: "Join Mentorship", icon: <GraduationCap size={18} />, href: "plans#pricing-plans", primary: true },
+      { label: "Meet Mentors", icon: <BookOpen size={18} />, href: "/mentors" },
     ],
   },
   {
@@ -87,23 +76,22 @@ const slides: Slide[] = [
     bg: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/SnapInsta.to_475855951_18485769310003421_2639630250731726422_n_ov7o6i.jpg",
     title: (
       <>
-        Join the <span className="text-mg-gold">MarketGod Academy</span>
+        Build <span className="text-mg-gold">Consistent Skills</span>
       </>
     ),
-    subtitle: "Built For African Traders. Powered By Discipline.",
+    subtitle: "Professional trading, clear guidance",
     desc: (
       <>
-        Get lifetime access to strategy vaults, trading psychology sessions,
-        and <strong>real-time institutional insights</strong> — all designed to
-        help you win consistently.
+        Learn methods backed by data and real-market practice. Focus on skill-building, critical thinking, and practical strategies that work globally.
       </>
     ),
     ctas: [
-      { label: "Join Now", icon: <ArrowRight size={18} />, href: "/plans/#pricing-plans", primary: true },
-      { label: "See Pricing", icon: <TrendingUp size={18} />, href: "/plans#pricing-plans" },
+      { label: "Enroll Now", icon: <ArrowRight size={18} />, href: "/plans/#pricing-plans", primary: true },
+      { label: "See Courses", icon: <TrendingUp size={18} />, href: "/courses" },
     ],
   },
 ];
+
 
 const HeroCarousel = () => {
   const { theme } = useTheme();
@@ -147,25 +135,20 @@ const HeroCarousel = () => {
     return () => clearInterval(interval);
   }, []);
 
-
-const handleDragEnd = (
-  _event: MouseEvent | TouchEvent | PointerEvent,
-  info: PanInfo
-) => {
-  const threshold = 100;
-  if (info.offset.x > threshold) {
-    setIndex((prev) => (prev - 1 + slides.length) % slides.length);
-  } else if (info.offset.x < -threshold) {
-    setIndex((prev) => (prev + 1) % slides.length);
-  }
-  x.set(0);
-};
+  const handleDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    const threshold = 100;
+    if (info.offset.x > threshold) {
+      setIndex((prev) => (prev - 1 + slides.length) % slides.length);
+    } else if (info.offset.x < -threshold) {
+      setIndex((prev) => (prev + 1) % slides.length);
+    }
+    x.set(0);
+  };
 
   const currentSlide = slides[index];
 
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden ">
-
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       <GhanaFlagStripe />
 
       {currentSlide.bg && (
@@ -174,17 +157,15 @@ const handleDragEnd = (
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${currentSlide.bg})` }}
           />
-          <div className="absolute inset-0 bg-black/85" />
+          <div className="absolute inset-0 bg-black/75" />
         </>
       )}
 
       {index === 0 && (
         <motion.div
-          className="absolute inset-0 opacity-50 pointer-events-none"
+          className="absolute inset-0 pointer-events-none"
           style={{
-            background: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, 
-              ${theme === "light" ? "rgba(212,175,55,0.65)" : "rgba(0,200,150,0.35)"}, 
-              ${theme === "light" ? "rgba(255,247,200,0.15)" : "transparent"} 70%)`,
+            background: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, rgba(212,175,55,0.45), transparent 70%)`,
           }}
         />
       )}
@@ -195,13 +176,7 @@ const handleDragEnd = (
         style={{ cursor: index === 0 ? "grab" : "default" }}
         whileTap={{ cursor: "grabbing" }}
       >
-        <motion.div
-          drag="x"
-          dragConstraints={constraintsRef}
-          onDragEnd={handleDragEnd}
-          style={{ x: springX }}
-          className="flex w-full h-full items-center justify-center px-6"
-        >
+        <motion.div drag="x" dragConstraints={constraintsRef} onDragEnd={handleDragEnd} style={{ x: springX }} className="flex w-full h-full items-center justify-center px-6">
           <motion.div className="w-full max-w-6xl text-center">
             <AnimatePresence mode="wait">
               <motion.div
@@ -234,7 +209,6 @@ const handleDragEnd = (
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
                   {currentSlide.ctas.map((cta, i) => (
                     <motion.a
-                    
                       key={i}
                       href={cta.href}
                       whileHover={{ scale: 1.05 }}
@@ -256,10 +230,11 @@ const handleDragEnd = (
         </motion.div>
       </motion.div>
 
+      {/* Navigation */}
       <div className="flex absolute bottom-0 left-1/2 -translate-x-1/2 items-center gap-6 z-10 mb-1">
         <button
           onClick={() => setIndex((prev) => (prev - 1 + slides.length) % slides.length)}
-          className=" hidden md:flex p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30"
+          className="hidden md:flex p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30"
         >
           <ChevronLeft className="text-white" size={24} />
         </button>
@@ -284,6 +259,7 @@ const handleDragEnd = (
         </button>
       </div>
 
+      {/* Scroll Indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
         animate={{ y: [0, 10, 0] }}

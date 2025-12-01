@@ -57,14 +57,10 @@ const SeminarCarousel = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className={`text-4xl md:text-6xl font-black tracking-tight mb-4 ${
-            isDark ? "text-mg-gold" : "text-mg-charcoal"
-          }`}>
-            Seminar Highlights – <span className="text-mg-green">November 1, 2025</span>
+          <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-4 text-mg-light-text dark:text-mg-dark-text">
+            Seminar Highlights – <span className="text-mg-gold">Accra 2024</span>
           </h2>
-          <p className={`text-xl md:text-2xl max-w-3xl mx-auto ${
-            isDark ? "text-mg-paper/80" : "text-mg-charcoal/80"
-          }`}>
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-mg-light-textSecondary dark:text-mg-dark-textSecondary">
             Relive the biggest Forex event in Ghana — live trading, expert insights, and Exness magic.
           </p>
         </motion.div>
@@ -144,7 +140,7 @@ const SeminarCarousel = () => {
           transition={{ delay: 0.6 }}
           className="text-center mt-16"
         >
-          <h3 className={`text-2xl font-bold mb-8 ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+          <h3 className="text-2xl font-bold mb-8 text-mg-light-text dark:text-mg-dark-text">
             Featuring Top Ghanaian Experts
           </h3>
           <div className="grid grid-cols-8 sm:grid-cols-6 md:grid-cols-8 gap-4 sm:gap-6">
@@ -189,7 +185,7 @@ const SeminarCarousel = () => {
             href="#webinars"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 px-10 py-5 bg-mg-gold text-mg-charcoal rounded-full font-bold uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-mg-black text-mg-paper dark:bg-mg-paper dark:text-mg-black rounded-full font-bold uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all"
           >
             Register for Next Event
             <ArrowRight size={24} />

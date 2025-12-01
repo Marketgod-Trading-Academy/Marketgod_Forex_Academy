@@ -57,7 +57,7 @@ const AboutMentor = () => {
     <>
     <section id="about" className="py-20 relative overflow-hidden">
       {/* Subtle Background Gradient */}
-      <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-mg-gold/10 via-transparent to-mg-green/10" />
+      <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-mg-gold/10 via-transparent to-mg-gold/5" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Headline */}
@@ -67,14 +67,10 @@ const AboutMentor = () => {
           viewport={{ once: false, amount: 0.3 }}
           className="text-center mb-16"
         >
-          <h2 className={`text-4xl md:text-6xl font-black tracking-tight mb-4 ${
-            isDark ? "text-mg-gold" : "text-mg-charcoal"
-          }`}>
-            Meet the <span className="text-mg-green">MarketGod</span>
+          <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-4 text-mg-light-text dark:text-mg-dark-text">
+            Meet the <span className="text-mg-gold">MarketGod</span>
           </h2>
-          <p className={`text-xl md:text-2xl max-w-2xl mx-auto ${
-            isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"
-          }`}>
+          <p className="text-xl md:text-2xl max-w-2xl mx-auto text-mg-light-textSecondary dark:text-mg-dark-textSecondary">
             Empowering African traders with pure price action mastery — no AI, no bots, just discipline and results.
           </p>
         </motion.div>
@@ -98,11 +94,11 @@ const AboutMentor = () => {
 
           {/* Text */}
           <motion.div className="space-y-6 order-1 md:order-2" variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
-            <motion.h3 variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0 } }} className={`text-3xl font-bold ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+            <motion.h3 variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0 } }} className="text-3xl font-bold text-mg-light-text dark:text-mg-dark-text">
               Eyram Dela – The MarketGod
             </motion.h3>
 
-            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className={`text-lg leading-relaxed ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
+            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg leading-relaxed text-mg-light-text dark:text-mg-dark-text">
               Renowned Ghanaian forex trader, mentor, and digital entrepreneur. With a sharp eye for market trends and a passion for teaching, Eyram has empowered thousands of traders across Africa to master the markets with precision and confidence — using only price action, institutional order flow, and unbreakable discipline.
             </motion.p>
 
@@ -113,15 +109,15 @@ const AboutMentor = () => {
               transition={{ duration: 0.5, ease: "easeInOut" }}
               className="overflow-hidden"
             >
-              <p className={`text-lg leading-relaxed mt-4 ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
-                From humble beginnings in Accra, Eyram turned his passion into a proven system. He’s traded live in front of thousands, built the <span className="font-bold text-mg-green">Sniper MarketGod Strategy</span>, and now teaches it step-by-step. His mission? To prove that <span className="font-bold text-mg-gold">Ghanaian traders can dominate global markets</span> — without AI, without shortcuts.
+              <p className="text-lg leading-relaxed mt-4 text-mg-light-text dark:text-mg-dark-text">
+                From humble beginnings in Accra, Eyram turned his passion into a proven system. He’s traded live in front of thousands, built the <span className="font-bold text-mg-gold">Sniper MarketGod Strategy</span>, and now teaches it step-by-step. His mission? To prove that <span className="font-bold text-mg-gold">Ghanaian traders can dominate global markets</span> — without AI, without shortcuts.
               </p>
-              <p className={`text-lg italic mt-4 ${isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"}`}>
+              <p className="text-lg italic mt-4 text-mg-light-textSecondary dark:text-mg-dark-textSecondary">
                 “I don’t sell dreams. I sell results.”
               </p>
             </motion.div>
 
-            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className={`text-lg italic ${isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"}`}>
+            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg italic text-mg-light-textSecondary dark:text-mg-dark-textSecondary">
               "Not for cry babies. Built for traders who want to WIN."
             </motion.p>
 
@@ -131,11 +127,7 @@ const AboutMentor = () => {
                 onClick={() => setIsExpanded(!isExpanded)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wide border-2 transition-all ${
-                  isDark
-                    ? "border-mg-gold text-mg-gold hover:bg-mg-gold/20"
-                    : "border-mg-gold text-mg-gold hover:bg-mg-gold/10"
-                }`}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wide border-2 transition-all border-mg-gold text-mg-gold hover:bg-mg-gold/10"
               >
                 {isExpanded ? (
                   <>See Less <ChevronUp size={20} /></>
@@ -149,11 +141,7 @@ const AboutMentor = () => {
                 onClick={() => setOpen(true)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wide border-2 transition-all ${
-                  isDark
-                    ? "border-mg-green text-mg-green hover:bg-mg-green/20"
-                    : "border-mg-green text-mg-green hover:bg-mg-green/10"
-                }`}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wide transition-all bg-mg-black text-mg-paper dark:bg-mg-paper dark:text-mg-black"
               >
                 Meet Eyram <ArrowRight size={20} />
               </motion.button>
@@ -171,20 +159,20 @@ const AboutMentor = () => {
         >
           {/* Mission */}
           <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} className="space-y-6">
-            <h3 className={`text-2xl font-bold ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+            <h3 className="text-2xl font-bold text-mg-light-text dark:text-mg-dark-text">
               Our Mission
             </h3>
-            <p className={`text-lg ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
+            <p className="text-lg text-mg-light-text dark:text-mg-dark-text">
               To bridge the gap between African ambition and global markets. We equip traders in Ghana and across the continent with timeless skills — price action, risk management, and psychological discipline — to achieve financial independence through real trading.
             </p>
             <div className="flex justify-center">
-              <div className="w-24 h-1 bg-gradient-to-r from-mg-gold to-mg-green"></div>
+              <div className="w-24 h-1 bg-mg-gold"></div>
             </div>
           </motion.div>
 
           {/* Who It's For */}
           <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} className="space-y-6">
-            <h3 className={`text-2xl font-bold ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+            <h3 className="text-2xl font-bold text-mg-light-text dark:text-mg-dark-text">
               Who It's For
             </h3>
             <ul className="text-left space-y-4 max-w-md mx-auto">
@@ -199,7 +187,7 @@ const AboutMentor = () => {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0, transition: { delay: i * 0.1 } }}
                   viewport={{ once: false }}
-                  className={`flex items-center gap-3 ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}
+                  className="flex items-center gap-3 text-mg-light-text dark:text-mg-dark-text"
                 >
                   <item.icon size={20} className="text-mg-gold flex-shrink-0" />
                   <span>{item.text}</span>
@@ -226,17 +214,17 @@ const AboutMentor = () => {
             >
               <div className="flex justify-center mb-3">
                 <div className="p-3 rounded-full bg-mg-gold/10 group-hover:bg-mg-gold/20 transition-all">
-                  <stat.icon size={36} className="text-mg-gold" />
+                  <stat.icon size={24} className="text-mg-gold" />
                 </div>
               </div>
-              <div className={`text-3xl md:text-4xl font-black mb-1 ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+              <div className="text-3xl md:text-4xl font-black mb-1 text-mg-light-text dark:text-mg-dark-text">
                 {typeof stat.value === 'number' ? (
                   <><AnimatedCounter to={stat.value} />{stat.suffix}</>
                 ) : (
                   stat.value
                 )}
               </div>
-              <div className={`text-sm uppercase tracking-widest ${isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"}`}>
+              <div className="text-sm uppercase tracking-widest text-mg-light-textSecondary dark:text-mg-dark-text">
                 {stat.label}
               </div>
             </motion.div>
