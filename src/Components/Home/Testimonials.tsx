@@ -1,7 +1,7 @@
 // Eugene Afriyie UEB3502023
 // src/components/Testimonials/Testimonials.tsx
 import  { useEffect, useRef, useState } from "react";
-import { motion, useAnimation, AnimatePresence, useMotionValue, animate } from "framer-motion";
+import { motion,  AnimatePresence, useMotionValue, animate } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { Star,  ArrowRight, X, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -20,7 +20,7 @@ const Testimonials = () => {
   const isDark = theme === "dark";
   const containerRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
-  const controls = useAnimation(); // We'll keep this for the manual scroll animation
+  // const controls = useAnimation(); // We'll keep this for the manual scroll animation
   const [isPaused, setIsPaused] = useState(false);
   const [selectedTestimonial, setSelectedTestimonial] = useState<Testimonial | null>(null);
 
@@ -67,24 +67,33 @@ const Testimonials = () => {
   // Duplicate for seamless loop
   const duplicated = [...testimonials, ...testimonials, ...testimonials];
 
+  // Auto-scroll logic
   useEffect(() => {
-    if (isPaused) return;
+    let animation: any;
 
-    const duration = 60; // seconds for full scroll
-    const start = async () => {
-      const newX = -containerRef.current!.scrollWidth / 3;
-      controls.set({ x: 0 }); // Reset position
-      await controls.start({
-        x: newX,
-        transition: {
-          duration,
-          ease: "linear",
-          repeat: Infinity,
+    const startAnimation = () => {
+      const containerWidth = containerRef.current?.scrollWidth || 0;
+      const scrollDistance = containerWidth / 3;
+
+      animation = animate(x, [-scrollDistance, 0], {
+        ease: "linear",
+        duration: 60, // Adjust for speed (e.g., 40 for faster)
+        repeat: Infinity,
+        onRepeat: () => {
+          // This ensures the loop is seamless
+          x.set(0);
         },
       });
     };
-    // start(); // We will disable auto-scroll for now to fix manual scroll
-  }, [controls, isPaused]);
+
+    if (!isPaused) {
+      startAnimation();
+    }
+
+    return () => {
+      animation?.stop();
+    };
+  }, [isPaused, x]);
 
   const truncateText = (text: string, wordLimit: number) => {
     const words = text.split(' ');
@@ -102,6 +111,9 @@ const Testimonials = () => {
 
     // Animate to the new position
     animate(x, newX, { type: "spring", stiffness: 400, damping: 40 });
+
+    // Briefly pause auto-scroll after manual interaction
+    setTimeout(() => setIsPaused(false), 5000);
   };
 
   return (
@@ -154,7 +166,12 @@ const Testimonials = () => {
             }}
             whileTap={{ cursor: "grabbing" }}
             onDragStart={() => setIsPaused(true)}
-            onDragEnd={() => setIsPaused(false)}
+            onDragEnd={() => {
+              // Resume auto-scroll after a delay
+              setTimeout(() => {
+                setIsPaused(false);
+              }, 3000);
+            }}
           >
             {duplicated.map((t, i) => (
               <motion.div
