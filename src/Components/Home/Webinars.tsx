@@ -1,11 +1,12 @@
 // src/components/Webinars/Webinars.tsx
-import  { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
-import { Calendar, Video, MapPin, X, ArrowRight, Send, Globe, Zap, Youtube } from "lucide-react";
+import { Calendar, Video, MapPin, X, ArrowRight, Send, Globe, Youtube } from "lucide-react";
+import { useState } from "react";
 
 const Webinars = () => {
   const { theme } = useTheme();
+  const isDark = theme === "dark";
   const [showPopup, setShowPopup] = useState(false);
 
   const events = [
@@ -27,224 +28,211 @@ const Webinars = () => {
       desc: "An intensive virtual workshop covering the Sniper MarketGod Strategy. Includes live simulations and Q&A. Spots are limited.",
       topics: ["Building trading systems", "Psychology mastery", "Ghana case studies"],
       price: "Paid Workshop",
-      join: "Get Notified for Openings",
+      join: "Get Notified",
       href: "#",
       icon: Calendar,
-       triggerPopup: true,
+      triggerPopup: true,
     },
     {
-  type: "Free Physical Seminar",
-  title: "Live Trading Experience Day",
-  date: "Occasional In-Person Events (Global)",
-  desc: "We host exclusive in-person trading experience days across different cities — live market execution, networking, mentorship, and intensive strategy reviews.",
-  topics: ["Live market execution", "Trader networking", "Strategy reviews"],
-  price: "Free",
-  join: "Get Notified",
-  href: "#",
-  icon: MapPin,
-  triggerPopup: true,
-}
-
+      type: "Free Physical Seminar",
+      title: "Live Trading Experience Day",
+      date: "Occasional In-Person Events (Global)",
+      desc: "We host exclusive in-person trading experience days across different cities — live market execution, networking, mentorship, and intensive strategy reviews.",
+      topics: ["Live market execution", "Trader networking", "Strategy reviews"],
+      price: "Free",
+      join: "Get Notified",
+      href: "#",
+      icon: MapPin,
+      triggerPopup: true,
+    },
   ];
 
   const socials = [
     { name: "Telegram", icon: Send, link: "https://t.me/marketgodcommunity" },
     { name: "Facebook", icon: Globe, link: "https://web.facebook.com/eyram.akpey" },
     { name: "Instagram", icon: Globe, link: "https://www.instagram.com/eyram_dela" },
-    { name: "Youtube", icon: Youtube, link: "https://www.youtube.com/@marketgodcommunity" },
+    { name: "YouTube", icon: Youtube, link: "https://www.youtube.com/@marketgodcommunity" },
   ];
 
   return (
     <>
-      {/* 🌅 Background Section */}
-      <section
-        id="webinars"
-        className="relative py-24 overflow-hidden"
-      >
-        {/* 🖼️ Background Image */}
+      <section id="webinars" className="relative py-32 overflow-hidden">
+        {/* Background */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage:
-              "url('https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522353/SnapInsta.to_344115183_2414894028679317_1325419865450439379_n_uqflwo.jpg')", // Add your image in /public/images/webinars-bg.jpg
+            backgroundImage: "ur('tps://res.cloudinary.com/dzqdfaghg/image/upload/v1763522353/SnapInsta.to_344115183_2414894028679317_1325419865450439379_n_uqflwo.jpg')",
           }}
         />
-
-        {/* 🔮 Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-transparent" />
-
-        {/* 🌍 Animated Glow Overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,215,0,0.08),transparent_70%),radial-gradient(circle_at_80%_70%,rgba(34,197,94,0.08),transparent_70%)] animate-pulse-slow" />
+        {/* <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-br from-mg-gold/10 via-transparent to-mg-gold/5" /> */}
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            transition={{ duration: 0.9 }}
+            className="text-center mb-20"
           >
-            <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-4 text-yellow-400 drop-shadow-lg">
-              Webinars & <span className="text-yellow-600">Seminars</span>
+            <h2 className={`text-5xl md:text-7xl font-black tracking-tight mb-6 ${isDark ? "text-mg-white" : "text-mg-black"}`}>
+              Webinars <span className="text-mg-gold">& </span>Seminars
             </h2>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-300">
+            <p className={`text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed ${isDark ? "text-gray-300" : "text-gray-600"}`}>
               Live sessions with Eyram Dela. Hands-on trading. Ghana time.  
-              <span className="text-yellow-400 font-semibold"> No AI — just mastery.</span>
+              <span className="text-mg-gold font-bold"> Real mastery — no fluff.</span>
             </p>
           </motion.div>
 
           {/* Events Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {events.map((event, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -8 }}
-                className={`relative p-8 rounded-3xl border backdrop-blur-md transition-all ${
-                  theme === "light"
-                    ? "bg-white/90 border-yellow-400/30 shadow-xl"
-                    : "bg-black/70 border-yellow-500/40 shadow-2xl"
-                }`}
+                transition={{ delay: i * 0.15, duration: 0.8 }}
+                whileHover={{ y: -12, scale: 1.02 }}
+                className={`   ${event.price === "Free" ? "border border-mg-gray/50 hover:border-mg-black/50" : "border border-mg-gold/30 hover:border-mg-gold/50"}
+                  relative p-8 rounded-3xl backdrop-blur-xl shadow-2xl transition-all duration-500 flex flex-col
+                  ${isDark 
+                    ? "bg-black/80   hover:shadow-gold-glow" 
+                    : "bg-white/95 border-mg-gold/20 hover:border-mg-gold/40 hover:shadow-gold-glow-light"
+                  }
+                `}
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <event.icon size={26} className="text-mg-gold" />
-                  <span className="text-sm font-bold uppercase text-mg-gold">
-                    {event.type}
-                  </span>
+                <div className="flex-grow">
+                  <div className="flex items-center gap-3 mb-5">
+                    <event.icon size={28} className="text-mg-gold" />
+                    <span className={`text-sm font-bold uppercase tracking-wider   ${isDark ? "text-mg-white" : "text-mg-black"}`}>
+                      {event.type}
+                    </span>
+                  </div>
+
+                  <h3 className={`text-2xl font-bold mb-3 ${isDark ? "text-white" : "text-black"}`}>
+                    {event.title}
+                  </h3>
+                  <p className={`text-base mb-4 ${isDark ? "text-gray-400" : "text-gray-700"}`}>
+                    {event.date}
+                  </p>
+                  <p className={`text-sm leading-relaxed mb-6 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+                    {event.desc}
+                  </p>
+
+                  <div className="mb-6">
+                    <p className="text-xs uppercase tracking-widest text-mg-gold font-bold mb-3">Topics Covered</p>
+                    <ul className="space-y-2">
+                      {event.topics.map((topic, j) => (
+                        <li key={j} className="flex items-center gap-3 text-sm">
+                          <div className="w-1.5 h-1.5 bg-mg-gold rounded-full" />
+                          <span className={isDark ? "text-gray-400" : "text-gray-600"}>{topic}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
 
-                <h3 className="text-2xl font-bold mb-3 text-yellow-500">
-                  {event.title}
-                </h3>
-                <p className={`text-base mb-2 text-black   ${
-                  theme === "light"
-                    ? "text-black/90 border-yellow-400/30 "
-                    : "text-white/70 "}`}>{event.date}</p>
-                <p className={`text-base mb-4 ${
-                  theme === "light"
-                    ? "text-black/90 border-yellow-400/30 "
-                    : "text-white/70 "}`}>{event.desc}</p>
-
-                <div className="space-y-2 mb-6">
-                  <p className="text-sm uppercase tracking-wider text-yellow-500">Topics:</p>
-                  <ul className={`text-sm ${
-                  theme === "light"
-                    ? "text-black/90 border-yellow-400/30 "
-                    : "text-white/70 "} space-y-1`}>
-                    {event.topics.map((topic, j) => (
-                      <li key={j} className="flex items-center gap-2">
-                        <Zap size={12} className="text-yellow-400" />
-                        {topic}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="mb-4">
-                  <div className="text-xl font-bold text-yellow-500">{event.price}</div>
-                  <p className={`text-sm ${
-                  theme === "light"
-                    ? "text-black/90 border-yellow-400/30 shadow-xl"
-                    : "text-white/70"}`}>{event.join}</p>
-                </div>
-
-               {/* CTA Button */}
-{event.triggerPopup ? (
-  <motion.button
-    onClick={() => setShowPopup(true)}
-    whileHover={{ scale: 1.05 }}
-    className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wide transition-all w-full justify-center ${
-      event.price === "Free"
-        ? "bg-yellow-500 text-black"
-        : "border-2 border-yellow-500 text-yellow-400 hover:bg-yellow-500/10"
-    }`}
-  >
-    {event.price === "Free" ? "Register Free" : "Book Now"}
-    <ArrowRight size={18} />
-  </motion.button>
-) : (
-  <a
-    href={event.href}
-    target="_blank"
-    rel="noreferrer"
-    className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wide transition-all w-full justify-center bg-yellow-500 text-black"
-  >
-    Join Now
-    <ArrowRight size={18} />
-  </a>
-)}
-
+                {/* CTA Button */}
+                {event.triggerPopup ? (
+                  <motion.button
+                    onClick={() => setShowPopup(true)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                    className={`
+                      w-full py-4 rounded-full font-bold uppercase tracking-wider transition-all duration-300
+                      ${event.price === "Free" 
+                        ? "bg-mg-black text-mg-white dark:bg-mg-white dark:text-mg-black hover:shadow-gold-glow-lg" 
+                        : "border-2 border-mg-gold text-mg-gold hover:bg-mg-gold hover:text-black"
+                      }
+                    `}
+                  >
+                    {event.price === "Free" ? "Register Free" : "Get Notified"}
+                    <ArrowRight className="inline ml-2" size={18} />
+                  </motion.button>
+                ) : (
+                  <motion.a
+                   whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                    href={event.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block w-full text-center py-4 rounded-full bg-mg-black dark:bg-mg-white text-mg-white dark:text-mg-black font-bold uppercase tracking-wider hover:shadow-gold-glow-lg transition-all"
+                  >
+                    Join Now <ArrowRight className="inline ml-2" size={18} />
+                  </motion.a>
+                )}
               </motion.div>
             ))}
           </div>
 
-          {/* CTA */}
+          {/* Bottom CTA */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-            className="text-center mt-16"
+            transition={{ delay: 0.6 }}
+            className="text-center mt-20"
           >
             <motion.button
               onClick={() => setShowPopup(true)}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.07 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 px-10 py-5 bg-yellow-500 text-black rounded-full font-bold uppercase tracking-wider shadow-xl"
+              className={`
+                inline-flex items-center gap-4 px-6 md:px-12 py-6 rounded-full font-bold uppercase tracking-wider text-sm md:text-xl shadow-2xl
+                transition-all duration-500 hover:shadow-gold-glow-lg
+                bg-black text-white
+                dark:bg-mg-white dark:text-black dark:hover:bg-white dark:hover:text-black
+              `}
             >
-              Stay Updated on Events
-              <Calendar size={24} />
+              Stay Updated on All Events
+              <Calendar size={28} />
             </motion.button>
           </motion.div>
         </div>
       </section>
 
-      {/* Popup */}
+      {/* Luxury Popup */}
       <AnimatePresence>
         {showPopup && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[999] flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/80 backdrop-blur-xl z-[999] flex items-center justify-center p-6"
             onClick={() => setShowPopup(false)}
           >
             <motion.div
-              initial={{ scale: 0.8, y: 50 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.8, y: 50 }}
-              transition={{ type: "spring", damping: 25 }}
-              className="relative max-w-lg w-full p-8 rounded-3xl shadow-2xl bg-black/80 border-2 border-yellow-500/40"
+              initial={{ scale: 0.8, y: 100, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.8, y: 100, opacity: 0 }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              className="relative max-w-md w-full p-10 rounded-3xl bg-gradient-to-br from-black/90 to-mg-dark-surface/90 border-2 border-mg-gold/40 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <button
-              aria-label="Close popup"
                 onClick={() => setShowPopup(false)}
-                className="absolute top-4 right-4 p-2 rounded-full bg-white/20 hover:bg-white/30 transition"
+                className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 transition"
               >
-                <X size={20} className="text-yellow-400" />
+                <X size={24} className="text-mg-gold" />
               </button>
 
-              <div className="flex justify-center mb-6">
-                <div className="p-4 bg-yellow-400/10 rounded-full">
-                  <Calendar size={48} className="text-yellow-400" />
+              <div className="text-center mb-8">
+                <div className="inline-flex p-5 rounded-full bg-mg-gold/10 mb-6">
+                  <Calendar size={48} className="text-mg-gold" />
                 </div>
+                <h3 className="text-3xl font-black text-mg-gold mb-4">
+                  No Events Scheduled Yet
+                </h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Follow our channels to get instant notifications when new webinars and seminars are announced.
+                </p>
               </div>
 
-              <h3 className="text-2xl font-black text-center mb-4 text-yellow-300">
-                No Events Scheduled Currently
-              </h3>
-
-              <p className="text-center mb-8 leading-relaxed text-gray-400">
-                There are no upcoming workshops or seminars at the moment. Follow our social channels to get instant notifications for new event dates.
-              </p>
-
-              <div className="space-y-3">
-                <p className="text-center font-bold uppercase tracking-wider text-yellow-400 mb-4">
-                  Stay Updated — Join Us:
+              <div className="space-y-4">
+                <p className="text-center font-bold uppercase tracking-wider text-mg-gold">
+                  Join Our Community
                 </p>
                 {socials.map((social, i) => (
                   <motion.a
@@ -252,12 +240,14 @@ const Webinars = () => {
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.03 }}
-                    className="flex items-center justify-center gap-3 p-4 rounded-xl border border-yellow-500/30 bg-black/60 hover:bg-yellow-500/10 transition-all"
+                    whileHover={{ scale: 1.03, x: 8 }}
+                    className="flex items-center justify-between p-5 rounded-xl bg-white/5 border border-mg-gold/20 hover:bg-mg-gold/10 transition-all group"
                   >
-                    <social.icon size={24} className="text-yellow-400" />
-                    <span className="font-bold text-yellow-300">{social.name}</span>
-                    <ArrowRight size={18} className="text-yellow-400" />
+                    <div className="flex items-center gap-4">
+                      <social.icon size={24} className="text-mg-gold" />
+                      <span className="font-bold text-white">{social.name}</span>
+                    </div>
+                    <ArrowRight size={20} className="text-mg-gold group-hover:translate-x-2 transition" />
                   </motion.a>
                 ))}
               </div>

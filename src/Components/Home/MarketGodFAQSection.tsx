@@ -19,7 +19,7 @@ const FAQCTA = () => {
       {/* Headline & CTA */}
       <div className="flex-1 text-center md:text-left space-y-3">
         <h3 className={`text-2xl md:text-3xl font-extrabold ${
-          theme === "light" ? "text-mg-light-text" : "text-mg-gold"
+          theme === "light" ? "text-mg-light-text" : "text-mg-white"
         }`}>
           Have questions? We’re here to help!
         </h3>
@@ -33,7 +33,7 @@ const FAQCTA = () => {
           href="contact"
           whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
           whileTap={{ scale: 0.95 }}
-          className="inline-flex items-center gap-2 mt-4 px-6 py-3 bg-mg-gold text-mg-black rounded-full font-bold uppercase tracking-wide shadow-lg"
+          className="inline-flex items-center gap-2 mt-4 px-6 py-3 dark:bg-mg-white bg-mg-black text-mg-white dark:text-mg-black rounded-full font-bold uppercase tracking-wide shadow-lg"
         >
           Contact Us
         </motion.a>

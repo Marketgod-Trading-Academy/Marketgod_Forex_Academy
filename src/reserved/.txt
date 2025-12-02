@@ -5,6 +5,9 @@ Let me tell you a little bit about MarketGold. His journey started when he was i
 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
 
 
+ whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+          whileTap={{ scale: 0.95 }}
+
 telegram channel:https://t.me/marketgodcommunity - 13k members
 
 facebok : https://web.facebook.com/eyram.akpey
@@ -619,3 +622,303 @@ body {
 .no-scrollbar::-ms-scrollbar {
   display: none;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// src/components/Footer/Footer.tsx
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useTheme } from "../../context/ThemeContext";
+import {
+  Instagram, Twitter, Youtube, Send, LucideFacebook,
+  Mail, Phone, ArrowUp, MessageCircle, Shield, Globe
+} from "lucide-react";
+import GhanaFlagStripe from "../Ghana/GhanaFlagStripe";
+
+const Footer = () => {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+  const currentYear = new Date().getFullYear();
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const toggle = () => setShowScrollTop(window.pageYOffset > 600);
+    window.addEventListener("scroll", toggle);
+    return () => window.removeEventListener("scroll", toggle);
+  }, []);
+
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+  const socials = [
+    { Icon: Instagram, href: "https://www.instagram.com/eyram_dela", label: "Instagram" },
+    { Icon: Twitter, href: "https://x.com/eyramdela", label: "X" },
+    { Icon: Youtube, href: "https://www.youtube.com/@marketgodcommunity", label: "YouTube" },
+    { Icon: Send, href: "https://t.me/marketgodcommunity", label: "Telegram" },
+    { Icon: LucideFacebook, href: "https://web.facebook.com/eyram.akpey", label: "Facebook" },
+  ];
+
+  const links = {
+    company: [
+      { label: "About Us", href: "/about" },
+      { label: "Blog", href: "/blog" },
+      { label: "Contact", href: "/contact" },
+      { label: "Plans", href: "/plans" },
+    ],
+    resources: [
+      { label: "Community", href: "https://t.me/marketgodcommunity" },
+      { label: "Mentorship", href: "/plans" },
+      { label: "VIP Signals", href: "/plans/#signals" },
+      { label: "Free Content", href: "https://www.youtube.com/@marketgodcommunity" },
+    ],
+  };
+
+  return (
+    <>
+      {/* Back to Top — Now Ultra Premium */}
+      <motion.button
+        initial={{ opacity: 0, scale: 0 }}
+        animate={showScrollTop ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+        whileHover={{ scale: 1.2, rotate: 90 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={scrollToTop}
+        className="fixed bottom-8 right-8 z-50 p-4 rounded-full bg-mg-gold text-black shadow-2xl hover:shadow-gold-glow-lg transition-all duration-500 border-4 border-black dark:border-white"
+        aria-label="Back to top"
+      >
+        <ArrowUp size={28} className="font-bold" />
+      </motion.button>
+
+      <footer className={`relative overflow-hidden pt-32 pb-16 ${isDark ? "bg-black" : "bg-mg-paper"}`}>
+        {/* Subtle Logo Background */}
+        <div className="absolute inset-0 opacity-5 pointer-events-none">
+          <img src="/logo.png" alt="" className="w-full h-full object-cover object-center" />
+        </div>
+
+        {/* Golden Ambient Glow */}
+        <div className="absolute inset-0 pointer-events-none opacity-30">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-mg-gold/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-mg-gold/20 rounded-full blur-3xl" />
+        </div>
+
+        <GhanaFlagStripe />
+
+        {/* 3D Slogan — Now Cleaner */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+          <motion.div
+            initial={{ opacity: 0, rotateX: -60 }}
+            whileInView={{ opacity: 0.08, rotateX: -45 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5 }}
+            className="text-8xl md:text-9xl lg:text-[12rem] font-black tracking-[0.3em] uppercase"
+            style={{ color: "#D4AF37" }}
+          >
+            MARKETGOD ACADEMY
+          </motion.div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-4 gap-12 lg:gap-16">
+
+            {/* BRAND COLUMN */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="flex flex-col gap-8"
+            >
+              <div className="flex items-center gap-4">
+                <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.8 }}>
+                  <img src="/logo.png" alt="MarketGod" className="w-16 h-16 rounded-full border-2 border-mg-white shadow-2xl bg-black" />
+                </motion.div>
+                <div className={`${isDark ? "text-mg-white" : "text-mg-black"}`}>
+                  <h3 className="text-3xl font-black text-g-gold">MarketGod</h3>
+                  <p className="text-sm font-bold tracking-wider">ACADEMY</p>
+                </div>
+              </div>
+
+              <p className={`text-sm leading-relaxed ${isDark ? "text-mg-white" : "text-mg-black"}`}>
+                Empowering <span className="text-mg-gold font-bold">African traders</span> with elite mentorship, real-time signals, and proven strategies — from Accra to the world.
+              </p>
+
+              <div className="flex gap-4">
+                {socials.map(({ Icon, href, label }, i) => (
+                  <motion.a
+                    key={i}
+                    href={href}
+                    target="_blank"
+                    rel="noopener"
+                    aria-label={label}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    whileHover={{ scale: 1.3, rotate: 15 }}
+                    className="p-3 rounded-full bg-mg-gold/10 border border-mg-gold/30 hover:bg-mg-gold hover:text-black transition-all duration-300"
+                  >
+                    <Icon size={20} />
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* COMPANY */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            >
+              <h3 className={`text-lg font-bold mb-6  ${isDark ? "text-mg-white" : "text-mg-black"} tracking-wider`}>Company</h3>
+              <ul className="space-y-4">
+                {links.company.map((link, i) => (
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                  >
+                        <a
+                          href={link.href}
+                         className={`
+                          text-sm flex items-center gap-3 group transition-all duration-300
+                          ${isDark ? "text-mg-white hover:text-mg-white/50" : "text-mg-black hover:text-mg-black/50"}
+                        `}
+                        >
+                          <span
+                            className={`
+                              w-2 h-2 ${isDark ? "bg-mg-white" : "bg-mg-black"} rounded-full 
+                              scale-0 group-hover:scale-100 
+                              transition-transform duration-300 ease-out
+                               ${isDark ? "text-mg-white hover:text-mg-white/50" : "text-mg-black hover:text-mg-black/50"}
+                            `}
+                          />
+                          {link.label}
+                        </a>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* RESOURCES */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            >
+              <h3 className={`text-lg font-bold mb-6  ${isDark ? "text-mg-white" : "text-mg-black"} tracking-wider`}>Resources</h3>
+              <ul className="space-y-4">
+                {links.resources.map((link, i) => (
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 + 0.1 }}
+                  >
+                       <a
+                        href={link.href}
+                         className={`
+                          text-sm flex items-center gap-3 group transition-all duration-300
+                          ${isDark ? "text-mg-white hover:text-mg-white/50" : "text-mg-black hover:text-mg-black/50"}
+                        `}
+                        >
+                        <span
+                          className={`
+                            w-2 h-2 ${isDark ? "bg-mg-white" : "bg-mg-black"} rounded-full 
+                            scale-0 group-hover:scale-100 
+                            transition-transform duration-300 ease-out
+                          `}
+                        />
+                       {link.label}
+                   </a>
+                     </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* COMMUNITY & CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="flex flex-col gap-8"
+            >
+              <div>
+                <h3 className={`text-lg font-bold mb-4 ${isDark ? "text-mg-white" : "text-mg-black"}`}>Join 12,000+ Traders</h3>
+                <p className={`text-sm mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                  Get live signals, free tools, and 24/7 support.
+                </p>
+              </div>
+
+              <div className={`space-y-3 text-sm ${isDark ? "text-mg-white" : "text-mg-black"}`}>
+                <a href="mailto:support@marketgod.academy" className="flex items-center gap-3 hover:text-mg-gold transition">
+                  <Mail size={16} /> support@marketgod.academy
+                </a>
+                <a href="tel:+233557777777" className="flex items-center gap-3 hover:text-mg-gold transition">
+                  <Phone size={16} /> +233 55 777 7777
+                </a>
+              </div>
+
+              {/* MAIN CTA — Now PERFECT */}
+              <motion.a
+                href="https://t.me/delatrades"
+                target="_blank"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className={`
+                  inline-flex items-center justify-center gap-3 px-8 py-5 rounded-full font-bold uppercase tracking-wider shadow-2xl
+                  transition-all duration-500 hover:shadow-gold-glow-lg text-lg
+                  bg-black text-white hover:bg-mg-gold hover:text-black
+                  dark:bg-mg-gold dark:text-black dark:hover:bg-white dark:hover:text-black
+                `}
+              >
+                <MessageCircle size={24} />
+                Chat on Telegram Now
+              </motion.a>
+            </motion.div>
+          </div>
+
+          {/* FOOTER BOTTOM */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6 }}
+            className="mt-20 pt-10 border-t border-gray-800 dark:border-gray-200/20 text-center text-xs"
+          >
+            <p className="text-mg-gold font-bold mb-2">© {currentYear} MarketGod Academy. All rights reserved.</p>
+            <p className={`italic mb-4 ${isDark ? "text-gray-500" : "text-gray-600"}`}>
+              Trading involves substantial risk. Past performance is not indicative of future results.
+            </p>
+            <p className="text-mg-gold font-bold">Proudly crafted by Eugene Afriyie</p>
+          </motion.div>
+        </div>
+      </footer>
+    </>
+  );
+};
+
+export default Footer;
+
+

@@ -89,7 +89,7 @@ const MarketGodQuotes = () => {
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, ease: "easeOut" }}
     viewport={{ once: true }}
-    className="text-3xl md:text-4xl font-bold tracking-tight text-mg-gold relative inline-block pb-3"
+    className="text-3xl md:text-5xl font-black tracking-tight text-mg-black dark:text-mg-white capitalize relative inline-block pb-3"
   >
     Wisdom That Shapes Traders
 
@@ -145,15 +145,11 @@ const MarketGodQuotes = () => {
                 >
                   “{quotes[current].text}”
                 </p>
-                <p className="text-lg font-bold text-mg-gold block">
+                <p className="text-lg font-bold text-mg-black dark:text-mg-white block">
                   — {quotes[current].name}
                 </p>
                 <span
-                  className={`text-sm font-medium ${
-                    theme === "light"
-                      ? "text-mg-light-textSecondary"
-                      : "text-mg-dark-textSecondary"
-                  }`}
+                  className={`text-sm font-medium text-mg-gold `}
                 >
                   {quotes[current].role}
                 </span>

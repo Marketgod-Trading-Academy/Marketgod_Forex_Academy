@@ -125,9 +125,6 @@ const Testimonials = () => {
           : "bg-gradient-to-b from-mg-paper to-mg-light-bg"
       }`}
     >
-      {/* Ghana Flag Accent */}
-      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-600 via-yellow-500 to-green-600 opacity-90 shadow-lg z-50" />
-
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -137,9 +134,9 @@ const Testimonials = () => {
           className="text-center mb-12"
         >
           <h2 className={`text-4xl md:text-6xl font-black tracking-tight mb-4 ${
-            isDark ? "text-mg-gold" : "text-mg-charcoal"
+            isDark ? "text-mg-white" : "text-mg-black"
           }`}>
-            Real Traders. <span className="text-mg-green">Real Wins.</span>
+            Real Traders. <span className="text-mg-gold">Real Wins.</span>
           </h2>
           <p className={`text-lg md:text-xl max-w-3xl mx-auto ${
             isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"
@@ -217,7 +214,7 @@ const Testimonials = () => {
 
                   <button 
                     onClick={() => setSelectedTestimonial(t)}
-                    className={`text-sm font-bold text-mg-gold hover:underline ${isDark ? 'text-mg-gold' : 'text-yellow-600'}`}
+                    className={`text-sm font-bold text-mg-gold hover:underline ${isDark ? 'text-mg-white' : 'text-yellow-600'}`}
                   >
                     Read Full Story
                   </button>
@@ -232,7 +229,7 @@ const Testimonials = () => {
                     className="w-20 h-24 rounded-full border-2 border-mg-gold shadow-md object-cover"
                   />
                   <div>
-                    <h3 className={`font-bold text-base ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+                    <h3 className={`font-bold text-base ${isDark ? "text-mg-white" : "text-mg-black"}`}>
                       {t.name}
                     </h3>
                     <p className={`text-xs ${isDark ? "text-mg-paper/60" : "text-mg-charcoal/60"}`}>{t.role}</p>
@@ -277,7 +274,7 @@ const Testimonials = () => {
             href="https://t.me/marketgodcommunity"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 px-10 py-5 bg-mg-gold text-mg-charcoal rounded-full font-bold uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-mg-dark-bg  dark:bg-mg-white text-mg-white dark:text-mg-black rounded-full font-bold uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all"
           >
             Join 10,000+ Winners Today
             <ArrowRight size={24} />
@@ -292,7 +289,7 @@ const Testimonials = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[999] flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[999] flex items-center justify-center p-4"
             onClick={() => setSelectedTestimonial(null)}
           >
             <motion.div

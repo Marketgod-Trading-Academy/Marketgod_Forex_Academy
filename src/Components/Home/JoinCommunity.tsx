@@ -124,8 +124,8 @@ export default function JoinCommunity3D() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-mg-gold mb-4">
-            Join <span className="text-mg-green">MarketGod Academy</span> Community
+          <h2 className="text-4xl sm:text-5xl font-black text-mg-black dark:text-mg-white mb-4">
+            Join <span className="text-mg-gold">MarketGod Academy</span> Community
           </h2>
           <p className="max-w-3xl mx-auto text-lg sm:text-xl text-mg-light-textSecondary dark:text-mg-dark-textSecondary">
             Connect with traders from across Africa and the world. All from the heart of Ghana.
@@ -134,54 +134,68 @@ export default function JoinCommunity3D() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left CTA */}
-          <div
-            className="relative p-8 rounded-3xl border border-mg-gold/30 shadow-gold-glow backdrop-blur-md overflow-hidden"
+            <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative p-4 md:p-12 rounded-3xl border-4 border-mg-gold/40 backdrop-blur-xl shadow-2xl overflow-hidden"
             style={{
               backgroundImage: "url('https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522353/SnapInsta.to_572477469_18538014796003421_360178860850559894_n_uuic8a.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
-              backgroundBlendMode: "overlay",
             }}
           >
-            <div className="absolute inset-0  bg-mg-black/80 rounded-3xl" />
-            <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
-              <div className="absolute top-0 left-[-50%] w-[200%] h-[2px] bg-gradient-to-r from-transparent via-mg-gold/50 to-transparent animate-lightStreak1" />
-              <div className="absolute top-[30%] left-[-50%] w-[200%] h-[1px] bg-gradient-to-r from-transparent via-mg-green/50 to-transparent animate-lightStreak2" />
-              <div className="absolute top-[60%] left-[-50%] w-[200%] h-[1.5px] bg-gradient-to-r from-transparent via-mg-gold/40 to-transparent animate-lightStreak3" />
+            <div className="absolute inset-0 bg-black/80" />
+            
+            {/* Gold Light Streaks */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-0 left-[-50%] w-[200%] h-1 bg-gradient-to-r from-transparent via-mg-gold/60 to-transparent animate-lightStreak1" />
+              <div className="absolute top-1/3 left-[-50%] w-[200%] h-1 bg-gradient-to-r from-transparent via-mg-gold/40 to-transparent animate-lightStreak2" />
+              <div className="absolute bottom-1/3 left-[-50%] w-[200%] h-1 bg-gradient-to-r from-transparent via-mg-gold/50 to-transparent animate-lightStreak3" />
             </div>
 
-            <motion.h3 className="relative text-3xl sm:text-4xl font-extrabold text-mg-gold z-10">
-              Connect with <span className="text-mg-green">MarketGod Academy</span>
-            </motion.h3>
+            <div className="relative z-10">
+              <h3 className="text-4xl md:text-5xl font-black text-mg-white mb-6">
+                Connect with MarketGod Academy
+              </h3>
+              <p className="text-xl text-gray-300 mb-10 leading-relaxed">
+                VIP signals, mentorship, webinars — all guided by MarketGod experts.
+              </p>
 
-            <motion.p className="relative text-mg-paper text-lg sm:text-xl mt-4 z-10">
-              VIP signals, mentorship, webinars — all guided by MarketGod experts.
-            </motion.p>
+              {/* Social Links */}
+              <div className="flex flex-wrap gap-4 mb-10">
+                {links.map((l) => (
+                  <motion.a
+                    key={l.href}
+                    href={l.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    className="flex items-center gap-3 px-6 py-4 rounded-xl bg-white/5 border border-mg-gold/30  text-white transition-all font-bold"
+                  >
+                    <span className="w-8 h-8 flex items-center justify-center text-mg-gold group-hover:text-black">
+                      {l.icon}
+                    </span>
+                    <span>{l.name}</span>
+                  </motion.a>
+                ))}
+              </div>
 
-            <div className="relative z-10 flex flex-wrap gap-3 mt-6">
-              {links.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-mg-paper/60 dark:bg-mg-charcoal/60 border border-mg-gold/30 text-mg-charcoal dark:text-mg-paper hover:text-mg-paper hover:bg-gradient-to-r hover:from-mg-gold/80 hover:to-mg-green/80 transition-all"
-                >
-                  <span className="w-6 h-6 flex items-center justify-center text-mg-gold group-hover:text-mg-paper">
-                    {l.icon}
-                  </span>
-                  <span className="text-sm font-semibold">{l.name}</span>
-                </a>
-              ))}
+              {/* Main CTA Button */}
+              <motion.button
+                onClick={() => setOpen(true)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className={`
+                  w-full p-3 md:py-6 rounded-2xl font-black text-2xl shadow-2xl transition-all duration-500 hover:shadow-gold-glow-lg
+                    bg-mg-white 
+                  text-black  
+                `}
+              >
+                Join Community Now
+              </motion.button>
             </div>
-
-            <button
-              onClick={() => setOpen(true)}
-              className="relative z-10 mt-6 w-full px-8 py-4 rounded-full bg-gradient-to-r from-mg-gold to-mg-green text-mg-charcoal dark:text-mg-paper font-bold text-lg shadow-gold-glow hover:shadow-[0_15px_30px_rgba(212,175,55,0.5)] transition-all"
-            >
-              Join Community
-            </button>
-          </div>
+          </motion.div>
 
           {/* Right - 3D Globe */}
           <div className={`w-full h-[400px] sm:h-[500px] rounded-2xl overflow-hidden bg-mg-charcoal/60 dark:bg-mg-black/60  ${

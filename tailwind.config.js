@@ -13,6 +13,9 @@ module.exports = {
           "light-gray": "#F5F5F5",
           "mid-gray": "#E5E5E5",
           "dark-gray": "#1A1A1A",
+          blue: "#1E40AF",        // ← Royal Blue – PERFECT match
+  "blue-dark": "#0F172A", // ← Deep background (optional)
+  "blue-light": "#0077FF",
 
           light: {
             bg: "#FAFAFA",

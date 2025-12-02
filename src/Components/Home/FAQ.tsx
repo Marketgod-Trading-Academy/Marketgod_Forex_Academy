@@ -71,7 +71,7 @@ const FAQ: React.FC = () => {
         <div className="lg:w-1/2 w-full flex flex-col gap-4" {...swipeHandlers}>
           <h2
             className={`text-4xl md:text-5xl font-extrabold mb-6 text-center lg:text-left ${
-              theme === "light" ? "text-mg-light-text" : "text-mg-gold"
+              theme === "light" ? "text-mg-light-text" : "text-mg-white"
             }`}
           >
             Frequently Asked Questions
@@ -91,8 +91,8 @@ const FAQ: React.FC = () => {
               key={index}
               className={`border rounded-xl overflow-hidden transition-shadow ${
                 theme === "light"
-                  ? "border-mg-light-border bg-white/80 shadow-lg"
-                  : "border-mg-gold/30 bg-mg-dark-bg/80 shadow-2xl"
+                  ? "border-mg-black/10 bg-white/80 shadow-lg"
+                  : "border-mg-white/10 bg-mg-dark-bg/80 shadow-2xl"
               }`}
               whileHover={{ scale: 1.02 }}
             >
@@ -101,10 +101,10 @@ const FAQ: React.FC = () => {
                 className="w-full flex justify-between items-center px-6 py-4 text-left focus:outline-none"
               >
                 <span
-                  className={`font-semibold text-lg ${
+                  className={`font-black text-lg ${
                     theme === "light"
                       ? "text-mg-light-text"
-                      : "text-mg-gold"
+                      : "text-mg-white"
                   }`}
                 >
                   {faq.question}
@@ -114,7 +114,7 @@ const FAQ: React.FC = () => {
                     className={`w-6 h-6 transition-transform ${
                       theme === "light"
                         ? "text-mg-light-text"
-                        : "text-mg-gold"
+                        : "text-mg-white"
                     }`}
                   />
                 ) : (
@@ -122,7 +122,7 @@ const FAQ: React.FC = () => {
                     className={`w-6 h-6 transition-transform ${
                       theme === "light"
                         ? "text-mg-light-text"
-                        : "text-mg-gold"
+                        : "text-mg-white"
                     }`}
                   />
                 )}
@@ -159,7 +159,7 @@ const FAQ: React.FC = () => {
               href="/https://t.me/marketgodcommunity"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-mg-gold text-mg-black rounded-full font-bold uppercase tracking-wide shadow-xl"
+              className="inline-flex items-center gap-3 px-8 py-4 dark:bg-mg-white bg-mg-black text-mg-white dark:text-mg-black rounded-full font-bold uppercase tracking-wide shadow-xl"
             >
               Join MarketGod Community
               <TrendingUp size={20} />

@@ -1,16 +1,12 @@
 // Eugene Afriyie UEB3502023
 // src/components/Footer/Footer.tsx
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
-import { useTheme } from "../../context/ThemeContext";
-import { Instagram, Twitter, Youtube, Send, LucideFacebook, Mail, Phone, ArrowUp, MessageCircle, Shield, Globe } from "lucide-react";
-import GhanaFlagStripe from "../Ghana/GhanaFlagStripe";
 import './Footer.css';
+import { ArrowUp, Globe, Instagram, LucideFacebook, Mail, MessageCircle, Phone, Send, Shield, Twitter, Youtube } from "lucide-react";
 
 const Footer = () => {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
-  const currentYear = new Date().getFullYear();
+  const currentYear = useMemo(() => new Date().getFullYear(), []);
 
   // Back to Top Button State
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -65,33 +61,30 @@ const Footer = () => {
         </motion.button>
       )}
 
-      <footer className={`relative overflow-hidden ${isDark ? "bg-mg-black text-mg-paper" : "bg-mg-paper text-mg-black"} mt-5`}>
+      <footer className="relative overflow-hidden bg-mg-black text-mg-paper mt-5">
         {/* Cinematic Background */}
         <div className="absolute inset-0 opacity-30" style={{
           backgroundImage: `url('/logo.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          filter: isDark ? "brightness(0.3) contrast(1.3)" : "brightness(0.8) contrast(1.1)"
+          filter: "brightness(0.3) contrast(1.3)"
         }} />
 
         {/* Golden Glow */}
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: isDark
-            ? "radial-gradient(circle at 20% 20%, rgba(212,175,55,0.12), transparent 60%), radial-gradient(circle at 80% 80%, rgba(212,175,55,0.08), transparent 60%)"
-            : "radial-gradient(circle at 20% 20%, rgba(212,175,55,0.18), transparent 60%), radial-gradient(circle at 80% 80%, rgba(212,175,55,0.12), transparent 60%)"
+          background: "radial-gradient(circle at 20% 20%, rgba(212,175,55,0.12), transparent 60%), radial-gradient(circle at 80% 80%, rgba(212,175,55,0.08), transparent 60%)"
         }} />
 
-        <GhanaFlagStripe />
 
         {/* Footer Slogan */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
           <div className="relative w-full h-full flex items-center justify-center footer-perspective-container">
-            <div className="text-5xl md:text-9xl lg:text-[12rem] font-black tracking-[0.2em] uppercase select-none footer-slogan opacity-5"
+            <div className="text-5xl md:text-9xl lg:text-[12rem] font-black tracking-[0.2em] uppercase select-none footer-slogan opacity-30"
               style={{
-                color: isDark ? "gray" : "rgba(212, 175, 55, 0.1)",
+                color: "rgba(212, 175, 55, 0.06)",
                 transform: "translateZ(-600px) rotateX(45deg) scale(0.85)",
                 transformStyle: "preserve-3d",
-                textShadow: isDark ? "0 0 80px rgba(212,175,55,0.15)" : "0 0 80px rgba(212,175,55,0.2)"
+                textShadow: "0 0 80px rgba(212,175,55,0.15)"
               }}
             >
               MarketGod Academy — Built in Ghana. For the World
@@ -107,21 +100,21 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <img src="/logo.png" alt="MarketGod Academy" className="w-20 h-20 rounded-full border-4 border-mg-gold shadow-2xl p-1 bg-mg-dark-surface" />
                 <div>
-                  <h3 className="text-2xl font-black text-mg- tracking-tight">MarketGod</h3>
-                  <p className="text-xs text-mg-light-textSecondary dark:text-mg-dark-textSecondary font-semibold">ACADEMY</p>
+                  <h3 className="text-2xl font-black text-mg-gold tracking-tight">MarketGod</h3>
+                  <p className="text-xs text-mg-dark-textSecondary font-semibold">ACADEMY</p>
                 </div>
               </div>
-              <p className="text-sm leading-relaxed text-mg-light-textSecondary dark:text-mg-dark-textSecondary">
+              <p className="text-sm leading-relaxed text-mg-dark-textSecondary">
                 Empowering <span className="text-mg-gold font-bold">African traders</span> with elite mentorship, real-time signals, and battle-tested strategies. From Accra to the world.
               </p>
               <div className="flex gap-3 items-center">
-                <div className="flex items-center gap-1 text-xs font-semibold text-mg-light-textSecondary dark:text-mg-dark-textSecondary">
+                <div className="flex items-center gap-1 text-xs font-semibold text-mg-dark-textSecondary">
                   <Shield size={14} />
                   <span>Regulated Partner</span>
                 </div>
                 <div className="flex items-center gap-1 text-xs font-semibold text-mg-gold">
                   <Globe size={14} />
-                  <span>12k+ Traders</span>
+                  <span>12k+</span><span className="text-mg-white"> Traders </span>
                 </div>
               </div>
               <div className="flex gap-3">
@@ -135,12 +128,12 @@ const Footer = () => {
 
             {/* COMPANY */}
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-              <h3 className="text-lg font-bold mb-5 text-mg-god tracking-wider">Company</h3>
+              <h3 className="text-lg font-bold mb-5 text-mg-white tracking-wider">Company</h3>
               <ul className="space-y-3">
                 {links.company.map((link, i) => (
                   <li key={i}>
-                    <a href={link.href} className="text-sm hover:text-mg-gold transition-all duration-300 flex items-center gap-2 group text-mg-light-textSecondary dark:text-mg-dark-textSecondary">
-                      <span className="w-1 h-1 bg-mg-gold rounded-full opacity-0 group-hover:opacity-100 transition"></span>
+                    <a href={link.href} className="text-sm ay transition-all duration-300 flex items-center gap-2 group text-mg-dark-textSecondary">
+                      <span className="w-1 h-1 bg-mg-white rounded-full opacity-0 group-hover:opacity-100 transition"></span>
                       {link.label}
                     </a>
                   </li>
@@ -150,12 +143,12 @@ const Footer = () => {
 
             {/* RESOURCES */}
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
-              <h3 className="text-lg font-bold mb-5 text-mg-god tracking-wider">Resources</h3>
+              <h3 className="text-lg font-bold mb-5 text-mg-white tracking-wider">Resources</h3>
               <ul className="space-y-3">
                 {links.resources.map((link, i) => (
                   <li key={i}>
-                    <a href={link.href} className="text-sm hover:text-mg-gold transition-all duration-300 flex items-center gap-2 group text-mg-light-textSecondary dark:text-mg-dark-textSecondary">
-                      <span className="w-1 h-1 bg-mg-gold rounded-full opacity-0 group-hover:opacity-100 transition"></span>
+                    <a href={link.href} className="text-sm transition-all duration-300 flex items-center gap-2 group text-mg-dark-textSecondary">
+                      <span className="w-1 h-1 bg-mg-white rounded-full opacity-0 group-hover:opacity-100 transition"></span>
                       {link.label}
                     </a>
                   </li>
@@ -166,24 +159,25 @@ const Footer = () => {
             {/* COMMUNITY & CONTACT */}
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="flex flex-col gap-6">
               <div>
-                <h3 className="text-lg font-bold mb-3 text-mg-god tracking-wider">Join Our Community</h3>
-                <p className="text-sm mb-5 text-mg-light-textSecondary dark:text-mg-dark-textSecondary">
+                <h3 className="text-lg font-bold mb-3 text-mg-white tracking-wider">Join Our Community</h3>
+                <p className="text-sm mb-5 text-mg-dark-textSecondary">
                   Connect with 10,000+ traders. Get live updates, free tools, and support.
                 </p>
               </div>
 
               <div className="space-y-3 text-sm">
-                <a href="mailto:support@marketgod.academy" className="flex items-center gap-2 text-mg-light-textSecondary dark:text-mg-dark-textSecondary hover:text-mg-gold transition">
+                <a href="mailto:marketgodacademy@gmail.com" className="flex items-center gap-2 text-mg-dark-textSecondary hover:text-mg-gold transition">
                   <Mail size={16} />
-                  support@marketgod.academy
+                  marketgodacademy@gmail.com
                 </a>
-                <a href="tel:+233557777777" className="flex items-center gap-2 text-mg-light-textSecondary dark:text-mg-dark-textSecondary hover:text-mg-gold transition">
+                <a href="tel:+233599002863" className="flex items-center gap-2 text-mg-dark-textSecondary hover:text-mg-gold transition">
                   <Phone size={16} />
-                  +233 55 777 7777 (WhatsApp)
+                  +233 59 900 28637 (WhatsApp)
+
                 </a>
               </div>
 
-              <motion.a href="https://t.me/delatrades" target="_blank" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-mg-black text-mg-paper dark:bg-mg-paper dark:text-mg-black rounded-full font-bold uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all duration-300">
+              <motion.a href="https://t.me/delatrades" target="_blank" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-mg-paper text-mg-black rounded-full font-bold uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all duration-300">
                 <MessageCircle size={20} />
                 Chat on Telegram Now
               </motion.a>
@@ -191,12 +185,12 @@ const Footer = () => {
           </div>
 
           {/* DISCLAIMER */}
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }} className="mt-16 pt-8 border-t border-mg-light-border dark:border-mg-dark-border text-xs text-mg-light-textSecondary dark:text-mg-dark-textSecondary">
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }} className="mt-16 pt-8 border-t border-mg-dark-border text-xs text-mg-dark-textSecondary">
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-3 text-center md:text-left">
-                <p className="font-semibold text-mg-gold">© {currentYear} MarketGod Academy. All rights reserved.</p>
+                <p className="font-semibold text-mg-white">© {currentYear} <span className="text-mg-gold">MarketGod </span> Academy. All rights reserved.</p>
                 <p className="leading-relaxed italic">
-                  <strong>IMPORTANT RISK DISCLOSURE:</strong> Trading foreign exchange, cryptocurrencies, and contracts for difference (CFDs) on margin carries a high level of risk and may not be suitable for all investors...
+                  <strong>IMPORTANT RISK DISCLOSURE:</strong> Trading foreign exchange, cryptocurrencies, and contracts for difference (CFDs) on margin carries a high level of risk and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to trade any such leveraged products you should carefully consider your investment objectives, level of experience, and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not invest money that you cannot afford to lose. You should be aware of all the risks associated with trading on margin, and seek advice from an independent financial advisor if you have any doubts.
                 </p>
               </div>
               <div className="flex flex-col items-center md:items-end gap-4">
@@ -206,9 +200,9 @@ const Footer = () => {
                   <a href="#disclaimer" className="hover:text-mg-gold transition">Risk Disclaimer</a>
                 </div>
                 <div className="text-center md:text-right">
-                  <p className="text-mg-light-textSecondary dark:text-mg-dark-textSecondary font-semibold">Site proudly crafted & designed by</p>
-                  <p className="text-mg-gold font-bold text-sm tracking-wider">Eugene Afriyie</p>
-                  <p className="text-xs text-mg-light-textSecondary dark:text-mg-dark-textSecondary">Web Developer • Student • Beginner Trader</p>
+                  <p className="text-mg-dark-textSecondary font-semibold ">Site proudly crafted & designed by</p>
+                  <p className="text-mg-gold font-bold text-[.5rem] tracking-wider">Eugene Afriyie</p>
+                  {/* <p className="text-xs text-mg-dark-textSecondary">Web Developer • Student • Beginner Trader</p> */}
                 </div>
               </div>
             </div>

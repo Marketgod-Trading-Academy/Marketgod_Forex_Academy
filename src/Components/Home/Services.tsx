@@ -113,7 +113,7 @@ const Services = () => {
             } transition-all cursor-pointer group`}
           >
             {/* Number */}
-            <div className="absolute top-6 right-6 text-5xl font-black text-mg-gold/20 select-none">
+            <div className="absolute top-6 right-6 text-5xl font-black text-mg-black/10 dark:text-mg-white/10 select-none">
               {service.number}
             </div>
 
@@ -149,8 +149,9 @@ const Services = () => {
             {/* CTA */}
             <motion.a
               href={service.href}
-              whileHover={{ x: 4 }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold bg-gray-800 text-white hover:bg-black transition-all"
+              whileHover={{ x: 4 ,boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold bg-mg-black dark:bg-mg-dark-text dark:text-mg-black text-white hover:bg-black transition-all"
             >
               {service.cta} <ArrowRight size={18} />
             </motion.a>

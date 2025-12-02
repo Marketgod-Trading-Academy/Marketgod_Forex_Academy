@@ -2,7 +2,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronRight, Instagram, Send, MessageCircle, Facebook, Mail, Sun, Moon } from "lucide-react";
-import {  useLocation, useNavigate } from "react-router-dom"; // ← ADD useNavigate
+import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
 
 interface NavLink {
@@ -14,26 +14,27 @@ interface MobileMenuDrawerProps {
   menuOpen: boolean;
   setMenuOpen: (open: boolean) => void;
   navLinks: NavLink[];
-  active: string;
 }
 
 const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOpen, navLinks }) => {
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
-  const navigate = useNavigate(); // ← THIS IS THE KEY
-
+  const navigate = useNavigate();
   const isDark = theme === "dark";
-  const bgClass = isDark ? "bg-gradient-to-t from-[#0b0f19] via-[#111827] to-[#0b0f19]" : "bg-gradient-to-t from-gray-50 via-white to-gray-50";
-  const textClass = isDark ? "text-white" : "text-gray-900";
-  const accentClass = "text-[#00ff88]";
+
+  const bgClass = isDark 
+    ? "bg-gradient-to-t from-black via-mg-dark-surface to-black" 
+    : "bg-gradient-to-t from-mg-light-bg via-white to-mg-light-bg";
+  
+  const textClass = isDark ? "text-white" : "text-black";
+  const accentClass = "text-mg-gold";
 
   const handleBackdropClick = () => setMenuOpen(false);
 
-  // INSTANT NAVIGATION — NO REFRESH
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
     if (location.pathname !== href) {
-      navigate(href); // ← SPA navigation, no reload
+      navigate(href);
     }
   };
 
@@ -52,50 +53,54 @@ const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOp
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm"
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xl"
           onClick={handleBackdropClick}
         >
           <motion.div
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
-            transition={{ type: "spring", stiffness: 120, damping: 20 }}
+            transition={{ type: "spring", stiffness: 120, damping: 25 }}
             className={`relative w-full h-full ${bgClass} flex flex-col overflow-y-auto`}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* CLOSE BUTTON */}
+            {/* Close Button */}
             <button
               onClick={() => setMenuOpen(false)}
-              className="absolute top-5 right-5 p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 transition z-10"
+              className="absolute top-2 right-3 p-4 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-mg-gold/30 transition-all z-10"
             >
-              <X size={28} className={accentClass} />
+              <X size={24} className={accentClass} />
             </button>
 
-            {/* HERO */}
-            <div className="relative mt-0 px-6 mb-10">
+            {/* Hero Image */}
+            <div className="relative mt-10 px-4 mb-12">
               <div
-                className="h-48 bg-cover bg-center rounded-3xl shadow-2xl overflow-hidden border-4 border-[#00ff88]/30"
+                className="h-64 bg-cover bg-center rounded-3xl shadow-2xl border-4 border-mg-gold/40 overflow-hidden"
                 style={{
                   backgroundImage: "url('https://res.cloudinary.com/dzqdfaghg/image/upload/v1763578745/Black_White_Gradient_Digital_Marketing_Instagram_Post_f2zh1x.png')",
-                  backgroundBlendMode: "overlay",
                 }}
               />
             </div>
 
-            {/* THEME TOGGLE */}
-            <div className="px-8 mb-6 flex justify-end">
-              <button
+            {/* Theme Toggle */}
+            <div className="px-8 mb-10 flex justify-end">
+              <motion.button
                 onClick={toggleTheme}
-                className="flex items-center gap-3 px-6 py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all"
+                whileHover={{ scale: .95, rotate: 12}}
+                className="flex items-center gap-4 px-8 py-5 rounded-2xl bg-white/10 backdrop-blur-xl border border-mg-gold/30 hover:bg-mg-gold/10 transition-all"
               >
-                {isDark ? <Sun size={22} className="text-yellow-400" /> : <Moon size={22} className={accentClass} />}
-                <span className={`font-semibold ${textClass}`}>Toggle Theme</span>
-              </button>
+                {isDark ? (
+                  <Sun size={28} className="text-mg-gold rotate-180" />
+                ) : (
+                  <Moon size={28} className={accentClass} />
+                )}
+                <span className={`font-bold text-lg ${textClass}`}>Toggle Theme</span>
+              </motion.button>
             </div>
 
-            {/* NAV LINKS — NOW USING navigate() */}
-            <nav className="flex-1 px-8 pb-6">
-              <div className="space-y-6">
+            {/* Navigation Links */}
+            <nav className="flex-1 px-8 pb-8">
+              <div className="space-y-8">
                 {navLinks.map((link) => {
                   const isActive = location.pathname === link.href;
 
@@ -103,18 +108,18 @@ const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOp
                     <motion.div
                       key={link.name}
                       onClick={() => handleNavClick(link.href)}
-                      whileHover={{ scale: 1.02, x: 8 }}
+                      whileHover={{ x: 12 }}
                       whileTap={{ scale: 0.98 }}
-                      className={`block border-b-2 pb-5 transition-all duration-300 cursor-pointer ${
+                      className={`block pb- border-b-2 transition-all duration-500 cursor-pointer ${
                         isActive
-                          ? `border-[#00ff88] ${accentClass} font-bold`
-                          : `border-white/10 ${textClass} hover:text-[#00ff88]`
+                          ? `border-mg-gold ${accentClass} font-black text-xl`
+                          : `border-white/10 ${textClass} hover:text-mg-gold`
                       }`}
                     >
                       <div className="flex items-center justify-between">
                         <div>
-                          <h3 className="text-xl font-bold">{link.name}</h3>
-                          <p className="text-sm opacity-70 mt-1">
+                          <h3 className="text-[1rem] font-black">{link.name}</h3>
+                          <p className={`text-sm mt-2 opacity-70 ${isActive ? "text-mg-gold/80" : ""}`}>
                             {link.name === "Home" && "Return to dashboard"}
                             {link.name === "Plans" && "MarketGod VIP Plans & Courses"}
                             {link.name === "Blog" && "MarketGod Blog - Trading Tips & Insights"}
@@ -122,7 +127,7 @@ const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOp
                             {link.name === "Contact" && "24/7 elite support"}
                           </p>
                         </div>
-                        <ChevronRight size={26} className={`transition-all ${isActive ? accentClass : "opacity-50"}`} />
+                        <ChevronRight size={32} className={`${isActive ? accentClass : "opacity-50"}`} />
                       </div>
                     </motion.div>
                   );
@@ -130,9 +135,11 @@ const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOp
               </div>
             </nav>
 
-            {/* SOCIALS */}
-            <div className="px-8 py-8 border-t border-white/10">
-              <p className={`text-center text-sm ${textClass} opacity-80 mb-5 font-medium`}>CONNECT WITH US</p>
+            {/* Social Links */}
+            <div className="px-8 py-10 border-t border-mg-gold/20">
+              <p className={`text-center text-sm font-bold uppercase tracking-widest mb-8 ${textClass} opacity-80`}>
+                Connect With Us
+              </p>
               <div className="flex justify-center gap-3">
                 {socials.map((social, i) => (
                   <motion.a
@@ -140,34 +147,38 @@ const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOp
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.2, rotate: 5 }}
-                    className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 hover:border-[#00ff88]/50 transition-all"
+                    whileHover={{ scale: 1.3, rotate: 12 }}
+                    className="p-3 rounded-2xl bg-white/5 backdrop-blur-xl border border-mg-gold/30  transition-all"
                   >
-                    <social.icon size={26} className={accentClass} />
+                    <social.icon size={12} className={accentClass} />
                   </motion.a>
                 ))}
               </div>
             </div>
 
-            {/* JOIN CTA — ALSO NO REFRESH */}
-            <div className="px-8 pb-12">
+            {/* Final CTA */}
+            <div className="px-8 pb-5">
               <motion.div
                 onClick={() => {
                   setMenuOpen(false);
                   navigate("/plans");
                 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="block text-center py-6 rounded-3xl bg-gradient-to-r from-[#00ff88] to-[#00c896] text-black font-black text-2xl shadow-2xl shadow-[#00ff88]/50 hover:shadow-[#00ff88]/70 transition-all duration-300 cursor-pointer"
+                 whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+                  whileTap={{ scale: 0.95 }}
+                className={`
+                  block text-center py-5 rounded-3xl font-black text-xl shadow-2xl transition-all duration-500 hover:shadow-gold-glow-lg cursor-pointer
+                  bg-black text-white  
+                  dark:bg-mg-white dark:text-black dark:hover:bg-white dark:hover:text-black
+                `}
               >
                 Join VIP Now
               </motion.div>
             </div>
 
-            {/* FOOTER */}
-            <div className="px-8 py-6 text-center border-t border-white/10">
-              <p className="text-xs opacity-70 tracking-wider">
-                © 2025 MarketGod Trading • Accra, Ghana
+            {/* Footer */}
+            <div className="px-8  text-center border-t border-mg-gold/20">
+              <p className={`text-xs tracking-widest ${textClass} opacity-70`}>
+                © 2025 MarketGod Academy • Accra, Ghana
               </p>
             </div>
           </motion.div>

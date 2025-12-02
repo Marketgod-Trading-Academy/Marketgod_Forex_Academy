@@ -76,7 +76,7 @@ const Header = () => {
               src="/logo-2.png"
               alt="MarketGod"
               className={`w-12 h-12 rounded-full object-cover border-2 
-                ${theme === "light" ? "border-mg-gold/70 shadow-gold-glow-light" : "border-mg-gold shadow-gold-glow"}
+                ${theme === "light" ? "border-mg-black/70 shadow-gold-glow-light" : "border-mg-white shadow-gold-glow"}
               `}
             />
             <div className="absolute -top-1 -right-1 w-4 h-4 bg-mg-gold rounded-full animate-ping opacity-75" />
@@ -84,7 +84,7 @@ const Header = () => {
           </div>
           <div>
             <h1 className="text-sm font-black text-mg-gold tracking-tighter">
-              Market<span className={theme === "light" ? "text-mg-light-text" : "text-mg-paper"}>God</span>
+             <span className={theme === "light" ? "text-mg-light-text" : "text-mg-paper"}>Market</span>God
             </h1>
             <p className={`text-xs uppercase tracking-widest ${theme === "light" ? "text-mg-light-textSecondary" : "text-mg-dark-textSecondary"}`}>
               Academy
@@ -142,8 +142,8 @@ const Header = () => {
             onClick={() => handleNavClick("/plans")}
             className="relative overflow-hidden px-6 py-2.5 rounded-full font-bold uppercase tracking-wide text-xs flex items-center gap-2 shadow-lg bg-mg-black text-mg-paper dark:bg-mg-paper dark:text-mg-black"
             style={{ scale: pulse }}
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.96 }}
+             whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+          whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10">Join Now</span>
             <motion.div
@@ -225,7 +225,6 @@ const Header = () => {
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
         navLinks={navLinks.map(l => ({ name: l.name, href: l.id }))}
-        active={location.pathname}
       />
     </>
   );

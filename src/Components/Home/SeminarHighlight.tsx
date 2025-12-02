@@ -1,13 +1,12 @@
 // src/components/SeminarCarousel/SeminarCarousel.tsx
 import  { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTheme } from "../../context/ThemeContext";
+// import { useTheme } from "../../context/ThemeContext";
 import { ArrowLeft, ArrowRight, Video } from "lucide-react";
 import GhanaFlagStripe from "../Ghana/GhanaFlagStripe";
 
 const SeminarCarousel = () => {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
+  // const { theme } = useTheme();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // 7 Photos + 1 Video
@@ -183,8 +182,8 @@ const SeminarCarousel = () => {
         >
           <motion.a
             href="#webinars"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+          whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-3 px-10 py-5 bg-mg-black text-mg-paper dark:bg-mg-paper dark:text-mg-black rounded-full font-bold uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all"
           >
             Register for Next Event

@@ -8,7 +8,7 @@ const Services = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
-  const services = [
+ const services = [
     {
       number: "01",
       title: "One-on-One Mentorship",
@@ -17,7 +17,7 @@ const Services = () => {
       features: ["1:1 Strategy Sessions", "Custom Trading Plan", "Daily Feedback", "Lifetime Support"],
       icon: UserCheck,
       cta: "Apply for Pro",
-      href: "plans",
+      href: "/plans",
       popular: true,
       badge: "Most Exclusive",
     },
@@ -57,7 +57,6 @@ const Services = () => {
       badge: "100% Free",
     },
   ];
-
   return (
     <section id="services" className="py-24 relative overflow-hidden">
       {/* Ghana Flag Stripe */}
@@ -96,14 +95,14 @@ const Services = () => {
                 isDark
                   ? "bg-mg-charcoal/90 border-mg-gold/40"
                   : "bg-mg-paper/95 border-mg-gold/30"
-              } ${service.popular ? "ring-2 ring-mg-gold/60 scale-105" : ""}`}
+              } ${service.popular ? "ring-2 ring-mg-gold/60 scale-105" : "border-mg-paper"}`}
             >
               {/* Badge */}
               {service.badge && (
                 <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-xs font-bold ${
                   service.popular
                     ? "bg-mg-gold text-mg-charcoal"
-                    : "bg-mg-green/20 text-mg-green"
+                    : "bg-mg-black text-mg-green border text-mg-white"
                 }`}>
                   {service.badge}
                 </div>
@@ -111,7 +110,7 @@ const Services = () => {
 
               {/* Number */}
               <div className={`text-5xl font-black opacity-20 absolute top-4 right-4 ${
-                isDark ? "text-mg-gold/30" : "text-mg-charcoal/20"
+                isDark ? "text-mg-white" : "text-mg-charcoal/20"
               }`}>
                 {service.number}
               </div>
@@ -127,7 +126,7 @@ const Services = () => {
               }`}>
                 {service.title}
               </h3>
-              <p className="text-sm font-semibold text-mg-green text-center mb-3">
+              <p className="text-sm font-semibold text-mg-gold text-center mb-3">
                 {service.subtitle}
               </p>
 
@@ -144,7 +143,7 @@ const Services = () => {
                   <li key={j} className={`flex items-center gap-2 text-xs ${
                     isDark ? "text-mg-dark-text" : "text-mg-light-text"
                   }`}>
-                    <Zap size={12} className="text-mg-green" />
+                    <Zap size={12} className="text-mg-gold" />
                     {feat}
                   </li>
                 ))}
@@ -157,7 +156,7 @@ const Services = () => {
                 className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wide transition-all w-full ${
                   service.popular
                     ? "bg-mg-gold text-mg-charcoal shadow-lg hover:shadow-gold-glow"
-                    : "border border-mg-gold text-mg-gold hover:bg-mg-gold/10"
+                    : "border  dark:text-mg-black text-mg-white border-white bg-mg-black hover:bg-mg-black/90 dark:bg-mg-white dark:hover:bg-mg-white/80  "
                 }`}
               >
                 {service.cta}
@@ -177,9 +176,9 @@ const Services = () => {
         >
           <motion.a
             href="/plans#pricing-plans"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 px-10 py-5 bg-mg-gold text-mg-charcoal rounded-full font-bold uppercase tracking-wider shadow-xl"
+            whileHover={{ scale: 1.05,boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+          whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-3 px-10 py-5 bg-mg-black text-mg-white dark:bg-mg-white dark:text-mg-black rounded-full font-bold uppercase tracking-wider shadow-xl"
           >
             <Crown size={24} />
             Become a Pro Trader Today

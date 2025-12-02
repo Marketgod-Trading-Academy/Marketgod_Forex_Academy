@@ -103,11 +103,11 @@ const WhatIsForex = () => {
         >
           <motion.a
             href="https://www.youtube.com/@marketgodcommunity"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.05,  boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+          whileTap={{ scale: 0.95 }}
             className={`inline-flex items-center gap-3 px-10 py-4 rounded-full font-semibold tracking-wide border transition-all
-              ${isDark ? "border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black" 
-                       : "border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-white"}
+              ${isDark ? "bg-mg-white text-mg-black " 
+                       : "bg-mg-black text-mg-white hover:bg-yellow-600 hover:text-white"}
             `}
           >
             Watch Intro Video <ArrowRight size={22} />
