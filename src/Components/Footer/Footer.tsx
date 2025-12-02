@@ -86,9 +86,9 @@ const Footer = () => {
         {/* Footer Slogan */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
           <div className="relative w-full h-full flex items-center justify-center footer-perspective-container">
-            <div className="text-5xl md:text-9xl lg:text-[12rem] font-black tracking-[0.2em] uppercase select-none footer-slogan"
+            <div className="text-5xl md:text-9xl lg:text-[12rem] font-black tracking-[0.2em] uppercase select-none footer-slogan opacity-5"
               style={{
-                color: isDark ? "rgba(212, 175, 55, 0.06)" : "rgba(212, 175, 55, 0.1)",
+                color: isDark ? "gray" : "rgba(212, 175, 55, 0.1)",
                 transform: "translateZ(-600px) rotateX(45deg) scale(0.85)",
                 transformStyle: "preserve-3d",
                 textShadow: isDark ? "0 0 80px rgba(212,175,55,0.15)" : "0 0 80px rgba(212,175,55,0.2)"
@@ -107,7 +107,7 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <img src="/logo.png" alt="MarketGod Academy" className="w-20 h-20 rounded-full border-4 border-mg-gold shadow-2xl p-1 bg-mg-dark-surface" />
                 <div>
-                  <h3 className="text-2xl font-black text-mg-gold tracking-tight">MarketGod</h3>
+                  <h3 className="text-2xl font-black text-mg- tracking-tight">MarketGod</h3>
                   <p className="text-xs text-mg-light-textSecondary dark:text-mg-dark-textSecondary font-semibold">ACADEMY</p>
                 </div>
               </div>
@@ -135,7 +135,7 @@ const Footer = () => {
 
             {/* COMPANY */}
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-              <h3 className="text-lg font-bold mb-5 text-mg-gold tracking-wider">Company</h3>
+              <h3 className="text-lg font-bold mb-5 text-mg-god tracking-wider">Company</h3>
               <ul className="space-y-3">
                 {links.company.map((link, i) => (
                   <li key={i}>
@@ -150,7 +150,7 @@ const Footer = () => {
 
             {/* RESOURCES */}
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
-              <h3 className="text-lg font-bold mb-5 text-mg-gold tracking-wider">Resources</h3>
+              <h3 className="text-lg font-bold mb-5 text-mg-god tracking-wider">Resources</h3>
               <ul className="space-y-3">
                 {links.resources.map((link, i) => (
                   <li key={i}>
@@ -166,7 +166,7 @@ const Footer = () => {
             {/* COMMUNITY & CONTACT */}
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="flex flex-col gap-6">
               <div>
-                <h3 className="text-lg font-bold mb-3 text-mg-gold tracking-wider">Join Our Community</h3>
+                <h3 className="text-lg font-bold mb-3 text-mg-god tracking-wider">Join Our Community</h3>
                 <p className="text-sm mb-5 text-mg-light-textSecondary dark:text-mg-dark-textSecondary">
                   Connect with 10,000+ traders. Get live updates, free tools, and support.
                 </p>

@@ -1,4 +1,4 @@
-// import React from "react";
+// src/components/Home/WhyMarketGod.tsx
 import { motion } from "framer-motion";
 import { Shield, TrendingUp, Brain, Users, Globe, Zap } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
@@ -41,109 +41,148 @@ const WhyMarketGod = () => {
   const isDark = theme === "dark";
 
   return (
-    <section
-      id="why-marketgod"
-      className={`relative overflow-hidden py-32 transition-all duration-700 ${
-        isDark ? "bg-black text-white" : "bg-gray-50 text-gray-900"
-      }`}
+   <section
+  id="why-marketgod"
+  className={`relative overflow-hidden py-32 transition-all duration-700 ${
+    isDark ? "bg-mg-dark-bg text-white" : "bg-mg-light-bg text-black"
+  }`}
+>
+  {/* MASTER IN-VIEW CONTAINER — This does the magic */}
+  <motion.div
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 1.2, ease: "easeOut" }}
+    className="relative z-10"
+  >
+    {/* ← Put ALL your existing content (video, header, grid, etc.) inside this motion.div */}
+    {/* Background Video */}
+    <video className="absolute inset-0 w-full h-full object-cover opacity-10" autoPlay loop muted playsInline>
+      <source src="h://res.cloudinary.com/dzqdfaghg/video/upload/v1763522358/SnapInsta.to_AQP0tcL1lrqBV9tJmnWw2gz7dabRB843S2VJqC_RVgoV48eubGC22GfznUeiLS9vIhAjtapLVa3fDJAutZzyhNk7mwedL4JKUMyshm8_aod3wo.mp4" type="video/mp4" />
+    </video>
+
+    {/* Gold Glow Overlay — now animated */}
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 2, ease: "easeOut" }}
+      className="absolute inset-0 bg-gradient-to-br from-mg-gold/5 via-transparent to-mg-gold/5"
+    />
+
+    {/* Header — elegant fade-up + gold text reveal */}
+   {/* HEADER + DESCRIPTION + CTA */}
+<div className="relative z-10 text-center max-w-4xl mx-auto px-6 mb-20">
+  {/* Headline */}
+  <motion.h2
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 1, ease: "easeOut" }}
+    className="text-5xl md:text-7xl font-black leading-tight"
+  >
+    Why Choose <span className="text-mg-gold">MarketGod</span> Academy
+  </motion.h2>
+
+  {/* Description */}
+  <motion.p
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+    className={`mt-8 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto ${
+      isDark ? "text-mg-dark-textSecondary" : "text-mg-light-textSecondary"
+    }`}
+  >
+    MarketGod Academy isn’t just a trading school — it’s a legacy.  
+    Founded in <span className="text-mg-gold font-bold">Ghana</span>, built for traders across the globe.  
+    We combine education, mindset, and market precision to help you trade like a professional — from anywhere.
+  </motion.p>
+
+  {/* CTA Button - with subtle scale + glow */}
+  <motion.div
+    initial={{ opacity: 0, y: 40, scale: 0.9 }}
+    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+    className="mt-12 inline-block"
+  >
+    <motion.a
+      href="https://t.me/delatrades"
+      whileHover={{ scale: 1.07, boxShadow: "0 0 40px rgba(212, 175, 55, 0.6)" }}
+      whileTap={{ scale: 0.98 }}
+      className={`
+        inline-flex items-center gap-3 px-12 py-5 rounded-full font-bold uppercase tracking-wider shadow-xl
+        transition-all duration-500 hover:shadow-gold-glow-lg
+        bg-black text-white 
+        dark:bg-mg-white dark:text-black 
+      `}
     >
-      {/* 🎥 Background Video */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover opacity-20"
-        autoPlay
-        loop
-        muted
-        playsInline
-      >
-        <source src="https://res.cloudinary.com/dzqdfaghg/video/upload/v1763522358/SnapInsta.to_AQP0tcL1lrqBV9tJmnWw2gz7dabRB843S2VJqC_RVgoV48eubGC22GfznUeiLS9vIhAjtapLVa3fDJAutZzyhNk7mwedL4JKUMyshm8_aod3wo.mp4" type="video/mp4" />
-      </video>
+      Join The Academy <Globe size={24} />
+    </motion.a>
+  </motion.div>
+</div>
 
-      {/* ✨ Gradient Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-yellow-600/10 to-transparent animate-pulse-slow" />
-      <div className="absolute inset-0 bg-black/10" />
-
-      {/* 🏛️ Header */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-6 mb-20">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-5xl md:text-7xl font-extrabold leading-tight"
-        >
-          <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
-            Why Choose MarketGod Academy
-          </span>
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.7 }}
-          className="mt-6 text-lg md:text-xl text-gray-300 leading-relaxed"
-        >
-          MarketGod Academy isn’t just a trading school — it’s a legacy.  
-          Founded in <span className="text-yellow-400 font-semibold">Ghana</span>, built for traders across the globe.  
-          We combine education, mindset, and market precision to help you trade like a professional — from anywhere.
-        </motion.p>
-
-        <motion.a
-          href="https://t.me/delatrades"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="inline-flex items-center gap-3 mt-10 px-10 py-4 rounded-full bg-yellow-500 text-black font-bold shadow-lg hover:shadow-yellow-400/40 transition-all"
-        >
-          Join The Academy <Globe size={22} />
-        </motion.a>
+    {/* Feature Grid — staggered elegant entrance */}
+    <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
+  {features.map((f, i) => (
+    <motion.div
+      key={i}
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{
+        duration: 0.8,
+        delay: i * 0.15,        // beautiful stagger
+        ease: [0.22, 1, 0.36, 1], // smooth "easeOutCubic"-like
+      }}
+      whileHover={{ 
+        y: -12,
+        transition: { duration: 0.4 }
+      }}
+      className={`
+        group relative p-8 rounded-3xl border overflow-hidden
+        backdrop-blur-xl transition-all duration-500 cursor-default
+        ${isDark 
+          ? "bg-mg-dark-surface/80 border-mg-gold/20 hover:border-mg-gold/50 hover:shadow-mg-white/20 hover:shadow-lg" 
+          : "bg-white/90 border-mg-gold/10 hover:border-mg-gold/30 hover:shadow-lg"
+        }
+      `}
+    >
+      {/* Number */}
+      <div className={`absolute top-4 right-6 text-7xl font-black opacity-10 ${isDark ? "text-white" : "text-black"}  select-none`}>
+        {(i + 1).toString().padStart(2, "0")}
       </div>
 
-      {/* ⚡ Numbered Feature Grid */}
-      <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
-        {features.map((f, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.6 }}
-            whileHover={{ scale: 1.05, rotateX: 3, rotateY: -3 }}
-            className={`group relative p-8 rounded-3xl border overflow-hidden shadow-lg hover:shadow-yellow-500/20 transition-all backdrop-blur-xl ${
-              isDark
-                ? "bg-gradient-to-br from-[#111]/80 to-[#222]/60 border-yellow-500/10"
-                : "bg-white/70 border-yellow-400/20"
-            }`}
-          >
-            {/* Number Label */}
-            <div className="absolute top-6 right-6 text-6xl font-black opacity-10 text-yellow-400 select-none">
-              {String(i + 1).padStart(2, "0")}
-            </div>
-
-            {/* Icon + Text */}
-            <div className="relative z-10 flex flex-col items-start space-y-4">
-              <div
-                className={`p-3 rounded-2xl ${
-                  isDark ? "bg-yellow-500/10" : "bg-yellow-100/60"
-                }`}
-              >
-                <f.icon className="text-yellow-500" size={30} />
-              </div>
-              <h3 className="text-xl font-semibold">{f.title}</h3>
-              <p
-                className={`text-sm leading-relaxed ${
-                  isDark ? "text-gray-400" : "text-gray-600"
-                }`}
-              >
-                {f.desc}
-              </p>
-            </div>
-          </motion.div>
-        ))}
+      <div className="relative z-10 flex flex-col items-start space-y-5">
+        <motion.div 
+          whileHover={{ scale: 1.1, rotate: 5 }}
+          transition={{ duration: 0.4 }}
+          className={`p-4 rounded-2xl ${isDark ? "bg-mg-white/10 " : "bg-mg-black/10 "}`}
+        >
+          <f.icon size={32} className="text-mg-gold/70" />
+        </motion.div>
+        <h3 className={`text-xl font-bold ${isDark ? "text-white" : "text-black"}`}>
+          {f.title}
+        </h3>
+        <p className={`text-sm leading-relaxed ${isDark ? "text-mg-dark-textSecondary" : "text-mg-light-textSecondary"}`}>
+          {f.desc}
+        </p>
       </div>
+    </motion.div>
+  ))}
+</div>
+  </motion.div>
 
-      {/* ✨ Soft Ambient Glow */}
-      <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-yellow-500/10 rounded-full blur-[200px]" />
-    </section>
+  {/* Bottom Glow */}
+  <motion.div
+    initial={{ opacity: 0, scale: 0.8 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 2, ease: "easeOut" }}
+    className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-mg-gold/5 rounded-full blur-3xl"
+  />
+</section>
   );
 };
 
