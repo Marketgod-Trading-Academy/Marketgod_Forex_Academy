@@ -31,7 +31,7 @@ interface SocialsProps {
 }
 
 const SocialsBar: React.FC<SocialsProps> = ({ socials }) => {
-  const iconClass = "text-mg-gold hover:text-mg-green transition-colors text-2xl";
+  const iconClass = "text-mg-gold hover:text-mg-paper/70 transition-colors text-2xl";
 
   const visibleSocials = Object.entries(socials).filter(
     ([, link]) => link && link !== "#" && link !== ""
@@ -148,7 +148,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
       />
       <div className="flex flex-col items-center text-center">
         <h3 className="text-xl font-bold">{member.name}</h3>
-        <p className="text-mg-green font-semibold mb-4">{member.role}</p>
+        <p className="text-mg-gold font-semibold mb-4">{member.role}</p>
         <SocialsBar socials={member.socials} />
       </div>
     </div>

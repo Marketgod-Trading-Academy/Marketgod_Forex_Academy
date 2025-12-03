@@ -10,15 +10,15 @@ const items = [
   },
   {
     title: "Side Hustlers & Entrepreneurs",
-    desc: "People looking for a second income stream with a skill that pays for life.",
+    desc: "People looking for a second income stream with a skill that pays long-term.",
   },
   {
     title: "Students & Young Professionals",
-    desc: "Anyone wanting to build future financial independence early.",
+    desc: "Anyone who wants to build early financial independence.",
   },
   {
     title: "Traders Who Need Structure",
-    desc: "People who have the knowledge but lack consistency, discipline, or a clear trading system.",
+    desc: "Those with knowledge but lacking consistency, discipline, or a clear system.",
   },
 ];
 
@@ -28,91 +28,94 @@ const WhoIsFor = () => {
 
   return (
     <section className="py-24 relative overflow-hidden">
-       <h2 className="text-3xl md:text-5xl font-black mb-6 text-center">
-            <span className="text-mg-gold">Who Is</span>{" "}
-            <span className={isDark ? "text-white" : "text-mg-charcoal"}>
-              This Course For?
-            </span>
-          </h2>
+      {/* Title */}
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-3xl md:text-5xl font-extrabold text-center mb-14"
+      >
+        <span className="text-mg-gold">Who Is</span>{" "}
+        <span className={isDark ? "text-white" : "text-mg-black"}>
+          This Course For?
+        </span>
+      </motion.h2>
 
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-
-        {/* IMAGE SECTION */}
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
+        {/* IMAGE SIDE */}
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
+          initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
           className="relative"
         >
-          {/* Gradient Glow Border */}
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-mg-gold/40 via-mg-green/40 to-transparent blur-2xl opacity-60" />
+          {/* — Reduced glow (only soft gold now) — */}
+          {/* <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-mg-gold/30 to-transparent blur-3xl opacity-40" /> */}
 
-          {/* Floating Animation Wrapper */}
           <motion.div
-            animate={{
-              y: [0, -8, 0],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="relative rounded-3xl overflow-hidden shadow-2xl border border-mg-gold/30"
+            animate={{ y: [0, -6, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="relative rounded-3xl overflow-hidden shadow-xl border border-mg-gold/20"
           >
             <img
-              src="https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/SnapInsta.to_475805185_18485769334003421_4253108973963297143_n_otuucy.jpg" // Replace later
+              src="https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/SnapInsta.to_475805185_18485769334003421_4253108973963297143_n_otuucy.jpg"
               alt="Who This Course Is For"
               className="w-full h-full object-cover"
             />
-
-            {/* Shiny Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
           </motion.div>
         </motion.div>
 
-        {/* TEXT SECTION */}
+        {/* TEXT SIDE */}
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
+          initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-         
-          <p className={`text-lg md:text-xl max-w-xl mb-10 ${
-            isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"
-          }`}>
-            Whether you're a beginner or someone struggling with consistency,
-            this program gives you the structure, clarity, and system you need
-            to win.
+          {/* Intro Text */}
+          <p
+            className={`text-lg md:text-xl leading-relaxed mb-10 ${
+              isDark ? "text-mg-white" : "text-mg-black/70"
+            }`}
+          >
+            Whether you're a complete beginner or someone who struggles with
+            consistency, this program gives you the structure, clarity, and
+            discipline needed to trade with confidence.
           </p>
 
           {/* Bullet List */}
-          <div className="space-y-6">
+          <div className="space-y-7">
             {items.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
+                transition={{ duration: 0.5, delay: i * 0.15 }}
                 className="flex items-start gap-4"
               >
-                {/* Animated Checkmark */}
                 <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
-                  transition={{ type: "spring", stiffness: 200, delay: i * 0.15 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 180,
+                    delay: i * 0.15,
+                  }}
                 >
-                  <CheckCircle className="text-mg-green w-9 h-9 flex-shrink-0" />
+                  <CheckCircle className="text-mg-gold w-7 h-7 flex-shrink-0" />
                 </motion.div>
 
-                {/* Text */}
                 <div>
-                  <p className="text-xl font-bold text-mg-gold">{item.title}</p>
+                  <p className={`text-lg font-semibold dark:text-mg-paper text-mg-black`}>
+                    {item.title}
+                  </p>
                   <p
                     className={`text-base md:text-lg ${
-                      isDark ? "text-mg-paper/80" : "text-mg-charcoal/80"
+                      isDark ? "text-mg-paper/90" : "text-mg-black/90"
                     }`}
                   >
                     {item.desc}
@@ -122,18 +125,17 @@ const WhoIsFor = () => {
             ))}
           </div>
 
-          {/* CTA BUTTON */}
+          {/* CTA */}
           <motion.a
             href="/plans"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-3 mt-12 px-8 py-4 rounded-full font-bold text-lg
-              bg-mg-green text-white shadow-xl hover:shadow-mg-green/50 transition-all"
+            whileHover={{ scale: 1.06 , boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+          whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-3 mt-12 px-8 py-4 rounded-full font-bold text-lg 
+            bg-mg-black text-white dark:bg-mg-white dark:text-mg-black shadow-lg hover:shadow-mg-green/40 transition-all"
           >
             Join the Program
           </motion.a>
         </motion.div>
-
       </div>
     </section>
   );

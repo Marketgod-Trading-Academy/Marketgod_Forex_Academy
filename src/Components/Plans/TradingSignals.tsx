@@ -42,7 +42,7 @@ const TradingSignals: React.FC = () => {
       }`}
     >
       {/* Soft premium glow */}
-      <div className="absolute inset-0 pointer-events-none opacity-20 blur-3xl bg-gradient-to-r from-mg-gold via-transparent to-mg-gold"></div>
+      {/* <div className="absolute inset-0 pointer-events-none opacity-20 blur-3xl bg-gradient-to-r from-mg-gold via-transparent to-mg-gold"></div> */}
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative">
         {/* Header */}
@@ -55,14 +55,14 @@ const TradingSignals: React.FC = () => {
         >
           <h2
             className={`text-3xl md:text-5xl font-extrabold leading-tight mb-4 ${
-              isDark ? "text-mg-gold" : "text-mg-charcoal"
+              isDark ? "text-mg-paper" : "text-mg-black"
             }`}
           >
-            Key Trading Lessons
+            Key Trading <span className="text-mg-gold">Lessons</span>
           </h2>
           <p
             className={`text-sm md:text-lg max-w-2xl mx-auto ${
-              isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"
+              isDark ? "text-mg-paper/70" : "text-mg-dark-gray/80"
             }`}
           >
             Elevate your discipline, clarity, and emotional control with premium insights rooted in real trading experience.
@@ -108,8 +108,8 @@ const TradingSignals: React.FC = () => {
                   className={`p-5 md:p-8 rounded-3xl shadow-2xl border group transition-all duration-300 backdrop-blur-xl 
                   ${
                     isDark
-                      ? "bg-white/5 border-mg-gold/20 hover:border-mg-gold hover:shadow-mg-gold/30"
-                      : "bg-white/80 border-mg-gold/30 hover:border-mg-gold/80 hover:shadow-mg-gold/40"
+                      ? "bg-mg-dark-surface/50 border-mg-dark-border hover:border-mg-gold hover:shadow-mg-gold/20"
+                      : "bg-mg-light-surface border-mg-light-border hover:border-mg-gold hover:shadow-mg-gold/20"
                   }`}
                 >
                   {/* Icon */}
@@ -117,8 +117,8 @@ const TradingSignals: React.FC = () => {
                     className={`w-12 h-12 mb-4 flex items-center justify-center rounded-xl border 
                     ${
                       isDark
-                        ? "border-mg-gold/40 bg-mg-gold/10"
-                        : "border-mg-gold/50 bg-mg-gold/10"
+                        ? "border-mg-gold/30 bg-mg-gold/10"
+                        : "border-mg-gold/30 bg-mg-gold/5"
                     }`}
                   >
                     <Icon className="w-6 h-6 text-mg-gold" />
@@ -126,8 +126,8 @@ const TradingSignals: React.FC = () => {
 
                   {/* Title */}
                   <h3
-                    className={`text-xl md:text-2xl font-bold mb-2 group-hover:text-mg-gold transition ${
-                      isDark ? "text-mg-gold" : "text-mg-charcoal"
+                    className={`text-xl md:text-2xl font-bold mb-2  transition ${
+                      isDark ? "text-mg-paper" : "text-mg-black"
                     }`}
                   >
                     {slide.title}
@@ -138,8 +138,8 @@ const TradingSignals: React.FC = () => {
                     className={`text-xs tracking-wider uppercase mb-4 inline-block px-3 py-1 rounded-full border 
                     ${
                       isDark
-                        ? "text-mg-paper/70 border-mg-paper/30"
-                        : "text-mg-charcoal/60 border-mg-charcoal/30"
+                        ? "text-mg-paper/60 border-mg-paper/20"
+                        : "text-mg-dark-gray/70 border-mg-dark-gray/20"
                     }`}
                   >
                     {slide.time}

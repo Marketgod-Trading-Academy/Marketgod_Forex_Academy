@@ -59,8 +59,7 @@ const Services = () => {
   ];
   return (
     <section id="services" className="py-24 relative overflow-hidden">
-      {/* Ghana Flag Stripe */}
-      <GhanaFlagStripe />
+    
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div

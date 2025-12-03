@@ -144,7 +144,7 @@ const Signals = () => {
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     className={`relative p-[2px] rounded-3xl shadow-xl ${
-                      plan.highlight ? metallicGold : "bg-mg-green/20"
+                      plan.highlight ? metallicGold : "bg-gray-500/30"
                     }`}
                   >
                     <CardInner plan={plan} isDark={isDark} onFreeClick={handleFreeClick} />
@@ -171,7 +171,7 @@ const Signals = () => {
                 }}
                 style={{ transformPerspective: 1000 }}
                 className={`relative p-[2px] rounded-3xl shadow-xl ${
-                  plan.highlight ? metallicGold : "bg-mg-green/20"
+                  plan.highlight ? metallicGold : "bg-gray-500/30"
                 }`}
               >
                 <CardInner plan={plan} isDark={isDark} onFreeClick={handleFreeClick} />
@@ -200,13 +200,13 @@ const Signals = () => {
               }`}
               onClick={(e) => e.stopPropagation()}
             >
-              <button
+              <motion.button
                 onClick={() => setOpen(false)}
                 className="absolute top-3 right-3 p-1.5 rounded-full bg-mg-charcoal/50 hover:bg-red-600/50 text-mg-paper/70 hover:text-white transition"
                 aria-label="Close modal"
               >
                 X
-              </button>
+              </motion.button>
 
               <MarketGodQuiz />
             </motion.div>
@@ -232,8 +232,8 @@ const CardInner: React.FC<CardInnerProps> = ({ plan, isDark, onFreeClick }) => {
         className={`absolute top-4 right-4 text-xs font-bold px-3 py-1 rounded-full 
           ${
             plan.highlight
-              ? "bg-white/20 text-white"
-              : "bg-mg-green/10 text-mg-green"
+              ? "bg-white/10 text-white"
+              : isDark ? "bg-mg-dark-surface text-mg-paper/70" : "bg-mg-light-gray text-mg-dark-gray"
           }`}
       >
         {plan.badge}
@@ -259,13 +259,13 @@ const CardInner: React.FC<CardInnerProps> = ({ plan, isDark, onFreeClick }) => {
       <div className="text-6xl font-black opacity-10">{plan.number}</div>
 
       {/* Icon */}
-      <Signal className="w-10 h-10 text-mg-green mb-4" />
+      <Signal className="w-10 h-10 text-mg-gold mb-4" />
 
       {/* Title */}
       <h3 className={`text-2xl font-bold ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
         {plan.title}
       </h3>
-      <p className="text-mg-green font-semibold mt-1">{plan.subtitle}</p>
+      <p className="text-mg-gold font-semibold mt-1">{plan.subtitle}</p>
 
       {/* Description */}
       <p className={`mt-4 opacity-70 text-sm leading-relaxed ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
@@ -276,7 +276,7 @@ const CardInner: React.FC<CardInnerProps> = ({ plan, isDark, onFreeClick }) => {
       <ul className="mt-6 space-y-3">
         {plan.features.map((item, i) => (
           <li key={i} className={`flex items-center gap-2 ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
-            <span className="w-2 h-2 rounded-full bg-mg-green" />
+            <span className="w-2 h-2 rounded-full bg-mg-gold" />
             <span className="text-sm opacity-80">{item}</span>
           </li>
         ))}
@@ -291,7 +291,7 @@ const CardInner: React.FC<CardInnerProps> = ({ plan, isDark, onFreeClick }) => {
       {isFree ? (
         <button
           onClick={onFreeClick}
-          className="mt-6 block w-full text-center py-3 rounded-full font-semibold transition-all bg-mg-green text-white hover:bg-mg-gold"
+          className="mt-6 block w-full text-center py-3 rounded-full font-semibold transition-all bg-mg-gold text-black hover:brightness-110 shadow-lg hover:shadow-mg-gold/30"
         >
           Claim Your Free Spot
         </button>
@@ -303,8 +303,8 @@ const CardInner: React.FC<CardInnerProps> = ({ plan, isDark, onFreeClick }) => {
           className={`
             mt-6 block text-center py-3 rounded-full font-semibold transition-all border-2
             ${plan.highlight
-              ? `bg-white/10 ${isDark ? "text-mg-paper border-2 border-mg-charcoal hover:bg-mg-green" : "text-mg-charcoal hover:bg-mg-green"}`
-              : "bg-mg-green text-white hover:bg-mg-gold"
+              ? `bg-transparent ${isDark ? "text-mg-paper border-mg-paper/30 hover:bg-mg-paper hover:text-black" : "text-mg-black border-mg-black/30 hover:bg-black hover:text-white"}`
+              : "bg-mg-gold text-black border-mg-gold hover:brightness-110"
             }`}
         >
           Get Started

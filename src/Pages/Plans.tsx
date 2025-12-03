@@ -16,7 +16,7 @@ const sections = [
   { id: "hero", label: "Hero" },
   { id: "why-this-course", label: "Why This Course" },
   { id: "trading-signals", label: "Trading Signals" },
-  { id: "pricing-plans", label: "Pricing Plans" },
+  { id: "pricing", label: "Pricing Plans" },
   { id: "signals", label: "Signals" },
   { id: "promo-banner", label: "Trade for free" },
   { id: "still-not-sure", label: "Still Not Sure?" },
@@ -48,7 +48,7 @@ const Plans: React.FC = () => {
       <div id="why-this-course" className=""><WhyThisCourse /></div>
       <div id="trading-signals" className=""><TradingSignals /></div>
       <div id="who-is-this-for" className=""><WhoIsThisFor /></div>
-      <div id="pricing-plans" className=""><PricingPlans /></div>
+      <div id="pricing" className=""><PricingPlans /></div>
       <div id="signals" className=""><Signals /></div>
       <div id="promo-banner" className=""><PromoBanner /></div>
       <div id="still-not-sure" className=""><StillNotSure /></div>

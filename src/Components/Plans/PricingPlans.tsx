@@ -12,7 +12,7 @@ const features = [
   "Free Access to VIP Signals",
 ];
 
-const SniperMentorship = () => {
+const PricingPlans = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
@@ -24,13 +24,13 @@ const SniperMentorship = () => {
   const glowY = useTransform(y, [-50, 50], [-20, 20]);
 
   return (
-    <section className="py-24 relative">
+    <section id="pricing" className="py-24 relative">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center text-4xl md:text-5xl font-black text-mg-gold"
+          className="text-center text-4xl md:text-5xl font-black text-mg-black dark:text-mg-white"
         >
           Sniper Mentorship
         </motion.h2>
@@ -104,33 +104,37 @@ const SniperMentorship = () => {
             {/* GLOW */}
             <motion.div
               style={{ x: glowX, y: glowY }}
-              className="absolute inset-0 rounded-3xl bg-gradient-to-br from-mg-gold/20 via-mg-green/20 to-transparent opacity-60 blur-3xl pointer-events-none"
+              className="absolute inset-0 rounded-3xl bg-gradient-to-br from-mg-gold/20 via-mg-gold/10 to-transparent opacity-60 blur-3xl pointer-events-none"
             />
 
-            <h3 className={`text-3xl md:text-4xl font-black ${isDark ? "text-white" : "text-mg-charcoal"}`}>
+            <h3 className={`text-3xl md:text-4xl font-black ${isDark ? "text-white" : "text-mg-black"}`}>
               Sniper Mentorship
             </h3>
 
-            <div className="mt-6 flex items-end gap-2 relative z-10">
-              <span className="text-4xl font-black text-mg-green">₵1499</span>
-              <span className={`text-sm ${isDark ? "text-mg-paper/50" : "text-mg-charcoal/50"}`}>One-Time</span>
+            <div className="mt-6 flex items-baseline gap-3 relative z-10">
+              <span className="text-4xl font-black text-mg-gold">$359</span>
+              <span className={`text-2xl font-bold line-through ${isDark ? "text-mg-paper/40" : "text-mg-charcoal/40"}`}>
+                $547
+              </span>
             </div>
 
             <ul className="mt-8 space-y-4 relative z-10">
               {features.map((feature, i) => (
                 <li key={i} className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-mg-green" />
+                  <Check className="w-5 h-5 text-mg-gold" />
                   <span className={`${isDark ? "text-mg-paper/80" : "text-mg-charcoal/80"}`}>{feature}</span>
                 </li>
               ))}
             </ul>
 
-            <a
+            <motion.a
+            whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+          whileTap={{ scale: 0.95 }}
               href="https://t.me/delatrades"
-              className="block text-center mt-10 py-4 rounded-full font-bold bg-mg-gold text-black hover:bg-mg-green hover:text-white transition-all relative z-10"
+              className="block text-center mt-10 py-4 rounded-full font-bold bg-black text-mg-white dark:bg-mg-white dark:text-black hover:brightness-110 transition-all relative z-10 shadow-lg "
             >
               Join Sniper Mentorship
-            </a>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>
@@ -138,4 +142,4 @@ const SniperMentorship = () => {
   );
 };
 
-export default SniperMentorship;
+export default PricingPlans;

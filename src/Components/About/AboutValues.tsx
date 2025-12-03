@@ -39,16 +39,16 @@ const sections = [
     {
       title: "Our Vision",
       icon: Eye,
-      gradient: "from-mg-gold to-yellow-600",
+      gradient: "from-gray-700 to-black",
       desc: "To ignite a global revolution in trading mastery — where every individual, from Accra to Nigeria,Kenya,South Afica,Tokyo, Mumbai to New York, rises through pure skill. We see a world where financial freedom is earned, not inherited — built on discipline, precision, and relentless execution.",
-      highlight: "The World Will Trade Like Gods.",
+      highlight: "The World Will Trade Like MarketGods.",
       image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522351/SnapInsta.to_476486638_18486717355003421_7261407871444466837_n_tzqjpz.jpg",
       delay: 0.2
     },
     {
       title: "Our Mission",
       icon: Target,
-      gradient: "from-mg-green to-emerald-700",
+      gradient: "from-gray-700 to-black",
       desc: "To empower 1,000,000 traders worldwide with institutional-grade price action systems — no indicators, no bots, no excuses. From live trade rooms to real-time signals, we forge elite traders who dominate any market, any session, anywhere on Earth.",
       highlight: "We Don’t Teach. We Transform.",
       image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522351/SnapInsta.to_475926916_18485769319003421_8435447212825371714_n_lh3gee.jpg",
@@ -57,7 +57,7 @@ const sections = [
     {
       title: "Our Values",
       icon: HeartHandshake,
-      gradient: "from-red-600 to-orange-700",
+      gradient: "from-gray-700 to-black",
       desc: "Precision in every move. Discipline in every breath. Hustle in every hour. Integrity in every trade. Community across continents. We are a global army of market warriors — bound by one code: Win clean. Win big. Win together.",
       highlight: "One Code. One World. One Victory.",
       image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763528004/SnapInsta.to_475264988_18485506594003421_2211319760570591478_n_q0hxkd.jpg",
@@ -69,21 +69,21 @@ const sections = [
     {
       title: "The Full Vision",
       body: `
-        <p class="text-lg leading-relaxed mb-6">We are building the <span class="text-mg-green font-bold">global standard</span> in trading education for the <span class="text-mg-gold font-bold">entire world</span>.</p>
-        <p class="text-lg leading-relaxed mb-6">We see traders in London, Tokyo, New York, and Sydney using the same sniper entries. We see funded accounts in 50+ countries. We see <span class="text-mg-green">MarketGod Academy</span> as the Harvard of trading — respected, replicated, and revered worldwide.</p>
+        <p class="text-lg leading-relaxed mb-6">We are building the <span class="text-mg-gold font-bold">global standard</span> in trading education for the <span class="text-mg-gold font-bold">entire world</span>.</p>
+        <p class="text-lg leading-relaxed mb-6">We see traders in London, Tokyo, New York, and Sydney using the same sniper entries. We see funded accounts in 50+ countries. We see <span class="text-mg-gold">MarketGod Academy</span> as the Harvard of trading — respected, replicated, and revered worldwide.</p>
         <ul class="space-y-4 mb-8">
           <li class="flx items-center gap-3"><Globe class="w-5 h-5 text-mg-gold" /> 10,000+ traders trained by 2035</li>
           <li class="flx items-center gap-3"><Globe class="w-5 h-5 text-mg-gold" /> Students in 10+ countries</li>
           <li class="flx items-center gap-3"><Globe class="w-5 h-5 text-mg-gold" /> $500K+ in student profits globally</li>
         </ul>
-        <p class="text-xl font-bold text-mg-green italic">This is not just a dream. This is a <span class="underline">global destiny</span>.</p>
+        <p class="text-xl font-bold text-mg-gold italic">This is not just a dream. This is a <span class="underline">global destiny</span>.</p>
       `,
       image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522356/SnapInsta.to_474859260_18484062667003421_7213063944480426565_n_t6f0nh.jpg"
     },
     {
       title: "The Full Mission",
       body: `
-        <p class="text-lg leading-relaxed mb-6">We wake up every day to <span class="text-mg-green font-bold">arm the world</span> with real trading weapons. No fluff. No fake gurus. Just results.</p>
+        <p class="text-lg leading-relaxed mb-6">We wake up every day to <span class="text-mg-gold font-bold">arm the world</span> with real trading weapons. No fluff. No fake gurus. Just results.</p>
         <p class="text-lg leading-relaxed mb-6">Our mission: <span class="font-bold">1,000,000 funded traders</span>. From Tokyo open to New York close — our students execute with surgical precision. Live. Daily. Globally.</p>
         <div class="grid md:grid-cols-3 gap-6 my-8">
           <div class="bg-mg-charcoal/30 p-6 rounded-2xl border border-mg-gold/20 text-center">
@@ -99,14 +99,14 @@ const sections = [
             <p class="text-sm">50,000+ members. 12 languages.</p>
           </div>
         </div>
-        <p class="text-xl font-bold text-mg-green italic">We don’t just teach trading. We <span class="underline">globalize dominance</span>.</p>
+        <p class="text-xl font-bold text-mg-gold italic">We don’t just teach trading. We <span class="underline">globalize dominance</span>.</p>
       `,
       image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522356/SnapInsta.to_470877567_18477335110003421_828290523445540008_n_bbbsya.jpg"
     },
     {
       title: "The Full Values",
       body: `
-        <p class="text-lg leading-relaxed mb-6">Our values are not suggestions. They are <span class="text-mg-green font-bold">non-negotiable laws</span> — enforced in every trade, every room, every country.</p>
+        <p class="text-lg leading-relaxed mb-6">Our values are not suggestions. They are <span class="text-mg-gold font-bold">non-negotiable laws</span> — enforced in every trade, every room, every country.</p>
         <div class="space-y-8">
           <div class="flex items-start gap-4">
             <div class="w-12 h-12 rounded-full bg-gradient-to-br from-red-600 to-orange-700 flex items-center justify-center flex-shrink-0">
@@ -145,7 +145,7 @@ const sections = [
             </div>
           </div>
         </div>
-        <p class="text-xl font-bold text-mg-green italic mt-8">This is not a course. This is a <span class="underline">global movement</span>.</p>
+        <p class="text-xl font-bold text-mg-gold italic mt-8">This is not a course. This is a <span class="underline">global movement</span>.</p>
       `,
       image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763528004/SnapInsta.to_475264988_18485506594003421_2211319760570591478_n_q0hxkd.jpg"
     },
@@ -157,11 +157,11 @@ const AboutVisionMissionValues: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const socials = [
-    { name: "YouTube", icon: <Youtube className="w-7 h-7 text-red-500" />, followers: 21200, link: "https://www.youtube.com/@marketgodcommunity" },
-    { name: "Instagram", icon: <Instagram className="w-7 h-7 text-pink-500" />, followers: 33700, link: "https://www.instagram.com/eyram_dela" },
-    { name: "Telegram", icon: <Send className="w-7 h-7 text-cyan-500" />, followers: 13000, link: "https://t.me/marketgodcommunity" },
-    { name: "TikTok", icon: <TikTokIcon className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 10000, link: "https://www.tiktok.com/@marketgodcommunity" },
-    { name: "X (Twitter)", icon: <Twitter className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 5200, link: "https://x.com/eyramdela" },
+    { name: "YouTube", icon: <Youtube className="w-7 h-7 text-mg-gold" />, followers: 21200, link: "https://www.youtube.com/@marketgodcommunity" },
+    { name: "Instagram", icon: <Instagram className="w-7 h-7 text-mg-gold" />, followers: 33700, link: "https://www.instagram.com/eyram_dela" },
+    { name: "Telegram", icon: <Send className="w-7 h-7 text-mg-gold" />, followers: 13000, link: "https://t.me/marketgodcommunity" },
+    { name: "TikTok", icon: <TikTokIcon className="w-7 h-7 text-mg-gold" />, followers: 10000, link: "https://www.tiktok.com/@marketgodcommunity" },
+    { name: "X (Twitter)", icon: <Twitter className="w-7 h-7 text-mg-gold" />, followers: 5200, link: "https://x.com/eyramdela" },
   ];
 
   return (
@@ -172,7 +172,7 @@ const AboutVisionMissionValues: React.FC = () => {
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="text-center mb-24 px-6">
           <h1 className={`text-3xl md:text-7xl font-black mb-6 leading-tight`}>
             <span className={`${isDark ? "text-mg-white" : "text-mg-black"} block`}>This Is Not a Dream.</span>
-            <span className="text-mg-green block text-4xl md:text-8xl">This Is <span className="underline decoration-mg-gold text-mg-gold decoration-4">Destiny.</span></span>
+            <span className="text-mg-gold block text-4xl md:text-8xl">This Is <span className="underline decoration-mg-gold decoration-4">Destiny.</span></span>
           </h1>
           <p className={`text-xl md:text-2xl max-w-4xl mx-auto font-medium ${isDark ? "text-mg-paper/80" : "text-mg-charcoal/80"}`}>
             Vision. Mission. Values. — Forged in Ghana. Proven in the Markets.
@@ -231,9 +231,9 @@ const AboutVisionMissionValues: React.FC = () => {
                 <motion.blockquote
                   variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="relative pl-8 border-l-4 border-mg-green"
+                  className="relative pl-8 border-l-4 border-mg-gold"
                 >
-                  <p className="text-2xl md:text-3xl font-bold italic text-mg-green leading-tight">
+                  <p className="text-2xl md:text-3xl font-bold italic text-mg-gold leading-tight">
                     “{section.highlight}”
                   </p>
                 </motion.blockquote>
@@ -244,8 +244,8 @@ const AboutVisionMissionValues: React.FC = () => {
 
         {/* CTA */}
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.8 }} className="text-center mt-20">
-          <motion.button onClick={() => setIsModalOpen(true)} whileHover={{ scale: 1.05,boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
-          whileTap={{ scale: 0.95 }} className="inline-flex items-center gap-4 px-10 py-5 bg-mg-black to-white-700 text-white rounded-full font-bold text-xl  dark:bg-mg-white dark:text-mg-black shadow-2xl hover:shadow-mg-green/60 transition-all">
+          <motion.button onClick={() => setIsModalOpen(true)} whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+          whileTap={{ scale: 0.95 }} className="inline-flex items-center gap-4 px-10 py-5 bg-mg-black text-white rounded-full font-bold text-xl dark:bg-mg-paper dark:text-mg-black shadow-2xl hover:shadow-mg-gold/60 transition-all">
             See the Full Story <ChevronRight size={28} />
           </motion.button>
         </motion.div>
@@ -274,7 +274,7 @@ const AboutVisionMissionValues: React.FC = () => {
 
                 <button  
                   onClick={() => setIsModalOpen(false)} 
-                  className="flex  md:hidden text-[.7rem]  p-1 rounded-md  bg-mg-green text-white bg-mg-gold/20 hover:bg-mg-gold/40 transition-all">
+                  className="flex  md:hidden text-[.7rem]  p-1 rounded-md  bg-mg-gold text-black bg-mg-gold/20 hover:bg-mg-gold/40 transition-all">
                     Back
               </button>
 
@@ -307,7 +307,7 @@ const AboutVisionMissionValues: React.FC = () => {
           className="relative inline-flex gap-3 px-12 py-5 font-bold text-xl border border-white dark:border-none text-white rounded-full shadow-2xl transition-all mb-10"
         >
           {/* Rotating Gradient Glow */}
-          <span className="absolute inset-0 rounded-full bg-gradient-to-r from-mg-gold via-yellow-400 to-mg-green blur-xl opacity-60 animate-spin-slow pointer-events-none" />
+          <span className="absolute inset-0 rounded-full bg-gradient-to-r from-mg-gold via-yellow-400 to-mg-gold blur-xl opacity-60 animate-spin-slow pointer-events-none" />
           <span className="relative z-10 inine">   Join the Movement Now </span> <Trophy size={28} />
         </motion.a>
               </div>

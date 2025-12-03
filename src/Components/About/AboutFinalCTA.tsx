@@ -28,8 +28,8 @@ const FinalCTA = () => {
       <div
         className={`absolute inset-0 ${
           isDark
-            ? "bg-mg-black/80 backdrop-lur-sm"
-            : "bg-mg-light-bg/0 bacdrop-blur-sm"
+            ? "bg-mg-black/80 "
+            : "bg-mg-liht-bg/30 "
         }`}
         aria-hidden="true"
       />
@@ -40,7 +40,7 @@ const FinalCTA = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className={`text-5xl md:text-6xl font-black mb-6 ${isDark ? "text-mg-white" : "text-mg-white"}`}
+          className={`text-5xl md:text-6xl font-black mb-6 ${isDark ? "text-mg-paper" : "text-mg-white"}`}
         >
           Your Legacy Starts Here
         </motion.h2>
@@ -51,7 +51,7 @@ const FinalCTA = () => {
           transition={{ delay: 0.2, duration: 0.8 }}
           className={`text-xl md:text-2xl mb-12 ${isDark ? "text-mg-paper/80" : "text-mg-white/80"}`}
         >
-          Trade like a <span className="text-mg-green font-bold underline decoration-mg-gold decoration-4">MarketGod</span> and join thousands of successful traders.
+          Trade like a <span className="text-mg-gold font-bold underline decoration-mg-gold decoration-4">MarketGod</span> and join thousands of successful traders.
         </motion.p>
 
         {/* CTA Button */}
@@ -62,7 +62,7 @@ const FinalCTA = () => {
           className="relative inline-block px-12 py-5 font-bold text-xl border border-white dark:border-none text-white rounded-full shadow-2xl transition-all mb-10"
         >
           {/* Rotating Gradient Glow */}
-          <span className="absolute inset-0 rounded-full bg-gradient-to-r from-mg-gold via-yellow-400 to-mg-green blur-xl opacity-60 animate-spin-slow pointer-events-none" />
+          <span className="absolute inset-0 rounded-full bg-gradient-to-r from-mg-gold via-yellow-400 to-mg-gold blur-xl opacity-60 animate-spin-slow pointer-events-none" />
           <span className="relative z-10">Enroll Now — Claim Your Seat</span>
         </motion.a>
 
@@ -76,7 +76,7 @@ const FinalCTA = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.95 }}
-              className={`w-12 h-12 flex items-center justify-center rounded-full shadow-lg ${isDark ? "bg-mg-charcoal text-mg-gold" : "bg-white text-mg-green"} transition-all`}
+              className={`w-12 h-12 flex items-center justify-center rounded-full shadow-lg ${isDark ? "bg-mg-charcoal text-mg-gold" : "bg-white text-mg-black"} transition-all`}
             >
               <social.icon size={24} />
             </motion.a>
