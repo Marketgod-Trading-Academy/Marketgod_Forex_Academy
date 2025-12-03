@@ -136,7 +136,7 @@ const AboutJourney = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className={`text-4xl md:text-5xl font-black mb-4 ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+          <h2 className={`text-4xl md:text-5xl font-black mb-4 ${isDark ? "text-mg-white" : "text-mg-charcoal"}`}>
             From Dorm Room to <span className="text-mg-green">National Stage</span>
           </h2>
           <p className={`text-lg ${isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"}`}>
@@ -163,7 +163,7 @@ const AboutJourney = () => {
               {/* Card */}
               <div className={`w-full md:w-5/12 p-6 md:p-8 rounded-3xl border backdrop-blur-md shadow-xl ${
                 isDark
-                  ? "bg-mg-charcoal/50 border-mg-gold/30"
+                  ? "bg-mg-charcoal/50 border-mg-white/30"
                   : "bg-white/80 border-mg-gold/20"
               }`}>
                 <p className={`font-bold text-lg mb-2 ${item.color}`}>{item.year}</p>
@@ -213,11 +213,11 @@ const AboutJourney = () => {
           transition={{ duration: 0.8 }}
           className="text-center mt-24"
         >
-          <h3 className="text-3xl md:text-4xl font-black mb-4 text-mg-gold">
+          <h3 className="text-3xl md:text-4xl font-black mb-4 text-mg-black dark:text-mg-white">
             Your Journey Starts Now
           </h3>
           <p className={`mb-8 text-lg ${isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"}`}>
-            Join the <span className="text-mg-green font-bold">MarketGod Academy</span> and start mastering the charts.
+            Join the <span className="text-mg-gold font-bold">MarketGod Academy</span> and start mastering the charts.
           </p>
 
           {/* CTA Button */}
@@ -225,7 +225,7 @@ const AboutJourney = () => {
             href="/plans"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-3 px-8 py-4 bg-mg-green text-white rounded-full font-bold shadow-lg hover:bg-mg-gold hover:text-mg-charcoal transition-all"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-mg-black text-mg-white dark:bg-mg-white dark:text-mg-black rounded-full font-bold shadow-lg hover:bg-mg-gold hover:text-mg-charcoal transition-all"
           >
             Enroll Today
             <Star size={20} />

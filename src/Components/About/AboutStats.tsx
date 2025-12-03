@@ -29,7 +29,7 @@ const AnimatedCounter = ({ to }: { to: number }) => {
   }, [isInView, to]);
 
   return (
-    <span ref={ref} className="font-black">
+    <span ref={ref} className="font-black  dark:text-mg-white">
       0
     </span>
   );
@@ -67,7 +67,7 @@ const AboutStats = () => {
           viewport={{ once: false, amount: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className={`text-4xl md:text-5xl font-black ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+          <h2 className={`text-4xl md:text-5xl font-black ${isDark ? "text-mg-white" : "text-mg-charcoal"}`}>
             Built on <span className="text-mg-green">Real Results</span>
           </h2>
           <p className={`mt-3 text-lg ${isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"}`}>
@@ -91,16 +91,16 @@ const AboutStats = () => {
               className="group"
             >
               <div className={`p-2 py-4 md:p-8 rounded-3xl border backdrop-blur-md transition-all duration-500
-                ${isDark ? "bg-mg-black/50 border-mg-gold/30 hover:bg-mg-black/70" : "bg-white/80 border-mg-gold/20 hover:bg-white"}
+                ${isDark ? "bg-mg-black/50 border-mg-white/30 hover:bg-mg-black/70" : "bg-white/80 border-mg-gold/20 hover:bg-white"}
                 hover:shadow-mg-gold/30 hover:scale-105`}
               >
                 <div className="flex justify-center mb-5">
-                  <div className=" p-0 md:p-4 rounded-full bg-mg-gold/15 group-hover:bg-mg-gold/25 transition-all">
-                    <stat.icon size={44} className="text-mg-gold group-hover:scale-110 transition-transform" />
+                  <div className=" p-0 md:p-4 rounded-full bg-mg-white/15 group-hover:bg-mg-gold/25 transition-all">
+                    <stat.icon size={32} className="text-mg-gold group-hover:scale-110 transition-transform" />
                   </div>
                 </div>
 
-                <div className={`text-4xl md:text-6xl font-black text-center mb-2 ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+                <div className={`text-3xl md:text-5xl font-black text-center mb-2 ${isDark ? "text-mg-white" : "text-mg-black"}`}>
                   {typeof stat.value === 'number' ? (
                     <><AnimatedCounter to={stat.value} />{stat.suffix}</>
                   ) : (
@@ -150,8 +150,8 @@ const AboutStats = () => {
             >
               {social.icon}
               <div className="text-center">
-                <AnimatedCounter to={social.followers}  />
-                <p className={`text-xs font-medium uppercase tracking-wider ${isDark ? "text-mg-paper/50" : "text-mg-charcoal/50"}`}>
+                <AnimatedCounter to={social.followers}   />
+                <p className={`text-xs font-medium uppercase tracking-wider ${isDark ? "text-mg-paper/70" : "text-mg-black/50"}`}>
                   {social.name}
                 </p>
               </div>

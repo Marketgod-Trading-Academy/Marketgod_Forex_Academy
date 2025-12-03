@@ -29,7 +29,7 @@ const AnimatedCounter = ({ to, isDark }: { to: number; isDark: boolean }) => {
   }, [isInView, to]);
 
   return (
-    <span ref={ref} className={`text-2xl font-black ${isDark ? "text-white" : "text-mg-charcoal"}`}>
+    <span ref={ref} className={`text-2xl font-black ${isDark ? "text-white" : "text-mg-white"}`}>
       0
     </span>
   );
@@ -69,14 +69,14 @@ const sections = [
     {
       title: "The Full Vision",
       body: `
-        <p class="text-lg leading-relaxed mb-6">We are building the <span class="text-mg-green font-bold">global standard</span> in trading education. Not just for Africa — but for the <span class="text-mg-gold font-bold">entire world</span>.</p>
-        <p class="text-lg leading-relaxed mb-6">We see traders in Lagos, London, Lagos, and Los Angeles using the same sniper entries. We see funded accounts in 50+ countries. We see <span class="text-mg-green">MarketGod Academy</span> as the Harvard of trading — respected, replicated, and revered worldwide.</p>
+        <p class="text-lg leading-relaxed mb-6">We are building the <span class="text-mg-green font-bold">global standard</span> in trading education for the <span class="text-mg-gold font-bold">entire world</span>.</p>
+        <p class="text-lg leading-relaxed mb-6">We see traders in London, Tokyo, New York, and Sydney using the same sniper entries. We see funded accounts in 50+ countries. We see <span class="text-mg-green">MarketGod Academy</span> as the Harvard of trading — respected, replicated, and revered worldwide.</p>
         <ul class="space-y-4 mb-8">
-          <li class="flx items-center gap-3"><Globe class="w-5 h-5 text-mg-gold" /> 1,000,000+ traders trained by 2035</li>
-          <li class="flx items-center gap-3"><Globe class="w-5 h-5 text-mg-gold" /> Students in 100+ countries</li>
-          <li class="flx items-center gap-3"><Globe class="w-5 h-5 text-mg-gold" /> $10B+ in student profits globally</li>
+          <li class="flx items-center gap-3"><Globe class="w-5 h-5 text-mg-gold" /> 10,000+ traders trained by 2035</li>
+          <li class="flx items-center gap-3"><Globe class="w-5 h-5 text-mg-gold" /> Students in 10+ countries</li>
+          <li class="flx items-center gap-3"><Globe class="w-5 h-5 text-mg-gold" /> $500K+ in student profits globally</li>
         </ul>
-        <p class="text-xl font-bold text-mg-green italic">This is not a Ghanaian dream. This is a <span class="underline">global destiny</span>.</p>
+        <p class="text-xl font-bold text-mg-green italic">This is not just a dream. This is a <span class="underline">global destiny</span>.</p>
       `,
       image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522356/SnapInsta.to_474859260_18484062667003421_7213063944480426565_n_t6f0nh.jpg"
     },
@@ -171,7 +171,7 @@ const AboutVisionMissionValues: React.FC = () => {
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="text-center mb-24 px-6">
           <h1 className={`text-3xl md:text-7xl font-black mb-6 leading-tight`}>
-            <span className={`${isDark ? "text-mg-gold" : "text-mg-charcoal"} block`}>This Is Not a Dream.</span>
+            <span className={`${isDark ? "text-mg-white" : "text-mg-black"} block`}>This Is Not a Dream.</span>
             <span className="text-mg-green block text-4xl md:text-8xl">This Is <span className="underline decoration-mg-gold text-mg-gold decoration-4">Destiny.</span></span>
           </h1>
           <p className={`text-xl md:text-2xl max-w-4xl mx-auto font-medium ${isDark ? "text-mg-paper/80" : "text-mg-charcoal/80"}`}>
@@ -219,7 +219,7 @@ const AboutVisionMissionValues: React.FC = () => {
                   <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${section.gradient} p-4 shadow-2xl`}>
                     <section.icon size={44} className="text-white" />
                   </div>
-                  <h3 className={`text-4xl md:text-5xl font-black ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>{section.title}</h3>
+                  <h3 className={`text-4xl md:text-5xl font-black ${isDark ? "text-mg-white" : "text-mg-charcoal"}`}>{section.title}</h3>
                 </motion.div>
                 <motion.p
                   variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
@@ -244,7 +244,8 @@ const AboutVisionMissionValues: React.FC = () => {
 
         {/* CTA */}
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.8 }} className="text-center mt-20">
-          <motion.button onClick={() => setIsModalOpen(true)} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="inline-flex items-center gap-4 px-10 py-5 bg-gradient-to-r from-mg-green to-emerald-700 text-white rounded-full font-bold text-xl shadow-2xl hover:shadow-mg-green/60 transition-all">
+          <motion.button onClick={() => setIsModalOpen(true)} whileHover={{ scale: 1.05,boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+          whileTap={{ scale: 0.95 }} className="inline-flex items-center gap-4 px-10 py-5 bg-mg-black to-white-700 text-white rounded-full font-bold text-xl  dark:bg-mg-white dark:text-mg-black shadow-2xl hover:shadow-mg-green/60 transition-all">
             See the Full Story <ChevronRight size={28} />
           </motion.button>
         </motion.div>
@@ -278,7 +279,7 @@ const AboutVisionMissionValues: React.FC = () => {
               </button>
 
                 <div className="">
-                  <h2 className=" text-2xl  sm:text-3xl md:text-6xl font-black text-mg-gold md:mb-4">
+                  <h2 className=" text-2xl  sm:text-3xl md:text-6xl font-black text-mg-white md:mb-4">
                     The Full Story
                 </h2>
                 <p className="  text-[.7rem] sm:text-sm md:text-xl text-mg-paper/80">
@@ -293,16 +294,25 @@ const AboutVisionMissionValues: React.FC = () => {
 
               {fullStory.map((item, i) => (
                 <div key={i} className="mb-16 last:mb-0 mt-9 md-mt-0 text-mg-paper">
-                  <h3 className="text-3xl md:text-4xl font-black text-mg-gold mb-6 text-center">{item.title}</h3>
+                  <h3 className="text-3xl md:text-4xl font-black text-mg-white mb-6 text-center">{item.title}</h3>
                   <img src={item.image} loading="lazy" alt={item.title} className="w-full h-80 object-cover rounded-3xl shadow-xl mb-8" />
                   <div className={`prose prose-lg max-w-none ${isDark ? "prose-invert" : ""}`} dangerouslySetInnerHTML={{ __html: item.body }} />
                 </div>
               ))}
               <div className="text-center mt-16">
-                <motion.a href="/plans" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="inline-flex items-center gap-4 px-10 py-5 bg-mg-green text-white rounded-full font-bold text-xl shadow-xl hover:shadow-mg-green/60 transition-all">
-                  Join the Movement Now <Trophy size={28} />
-                </motion.a>
+               <motion.a
+          href="/plans"
+          whileHover={{ scale: 1.05, boxShadow: "0 0 50px rgba(255,215,0,0.8)" }}
+          whileTap={{ scale: 0.97 }}
+          className="relative inline-flex gap-3 px-12 py-5 font-bold text-xl border border-white dark:border-none text-white rounded-full shadow-2xl transition-all mb-10"
+        >
+          {/* Rotating Gradient Glow */}
+          <span className="absolute inset-0 rounded-full bg-gradient-to-r from-mg-gold via-yellow-400 to-mg-green blur-xl opacity-60 animate-spin-slow pointer-events-none" />
+          <span className="relative z-10 inine">   Join the Movement Now </span> <Trophy size={28} />
+        </motion.a>
               </div>
+
+            
 
               <motion.div
                 initial={{ opacity: 0 }}
@@ -321,7 +331,7 @@ const AboutVisionMissionValues: React.FC = () => {
                       col-span-1 md:col-span-1
                       p-6 rounded-2xl flex flex-col items-center justify-center gap-3
                       transition-all duration-300 transform hover:-translate-y-2
-                      bg-mg-charcoal/60 border border-mg-gold/10 hover:shadow-lg hover:shadow-mg-gold/10
+                      bg-mg-charcoal/60 border border-mg-white/10 hover:shadow-lg hover:shadow-mg-gold/10
                     `}
                   >
                     {social.icon}

@@ -136,7 +136,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
 }) => {
   return (
     <div
-      className={`tilt-card p-6 rounded-3xl shadow-xl transition-all duration-300 h-full ${
+      className={`tilt-card p-6 rounded-3xl shadow-xl transition-all duration-300 h-full dark:shadow-mg-gold/10 ${
         isDark ? "bg-mg-charcoal/60 text-mg-paper" : "bg-white/80 text-mg-charcoal"
       }`}
       ref={cardRef}
@@ -144,7 +144,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
       <img
         src={member.image}
         alt={member.name}
-        className="w-full h-64 md:h-72 object-cover rounded-2xl mb-4 border-4 border-mg-gold"
+        className="w-full h-64 md:h-72 object-cover rounded-2xl mb-4 border-4 border-mg-white  shadow-lg"
       />
       <div className="flex flex-col items-center text-center">
         <h3 className="text-xl font-bold">{member.name}</h3>

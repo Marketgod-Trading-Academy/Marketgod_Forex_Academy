@@ -18,11 +18,21 @@ const FinalCTA = () => {
   ];
 
   return (
-    <section className={`relative py-32 overflow-hidden ${isDark ? "bg-mg-black" : "bg-mg-light-bg"}`}>
-      {/* Particle Background */}
-      <div className="absolute inset-0 z-0">
-        <div className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,215,0,0.02)_0%,transparent_70%)] animate-pulse-slow" />
-      </div>
+    <section
+      className="relative py-32 overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url('/img/hero-bg.png')`,
+      }}
+    >
+      {/* Overlay */}
+      <div
+        className={`absolute inset-0 ${
+          isDark
+            ? "bg-mg-black/80 backdrop-lur-sm"
+            : "bg-mg-light-bg/0 bacdrop-blur-sm"
+        }`}
+        aria-hidden="true"
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
         <motion.h2
@@ -30,7 +40,7 @@ const FinalCTA = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className={`text-5xl md:text-6xl font-black mb-6 ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}
+          className={`text-5xl md:text-6xl font-black mb-6 ${isDark ? "text-mg-white" : "text-mg-white"}`}
         >
           Your Legacy Starts Here
         </motion.h2>
@@ -39,7 +49,7 @@ const FinalCTA = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className={`text-xl md:text-2xl mb-12 ${isDark ? "text-mg-paper/80" : "text-mg-charcoal/80"}`}
+          className={`text-xl md:text-2xl mb-12 ${isDark ? "text-mg-paper/80" : "text-mg-white/80"}`}
         >
           Trade like a <span className="text-mg-green font-bold underline decoration-mg-gold decoration-4">MarketGod</span> and join thousands of successful traders.
         </motion.p>
@@ -49,7 +59,7 @@ const FinalCTA = () => {
           href="/plans"
           whileHover={{ scale: 1.05, boxShadow: "0 0 50px rgba(255,215,0,0.8)" }}
           whileTap={{ scale: 0.97 }}
-          className="relative inline-block px-12 py-5 font-bold text-xl text-white rounded-full shadow-2xl transition-all mb-10"
+          className="relative inline-block px-12 py-5 font-bold text-xl border border-white dark:border-none text-white rounded-full shadow-2xl transition-all mb-10"
         >
           {/* Rotating Gradient Glow */}
           <span className="absolute inset-0 rounded-full bg-gradient-to-r from-mg-gold via-yellow-400 to-mg-green blur-xl opacity-60 animate-spin-slow pointer-events-none" />

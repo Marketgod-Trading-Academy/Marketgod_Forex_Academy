@@ -24,7 +24,6 @@ const AboutHero = () => {
       {/* === OVERLAY === */}
       <div className="absolute z-10 inset-0 bg-gradient-to-t from-black/70 via-black/70 to-black/90" />
 
-     <GhanaFlagStripe />
 
       {/* === CONTENT === */}
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -102,7 +101,7 @@ const AboutHero = () => {
               href="/plans"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-mg-gold text-mg-charcoal rounded-full font-bold text-lg shadow-2xl hover:shadow-mg-gold/50 transition-all"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-mg-white text-mg-black rounded-full font-bold text-lg shadow-2xl hover:shadow-mg-gold/50 transition-all"
             >
               Join the Legacy
               <ArrowRight size={24} />
