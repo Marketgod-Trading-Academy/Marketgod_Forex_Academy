@@ -250,7 +250,7 @@ const HeroCarousel: React.FC = () => {
                   className={`inline-flex items-center gap-3 px-6 py-3 rounded-full font-semibold transition-transform transform ${
                     cta.primary
                       ? "bg-mg-gold text-mg-charcoal shadow-sm hover:scale-[1.03]"
-                      : "bg-white/10 text-white border border-white/20 hover:scale-[1.03]"
+                      : "bg-white text-black border border-white/20 hover:scale-[1.03]"
                   }`}
                 >
                   <span>{cta.label}</span>

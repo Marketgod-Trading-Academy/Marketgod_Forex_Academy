@@ -160,7 +160,7 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({
                   absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500
                   ${isDark 
                     ? "bg-gradient-to-t from-mg-black/90 via-mg-black/50 to-transparent" 
-                    : "bg-gradient-to-t from-white/90 via-white/50 to-transparent"
+                    : "bg-gradient-to-t from-white/30 via-white/40 to-transparent"
                   }`}
                 />
 
@@ -168,8 +168,8 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({
                 <div className={`
                   absolute left-4 top-4 px-3 py-1.5 rounded-full text-xs font-bold backdrop-blur-sm
                   ${isDark 
-                    ? "bg-mg-green/20 text-mg-green border border-mg-green/30" 
-                    : "bg-mg-green/10 text-mg-green border border-mg-green/20"
+                    ? "bg-mg-green/20 text-mg-white border border-mg-green/30" 
+                    : "bg-mg-black/10 text-mg-white border border-mg-green/20"
                   }`}
                 >
                   {resource.category}
@@ -177,7 +177,10 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({
 
                 {/* Platform Icon */}
                 {resource.platform && (
-                  <div className="absolute right-4 top-4">
+                  <div className={`absolute right-4 top-4 px-3 py-1.5 rounded-full text-xs font-bold backdrop-blur-sm ${isDark 
+                    ? "bg-mg-green/20 text-mg-white border border-mg-green/30" 
+                    : "bg-mg-black/10 text-mg-white border border-mg-green/20"
+                  } `}>
                     {getPlatformIcon(resource.platform)}
                   </div>
                 )}
@@ -189,8 +192,8 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({
                 <h3 className={` text-[.6rem]
                   md:text-xl font-black line-clamp-2
                   ${isDark 
-                    ? "bg-clip-text text-transparent bg-gradient-to-r from-mg-gold via-mg-green to-mg-gold" 
-                    : "text-mg-charcoal"
+                    ? "bg-clip-text text-transparent bg-gradient-to-r from-mg-white via-mg-white/50 to-mg-gold" 
+                    : "bg-clip-text text-transparent bg-gradient-to-l  from-mg-black via-mg-black to-mg-gold"
                   }`}
                 >
                   {resource.title}

@@ -90,7 +90,7 @@ export default function MarketGodSupportTicketModal({
         clearCooldown();
         return;
       }
-      const h = Math.floor(remaining / (1000 * 60 * 60 * 3 ));
+      const h = Math.floor(remaining / (1000 * 60 * 60));
       const m = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
       const s = Math.floor((remaining % (1000 * 60)) / 1000);
       setRemainingTime(`${h}h ${m}m ${s}s`);
@@ -351,29 +351,29 @@ const handleSubmit = async (e: React.FormEvent) => {
           exit={{ opacity: 0 }}
         >
           {/* background blobs */}
-          <div className="pointer-events-none absolute -top-24 left-8 w-72 h-72 rounded-full blur-3xl bg-[#00ffcc22]" />
+          <div className="pointer-events-none absolute -top-24 left-8 w-72 h-72 rounded-full blur-3xl bg-mg-gold/10" />
           <motion.div
             variants={blobVariants}
             animate="float"
-            className="pointer-events-none absolute -bottom-28 right-12 w-72 h-72 rounded-full blur-3xl bg-[#00ffcc18]"
+            className="pointer-events-none absolute -bottom-28 right-12 w-72 h-72 rounded-full blur-3xl bg-mg-gold/10"
           />
 
           {/* modal */}
           <motion.div
             ref={modalRef}
-            className="relative w-full max-w-2xl rounded-2xl p-1 bg-gradient-to-br from-white/5 to-white/3 border border-[#00ffcc22] shadow-[0_8px_40px_#00ffcc10]"
+            className="relative w-full max-w-2xl rounded-2xl p-1 bg-gradient-to-br from-white/5 to-white/3 border border-mg-gold/20 shadow-[0_8px_40px_rgba(212,175,55,0.1)]"
             initial={{ scale: 0.98, y: 10, opacity: 0 }}
             animate={{ scale: 1, y: 0, opacity: 1 }}
             exit={{ scale: 0.98, y: 10, opacity: 0 }}
             transition={{ type: "spring", stiffness: 280, damping: 30 }}
           >
-            <div className="rounded-2xl bg-[#121826]/70 backdrop-blur-md p-6 md:p-8 border border-[#00ffcc1a]">
+            <div className="rounded-2xl bg-[#121826]/70 backdrop-blur-md p-6 md:p-8 border border-mg-gold/10">
               <div className="flex flex-col items-start gap-4">
                 {/* header */}
                 <div className="flex items-center justify-between w-full">
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#00c896] via-[#00ffcc] to-[#4ee8ff] flex items-center justify-center shadow-[0_8px_30px_#00ffcc20]">
-                      <Headset className="w-7 h-7 text-white" />
+                    <div className="w-14 h-14 rounded-xl  flex items-center justify-center shadow-gold-glow">
+                      <Headset className="w-7 h-7 text-gold" />
                     </div>
                     <div>
                       <h3 id="support-title" className="text-xl font-semibold text-white">
@@ -399,31 +399,31 @@ const handleSubmit = async (e: React.FormEvent) => {
                 {/* COOLDOWN SCREEN */}
                 {cooldownActive ? (
                   <div className="w-full flex flex-col items-center gap-6 py-8">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-[#00c896] to-[#4ee8ff] flex items-center justify-center shadow-lg">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-mg-gold to-yellow-500 flex items-center justify-center shadow-lg">
                       <CheckCircle2 className="w-10 h-10 text-white" />
                     </div>
                     <div className="text-center">
-                      <h4 className="text-lg font-semibold text-white">
+                        <h4 className="text-lg font-semibold text-white" aria-live="polite">
                         Ticket Already Sent
                       </h4>
-                      <p className="text-sm text-[#e6ffffcc] mt-1">
+                        <p className="text-sm text-white/80 mt-1">
                         Next ticket in:
                       </p>
-                      <p className="text-2xl font-mono text-[#00ffcc] mt-2">
+                      <p className="text-2xl font-mono text-mg-gold mt-2">
                         {remainingTime}
                       </p>
                     </div>
                     {ticketId && (
-                      <div className="inline-flex items-center gap-3 bg-[#0b1220]/60 px-4 py-2 rounded-lg border border-[#00ffcc22]">
-                        <span className="font-mono text-[#bfeee8]">{ticketId}</span>
-                        <motion.button onClick={copyTicketId} className="text-[#bfeee8] hover:text-white">
+                      <div className="inline-flex items-center gap-3 bg-[#0b1220]/60 px-4 py-2 rounded-lg border border-mg-gold/20">
+                        <span className="font-mono text-white/80">{ticketId}</span>
+                        <motion.button onClick={copyTicketId} className="text-white/80 hover:text-white" aria-label="Copy ticket ID">
                           {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
                         </motion.button>
                       </div>
                     )}
                     <button
                       onClick={resetAndClose}
-                      className="px-6 py-2 rounded-md text-sm font-medium text-white bg-[#00ffcc11] hover:bg-[#00ffcc18]"
+                      className="px-6 py-2 rounded-md text-sm font-medium text-white bg-mg-gold/10 hover:bg-mg-gold/20"
                     >
                       Close
                     </button>
@@ -441,7 +441,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                         value: formData[field.key as keyof typeof formData],
                         onChange: handleChange,
                         placeholder: " ",
-                        className: `peer block w-full rounded-lg border ${
+                        className: `peer block w-full rounded-lg border transition-colors ${
                           errorMsg ? "border-rose-500" : "border-[#ffffff0a]"
                         } bg-[#0b1220] px-4 py-3 text-sm text-white placeholder-transparent focus:outline-none focus:ring-2 ${
                           errorMsg ? "focus:ring-rose-500/40" : "focus:ring-[#00ffcc33]"
@@ -460,7 +460,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                           )}
                           <label
                             htmlFor={field.key}
-                            className="absolute left-3 -top-2.5 text-xs bg-[#121826]/70 px-1 text-[#bfeee8] peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#9adfcf] transition-all"
+                            className="absolute left-3 -top-2.5 text-xs bg-[#121826]/70 px-1 text-mg-gold/80 peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-placeholder-shown:text-mg-gold/70 transition-all"
                           >
                             {field.label}
                           </label>
@@ -481,14 +481,14 @@ const handleSubmit = async (e: React.FormEvent) => {
                         whileHover={{ scale: isLoading || isSubmitting ? 1 : 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         disabled={isLoading || isSubmitting}
-                        className={`w-full rounded-lg py-3.5 font-semibold shadow-xl transition-all flex items-center justify-center gap-3 bg-gradient-to-r from-[#00c896] via-[#00ffcc] to-[#4ee8ff] text-[#021014] ${
+                        className={`w-full rounded-lg py-3.5 font-semibold shadow-xl transition-all flex items-center justify-center gap-3 bg-mg-gold text-black ${
                           isLoading || isSubmitting ? "opacity-80 cursor-not-allowed" : "hover:brightness-105"
                         }`}
                       >
                         {isLoading ? (
                           <>
                             <motion.span
-                              className="w-5 h-5 border-2 border-[#021014] border-t-transparent rounded-full"
+                              className="w-5 h-5 border-2 border-black border-t-transparent rounded-full"
                               animate={{ rotate: 360 }}
                               transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                             />
@@ -526,34 +526,34 @@ const handleSubmit = async (e: React.FormEvent) => {
                   exit={{ opacity: 0 }}
                 >
                   <motion.div
-                    className="w-full max-w-md rounded-xl bg-[#121826]/80 backdrop-blur-md p-6 shadow-[0_20px_60px_#00ffcc20] border border-[#00ffcc22]"
+                    className="w-full max-w-md rounded-xl bg-[#121826]/80 backdrop-blur-md p-6 shadow-[0_20px_60px_rgba(212,175,55,0.15)] border border-mg-gold/20"
                     initial={{ scale: 0.9, y: 12, opacity: 0 }}
                     animate={{ scale: 1, y: 0, opacity: 1 }}
                     exit={{ scale: 0.9, y: 12, opacity: 0 }}
                     transition={{ type: "spring", stiffness: 300, damping: 28 }}
                   >
                     <div className="flex flex-col items-center gap-4 text-center">
-                      <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-[#00c896] to-[#4ee8ff] flex items-center justify-center shadow-lg">
-                        <CheckCircle2 className="w-10 h-10 text-white" />
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-mg-gold to-yellow-500 flex items-center justify-center shadow-lg">
+                        <CheckCircle2 className="w-10 h-10 text-gold" />
                       </div>
-                      <h4 className="text-lg font-semibold text-white">Ticket Sent!</h4>
-                      <p className="text-sm text-[#e6ffffcc]">
+                      <h4 className="text-lg font-semibold text-white" aria-live="polite">Ticket Sent!</h4>
+                      <p className="text-sm text-white/80">
                         Thanks — our team will get back to you soon.
                       </p>
                       <div aria-live="polite" className="sr-only">
                         Support ticket submitted successfully. Ticket ID: {ticketId}
                       </div>
                       {ticketId && (
-                        <div className="mt-2 inline-flex items-center gap-3 bg-[#0b1220]/60 px-4 py-2 rounded-lg border border-[#00ffcc22]">
-                          <span className="font-mono text-[#bfeee8]">{ticketId}</span>
-                          <motion.button onClick={copyTicketId} className="text-[#bfeee8] hover:text-white">
+                        <div className="mt-2 inline-flex items-center gap-3 bg-[#0b1220]/60 px-4 py-2 rounded-lg border border-mg-gold/20">
+                          <span className="font-mono text-white/80">{ticketId}</span>
+                          <motion.button onClick={copyTicketId} className="text-white/80 hover:text-white" aria-label="Copy ticket ID">
                             {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
                           </motion.button>
                         </div>
                       )}
                       <button
                         onClick={resetAndClose}
-                        className="mt-4 px-4 py-2 rounded-md text-sm font-medium text-white bg-[#00ffcc11] hover:bg-[#00ffcc18]"
+                        className="mt-4 px-4 py-2 rounded-md text-sm font-medium text-white bg-mg-gold/10 hover:bg-mg-gold/20"
                       >
                         Close
                       </button>

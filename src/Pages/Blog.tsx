@@ -43,8 +43,8 @@ const Blog: React.FC = () => {
     {/* MAIN TITLE */}
     <h1 className={`text-5xl sm:text-6xl md:text-7xl font-black bg-clip-text text-transparent mb-6
       ${isDark 
-        ? "bg-gradient-to-r from-mg-gold via-mg-green to-mg-gold" 
-        : "bg-gradient-to-r from-mg-green via-mg-gold to-mg-green"
+        ? "bg-gradient-to-r from-mg-white via-mg-green to-mg-gold" 
+        : "bg-gradient-to-r from-mg-black via-mg-black to-mg-gold"
       }`}
     >
       MarketGod Blog
@@ -66,7 +66,7 @@ const Blog: React.FC = () => {
         href="https://youtube.com/@marketgod" 
         target="_blank" 
         rel="noopener"
-        className="flex items-center gap-2 px-4 py-2 bg-red-600/10 backdrop-blur-sm rounded-full text-red-400 text-sm font-medium hover:bg-red-600/20 transition"
+        className="flex items-center gap-2 px-4 py-2 bg-red-600/90 backdrop-blur-sm rounded-full text-white text-sm font-medium hover:bg-red-600/20 transition"
       >
         <Youtube size={18} /> YouTube
       </a>
@@ -74,7 +74,7 @@ const Blog: React.FC = () => {
         href="https://www.youtube.com/@marketgodcommunity" 
         target="_blank" 
         rel="noopener"
-        className="flex items-center gap-2 px-4 py-2 bg-cyan-600/10 backdrop-blur-sm rounded-full text-cyan-400 text-sm font-medium hover:bg-cyan-600/20 transition"
+        className="flex items-center gap-2 px-4 py-2 bg-cyan-600/70 backdrop-blur-sm rounded-full text-white text-sm font-medium hover:bg-cyan-600/20 transition"
       >
         <Send size={18} /> Telegram
       </a>
@@ -82,7 +82,7 @@ const Blog: React.FC = () => {
         href="https://www.instagram.com/eyram_dela" 
         target="_blank" 
         rel="noopener"
-        className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600/10 backdrop-blur-sm rounded-full text-mg-paper text-sm font-medium hover:from-purple-600/20 hover:to-pink-600/20 transition"
+        className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600/70 backdrop-blur-sm rounded-full text-mg-paper text-sm font-medium hover:from-purple-600/20 hover:to-pink-600/20 transition"
       >
         <Instagram size={18} /> Instagram
       </a>
@@ -133,7 +133,7 @@ const Blog: React.FC = () => {
             
 
           />
-        <div className={`relative w-full md:w-80 m-aut items-center flex`}>
+        <div className={`relative w-full md:w-80 m-aut items-center flex `}>
               <Search
                 className={`absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 ${
                   isDark ? "text-mg-paper/50" : "text-mg-charcoal/50"
@@ -145,10 +145,10 @@ const Blog: React.FC = () => {
             placeholder="Search MarketGod resources..."
                 className={`
                   w-full pl-10 pr-4 py-3 rounded-full text-sm transition-all
-                  focus:outline-none focus:ring-2 focus:ring-mg-green/50
+                  focus:outline-none focus:ring-2 focus:ring-mg-green/50 
                   ${isDark
-                    ? "bg-mg-charcoal/50 border border-mg-gold/20 text-mg-paper placeholder-mg-paper/40"
-                    : "bg-white/80 border border-mg-green/20 text-mg-charcoal placeholder-mg-charcoal/40"
+                    ? "bg-mg-black/50 border border-mg-white/20 text-mg-paper shadow-gold-glow placeholder-mg-paper/40"
+                    : "bg-white/80 border border-mg-green/20 text-mg-charcoal shadow-lg placeholder-mg-charcoal/40"
                   } 
                 `}
               />

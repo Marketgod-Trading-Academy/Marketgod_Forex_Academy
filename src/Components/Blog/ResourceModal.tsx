@@ -274,9 +274,11 @@ const MediaRenderer = ({ src }: { src: string }) => {
     default:
       return (
         <img
+        alt=""
+         loading="lazy"
           src={src}
           className="w-full h-full object-cover"
-          loading="lazy"
+        
         />
       );
   }
@@ -473,8 +475,10 @@ const StructuredData = ({ resource }: { resource: Resource }) => {
     >
       {resource.media.map((item, idx) => (
         <SwiperSlide key={idx + Math.random() * 100}>
-          <div className="aspect-square rounded-lg overflow-hidden border cursor-pointer">
+          <div className="aspect-square rounded-lg overflow-hidden border cursor-pointer w-12 h-12 ml-5">
             <img
+              alt=""
+              loading="lazy"
               src={item.thumbnail || item.src}
               className="w-full h-full object-cover"
             />
@@ -495,14 +499,14 @@ const StructuredData = ({ resource }: { resource: Resource }) => {
         title={resource.title}
         src={`${youtubeSrc}?rel=0&modestbranding=1&autoplay=0`}
         allowFullScreen
-        className="w-full h-[50vh] md:h-[70vh]"
+        className="w-full h-12 md:h-12"
         loading="lazy"
       />
     ) : (
       <img
         src={resource.image}
         alt={resource.title}
-        className="w-full h-[40vh] md:h-[60vh] object-cover"
+        className="w-full h-12 md:h-12 object-cover"
       />
     )}
   </>
@@ -518,9 +522,9 @@ const StructuredData = ({ resource }: { resource: Resource }) => {
               <h1 id="resource-title" className={`
                 text-3xl md:text-4xl font-black leading-tight
                 ${isDark 
-                  ? "bg-clip-text text-transparent bg-gradient-to-r from-mg-gold via-mg-green to-mg-gold" 
-                  : "text-mg-charcoal"
-                }`}
+                    ? "bg-clip-text text-transparent bg-gradient-to-r from-mg-white via-mg-white/50 to-mg-gold" 
+                    : "bg-clip-text text-transparent bg-gradient-to-l  from-mg-black via-mg-black to-mg-gold"
+                  }`}
               >
                 {resource.title}
               </h1>
@@ -593,24 +597,31 @@ const StructuredData = ({ resource }: { resource: Resource }) => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-              <a
+              <motion.a
+              whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+          whileTap={{ scale: 0.95 }}
                 href="https://t.me/livetradewithmarketgodbot"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-mg-green text-white font-black rounded-full shadow-xl hover:shadow-mg-green/40 hover:scale-105 transition-all text-lg"
+                className={`inline-flex items-center justify-center gap-2 px-8 py-4  font-black rounded-full shadow-xl   transition-all text-lg  ${isDark 
+                    ? "bg-mg-white text-mg-black " 
+                    : "bg-mg-gold  text-mg-white  shadow-lg"
+                  } `}
               >
                 Join VIP Signals
-              </a>
-              <a
+              </motion.a>
+              <motion.a
+              whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+          whileTap={{ scale: 0.95 }}
                 href="https://t.me/delatrades"
-                className={`px-8 py-4 border-2 font-black rounded-full transition-all hover:scale-105
+                className={`px-8 py-4 border-2 font-black rounded-full transition-all 
                   ${isDark 
-                    ? "border-mg-gold text-mg-gold hover:bg-mg-gold/10" 
-                    : "border-mg-green text-mg-green hover:bg-mg-green/10"
+                    ? "border-mg-gold text-mg-gold " 
+                    : "border-mg-green bg-black text-mg-white hover:bg-mg-green/10 shadow-lg"
                   }`}
               >
                 Book 1-on-1 Mentorship
-              </a>
+              </motion.a>
             </div>
           </div>
         </motion.div>

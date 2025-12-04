@@ -26,7 +26,7 @@ export default function MarketGodContactHero() {
 
    
       <section
-        className="relative h-screen min-h-[600px] flex flex-col items-center justify-center text-center text-white px-6 bg-gradient-to-b from-[#090d14] via-[#0e1624] to-[#090d14] overflow-hidden"
+        className="relative flex flex-col items-center justify-center text-center text-white p-6 bg-gradient-to-b from-[#090d14] via-[#0e1624] to-[#090d14] overflow-hidden"
       >
         {/* Background Image */}
         <div className="absolute inset-0">
@@ -41,8 +41,8 @@ export default function MarketGodContactHero() {
 
         {/* Glow Accents */}
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 left-20 w-96 h-96 bg-[#00ff88] rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-[#FFD700] rounded-full blur-3xl animate-pulse delay-700" />
+          <div className="absolute top-20 left-20 w-96 h-96 bg-mg-white rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-mg-gold rounded-full blur-3xl animate-pulse delay-700" />
         </div>
 
         <div className="relative z-10 max-w-4xl">
@@ -53,7 +53,7 @@ export default function MarketGodContactHero() {
             transition={{ type: "spring", stiffness: 200 }}
             className="flex justify-center mb-6"
           >
-            <div className="p-5 bg-gradient-to-br from-[#eeff00] to-[#96cc00] rounded-full shadow-2xl shadow-[#00ff88]/70">
+            <div className="p-5 bg-gradient-to-br from-mg-white to-mg-white rounded-full shadow-2xl shadow-mg-gold/70">
               <MessageSquare className="w-14 h-14 text-black" />
             </div>
           </motion.div>
@@ -61,9 +61,9 @@ export default function MarketGodContactHero() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#00ff88] to-[#FFD700] mb-4"
+            className="text-5xl md:text-6xl font-bold text-mg-white mb-4"
           >
-            Contact MarketGod Support
+            Contact <span className="text-mg-gold">MarketGod</span> Support
           </motion.h1>
 
           <motion.p
@@ -72,20 +72,20 @@ export default function MarketGodContactHero() {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-[#ffffffcc] mb-8 leading-relaxed max-w-3xl mx-auto"
           >
-            Whether you're a trader, mentorship student, or signals member —
-            the <strong className="text-[#00ff88]">MarketGod Team</strong> is always ready to assist.
+            Whether you're a trader, mentorship student, or signals member — the 
+            <strong className="text-mg-gold"> MarketGod Team</strong> is always ready to assist.
             <br />
-            <span className="text-[#FFD700]">Fast replies within 1–3 hours</span> via Telegram, Call, or Support Ticket.
+            <span className="text-mg-gold">Fast replies </span>within 1–3 hours via Telegram, Call, or Support Ticket.
           </motion.p>
 
           {/* Quick Info */}
           <div className="flex flex-col sm:flex-row justify-center gap-6 mb-8 text-sm text-[#ffffff99]">
             <div className="flex items-center gap-2">
-              <MapPin className="w-5 h-5 text-[#00ff88]" />
+              <MapPin className="w-5 h-5 text-mg-gold" />
               <span> Accra, Ghana (HQ)</span>
             </div>
             <div className="flex items-center gap-2">
-              <Clock className="w-5 h-5 text-[#FFD700]" />
+              <Clock className="w-5 h-5 text-mg-gold" />
               <span>Mon–Sat: 8 AM – 7 PM GMT</span>
             </div>
           </div>
@@ -96,7 +96,7 @@ export default function MarketGodContactHero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setIsModalOpen(true)}
-              className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#00ff88] to-[#00cc66] text-black font-bold rounded-full shadow-xl hover:shadow-2xl hover:shadow-[#00ff88]/70 transition-all"
+              className="flex items-center gap-3 px-8 py-4 bg-mg-gold text-black font-bold rounded-full shadow-xl hover:shadow-2xl hover:shadow-mg-gold/70 transition-all"
             >
               <Ticket className="w-6 h-6" />
               Open Support Ticket
@@ -107,7 +107,7 @@ export default function MarketGodContactHero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setShowContacts(!showContacts)}
-                className="flex items-center gap-3 px-8 py-4 bg-mg-gold text-mg-charcoal font-bold rounded-full shadow-xl hover:shadow-2xl hover:shadow-[#0077ff]/70 transition-all"
+                className="flex items-center gap-3 px-8 py-4 bg-white text-black font-bold rounded-full shadow-xl hover:shadow-2xl hover:shadow-white/70 transition-all"
               >
                 <MessageSquare className="w-6 h-6" />
                 Contact MarketGod
@@ -119,13 +119,13 @@ export default function MarketGodContactHero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 20 }}
-                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 bg-[#0e1624] border border-[#00ff88]/30 rounded-2xl p-5 shadow-2xl flex flex-col items-center gap-4"
+                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 bg-[#0e1624] border border-mg-gold/30 rounded-2xl p-5 shadow-2xl flex flex-col items-center gap-4"
                   >
                    <a
                       href="https://wa.me/233599002863"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex flex-col items-center gap-1 text-[#00ff88] hover:scale-110 transition-transform"
+                      className="group flex flex-col items-center gap-1 text-mg-gold hover:scale-110 transition-transform"
                     >
                       <MessageSquare className="w-8 h-8" />
                       <span className="text-xs font-medium">WhatsApp</span>
@@ -134,7 +134,7 @@ export default function MarketGodContactHero() {
                       href="https://t.me/delatrades"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex flex-col items-center gap-1 text-[#00ff88] hover:scale-110 transition-transform"
+                      className="group flex flex-col items-center gap-1 text-mg-gold hover:scale-110 transition-transform"
                     >
                       <Send className="w-8 h-8" />
                       <span className="text-xs font-medium">Telegram</span>

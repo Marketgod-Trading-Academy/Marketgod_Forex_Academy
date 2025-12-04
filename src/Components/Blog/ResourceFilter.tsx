@@ -119,7 +119,7 @@ const ResourceFilter: React.FC<ResourceFilterProps> = ({
                 flex-shrink-0 px-4 md:px-5 py-2.5 whitespace-nowrap rounded-full text-[.6rem] md:text-[.7rem] lg:text-sm font-bold transition-all duration-300 shadow-lg
                 ${
                   selectedCategory === cat
-                    ? "bg-mg-green text-white shadow-mg-green/60 ring-4 ring-mg-green/30"
+                    ? "dark:bg-mg-white bg-mg-black dark:text-black text-white shadow-mg-green/60 ring-4 ring-mg-gold/30"
                     : isDark
                     ? "bg-mg-charcoal/60 text-mg-paper/90 hover:bg-mg-charcoal/80"
                     : "bg-white/80 text-mg-charcoal hover:bg-white/95"
