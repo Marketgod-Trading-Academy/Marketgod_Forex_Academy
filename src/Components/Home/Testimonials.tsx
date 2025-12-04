@@ -272,8 +272,8 @@ const Testimonials = () => {
         >
           <motion.a
             href="https://t.me/marketgodcommunity"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+           whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+          whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-3 px-10 py-5 bg-mg-dark-bg  dark:bg-mg-white text-mg-white dark:text-mg-black rounded-full font-bold uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all"
           >
             Join 10,000+ Winners Today
@@ -353,6 +353,7 @@ const Testimonials = () => {
               {/* CTA Button */}
               <div className="mt-8">
                 <motion.a
+                
                   href="https://t.me/marketgodcommunity"
                   target="_blank"
                   rel="noopener noreferrer"

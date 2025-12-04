@@ -171,7 +171,7 @@ const Signals = () => {
                 }}
                 style={{ transformPerspective: 1000 }}
                 className={`relative p-[2px] rounded-3xl shadow-xl ${
-                  plan.highlight ? metallicGold : "bg-gray-500/30"
+                  plan.highlight ?  "bg-gray-500/30" : metallicGold
                 }`}
               >
                 <CardInner plan={plan} isDark={isDark} onFreeClick={handleFreeClick} />
@@ -195,9 +195,8 @@ const Signals = () => {
               initial={{ scale: 0.95 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.95 }}
-              className={`relative w-full max-w-md max-h-[85vh] overflow-y-auto rounded-2xl p-5 shadow-2xl ${
-                isDark ? "bg-mg-charcoal border border-mg-gold/30" : "bg-white border border-yellow-400/30"
-              }`}
+              className="relative w-full max-w-md max-h-[85vh] overflow-y-auto rounded-2xl p-5 shadow-2x dark:bg-black dark:border-mg-blue/30 bg-white border border-yellow-400/30"
+              
               onClick={(e) => e.stopPropagation()}
             >
               <motion.button
@@ -291,24 +290,26 @@ const CardInner: React.FC<CardInnerProps> = ({ plan, isDark, onFreeClick }) => {
       {isFree ? (
         <button
           onClick={onFreeClick}
-          className="mt-6 block w-full text-center py-3 rounded-full font-semibold transition-all bg-mg-gold text-black hover:brightness-110 shadow-lg hover:shadow-mg-gold/30"
+          className="border-mg-goldmt-6 block w-full text-center mt-6 py-3 rounded-full font-semibold transition-all bg-mg-gold text-black hover:brightness-110 shadow-lg hover:shadow-mg-gold/30"
         >
           Claim Your Free Spot
         </button>
       ) : (
-        <a
+        <motion.a
+        whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+          whileTap={{ scale: 0.95 }}
           href={plan.href}
           target="_blank"
           rel="noopener noreferrer"
           className={`
             mt-6 block text-center py-3 rounded-full font-semibold transition-all border-2
             ${plan.highlight
-              ? `bg-transparent ${isDark ? "text-mg-paper border-mg-paper/30 hover:bg-mg-paper hover:text-black" : "text-mg-black border-mg-black/30 hover:bg-black hover:text-white"}`
+              ? ` ${isDark ? "text-mg-pape border-mg-paper/30 bg-mg-paper text-black" : " border-mg-black/30 bg-black text-white"}`
               : "bg-mg-gold text-black border-mg-gold hover:brightness-110"
             }`}
         >
           Get Started
-        </a>
+        </motion.a>
       )}
     </div>
   );

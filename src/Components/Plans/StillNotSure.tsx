@@ -32,10 +32,10 @@ const StillNotSurePremium: React.FC = () => {
       
           {/* Header */}
           <h2 className={`text-4xl md:text-5xl font-black leading-tight text-center mb-5`}>
-            <span className={`block ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+            <span className={`block ${isDark ? "text-mg-white" : "text-mg-black"}`}>
               Still Not Sure if This
             </span>
-            <span className="block text-mg-green">
+            <span className="block text-mg-black dark:text-mg-white  ">
               Workshop Is Right for You?
             </span>
           </h2>
@@ -122,9 +122,7 @@ const StillNotSurePremium: React.FC = () => {
                 className="flex gap-4"
               >
                 <CheckCircle 
-                  className={`w-7 h-7 shrink-0 ${
-                    isDark ? "text-mg-green" : "text-mg-green"
-                  }`} 
+                  className={`w-7 h-7 shrink-0 text-mg-gold`} 
                 />
 
                 <div>

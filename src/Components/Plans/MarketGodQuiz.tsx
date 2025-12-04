@@ -57,9 +57,9 @@ const MarketGodQuiz: React.FC = () => {
             className="space-y-4 text-center"
           >
             <h3 className="text-xl font-black text-mg-gold">Awesome</h3>
-            <p className={`text-xs ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>Please confirm your EXNESS email address so we can verify and grant you instant access.</p>
+            <p className={`text-xs ${isDark ? "text-mg-paper" : "text-mg-black"}`}>Please confirm your EXNESS email address so we can verify and grant you instant access.</p>
 
-            <div className="flex items-center gap-2 px-3 py-2 bg-mg-charcoal/70 rounded-lg border border-mg-gold/30">
+            <div className="flex items-center gap-2 px-3 py-2 bg-mg-black/70 rounded-lg border border-mg-gold/30">
               <span className={`text-xs ${isDark ? "text-mg-paper" : "text-mg-paper"} font-bold`}>Email</span>
               <input
                 type="email"
@@ -70,15 +70,17 @@ const MarketGodQuiz: React.FC = () => {
               />
             </div>
 
-            <button
+            <motion.button
+            whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+          whileTap={{ scale: 0.95 }}
               onClick={sendToTelegramBot}
               disabled={!email.includes("@") || submitted}
               className={`w-full py-3 flex items-center justify-center gap-2 font-bold rounded-lg text-xs transition-all ${
                 submitted
-                  ? "bg-mg-green/80 text-white"
+                  ? "bg-mg-white/80 text-black"
                   : email.includes("@")
-                  ? "bg-mg-green text-white hover:bg-mg-gold"
-                  : "bg-gray-500 text-white cursor-not-allowed"
+                  ? "bg-mg-black text-white  dark:bg-mg-white dark:text-mg-black "
+                  : "bg-black/50 text-black  dark:bg-white/50 cursor-not-allowed"
               }`}
             >
               {submitted ? (
@@ -90,9 +92,9 @@ const MarketGodQuiz: React.FC = () => {
                   <Send size={16} /> Submit Email
                 </>
               )}
-            </button>
+            </motion.button>
 
-            <button onClick={handleBack} className="text-mg-green text-xs underline">Back</button>
+            <button onClick={handleBack} className="dark:text-mg-white text-xs underline">Back</button>
           </motion.div>
         );
 
@@ -105,34 +107,36 @@ const MarketGodQuiz: React.FC = () => {
             className="space-y-3 text-xs"
           >
             <h3 className="text-xl font-black text-mg-gold text-center">Perfect</h3>
-            <p className={`text-center ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>To connect your existing EXNESS account under Eyram’s partnership, follow these steps carefully:</p>
+            <p className={`text-center ${isDark ? "text-mg-paper" : "text-mg-black"}`}>To connect your existing EXNESS account under Eyram’s partnership, follow these steps carefully:</p>
 
-            <ol className={`space-y-1.5  ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>
+            <ol className={`space-y-1.5  ${isDark ? "text-mg-paper" : "text-mg-black"}`}>
               <li><strong>1.</strong> Go to your EXNESS Personal Area</li>
               <li><strong>2.</strong> Click on the Chat Icon</li>
-              <li><strong>3.</strong> Type: <code className="bg-mg-gold text-mg-charcoal font-bold px-1.5 py-0.5 rounded">“Partner Change”</code></li>
+              <li><strong>3.</strong> Type: <code className="bg-mg-gold text-mg-black font-bold px-1.5 py-0.5 rounded">“Partner Change”</code></li>
               <li><strong>4.</strong> Fill out the form they provide</li>
               <li><strong>5.</strong> When they ask for the partner link, send them this:</li>
             </ol>
 
-            <div className="flex items-center justify-between p-2 bg-mg-charcoal/30 rounded-lg border border-mg-gold/30">
-              <code className={`text-xs text-mg-gol break-all ${isDark ? "text-mg-gold" : "text-mg-charcoal"} `}>https://one.exness.link/a/vm10eq60</code>
-              <button onClick={copyLink} className={`p-1 text-mg-pape ${isDark ? "text-mg-gold" : "text-mg-charcoal"}`}>
+            <div className="flex items-center justify-between p-2 bg-mg-black/30 rounded-lg border border-mg-gold/30">
+              <code className={`text-xs text-mg-gol break-all ${isDark ? "text-mg-gold" : "text-mg-black"} `}>https://one.exness.link/a/vm10eq60</code>
+              <button onClick={copyLink} className={`p-1 text-mg-pape ${isDark ? "text-mg-gold" : "text-mg-black"}`}>
                 {copied ? <CheckCircle size={16} className="text-mg-paper" /> : <Copy size={16} />}
               </button>
             </div>
 
-            <p className={` ${isDark ? "text-mg-gold" : "text-mg-charcoal" } text-center mt-3`}>Once done, wait for EXNESS to confirm the change.</p>
-            <p className={`text-center font-bold ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>After that, come back here and click below</p>
+            <p className={` ${isDark ? "text-mg-gold" : "text-mg-black" } text-center mt-3`}>Once done, wait for EXNESS to confirm the change.</p>
+            <p className={`text-center font-bold ${isDark ? "text-mg-paper" : "text-mg-black"}`}>After that, come back here and click below</p>
 
-            <button
+            <motion.button
+            whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+          whileTap={{ scale: 0.95 }}
               onClick={() => setStep(0)}
-              className="w-full py-3 bg-mg-gold text-mg-charcoal font-bold rounded-lg text-xs hover:opacity-90 transition"
+              className="w-full py-3 dark:bg-mg-gold bg-black text-mg-white dark:text-mg-black font-bold rounded-lg text-xs hover:opacity-90 transition"
             >
               I’ve Done It — Verify Email
-            </button>
+            </motion.button>
 
-            <button onClick={handleBack} className="text-mg-green text-xs underline block mx-auto mt-2">Back</button>
+            <button onClick={handleBack} className="dark:text-mg-white text-xs underline block mx-auto mt-2">Back</button>
           </motion.div>
         );
 
@@ -145,20 +149,22 @@ const MarketGodQuiz: React.FC = () => {
             className="space-y-4 text-center"
           >
             <h3 className="text-xl font-black text-mg-gold">No worries</h3>
-            <p className={`text-xs ${isDark ? "text-mg-paper" : "text-mg-charcoal"} font-bold`}>You can create one right now using Eyram’s official EXNESS link below</p>
+            <p className={`text-xs ${isDark ? "text-mg-paper" : "text-mg-black"} font-bold`}>You can create one right now using Eyram’s official EXNESS link below</p>
 
-            <a
+            <motion.a
+            whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+          whileTap={{ scale: 0.95 }}
               href="https://one.exnessonelink.com/boarding/sign-up/303589/a/eyram"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-3 bg-mg-green text-white font-bold rounded-lg text-xs hover:bg-mg-gold transition"
+              className="inline-flex items-center gap-2 px-4 py-3 bg-mg-gold text-black font-bold rounded-lg text-xs hover:bg-mg-gold transition"
             >
               Create EXNESS Account <ExternalLink size={16} />
-            </a>
+            </motion.a>
 
-            <p className={`text-xs ${isDark ? "text-mg-paper" : "text-mg-charcoal"}`}>Once your account is created, come back here and restart the process.</p>
+            <p className={`text-xs ${isDark ? "text-mg-paper" : "text-mg-black"}`}>Once your account is created, come back here and restart the process.</p>
 
-            <button onClick={handleBack} className="text-mg-green text-xs underline">Back</button>
+            <button onClick={handleBack} className="dark:text-mg-white text-xs underline">Back</button>
           </motion.div>
         );
 
@@ -171,7 +177,7 @@ const MarketGodQuiz: React.FC = () => {
             className="space-y-4 text-center"
           >
             <h3 className="text-xl font-black text-mg-gold">No problem!</h3>
-            <p className={`text-xs ${isDark ? "text-mg-paper" : "text-mg-charcoal"} `}>You can still join MarketGod’s VIP & Mentorship Programs by making payment through our official payment bot.</p>
+            <p className={`text-xs ${isDark ? "text-mg-paper" : "text-mg-black"} `}>You can still join MarketGod’s VIP & Mentorship Programs by making payment through our official payment bot.</p>
 
             <a
               href={TELEGRAM_BOT}
@@ -182,7 +188,7 @@ const MarketGodQuiz: React.FC = () => {
               Tap below to proceed with your VIP subscription <Bot size={16} />
             </a>
 
-            <button onClick={handleBack} className="text-mg-green text-xs underline ml-1">Back</button>
+            <button onClick={handleBack} className="dark:text-mg-white text-xs underline ml-1">Back</button>
           </motion.div>
         );
 
@@ -191,22 +197,22 @@ const MarketGodQuiz: React.FC = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="space-y-4 text-center"
+            className="space-y-4 text-center "
           >
             <h2 className="text-lg md:text-xl font-black text-mg-gold">
               Please choose the option that applies to you
             </h2>
 
-            <div className="grid grid-cols-1 gap-2.5">
+            <div className="grid grid-cols-1 gap-2.5 cursor-pointer">
               {options.map((opt, i) => {
                 const Icon = opt.icon;
                 return (
-                  <Tilt key={i} scale={1.03} className="rounded-lg overflow-hidden">
+                  <Tilt key={i} scale={1.03} className="rounded-lg overflow-hidden cursor-pointer">
                     <motion.div
                       onClick={() => setStep(opt.next)}
                       whileTap={{ scale: 0.97 }}
                       className={`p-3 text-left text-white font-medium text-xs flex items-center gap-3 bg-gradient-to-br ${
-                        i === 0 ? "from-mg-green to-emerald-700" :
+                        i === 0 ? "from-green-400 to-emerald-700" :
                         i === 1 ? "from-mg-gold to-yellow-600" :
                         i === 2 ? "from-blue-600 to-cyan-600" :
                         "from-purple-600 to-pink-600"
@@ -225,7 +231,7 @@ const MarketGodQuiz: React.FC = () => {
   };
 
   return (
-    <div className="py-4">
+    <div className="py-4 bg-blak">
       <AnimatePresence mode="wait">{renderStep()}</AnimatePresence>
     </div>
   );

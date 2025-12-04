@@ -39,12 +39,14 @@ const PlansFinalCTA: React.FC = () => {
           Join the MarketGod Mentorship and VIP Signals now. Learn, trade, and build
           your trading system with proven strategies.
         </p>
-        <button
+        <motion.button
+        whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+          whileTap={{ scale: 0.95 }}
           onClick={scrollToPlans}
-          className="bg-mg-gold text-mg-charcoal px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-mg-gold/50 transition-all"
+          className="bg-mg-white text-black  px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-mg-gold/50 transition-all"
         >
           View Plans
-        </button>
+        </motion.button>
       </div>
     </motion.section>
   );

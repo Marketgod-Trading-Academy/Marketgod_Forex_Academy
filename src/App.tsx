@@ -50,7 +50,7 @@ const AppContent = () => {
     <div className={`min-h-screen flex flex-col ${theme === "light" ? "bg-mg-light-b" : "bg-mg-dark-bg"}`}>
       <SEO {...seo} />
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 ">
         <AnnouncementPopup />
         <Routes>
           {/* HOME */}

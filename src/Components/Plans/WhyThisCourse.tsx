@@ -42,13 +42,12 @@ const WhyThisCourse: React.FC = () => {
         >
           <h2
             className={`text-4xl md:text-5xl font-black mb-4 relative inline-block ${
-              isDark ? "text-mg-gold" : "text-mg-charcoal"
+              isDark ? "text-mg-white" : "text-mg-black"
             }`}
           >
             Why This Course?
 
-            {/* GOLD SHIMMER EFFECT */}
-            <span className="absolute inset-0 shimmer pointer-events-none"></span>
+  
           </h2>
 
           <p
@@ -125,12 +124,12 @@ const WhyThisCourse: React.FC = () => {
             </ul>
 
             {/* CTA WITH LIMITED-BADGE */}
-            <div className="flex items-center gap-3 mt-6">
+            <div className="flex f  items-center gap-3 mt-6">
               <motion.a
-            href="/plans"
+            href="plans"
             whileHover={{ scale: 1.06 , boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
           whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-lg 
+            className="inline-flex items-center gap-3 md:px-8 p-4 py-4 rounded-full font-bold  text-center text-sm lg:text-lg 
             bg-mg-black text-white dark:bg-mg-white dark:text-mg-black shadow-lg hover:shadow-mg-green/40 transition-all"
           >
                 Enroll Today

@@ -15,7 +15,7 @@ const PromoBanner = () => {
       {/* Compact Banner */}
       <section className={`py-10 px-4 rounded-2xl max-w-4xl mx-auto my-8 shadow-lg border ${
         isDark 
-          ? "bg-mg-charcoal/50 border-mg-white/20" 
+          ? "bg-mg-black/50 border-mg-white/20" 
           : "bg-mg-light-surface border-mg-light-border"
       }`}>
         <div className="text-center">
