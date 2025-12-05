@@ -46,10 +46,10 @@ const PlansNavFloating: React.FC<PlansNavFloatingProps> = ({ sections }) => {
       </motion.div>
 
       {/* Mobile circular button */}
-      <div className="md:hidde fixed top-12 md:top-16 right-4 z-40">
+      <div className="md:hidde fixed top-20 md:top-16 right-4 z-40">
         <button
           onClick={() => setOpen(!open)}
-          className="w-10 h-10 rounded-full bg-mg-gold text-white flex items-center justify-center shadow-xl hover:bg-mg-green transition-all"
+          className="w-10 h-10 rounded-full bg-mg-gold text-black flex items-center justify-center shadow-xl hover:bg-mg-green transition-all"
         >
           {open ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
         </button>
@@ -62,13 +62,13 @@ const PlansNavFloating: React.FC<PlansNavFloatingProps> = ({ sections }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3 }}
-              className="mt-2 absolute bottom top- right-0 bg-white dark:bg-mg-charcoal rounded-xl shadow-lg border border-mg-gold/30 flex flex-col"
+              className="mt-2 absolute bottom top- right-0 bg-white dark:bg-mg-charcoal rounded-xl shadow-lg border border-mg-gold/30 flex flex-col overflow-auto"
             >
               {sections.map((section) => (
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
-                  className="px-4 py-2 text-sm font-semibold text-mg-charcoal dark:text-mg-paper hover:bg-mg-gold/20 dark:hover:bg-mg-green/20 transition-colors"
+                  className="px-4 py-2 text-sm font-semibold text-mg-charcoal dark:text-mg-black hover:bg-mg-gold/20 dark:hover:bg-mg-green/20 transition-colors"
                 >
                   {section.label}
                 </button>

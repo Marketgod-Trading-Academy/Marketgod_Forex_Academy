@@ -100,7 +100,7 @@ export default function JoinCommunity3D() {
 
   const links = useMemo(
     () => [
-      { name: "Telegram", href: "https://t.me/marketgodcommunityy", icon: <Send /> },
+      { name: "Telegram", href: "https://t.me/marketgodcommunity", icon: <Send /> },
       { name: "Instagram", href: "https://www.instagram.com/eyram_dela", icon: <Instagram /> },
       { name: "YouTube", href: "https://www.youtube.com/@marketgodcommunity", icon: <Youtube /> },
       { name: "Twitter (X)", href: "https://x.com/eyramdela ", icon: <Twitter /> },
@@ -125,7 +125,7 @@ export default function JoinCommunity3D() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-black text-mg-black dark:text-mg-white mb-4">
-            Join <span className="text-mg-gold">MarketGod Academy</span> Community
+            Join <span className="text-mg-gold">MarketGod</span> Community
           </h2>
           <p className="max-w-3xl mx-auto text-lg sm:text-xl text-mg-light-textSecondary dark:text-mg-dark-textSecondary">
             Connect with traders from across Africa and the world. All from the heart of Ghana.

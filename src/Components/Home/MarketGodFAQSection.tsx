@@ -9,7 +9,7 @@ const FAQCTA = () => {
     { icon: <Send size={20} />, href: "https://t.me/marketgodcommunity" },
     { icon: <Facebook size={20} />, href: "https://web.facebook.com/eyram.akpey" },
     { icon: <Twitter size={20} />, href: "https://x.com/eyramdela" },
-    { icon: <Instagram size={20} />, href: "https://x.com/eyramdela " },
+    { icon: <Instagram size={20} />, href: "https://www.instagram.com/eyram_dela " },
     { icon: <YoutubeIcon size={20} />, href: "https://www.youtube.com/@marketgodcommunity" },
   ];
 

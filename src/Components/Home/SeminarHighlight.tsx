@@ -13,7 +13,6 @@ const SeminarCarousel = () => {
     { type: "image", src: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763525187/SnapInsta.to_572477469_18538014796003421_360178860850559894_n_ucgfhu.jpg", alt: "Eyram Dela on stage" },
     { type: "image", src: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763525186/SnapInsta.to_574261719_18538314220003421_959973786091435173_n_ydzw2o.jpg", alt: "Audience networking" },
     { type: "image", src: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763525187/SnapInsta.to_572477469_18538014796003421_360178860850559894_n_ucgfhu.jpg", alt: "Live trading demo" },
-    { type: "image", src: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763525172/SnapInsta.to_572678060_18538014811003421_2297806020413631308_n_bwlxew.jpg0", alt: "Expert panel" },
     { type: "image", src: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763525170/SnapInsta.to_573290402_18538014832003421_3796424749225276508_n_yui0or.jpg", alt: "Ghana flag group photo" },
     { type: "image", src: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763525169/SnapInsta.to_573626362_18538014823003421_6315298945725636023_n_jy5iic.jpg", alt: "Exness merch giveaway" },
     { type: "image", src: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763525163/SnapInsta.to_573691633_18538014814003421_3174334620940786836_n_rhdkcl.jpg", alt: "Closing session" },

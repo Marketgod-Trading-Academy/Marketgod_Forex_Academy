@@ -156,7 +156,7 @@ const FAQ: React.FC = () => {
             className="mt-8 flex justify-center lg:justify-start"
           >
             <motion.a
-              href="/https://t.me/marketgodcommunity"
+              href="https://t.me/marketgodcommunity"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-3 px-8 py-4 dark:bg-mg-white bg-mg-black text-mg-white dark:text-mg-black rounded-full font-bold uppercase tracking-wide shadow-xl"

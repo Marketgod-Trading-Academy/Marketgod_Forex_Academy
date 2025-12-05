@@ -48,12 +48,13 @@ const Services = () => {
       title: "Free Beginner's Course",
       subtitle: "Start Smart",
       desc: "Step-by-step forex foundation for complete beginners. No jargon. No cost. Just clarity and confidence.",
-      features: ["PDF Guide", "Market Basics", "Risk Rules", "First Trade Setup"],
+      features: ["Detailed Guide", "Market Basics", "Risk Rules", "First Trade Setup"],
       icon: BookOpen,
       cta: "Watch Free",
-      href: "https://www.youtube.com/@marketgodcommunity",
+      href: "https://youtu.be/TDDPHx9G8dQ?si=Y80pdFaNVsUDBAGe",
       popular: false,
       badge: "100% Free",
+      target: "_blank",
     },
   ];
   return (
@@ -150,6 +151,8 @@ const Services = () => {
               {/* CTA */}
               <motion.a
                 href={service.href}
+                target={service.target}
+                rel={service.target === "_blank" ? "noopener noreferrer" : undefined}
                 whileHover={{ scale: 1.05 }}
                 className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold uppercase tracking-wide transition-all w-full ${
                   service.popular
