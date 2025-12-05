@@ -43,7 +43,7 @@ const AnnouncementPopup: React.FC = () => {
             className={`relative w-full max-w-md md:max-w-lg lg:max-w-xl max-h-[90vh] overflow-y-auto rounded-3xl border-2 shadow-2xl
               ${isDark
                 ? 'bg-gradient-to-br from-mg-charcoal via-mg-black to-mg-black border-mg-gold/40'
-                : 'bg-white border-mg-green/30'
+                : 'bg-white border-mg-gold/30'
               }`}
           >
             {/* Close Button */}
@@ -65,7 +65,7 @@ const AnnouncementPopup: React.FC = () => {
                 className="w-24 h-24 mx-auto mb-4 rounded-full object-cover border-2 border-yellow-400 shadow-lg"
               />
               <h2 className={`text-2xl md:text-3xl font-black ${isDark ? 'text-mg-gold' : 'text-mg-charcoal'}`}>
-                🚀 Trade with <span className="text-mg-green">MarketGod for FREE</span>!
+                🚀 Trade with <span className="text-mg-gold">MarketGod for FREE</span>!
               </h2>
             </div>
 
@@ -81,7 +81,7 @@ const AnnouncementPopup: React.FC = () => {
                   href="https://t.me/livetradewithmarketgodbot"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-mg-green font-bold underline block mt-1"
+                  className="text-mg-gold font-bold underline block mt-1"
                 >
                   @livetradewithmarketgodbot
                 </a>
@@ -98,7 +98,7 @@ const AnnouncementPopup: React.FC = () => {
                 href="https://t.me/livetradewithmarketgodbot"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-mg-green text-white font-bold rounded-full shadow-lg shadow-mg-green/20 hover:scale-105 transition-transform"
+                className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-mg-white text-black font-bold rounded-full shadow-lg shadow-mg-gold/20 hover:scale-105 transition-transform"
               >
                 <Zap size={20} />
                 Join FREE VIP Now

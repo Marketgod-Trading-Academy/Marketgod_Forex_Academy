@@ -4,7 +4,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence, wrap } from "framer-motion";
 import { BookOpen, TrendingUp, Zap, UserCheck, PlayCircle, Rocket } from "lucide-react";
-import GhanaFlagStripe from "../Ghana/GhanaFlagStripe";
 
 // Each slide now supports: bgImage | bgVideo
 interface Slide {
@@ -173,7 +172,7 @@ const PlansHero = () => {
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={1}
-          onDragEnd={(e, { offset, velocity }) => {
+          onDragEnd={(_, { offset, velocity }) => {
             const swipe = swipePower(offset.x, velocity.x);
             if (swipe < -swipeConfidenceThreshold) paginate(1);
             else if (swipe > swipeConfidenceThreshold) paginate(-1);

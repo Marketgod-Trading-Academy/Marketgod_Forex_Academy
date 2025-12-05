@@ -166,58 +166,50 @@ const Header = () => {
         </div>
       </motion.header>
 
-      {/* MOBILE BOTTOM NAV */}
+      {/* MOBILE HEADER (Top) */}
       <motion.nav
         animate={{ y: visible ? 0 : 100, opacity: visible ? 1 : 0 }}
         transition={{ duration: 0.35 }}
         className={`
-          fixed bottom-0 left-0 w-full lg:hidden flex justify-around items-center py-3 
+          fixed top-0 left-0 w-full lg:hidden flex justify-between items-center p-4
           backdrop-blur-md border-t z-50
           ${theme === "light" ? "bg-mg-light-surface/90 border-mg-light-border" : "bg-mg-dark-surface/95 border-mg-dark-border"}
         `}
       >
-        {navLinks.map((link) => {
-          const active = location.pathname === link.id;
-          return (
-            <button
-              key={link.id}
-              onClick={() => handleNavClick(link.id)}
-              className={`flex flex-col items-center gap-1 transition-all ${
-                active ? "text-mg-gold" : theme === "light" ? "text-mg-light-textSecondary" : "text-mg-dark-textSecondary"
-              }`}
-            >
-              <motion.div
-                className={`p-2.5 rounded-xl ${active ? "bg-mg-gold/20" : ""}`}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {link.icon}
-              </motion.div>
-              <span className="text-xs font-medium">{link.name}</span>
-              {active && (
-                <motion.div
-                  layoutId="mobileDot"
-                  className="h-1.5 w-1.5 bg-mg-gold rounded-full mt-1 shadow-lg shadow-mg-gold/50"
-                />
-              )}
-            </button>
-          );
-        })}
+        {/* LOGO */}
+        <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleNavClick("/")}>
+          <img
+            src="/logo-2.png"
+            alt="MarketGod"
+            className={`w-10 h-10 rounded-full object-cover border-2 ${
+              theme === "light" ? "border-mg-black/70" : "border-mg-white"
+            }`}
+          />
+             <div>
+            <h1 className="text-sm font-black text-mg-gold tracking-tighter">
+             <span className={theme === "light" ? "text-mg-light-text" : "text-mg-paper"}>Market</span>God
+            </h1>
+            <p className={`text-xs uppercase tracking-widest ${theme === "light" ? "text-mg-light-textSecondary" : "text-mg-dark-textSecondary"}`}>
+              Academy
+            </p>
+          </div>
+        </div>
 
-        {/* MENU BUTTON */}
-        <button
-          onClick={() => setMenuOpen(true)}
-          className="flex flex-col items-center gap-1 text-mg-gold"
-        >
-          <motion.div
-            className="p-2.5 rounded-xl bg-mg-gold/20"
-            whileHover={{ scale: 1.15 }}
-            whileTap={{ scale: 0.95 }}
+        {/* CONTROLS */}
+        <div className="flex items-center gap-2">
+          <motion.button
+            onClick={toggleTheme}
+            className={`p-2.5 rounded-full transition-all ${
+              theme === "light" ? "bg-mg-light-border/40" : "bg-mg-dark-border/40"
+            }`}
+            whileTap={{ scale: 0.9, rotate: 90 }}
           >
-            <Menu size={24} />
-          </motion.div>
-          <span className="text-xs font-bold">Menu</span>
-        </button>
+            {theme === "light" ? <Moon size={20} className="text-mg-light-text" /> : <Sun size={20} className="text-mg-gold" />}
+          </motion.button>
+          <motion.button onClick={() => setMenuOpen(true)} className="p-2.5 rounded-full" whileTap={{ scale: 0.9 }}>
+            <Menu size={24} className={theme === "light" ? "text-mg-light-text" : "text-mg-paper"} />
+          </motion.button>
+        </div>
       </motion.nav>
 
       {/* MOBILE DRAWER */}

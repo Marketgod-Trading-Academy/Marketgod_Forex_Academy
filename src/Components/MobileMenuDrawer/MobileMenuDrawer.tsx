@@ -1,7 +1,7 @@
 // src/components/MobileMenuDrawer/MobileMenuDrawer.tsx
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronRight, Instagram, Send, MessageCircle, Facebook, Mail, Sun, Moon } from "lucide-react";
+import { X, ChevronRight, Instagram, Send, MessageCircle, Facebook, Mail } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
 
@@ -17,7 +17,7 @@ interface MobileMenuDrawerProps {
 }
 
 const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOpen, navLinks }) => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const location = useLocation();
   const navigate = useNavigate();
   const isDark = theme === "dark";
@@ -53,7 +53,7 @@ const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOp
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xl"
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xl pb-2"
           onClick={handleBackdropClick}
         >
           <motion.div
@@ -82,21 +82,6 @@ const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOp
               />
             </div>
 
-            {/* Theme Toggle */}
-            <div className="px-8 mb-10 flex justify-end">
-              <motion.button
-                onClick={toggleTheme}
-                whileHover={{ scale: .95, rotate: 12}}
-                className="flex items-center gap-4 px-8 py-5 rounded-2xl bg-white/10 backdrop-blur-xl border border-mg-gold/30 hover:bg-mg-gold/10 transition-all"
-              >
-                {isDark ? (
-                  <Sun size={28} className="text-mg-gold rotate-180" />
-                ) : (
-                  <Moon size={28} className={accentClass} />
-                )}
-                <span className={`font-bold text-lg ${textClass}`}>Toggle Theme</span>
-              </motion.button>
-            </div>
 
             {/* Navigation Links */}
             <nav className="flex-1 px-8 pb-8">
@@ -176,7 +161,7 @@ const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOp
             </div>
 
             {/* Footer */}
-            <div className="px-8  text-center border-t border-mg-gold/20">
+            <div className="p-8  text-center border-t border-mg-gold/20">
               <p className={`text-xs tracking-widest ${textClass} opacity-70`}>
                 © 2025 MarketGod Academy • Accra, Ghana
               </p>

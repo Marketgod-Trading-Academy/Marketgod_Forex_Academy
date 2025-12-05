@@ -3,7 +3,6 @@ import  { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 // import { useTheme } from "../../context/ThemeContext";
 import { ArrowLeft, ArrowRight, Video } from "lucide-react";
-import GhanaFlagStripe from "../Ghana/GhanaFlagStripe";
 
 const SeminarCarousel = () => {
   // const { theme } = useTheme();
@@ -46,8 +45,7 @@ const SeminarCarousel = () => {
 
   return (
     <section id="seminar-carousel" className="py-20 relative overflow-hidden">
-      {/* Ghana Flag Stripe */}
-      <GhanaFlagStripe />
+
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div

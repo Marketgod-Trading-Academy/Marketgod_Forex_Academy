@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { UserCheck, Users, Signal, BookOpen, ArrowRight, Zap, Crown } from "lucide-react";
-import GhanaFlagStripe from "../Ghana/GhanaFlagStripe";
 
 const Services = () => {
   const { theme } = useTheme();

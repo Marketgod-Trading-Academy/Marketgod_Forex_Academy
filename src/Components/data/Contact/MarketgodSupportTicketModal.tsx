@@ -185,17 +185,25 @@ export default function MarketGodSupportTicketModal({
     const now = new Date();
     const date = now.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
     const time = now.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+    const current_year = now.getFullYear();
+
+    const telegramHandle = formData.telegram?.trim();
+    const telegram_html = telegramHandle
+      ? `<a href="https://t.me/${telegramHandle}" style="color:#D4AF37; text-decoration:none;">@${telegramHandle}</a>`
+      : '—';
 
     const params = {
       name: formData.name?.trim() || "—",
       email: formData.email?.trim() || "—",
       phone: formData.phone?.trim() || "—",
-      telegram: formData.telegram?.trim() || "—",
+      telegram: telegramHandle || "—", // Keep for plain text needs
+      telegram_html: telegram_html,   // New variable for the HTML template
       subject: formData.subject?.trim() || "No subject",
       message: formData.message?.trim() || "No message",
       ticket_id: newId,
       date,
       time,
+      current_year,
       ticket_url: `https://roadmoneyacademy.com/ticket/${newId}`,
     };
 
@@ -460,7 +468,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                           )}
                           <label
                             htmlFor={field.key}
-                            className="absolute left-3 -top-2.5 text-xs bg-[#121826]/70 px-1 text-mg-gold/80 peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-placeholder-shown:text-mg-gold/70 transition-all"
+                            className="absolute left-3 -top-2.5 text-xs bg-[#121826]/70 px-1 text-mg-white/80 peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-placeholder-shown:text-mg-white/70 transition-all"
                           >
                             {field.label}
                           </label>
@@ -481,10 +489,8 @@ const handleSubmit = async (e: React.FormEvent) => {
                         whileHover={{ scale: isLoading || isSubmitting ? 1 : 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         disabled={isLoading || isSubmitting}
-                        className={`w-full rounded-lg py-3.5 font-semibold shadow-xl transition-all flex items-center justify-center gap-3 bg-mg-gold text-black ${
-                          isLoading || isSubmitting ? "opacity-80 cursor-not-allowed" : "hover:brightness-105"
-                        }`}
-                      >
+                        className={`w-full rounded-lg py-3.5 font-semibold shadow-xl transition-all flex items-center justify-center gap-3 bg-mg-white text-black ${                isLoading || isSubmitting ? "opacity-80 cursor-not-allowed" : "hover:brightness-105"
+                        }`}                      >
                         {isLoading ? (
                           <>
                             <motion.span

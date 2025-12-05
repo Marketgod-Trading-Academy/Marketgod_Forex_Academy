@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import GhanaFlagStripe from "../Ghana/GhanaFlagStripe";
 
 const AboutHero = () => {
 
