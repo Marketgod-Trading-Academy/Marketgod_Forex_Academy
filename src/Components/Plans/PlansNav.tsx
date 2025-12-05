@@ -65,7 +65,7 @@ const PlansNavFloating: React.FC<PlansNavFloatingProps> = ({ sections }) => {
       </motion.div>
 
       {/* Mobile circular button */}
-      <div ref={mobileNavRef} className="md:hidde fixed top-20 md:top-16 right-4 z-40">
+      <div ref={mobileNavRef} className="md:hidde fixed top-24 md:top-16 right-4 z-40">
         <button
           onClick={() => setOpen(!open)}
           className="w-10 h-10 rounded-full bg-mg-gold text-black flex items-center justify-center shadow-xl hover:bg-mg-green transition-all"

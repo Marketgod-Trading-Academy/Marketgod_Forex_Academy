@@ -21,6 +21,7 @@ body {
 
 .dark {
   @apply bg-mg-dark-bg text-mg-dark-text;
+  color: ;
 }
 
 /* Buttons - ONLY black/white + gold hover */

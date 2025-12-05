@@ -64,8 +64,8 @@ const AnnouncementPopup: React.FC = () => {
                 alt="MarketGod VIP Access"
                 className="w-24 h-24 mx-auto mb-4 rounded-full object-cover border-2 border-yellow-400 shadow-lg"
               />
-              <h2 className={`text-2xl md:text-3xl font-black ${isDark ? 'text-mg-gold' : 'text-mg-charcoal'}`}>
-                🚀 Trade with <span className="text-mg-gold">MarketGod for FREE</span>!
+              <h2 className={`text-2xl md:text-3xl font-black ${isDark ? 'text-mg-white' : 'text-mg-black'}`}>
+                🚀 Trade with <span className="text-mg-gold">MarketGod </span>for FREE!
               </h2>
             </div>
 
@@ -98,7 +98,7 @@ const AnnouncementPopup: React.FC = () => {
                 href="https://t.me/livetradewithmarketgodbot"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-mg-white text-black font-bold rounded-full shadow-lg shadow-mg-gold/20 hover:scale-105 transition-transform"
+                className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-black  dark:bg-mg-white text-mg-white dark:text-black font-bold rounded-full shadow-lg shadow-mg-gold/20 hover:scale-105 transition-transform"
               >
                 <Zap size={20} />
                 Join FREE VIP Now
