@@ -1,5 +1,5 @@
 // src/Components/Plans/PlansNavFloating.tsx
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
@@ -14,6 +14,25 @@ interface PlansNavFloatingProps {
 
 const PlansNavFloating: React.FC<PlansNavFloatingProps> = ({ sections }) => {
   const [open, setOpen] = useState(false);
+  const mobileNavRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (mobileNavRef.current && !mobileNavRef.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    };
+
+    if (open) {
+      // Add listener when the menu is open
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      // Cleanup the listener
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]); // Only re-run the effect if `open` changes
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -46,7 +65,7 @@ const PlansNavFloating: React.FC<PlansNavFloatingProps> = ({ sections }) => {
       </motion.div>
 
       {/* Mobile circular button */}
-      <div className="md:hidde fixed top-20 md:top-16 right-4 z-40">
+      <div ref={mobileNavRef} className="md:hidde fixed top-20 md:top-16 right-4 z-40">
         <button
           onClick={() => setOpen(!open)}
           className="w-10 h-10 rounded-full bg-mg-gold text-black flex items-center justify-center shadow-xl hover:bg-mg-green transition-all"

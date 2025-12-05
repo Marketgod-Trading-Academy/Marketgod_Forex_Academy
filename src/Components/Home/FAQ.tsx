@@ -156,6 +156,7 @@ const FAQ: React.FC = () => {
             className="mt-8 flex justify-center lg:justify-start"
           >
             <motion.a
+             target='_blank'
               href="https://t.me/marketgodcommunity"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
