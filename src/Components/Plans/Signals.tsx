@@ -16,6 +16,7 @@ interface Plan {
   desc: string;
   features: string[];
   price: string;
+  oldPrice?: string;
   badge: string;
   limited?: string;
   href: string;
@@ -59,27 +60,28 @@ const signals = [
       "Daily Market Breakdowns",
       "Priority Support",
     ],
-    price: "$49/mo",
+    price: "$99/mo",
+    oldPrice: "$150/mo",
     badge: "Best Value",
-    href: "https://t.me/livetradewithmarketgodbot",
+    href: "https://t.me/paymarketgodbot",
     highlight: true,
   },
-  {
-    number: "03",
-    title: "Gold Inner Circle",
-    subtitle: "Elite Trading Experience",
-    desc: "Exclusive access to master-level insights, deeper mentorship, and advanced institutional concepts.",
-    features: [
-      "Advanced Gold & Currency Strategies",
-      "Institutional Market Breakdown",
-      "Weekly Live Sessions",
-      "VIP Priority Support",
-    ],
-    price: "$120/mo",
-    badge: "High Demand",
-    href: "https://t.me/livetradewithmarketgodbot",
-    highlight: true,
-  },
+  // {
+  //   number: "03",
+  //   title: "Gold Inner Circle",
+  //   subtitle: "Elite Trading Experience",
+  //   desc: "Exclusive access to master-level insights, deeper mentorship, and advanced institutional concepts.",
+  //   features: [
+  //     "Advanced Gold & Currency Strategies",
+  //     "Institutional Market Breakdown",
+  //     "Weekly Live Sessions",
+  //     "VIP Priority Support",
+  //   ],
+  //   price: "$120/mo",
+  //   badge: "High Demand",
+  //   href: "https://t.me/livetradewithmarketgodbot",
+  //   highlight: true,
+  // },
 ];
 
 const Signals = () => {
@@ -93,7 +95,7 @@ const Signals = () => {
 
   return (
     <>
-      <section className="py-24 relative overflow-hidden">
+      <section id="pricing" className="py-24 relative overflow-hidden">
         {/* Background Image & Overlay */}
 
         
@@ -142,7 +144,7 @@ const Signals = () => {
           </div>
 
           {/* DESKTOP GRID */}
-          <div className="hidden md:grid md:grid-cols-3 gap-10">
+          <div className="hidden md:grid md:grid-cols-2 gap-20 md:px-16">
             {signals.map((plan, index) => (
               <motion.div
                 key={index}
@@ -269,8 +271,13 @@ const CardInner: React.FC<CardInnerProps> = ({ plan, isDark, onFreeClick }) => {
       </ul>
 
       {/* Price */}
-      <div className={`${isDark ? "text-mg-paper" : "text-mg-charcoal"} mt-8 text-3xl font-black`}>
-        {plan.price}
+      <div className="flex items-baseline gap-3 mt-8">
+        <div className={`${isDark ? "text-mg-paper" : "text-mg-charcoal"} text-3xl font-black`}>
+          {plan.price}
+        </div>
+        {plan.oldPrice && (
+          <div className="text-xl font-semibold text-gray-500 line-through">{plan.oldPrice}</div>
+        )}
       </div>
 
       {/* CTA */}

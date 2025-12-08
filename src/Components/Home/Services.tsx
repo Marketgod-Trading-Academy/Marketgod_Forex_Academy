@@ -19,7 +19,7 @@ const Services = () => {
       number: "01",
       icon: UserCheck,
       title: "Mentorship Program",
-      desc: "Personalized trading mentorship designed for traders worldwide. Structured learning, practical guidance, and consistent execution.",
+      desc: "Unlock your full potential with personalized guidance. Our mentorship program offers structured learning and direct access to expert insights.",
       highlights: [
         "Weekly coaching sessions",
         "Market psychology training",
@@ -32,7 +32,7 @@ const Services = () => {
       number: "02",
       icon: Signal,
       title: "Market Insights",
-      desc: "Professional market breakdowns and trade setups delivered with clarity and precision. Focused on Gold, Forex, and key market opportunities.",
+      desc: "Receive professional, high-probability trade setups and market analysis daily. We focus on Gold, Forex, and key market opportunities.",
       highlights: [
         "Daily market outlook",
         "Clear entry/exit zones",
@@ -45,7 +45,7 @@ const Services = () => {
       number: "03",
       icon: Presentation,
       title: "Workshops & Webinars",
-      desc: "Live educational sessions hosted across global time zones. Learn strategies, risk management, and market behavior directly from experts.",
+      desc: "Join our live educational sessions to master new strategies. Learn risk management and market behavior directly from industry experts.",
       highlights: [
         "Monthly global webinars",
         "Interactive Q&A sessions",
@@ -58,7 +58,7 @@ const Services = () => {
       number: "04",
       icon: Users,
       title: "Trader Community",
-      desc: "A global network of traders sharing knowledge, experiences, and perspectives. Learn collaboratively and grow consistently.",
+      desc: "Connect with a global network of traders. Share knowledge, discuss strategies, and grow together in a supportive, professional environment.",
       highlights: [
         "Active discussion groups",
         "Trade idea sharing",
@@ -83,16 +83,15 @@ const Services = () => {
         viewport={{ once: true }}
         className="text-center max-w-4xl mx-auto mb-20 px-6"
       >
-        <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
-          Our Services
+        <h2 className="text-5xl md:text-6xl font-black leading-tight">
+          A Complete Trading Ecosystem
         </h2>
         <p
           className={`mt-6 text-lg md:text-xl ${
             isDark ? "text-gray-300" : "text-gray-700"
           } leading-relaxed`}
         >
-          Clear. Professional. Global.  
-          Trading education and resources designed for traders at every level.
+          We've built a complete ecosystem to support your journey, from foundational education and community support to expert insights and direct mentorship.
         </p>
       </motion.div>
 

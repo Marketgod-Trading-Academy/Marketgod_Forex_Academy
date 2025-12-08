@@ -6,7 +6,7 @@ const PlansFinalCTA: React.FC = () => {
 
 
   const scrollToPlans = () => {
-    const el = document.getElementById("pricing-plans");
+    const el = document.getElementById("pricing");
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     }

@@ -354,8 +354,7 @@ const Testimonials = () => {
               <div className="mt-8">
                 <motion.a
                 
-                  href="https://t.me/marketgodcommunity"
-                  target="_blank"
+                  href="/plans#pricing"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.03, boxShadow: "0px 10px 30px rgba(255, 215, 0, 0.4)" }}
                   transition={{ type: "spring", stiffness: 300 }}

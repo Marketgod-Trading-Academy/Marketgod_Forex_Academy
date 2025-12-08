@@ -61,7 +61,7 @@ const PricingPlans = () => {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/mentorhip_card_ynedl1.jpg"
+                src="/plans/mentorship-flyer.png"
                 alt="Sniper Mentorship"
                 className="w-full h-full object-cover"
               />
@@ -112,9 +112,9 @@ const PricingPlans = () => {
             </h3>
 
             <div className="mt-6 flex items-baseline gap-3 relative z-10">
-              <span className="text-4xl font-black text-mg-gold">$359</span>
+              <span className="text-4xl font-black text-mg-gold">$547</span>
               <span className={`text-2xl font-bold line-through ${isDark ? "text-mg-paper/40" : "text-mg-charcoal/40"}`}>
-                $547
+                $1247
               </span>
             </div>
 
@@ -130,7 +130,8 @@ const PricingPlans = () => {
             <motion.a
             whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
           whileTap={{ scale: 0.95 }}
-              href="https://t.me/delatrades"
+              href="https://t.me/paymarketgodbot"
+              target="_blank"
               className="block text-center mt-10 py-4 rounded-full font-bold bg-black text-mg-white dark:bg-mg-white dark:text-black hover:brightness-110 transition-all relative z-10 shadow-lg "
             >
               Join Sniper Mentorship

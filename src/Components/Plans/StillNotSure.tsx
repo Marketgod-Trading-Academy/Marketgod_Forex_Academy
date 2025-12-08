@@ -1,7 +1,7 @@
 // src/components/StillNotSurePremium.tsx
 import React from "react";
 import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 
 const items = [
@@ -136,6 +136,21 @@ const StillNotSurePremium: React.FC = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* CTA Button */}
+          <motion.a
+            href="#pricing"
+            whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+            whileTap={{ scale: 0.98 }}
+            className={`
+              mt-8 inline-flex items-center justify-center gap-3 w-full md:w-auto px-10 py-4 rounded-full font-bold uppercase tracking-wider transition-all
+              ${isDark 
+                ? "bg-mg-white text-mg-black hover:shadow-gold-glow" 
+                : "bg-mg-black text-mg-paper hover:bg-mg-black"
+              }`}
+          >
+            Enroll in the Workshop <ArrowRight size={20} />
+          </motion.a>
         </motion.div>
       </div>
     </section>

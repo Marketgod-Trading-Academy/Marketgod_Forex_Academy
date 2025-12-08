@@ -126,7 +126,7 @@ const WhyThisCourse: React.FC = () => {
             {/* CTA WITH LIMITED-BADGE */}
             <div className="flex f  items-center gap-3 mt-6">
               <motion.a
-            href="plans"
+            href="#pricing"
             whileHover={{ scale: 1.06 , boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
           whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-3 md:px-8 p-4 py-4 rounded-full font-bold  text-center text-sm lg:text-lg 

@@ -127,7 +127,7 @@ const WhoIsFor = () => {
 
           {/* CTA */}
           <motion.a
-            href="/plans"
+            href="#pricing"
             whileHover={{ scale: 1.06 , boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
           whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-3 mt-12 px-8 py-4 rounded-full font-bold text-lg 

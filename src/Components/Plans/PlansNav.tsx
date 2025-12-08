@@ -87,7 +87,7 @@ const PlansNavFloating: React.FC<PlansNavFloatingProps> = ({ sections }) => {
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
-                  className="px-4 py-2 text-sm font-semibold text-mg-charcoal dark:text-mg-black hover:bg-mg-gold/20 dark:hover:bg-mg-green/20 transition-colors"
+                  className="px-4 py-2 text-[.66rem] font-semibold text-mg-charcoal dark:text-mg-black hover:bg-mg-gold/20 dark:hover:bg-mg-green/20 transition-colors"
                 >
                   {section.label}
                 </button>

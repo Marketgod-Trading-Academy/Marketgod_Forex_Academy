@@ -180,7 +180,7 @@ const MarketGodQuiz: React.FC = () => {
             <p className={`text-xs ${isDark ? "text-mg-paper" : "text-mg-black"} `}>You can still join MarketGod’s VIP & Mentorship Programs by making payment through our official payment bot.</p>
 
             <a
-              href={TELEGRAM_BOT}
+              href='https://t.me/paymarketgodbot'
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-lg text-xs"

@@ -71,12 +71,12 @@ const Services = () => {
           <h2 className={`text-4xl md:text-6xl font-black tracking-tight mb-4 ${
             isDark ? "text-mg-gold" : "text-mg-charcoal"
           }`}>
-            MarketGod <span className="text-mg-green"> Services</span>
+            Explore Our Plans
           </h2>
           <p className={`text-xl md:text-2xl max-w-3xl mx-auto ${
             isDark ? "text-mg-dark-textSecondary" : "text-mg-light-textSecondary"
           }`}>
-            From free learning to private mentorship — choose how you rise. All paths lead to mastery.
+            Find the perfect program to match your ambition. We offer a range of plans, from free courses to exclusive one-on-one mentorship.
           </p>
         </motion.div>
 
