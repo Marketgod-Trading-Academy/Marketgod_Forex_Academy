@@ -222,7 +222,7 @@ const AboutJourney = () => {
 
           {/* CTA Button */}
           <motion.a
-            href="/plans"
+            href="/plans/#pricing"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
             className="inline-flex items-center gap-3 px-8 py-4 bg-mg-black text-mg-white dark:bg-mg-white dark:text-mg-black rounded-full font-bold shadow-lg hover:bg-mg-gold hover:text-mg-charcoal transition-all"

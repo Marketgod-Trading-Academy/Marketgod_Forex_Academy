@@ -13,12 +13,12 @@ const Webinars = () => {
     {
       type: "Free Weekly Webinar",
       title: "Price Action Mastery",
-      date: "Every Thursday, 7 PM GMT",
+      date: "Every weekend, 7 - 8 PM GMT",
       desc: "Live breakdown of market setups, Q&A, and Sniper Strategy demo. Perfect for Ghana evenings.",
       topics: ["Price action entries", "Risk management", "Live trade analysis"],
       price: "Free",
       join: "Register via Telegram",
-      href: "https://t.me/delatrades",
+      href: "https://t.me/marketgodcommunity",
       icon: Video,
     },
     {

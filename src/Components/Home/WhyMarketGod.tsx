@@ -108,7 +108,7 @@ const WhyMarketGod = () => {
     className="mt-12 inline-block"
   >
     <motion.a
-      href="https://t.me/delatrades"
+      href="/plans/#pricing"
       whileHover={{ scale: 1.07, boxShadow: "0 0 40px rgba(212, 175, 55, 0.6)" }}
       whileTap={{ scale: 0.98 }}
       className={`

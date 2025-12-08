@@ -63,7 +63,7 @@ const slides: Slide[] = [
     title: <>Build <span className="text-mg-gold">Consistent Skills</span></>,
     subtitle: "Professional trading, clear guidance",
     desc: <>Methods backed by practice and market experience — focus on skill, not hype.</>,
-    ctas: [{ label: "See Courses", href: "/courses" }],
+    ctas: [{ label: "See Courses", href: "/plans" }],
   },
 ];
 

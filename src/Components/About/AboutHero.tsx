@@ -97,7 +97,7 @@ const AboutHero = () => {
             className="mt-16"
           >
             <motion.a
-              href="/plans"
+              href="/plans/#pricing"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center gap-3 px-8 py-4 bg-mg-white text-mg-black rounded-full font-bold text-lg shadow-2xl hover:shadow-mg-gold/50 transition-all"

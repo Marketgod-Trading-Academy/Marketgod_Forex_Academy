@@ -26,7 +26,7 @@ const Services = () => {
         "Trade analysis and feedback",
       ],
       cta: "Join Mentorship",
-      href: "plans/#pricing-plans",
+      href: "plans/#pricing",
     },
     {
       number: "02",

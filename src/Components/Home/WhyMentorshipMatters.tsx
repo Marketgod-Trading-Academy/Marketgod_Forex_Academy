@@ -102,7 +102,7 @@ const WhyMentorshipMatters = () => {
 
           {/* CTA Button — Now PERFECT in both modes */}
           <motion.a
-            href="/plans"
+            href="/plans/#pricing"
             whileHover={{ scale: 1.07 }}
             whileTap={{ scale: 0.95 }}
             className={`

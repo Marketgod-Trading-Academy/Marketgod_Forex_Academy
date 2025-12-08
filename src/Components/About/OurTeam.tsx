@@ -16,6 +16,7 @@ import {
   Youtube,
 } from "lucide-react";
 import VanillaTilt, { type TiltOptions } from "vanilla-tilt";
+import TikTokIcon from "./TikTokIcon";
 
 // Updated SocialsBar
 interface SocialsProps {
@@ -28,10 +29,9 @@ interface SocialsProps {
     whatsapp?: string;
     Youtube?: string;
   };
-}
-
+}    
 const SocialsBar: React.FC<SocialsProps> = ({ socials }) => {
-  const iconClass = "text-mg-gold hover:text-mg-paper/70 transition-colors text-2xl";
+  const iconClass = "text-mg-gold font-black  hover:dark:text-white text-black} hover:text-mg-black transition-colors text-2xl";
 
   const visibleSocials = Object.entries(socials).filter(
     ([, link]) => link && link !== "#" && link !== ""
@@ -50,10 +50,13 @@ const SocialsBar: React.FC<SocialsProps> = ({ socials }) => {
     facebook: { icon: <Facebook size={24} />, label: "Facebook Profile" },
     whatsapp: { icon: <MessageSquare size={24} />, label: "WhatsApp" },
     Youtube: { icon: <Youtube size={24} />, label: "YouTube Channel" },
+    Tictok: { icon: <TikTokIcon className={`w-7 h-7 `}/>, label: "TikTok Profile" },
   };
 
+
+
   return (
-    <div className="flex justify-center space-x-5 mt-4">
+    <div className="flex justify-center space-x-5 mt-4 ">
       {visibleSocials.map(([key, link]) => {
         const info = socialMap[key];
         if (!info) return null;
@@ -80,7 +83,7 @@ const teamMembers = [
     name: "Eyram Dela",
     role: "Founder & Lead Mentor",
     image:
-      "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522353/SnapInsta.to_337662499_1402452373902499_6787092292694936212_n_h6bccv.jpg",
+      "/ourteam/Eyram_Dela.png",
     socials: {
       twitter: "https://x.com/eyramdela",
       telegram: "https://t.me/delatrade",
@@ -88,6 +91,7 @@ const teamMembers = [
       facebook: "https://web.facebook.com/eyram.akpey",
       whatsapp: "#",
       Youtube: "https://www.youtube.com/@marketgodcommunity",
+      Tictok: "https://www.tiktok.com/@eyramdela_?_r=1&_t=ZM-9229kTUvSTT"
     },
   },
   {
@@ -104,21 +108,7 @@ const teamMembers = [
       Youtube: "#",
     },
   },
-  {
-    name: "Kofi Mensah",
-    role: "Analyst",
-    image:
-      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    socials: {
-      twitter: "#",
-      linkedin: "https://linkedin.com/in/kofi",
-      telegram: "#",
-      instagram: "#",
-      facebook: "#",
-      whatsapp: "#",
-      Youtube: "#",
-    },
-  },
+
 ] as const;
 
 type TeamMember = (typeof teamMembers)[number];
@@ -144,7 +134,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
       <img
         src={member.image}
         alt={member.name}
-        className="w-full h-64 md:h-72 object-cover rounded-2xl mb-4 border-4 border-mg-white  shadow-lg"
+        className="w-full h-64 md:h-96 object-cover object-top rounded-2xl mb-4 border-4 border-mg-white  shadow-lg"
       />
       <div className="flex flex-col items-center text-center">
         <h3 className="text-xl font-bold">{member.name}</h3>
@@ -232,7 +222,7 @@ const OurTeam: React.FC = () => {
         </div>
 
         {/* Desktop: Grid */}
-        <div className="hidden md:grid md:grid-cols-3 gap-12">
+        <div className="hidden md:grid md:grid-cols-2 gap-12">
           {teamMembers.map((member, i) => (
             <TeamMemberCard
               key={i}
