@@ -1,432 +1,404 @@
-// // src/components/Quiz/Quiz.tsx
-// // Eugene Afriyie UEB3502023
-// import React, { useState, useEffect } from "react";
-// import { motion } from "framer-motion";
-// import { CheckCircle, ArrowRight } from "lucide-react";
-// import { useTheme } from "../../context/ThemeContext";
+// src/components/Quiz/Quiz.tsx
+"use client";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Sparkles, ArrowRight, Zap, Crown, Signal, X } from "lucide-react";
+import { useTheme } from "../../context/ThemeContext";
+import MarketGodQuiz from "../Plans/MarketGodQuiz";
 
-// /**
-//  * Quiz purpose:
-//  * - Classify user into: mentorship | paidVIP | freeVIP | community
-//  * - Uses weighted scoring per option
-//  * - Minimal gold accents for CTA/highlight
-//  */
+// -------------------------
+// Service Cards
+// -------------------------
+type RecommendationKey = "mentorship" | "paidVIP" | "freeVIP" | "community";
 
-// /* ---------- Questions config ---------- */
-// /* Each option provides a weight object that contributes to categories */
-// type Category = "mentorship" | "paidVIP" | "freeVIP" | "community";
+interface RecommendationCard {
+  title: string;
+  subtitle?: string;
+  price: string;
+  priceUsd?: number;
+  features: string[];
+  href: string;
+  ctaText: string;
+}
 
-// type Option = {
-//   id: string;
-//   label: string;
-//   helper?: string;
-//   weight: Record<Category, number>;
-// };
+const recommendations: Record<RecommendationKey, RecommendationCard> = {
+  mentorship: {
+    title: "Sniper Mentorship",
+    price: "$547",
+    priceUsd: 547,
+    features: [
+      "Gold Strategy & All Currency Strategy",
+      "Market Structure Mastery",
+      "Risk Management & Psychology",
+      "1 Year Access to Mentorship",
+      "Free Access to VIP Signals",
+    ],
+    href: "/plans#pricing",
+    ctaText: "Join Sniper Mentorship",
+  },
+  paidVIP: {
+    title: "VIP Signals (Paid)",
+    subtitle: "Accelerated Growth Edition",
+    price: "$99/mo",
+    features: [
+      "87% Win Rate Signals",
+      "Instant Telegram Alerts & Breakdowns",
+      "Daily Market Analysis",
+      "Priority Support",
+    ],
+    href: "https://t.me/paymarketgodbot",
+    ctaText: "Get VIP Access",
+  },
+  freeVIP: {
+    title: "VIP Signals (Free)",
+    subtitle: "Trade Like MarketGod",
+    price: "Free",
+    features: ["87% Win Rate Signals", "Instant Telegram Alerts", "Entry/Exit Breakdowns", "24/7 Support"],
+    href: "/plans#signals", // Link to the section with the quiz modal
+    ctaText: "Claim Free Access",
+  },
+  community: {
+    title: "Free Learning Community",
+    subtitle: "Start Learning Today",
+    price: "Free",
+    features: ["Access to tutorials & resources", "Join a supportive community", "Grow at your own pace"],
+    href: "https://t.me/marketgodcommunity",
+    ctaText: "Join Community",
+  },
+};
 
-// type Question = {
-//   id: string;
-//   question: string;
-//   subtitle?: string;
-//   options: Option[];
-//   single?: boolean; // single-choice (radio) vs multi (checkbox)
-// };
+// -------------------------
+// Steps (Questions)
+// -------------------------
+interface Step {
+  key: string;
+  question: string;
+  options: string[];
+  dependsOn?: string;
+  condition?: (answers: Record<string, string>) => boolean;
+}
 
-// const QUESTIONS: Question[] = [
-//   {
-//     id: "q_experience",
-//     question: "What's your current trading experience?",
-//     options: [
-//       { id: "exp_none", label: "No experience — brand new", weight: { mentorship: 2, paidVIP: 0, freeVIP: 1, community: 1 } },
-//       { id: "exp_started", label: "Some basics, inconsistent results", weight: { mentorship: 3, paidVIP: 1, freeVIP: 0, community: 1 } },
-//       { id: "exp_intermediate", label: "I trade occasionally, want structure", weight: { mentorship: 2, paidVIP: 2, freeVIP: 0, community: 2 } },
-//       { id: "exp_advanced", label: "Experienced & want support/scale", weight: { mentorship: 1, paidVIP: 3, freeVIP: 0, community: 2 } },
-//     ],
-//     single: true,
-//   },
-//   {
-//     id: "q_goal",
-//     question: "What's your main goal right now?",
-//     options: [
-//       { id: "goal_learn", label: "Learn to trade consistently", weight: { mentorship: 4, paidVIP: 0, freeVIP: 0, community: 1 } },
-//       { id: "goal_income", label: "Generate steady side income", weight: { mentorship: 2, paidVIP: 3, freeVIP: 1, community: 1 } },
-//       { id: "goal_speed", label: "Get instant trade signals to act", weight: { mentorship: 0, paidVIP: 3, freeVIP: 2, community: 0 } },
-//       { id: "goal_network", label: "Join a supportive trader community", weight: { mentorship: 0, paidVIP: 0, freeVIP: 0, community: 4 } },
-//     ],
-//     single: true,
-//   },
-//   {
-//     id: "q_time",
-//     question: "How much time can you commit weekly to learning/trading?",
-//     options: [
-//       { id: "time_low", label: "< 3 hours (busy)", weight: { mentorship: 0, paidVIP: 2, freeVIP: 1, community: 2 } },
-//       { id: "time_medium", label: "3–8 hours", weight: { mentorship: 2, paidVIP: 2, freeVIP: 1, community: 1 } },
-//       { id: "time_high", label: "> 8 hours (serious)", weight: { mentorship: 4, paidVIP: 1, freeVIP: 0, community: 1 } },
-//     ],
-//     single: true,
-//   },
-//   {
-//     id: "q_capital",
-//     question: "What is your trading / deployable capital (approx)?",
-//     options: [
-//       { id: "cap_small", label: "< $100", weight: { mentorship: 1, paidVIP: 2, freeVIP: 3, community: 1 } },
-//       { id: "cap_medium", label: "$100–$500", weight: { mentorship: 2, paidVIP: 3, freeVIP: 1, community: 1 } },
-//       { id: "cap_large", label: "> $500", weight: { mentorship: 3, paidVIP: 3, freeVIP: 0, community: 1 } },
-//     ],
-//     single: true,
-//   },
-//   {
-//     id: "q_commitment",
-//     question: "Pick statements that apply to you (choose all that match).",
-//     options: [
-//       { id: "c_learning", label: "I prefer guided learning and feedback", weight: { mentorship: 3, paidVIP: 0, freeVIP: 0, community: 1 } },
-//       { id: "c_copy", label: "I want signals to copy while I learn", weight: { mentorship: 1, paidVIP: 3, freeVIP: 2, community: 0 } },
-//       { id: "c_peer", label: "I value community Q&A and peer support", weight: { mentorship: 0, paidVIP: 0, freeVIP: 0, community: 3 } },
-//       { id: "c_pay", label: "I can invest in a paid plan / subscription", weight: { mentorship: 1, paidVIP: 3, freeVIP: 0, community: 0 } },
-//       { id: "c_time", label: "I can attend weekly live sessions", weight: { mentorship: 3, paidVIP: 0, freeVIP: 0, community: 1 } },
-//     ],
-//     single: false,
-//   },
-//   {
-//     id: "q_pref",
-//     question: "If you had to choose one right now — what would you pick?",
-//     options: [
-//       { id: "pref_mentor", label: "Mentor & structured curriculum", weight: { mentorship: 5, paidVIP: 0, freeVIP: 0, community: 0 } },
-//       { id: "pref_paid", label: "Paid VIP signals with priority alerts", weight: { mentorship: 0, paidVIP: 5, freeVIP: 0, community: 0 } },
-//       { id: "pref_free", label: "Free signals / community first", weight: { mentorship: 0, paidVIP: 0, freeVIP: 5, community: 0 } },
-//       { id: "pref_community", label: "Community support & practice", weight: { mentorship: 0, paidVIP: 0, freeVIP: 0, community: 5 } },
-//     ],
-//     single: true,
-//   },
-// ];
+const steps: Step[] = [
+  {
+    key: "monthsTrading",
+    question: "How long have you been trading?",
+    options: ["0–3 months", "4–9 months", "10–24 months", "2+ years"],
+  },
+  {
+    key: "selfLevel",
+    question: "How would you describe your trading level?",
+    options: ["Beginner", "Intermediate", "Advanced"],
+  },
+  {
+    key: "goal",
+    question: "What brings you here?",
+    options: [
+      "I want full guidance (Mentorship)",
+      "I want fast signals (VIP)",
+      "I want to learn for free",
+    ],
+  },
+  {
+    key: "readyToInvest",
+    question: "Are you ready to invest in your trading?",
+    options: ["Yes", "No"],
+    dependsOn: "goal",
+    condition: (answers) => answers["goal"] !== "I want to learn for free",
+  },
+  {
+    key: "investmentAmount",
+    question: "How much are you ready to invest?",
+    options: ["$0–$100", "$101–$500", "$501+"],
+    dependsOn: "readyToInvest",
+    condition: (answers) => answers["readyToInvest"] === "Yes",
+  },
+  {
+    key: "timeCommitment",
+    question: "How much time can you dedicate to trading weekly?",
+    options: ["0–3 hours", "4–10 hours", "10+ hours"],
+    dependsOn: "readyToInvest",
+    condition: (answers) => answers["readyToInvest"] === "Yes",
+  },
+];
 
-// const PRICING = {
-//   paidVIP: { price: "$70/mo", alt: "$99/mo (Gold Inner Circle)", href: "https://t.me/livetradewithmarketgodbot" },
-//   mentorshipA: { price: "$546", label: "Mentorship (full)", href: "/plans#mentorship" },
-//   mentorshipB: { price: "$351", label: "Mentorship 2026", href: "/plans#mentorship" },
-//   freeVIP: { price: "Free (with partner ID)", href: "/support#partner" },
-// };
+// -------------------------
+// Quiz Hook
+// -------------------------
+function useMarketGodQuiz() {
+  const [started, setStarted] = useState(false);
+  const [stepIndex, setStepIndex] = useState(0);
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [showResult, setShowResult] = useState(false);
 
-// /* ---------- Component ---------- */
+  const startQuiz = () => {
+    setStarted(true);
+    setStepIndex(0);
+    setAnswers({});
+    setShowResult(false);
+  };
 
-// const Quiz: React.FC = () => {
-//   const { theme } = useTheme();
-//   const isDark = theme === "dark";
+  const selectOption = (key: string, value: string) => {
+    setAnswers((prev) => ({ ...prev, [key]: value }));
 
-//   const [step, setStep] = useState<number>(0);
-//   const [answers, setAnswers] = useState<Record<string, string[]>>({});
-//   const [finished, setFinished] = useState(false);
-//   const [scores, setScores] = useState<Record<Category, number> | null>(null);
-//   const [contact, setContact] = useState("");
-//   const [submitting, setSubmitting] = useState(false);
+    // go to next valid step
+    let nextIndex = stepIndex + 1;
+    while (nextIndex < steps.length) {
+      const step = steps[nextIndex];
+      if (!step.condition || step.condition({ ...answers, [key]: value })) break;
+      nextIndex++;
+    }
 
-//   useEffect(() => {
-//     // initialize answers map
-//     if (Object.keys(answers).length === 0) {
-//       const map: Record<string, string[]> = {};
-//       QUESTIONS.forEach((q) => (map[q.id] = []));
-//       setAnswers(map);
-//     }
-//     // eslint-disable-next-line react-hooks/exhaustive-deps
-//   }, []);
+    if (nextIndex >= steps.length) setShowResult(true);
+    else setStepIndex(nextIndex);
+  };
 
-//   const selectOption = (qId: string, optionId: string, single = true) => {
-//     setAnswers((prev) => {
-//       const copy = { ...prev };
-//       if (single) {
-//         copy[qId] = [optionId];
-//       } else {
-//         const set = new Set(copy[qId] || []);
-//         if (set.has(optionId)) set.delete(optionId);
-//         else set.add(optionId);
-//         copy[qId] = Array.from(set);
-//       }
-//       return copy;
-//     });
-//   };
+  const goBack = () => {
+    let prevIndex = stepIndex - 1;
+    while (prevIndex >= 0) {
+      const step = steps[prevIndex];
+      if (!step.condition || step.condition(answers)) break;
+      prevIndex--;
+    }
+    if (prevIndex < 0) setStarted(false);
+    else setStepIndex(prevIndex);
+  };
 
-//   const computeScores = () => {
-//     const totals: Record<Category, number> = { mentorship: 0, paidVIP: 0, freeVIP: 0, community: 0 };
-//     QUESTIONS.forEach((q) => {
-//       const chosen = answers[q.id] || [];
-//       chosen.forEach((optId) => {
-//         const option = q.options.find((o) => o.id === optId);
-//         if (option) {
-//           Object.entries(option.weight).forEach(([cat, val]) => {
-//             totals[cat as Category] += val as number;
-//           });
-//         }
-//       });
-//     });
-//     setScores(totals);
-//     return totals;
-//   };
+  const computeRecommendation = () => {
+    const { goal, readyToInvest, investmentAmount, timeCommitment } = answers;
 
-//   const decide = (totals: Record<Category, number>) => {
-//     // main highest wins, but apply business rules:
-//     // - If mentorship score strongly dominant OR user chooses mentorship pref -> mentorship
-//     // - If paidVIP score high OR capital low but wants signals -> paidVIP
-//     // - If freeVIP score high -> freeVIP
-//     // - If community high but others low -> community
-//     const sorted = (Object.keys(totals) as Category[]).sort((a, b) => totals[b] - totals[a]);
-//     const top = sorted[0];
-//     // additional heuristics
-//     const prefQ = answers["q_pref"]?.[0] || "";
-//     if (prefQ === "pref_mentor") return "mentorship";
-//     if (prefQ === "pref_paid") return "paidVIP";
-//     if (prefQ === "pref_free") return "freeVIP";
-//     if (prefQ === "pref_community") return "community";
+    let recommendationKey: RecommendationKey;
+    let description = "";
 
-//     // if mentorship has 60%+ of total
-//     const sum = Object.values(totals).reduce((a, b) => a + b, 0) || 1;
-//     if (totals.mentorship / sum >= 0.5) return "mentorship";
-//     // if paidVIP is top and capital is at least medium or user indicated ability to pay
-//     if (top === "paidVIP") return "paidVIP";
-//     if (top === "freeVIP") return "freeVIP";
-//     return "community";
-//   };
+    if (goal === "I want full guidance (Mentorship)" && readyToInvest === "Yes" && investmentAmount !== "$0–$100" && timeCommitment !== "0–3 hours") {
+      recommendationKey = "mentorship";
+      description = "You’re ready to take your trading to the next level with Sniper Mentorship.";
+    } else if (goal === "I want fast signals (VIP)" && readyToInvest === "Yes" && (investmentAmount === "$101–$500" || investmentAmount === "$501+")) {
+      recommendationKey = "paidVIP";
+      description = "VIP Signals (Paid) is perfect for you — get fast, high-probability alerts.";
+    } else if (goal === "I want fast signals (VIP)" && (readyToInvest === "No" || investmentAmount === "$0–$100")) {
+      recommendationKey = "freeVIP";
+      description = "Join VIP Signals (Free) via our partnership link and start trading immediately.";
+    } else {
+      recommendationKey = "community";
+      description = "Start learning with our Free Learning Community and grow your trading skills.";
+    }
 
-//   const onNext = () => {
-//     if (step < QUESTIONS.length - 1) {
-//       setStep((s) => s + 1);
-//       window.scrollTo({ top: 0, behavior: "smooth" });
-//       return;
-//     }
-//     // finish
-//     const totals = computeScores();
-//     setFinished(true);
-//     const rec = decide(totals);
-//     // setScores already set; keep finished true
-//     // Optionally: prefill contact modal with suggested plan
-//   };
+    return { recommendationCard: recommendations[recommendationKey], description };
+  };
 
-//   const onPrev = () => {
-//     if (step > 0) setStep((s) => s - 1);
-//   };
+  const result = showResult ? computeRecommendation() : null;
 
-//   const restart = () => {
-//     const map: Record<string, string[]> = {};
-//     QUESTIONS.forEach((q) => (map[q.id] = []));
-//     setAnswers(map);
-//     setStep(0);
-//     setFinished(false);
-//     setScores(null);
-//   };
+  return { started, stepIndex, showResult, steps, answers, result, startQuiz, selectOption, goBack };
+}
 
-//   const sendResult = async () => {
-//     setSubmitting(true);
-//     // placeholder: you can post the result to backend here
-//     await new Promise((r) => setTimeout(r, 700));
-//     setSubmitting(false);
-//     alert("Result saved. We'll reach out soon.");
-//   };
+// -------------------------
+// Panels
+// -------------------------
+interface IntroPanelProps {
+  onStart: () => void;
+}
+const IntroPanel = ({ onStart }: IntroPanelProps) => {
+  const features = [
+    {
+      icon: Crown,
+      title: "Full Mentorship Access",
+      desc: "Our quiz can determine if you're ready for direct mentorship, which includes our VIP signals for free.",
+    },
+    {
+      icon: Signal,
+      title: "High-Winrate Signals",
+      desc: "Discover if our paid or free VIP signal groups are the right fit to accelerate your trading journey.",
+    },
+    {
+      icon: Zap,
+      title: "Personalized Roadmap",
+      desc: "Get a clear, actionable recommendation in under 60 seconds. No more guessing what to do next.",
+    },
+  ];
+  const { theme } = useTheme();
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      className="dark:bg-mg-dark-surface/50 bg-mg-light-surface/80 border border-mg-gold/30 rounded-3xl p-8 shadow-2xl"
+    >
+      <h3 className="text-3xl font-bold text-center dark:text-mg-white text-mg-black mb-4">Why Take This Quiz?</h3>
+      <p className="text-center dark:text-mg-dark-textSecondary text-mg-light-textSecondary mb-10 max-w-2xl mx-auto">
+        Your trading journey is unique. Instead of guessing, let our smart quiz analyze your goals, experience, and commitment to recommend the perfect MarketGod program for you.
+      </p>
 
-//   const renderResultCard = () => {
-//     if (!scores) return null;
-//     const rec = decide(scores) as Category;
-//     const sorted = (Object.keys(scores) as Category[]).sort((a, b) => scores[b] - scores[a]);
+      <div className="grid md:grid-cols-3 gap-6 mb-10">
+        {features.map((feat, i) => (
+          <div key={i} className="text-center p-4 dark:bg-mg-dark-surface/80 bg-mg-light-bg rounded-xl border dark:border-mg-dark-border border-mg-light-border">
+            <feat.icon className="w-8 h-8 mx-auto text-mg-gold mb-3" />
+            <h4 className="font-bold dark:text-mg-dark-text text-mg-light-text mb-1">{feat.title}</h4>
+            <p className="text-xs dark:text-mg-dark-textSecondary text-mg-light-textSecondary">{feat.desc}</p>
+          </div>
+        ))}
+      </div>
 
-//     const recommendation = {
-//       mentorship: {
-//         title: "Recommended: Mentorship",
-//         explanation:
-//           "You show readiness to learn, commit time, and benefit from structured, personalized guidance. Mentorship will give you clarity, trade reviews, and consistent growth.",
-//         plan: PRICING.mentorshipA,
-//         ctaLabel: "Apply for Mentorship",
-//         ctaHref: "/plans#mentorship",
-//       },
-//       paidVIP: {
-//         title: "Recommended: Paid VIP Signals",
-//         explanation:
-//           "You need reliable, priority signals and quicker market access. Paid VIP gets you priority alerts and daily breakdowns — ideal for traders wanting immediate market exposure.",
-//         plan: PRICING.paidVIP,
-//         ctaLabel: "Join VIP Signals",
-//         ctaHref: PRICING.paidVIP.href,
-//       },
-//       freeVIP: {
-//         title: "Recommended: Free VIP (Partner)",
-//         explanation:
-//           "You qualify for our free signals via partner enrollment. This is ideal if you're starting with limited capital but want professional signal access.",
-//         plan: PRICING.freeVIP,
-//         ctaLabel: "Get Free VIP",
-//         ctaHref: PRICING.freeVIP.href,
-//       },
-//       community: {
-//         title: "Recommended: Join the Community",
-//         explanation:
-//           "Peer support and community Q&A will help you learn faster. Join the community to share ideas, ask questions, and practice in a supportive environment.",
-//         plan: { price: "Community Access", href: "https://t.me/marketgodcommunity" },
-//         ctaLabel: "Join Community",
-//         ctaHref: "https://t.me/marketgodcommunity",
-//       },
-//     }[rec];
+      <motion.button onClick={onStart} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="w-full py-4 dark:bg-mg-white bg-mg-black dark:text-mg-black  text-mg-white font-bold rounded-xl text-lg shadow-lg hover:shadow-gold-glow transition-shadow">
+        Start the 60-Second Quiz <ArrowRight className="inline w-5 h-5 ml-2" />
+      </motion.button>
+    </motion.div>
+  );
+};
+interface QuizPanelProps {
+  stepIndex: number;
+  steps: Step[];
+  selectOption: (key: string, value: string) => void;
+  goBack: () => void;
+}
 
-//     return (
-//       <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl mx-auto text-center">
-//         <div className={`p-8 rounded-2xl border ${isDark ? "bg-mg-charcoal/80 border-mg-gold/20" : "bg-white/95 border-gray-200"}`}>
-//           <h3 className="text-2xl font-extrabold mb-2">{recommendation.title}</h3>
-//           <p className={`mb-6 ${isDark ? "text-mg-paper/70" : "text-gray-700"}`}>{recommendation.explanation}</p>
+const QuizPanel = ({ stepIndex, steps, selectOption, goBack }: QuizPanelProps) => {
+  const current = steps[stepIndex];
+  return (
+    <motion.div initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }} className="dark:bg-mg-dark-surface bg-mg-light-surface border border-mg-gold/50 rounded-2xl p-6 shadow-2xl">
+      <h4 className="text-xl font-bold dark:text-mg-dark-text text-mg-light-text mb-5">{current.question}</h4>
+      <div className="space-y-3">
+        {current.options.map((opt: string) => (
+          <motion.button key={opt} onClick={() => selectOption(current.key, opt)} className="w-full text-left p-4 rounded-xl dark:bg-mg-dark-bg bg-mg-light-bg border border-transparent hover:border-mg-gold dark:hover:bg-mg-gold/10 hover:bg-mg-gold/5 transition-all dark:text-mg-dark-text text-mg-light-text">
+            {opt}
+          </motion.button>
+        ))}
+      </div>
+      <button onClick={goBack} className="mt-6 text-sm text-mg-gold underline hover:brightness-110">Back</button>
+    </motion.div>
+  );
+};
 
-//           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-//             <a
-//               href={recommendation.ctaHref}
-//               className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition
-//                 bg-mg-gold text-black hover:shadow-gold-glow"
-//             >
-//               {recommendation.ctaLabel} <ArrowRight size={16} />
-//             </a>
+interface ResultPanelProps {
+  result: {
+    recommendationCard: RecommendationCard;
+    description: string;
+  };
+  onRetake: () => void;
+  onClaimFreeVip: () => void;
+}
+const ResultPanel = ({ result, onRetake, onClaimFreeVip }: ResultPanelProps) => {
+  const { recommendationCard, description } = result;
+  return (
+    <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} className="dark:bg-mg-dark-surface bg-mg-light-surface border border-mg-gold/80 rounded-3xl p-8 shadow-2xl">
+      <h3 className="text-3xl font-bold dark:text-mg-white text-mg-black mb-3">Your Perfect Match</h3>
+      <p className="dark:text-mg-dark-textSecondary text-mg-light-textSecondary mb-8 leading-relaxed">{description}</p>
 
-//             <button
-//               onClick={() => {
-//                 // show breakdown modal - we'll just toggle contact prompt for now
-//                 const email = contact || prompt("Enter your email (optional) to receive tailored plan:");
-//                 if (email) {
-//                   setContact(email);
-//                   void sendResult();
-//                 }
-//               }}
-//               className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition ${
-//                 isDark ? "bg-white/5 text-white border border-white/10" : "bg-gray-100 text-gray-900 border border-gray-200"
-//               }`}
-//             >
-//               Save & Contact
-//             </button>
-//           </div>
+      <div className="dark:bg-mg-dark-bg bg-mg-light-bg border border-mg-gold/50 rounded-2xl p-6">
+        <div className="flex justify-between items-start mb-4">
+          <div>
+            <h4 className="text-2xl font-bold text-mg-gold">{recommendationCard.title}</h4>
+            {recommendationCard.subtitle && <p className="text-sm dark:text-mg-dark-textSecondary text-mg-light-textSecondary">{recommendationCard.subtitle}</p>}
+          </div>
+          <div className="text-right">
+            {recommendationCard.priceUsd && <p className="text-2xl font-bold dark:text-mg-dark-text text-mg-light-text">${recommendationCard.priceUsd}</p>}
+            {!recommendationCard.priceUsd && <p className="text-2xl font-bold dark:text-mg-dark-text text-mg-light-text">{recommendationCard.price}</p>}
+          </div>
+        </div>
 
-//           <div className="mt-6 text-left">
-//             <p className="text-sm font-semibold mb-2">Score breakdown</p>
-//             <div className="grid grid-cols-2 gap-2">
-//               {sorted.map((k) => (
-//                 <div key={k} className="flex items-center gap-3">
-//                   <CheckCircle className="text-mg-gold" />
-//                   <div>
-//                     <div className="text-sm font-medium capitalize">{k}</div>
-//                     <div className="text-xs text-gray-400">{scores[k]} pts</div>
-//                   </div>
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//       </motion.div>
-//     );
-//   };
+        <ul className="space-y-2 dark:text-mg-dark-textSecondary text-mg-light-textSecondary text-sm mb-6">
+          {(recommendationCard.features ?? []).map((f: string, i: number) => (
+            <li key={i} className="flex items-center gap-2">
+              <div className="w-1 h-1 bg-mg-gold rounded-full" />
+              {f}
+            </li>
+          ))}
+        </ul>
 
-//   /* ---------- Helpers ---------- */
-//   const currentQuestion = QUESTIONS[step];
+        {recommendationCard.ctaText === "Claim Free Access" ? (
+          <button
+            onClick={onClaimFreeVip}
+            className="block w-full text-center py-4 rounded-xl font-bold text-lg dark:bg-mg-white bg-mg-black dark:text-mg-black text-mg-white shadow-lg hover:shadow-yellow-400/40 transition-shadow"
+          >
+            {recommendationCard.ctaText}
+          </button>
+        ) : (
+          recommendationCard.href && (
+            <a href={recommendationCard.href} target="_blank" rel="noopener noreferrer" className="block w-full text-center py-4 rounded-xl font-bold text-lg dark:bg-mg-white bg-mg-black dark:text-mg-black text-mg-white shadow-lg hover:shadow-yellow-400/40 transition-shadow">
+              {recommendationCard.ctaText}
+            </a>
+          )
+        )}
+      </div>
 
-//   return (
-//     <section className={`max-w-5xl mx-auto py-12 px-6 ${isDark ? "text-white" : "text-black"}`}>
-//       <div className="mb-6 text-center">
-//         <h2 className="text-3xl md:text-4xl font-extrabold">Quick Fit Quiz</h2>
-//         <p className="mt-2 text-sm md:text-base text-gray-500">
-//           5 minutes — find the best way MarketGod can support your trading journey.
-//         </p>
-//       </div>
+      <div className="flex flex-wrap justify-center items-center gap-4 mt-8">
+        <button onClick={onRetake} className="px-5 py-2 border dark:border-mg-dark-border border-mg-light-border dark:text-mg-dark-textSecondary text-mg-light-textSecondary rounded-full dark:hover:bg-mg-dark-surface hover:bg-mg-light-surface transition">Retake Quiz</button>
+        <a
+          href="/contact"
+          className="px-5 py-2 border dark:border-mg-dark-border border-mg-light-border dark:text-mg-dark-textSecondary text-mg-light-textSecondary rounded-full dark:hover:bg-mg-dark-surface hover:bg-mg-light-surface transition"
+        >
+          Contact Us
+        </a>
+        <a href="/plans" className="px-5 py-2 dark:bg-mg-dark-surface bg-mg-light-surface dark:text-mg-dark-text text-mg-light-text rounded-full dark:hover:bg-mg-dark-surface/80 hover:bg-mg-light-surface/80 transition font-black">
+          View All Plans
+        </a>
+      </div>
+    </motion.div>
+  );
+};
 
-//       {!finished ? (
-//         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-//           {/* Progress */}
-//           <div className="mb-6">
-//             <div className="flex justify-between mb-2 text-xs text-gray-500">
-//               <div>Question {step + 1} / {QUESTIONS.length}</div>
-//               <div>{Math.round(((step + 1) / QUESTIONS.length) * 100)}%</div>
-//             </div>
-//             <div className="w-full bg-gray-200/40 rounded-full h-2 overflow-hidden">
-//               <div
-//                 className="h-2 bg-mg-gold transition-all"
-//                 style={{ width: `${((step + 1) / QUESTIONS.length) * 100}%` }}
-//               />
-//             </div>
-//           </div>
+// -------------------------
+// Main Component
+// -------------------------
+export default function MarketGodSmartQuiz() {
+  const { started, stepIndex, showResult, steps, result, startQuiz, selectOption, goBack } = useMarketGodQuiz();
+  const [showFreeVipModal, setShowFreeVipModal] = useState(false);
 
-//           {/* Question Card */}
-//           <motion.div
-//             key={currentQuestion.id}
-//             initial={{ opacity: 0, y: 12 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.45 }}
-//             className={`p-6 rounded-2xl border ${isDark ? "bg-mg-charcoal/70 border-mg-gold/10" : "bg-white border-gray-200"}`}
-//           >
-//             <div className="mb-3">
-//               <h3 className="text-xl font-bold">{currentQuestion.question}</h3>
-//               {currentQuestion.subtitle && <p className="text-sm text-gray-400">{currentQuestion.subtitle}</p>}
-//             </div>
+  const handleClaimFreeVip = () => {
+    setShowFreeVipModal(true);
+  };
 
-//             <div className="grid gap-3">
-//               {currentQuestion.options.map((opt) => {
-//                 const selected = (answers[currentQuestion.id] || []).includes(opt.id);
-//                 const single = !!currentQuestion.single;
-//                 return (
-//                   <motion.button
-//                     key={opt.id}
-//                     onClick={() => selectOption(currentQuestion.id, opt.id, single)}
-//                     whileHover={{ scale: 1.02 }}
-//                     whileTap={{ scale: 0.99 }}
-//                     className={`w-full text-left p-4 rounded-lg border flex flex-col sm:flex-row sm:items-center gap-2 transition ${
-//                       selected
-//                         ? "bg-mg-gold/10 border-mg-gold"
-//                         : isDark
-//                         ? "bg-white/3 border-transparent"
-//                         : "bg-gray-50 border-gray-200"
-//                     }`}
-//                     aria-pressed={selected}
-//                   >
-//                     <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center">
-//                       <span className={`font-bold ${selected ? "text-mg-gold" : "text-gray-400"}`}>{selected ? "✓" : ""}</span>
-//                     </div>
-//                     <div>
-//                       <div className={`font-medium ${selected ? "text-mg-gold" : ""}`}>{opt.label}</div>
-//                       {opt.helper && <div className="text-xs text-gray-400">{opt.helper}</div>}
-//                     </div>
-//                   </motion.button>
-//                 );
-//               })}
-//             </div>
+  return (
+    <section className="relative py-24 px-6 md:px-16 dark:bg-mg-dark-bg bg-mg-light-bg dark:text-mg-dark-text text-mg-light-text overflow-hidden">
+      <div className="relative z-10 max-w-4xl mx-auto">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-mg-gold/10 px-4 py-1 rounded-full border border-mg-gold/50 text-mg-gold mb-4">
+            <Sparkles className="w-4 h-4" />
+            AI-Powered Matching
+          </div>
+          <h2 className="text-5xl md:text-6xl font-bold dark:text-mg-white text-mg-black mb-4">
+            Which <span className="text-mg-gold">MarketGod Program</span> Fits You?
+          </h2>
+          <p className="text-xl dark:text-mg-dark-textSecondary text-mg-light-textSecondary max-w-3xl mx-auto">
+            Answer a few questions to get your personalized plan.
+          </p>
+        </div>
 
-//             {/* Navigation */}
-//             <div className="mt-6 flex items-center justify-between">
-//               <button
-//                 onClick={onPrev}
-//                 disabled={step === 0}
-//                 className={`px-4 py-2 rounded-md border ${isDark ? "border-white/10" : "border-gray-200"} ${step === 0 ? "opacity-40 cursor-not-allowed" : ""}`}
-//               >
-//                 Back
-//               </button>
+        <AnimatePresence mode="wait">
+          {!started && <IntroPanel onStart={startQuiz} />}
+          {started && !showResult && <QuizPanel stepIndex={stepIndex} steps={steps} selectOption={selectOption} goBack={goBack} />}
+          {showResult && result && <ResultPanel result={result} onRetake={startQuiz} onClaimFreeVip={handleClaimFreeVip} />}
+        </AnimatePresence>
+      </div>
 
-//               <div className="flex items-center gap-3">
-//                 <button
-//                   onClick={() => {
-//                     // ensure at least one selection for required single-choice questions
-//                     const chosen = answers[currentQuestion.id] || [];
-//                     if (chosen.length === 0) {
-//                       // small shake animation (visual) -- simple alert for now
-//                       window.scrollTo({ top: 0, behavior: "smooth" });
-//                       alert("Please select an option to continue.");
-//                       return;
-//                     }
-//                     onNext();
-//                   }}
-//                   className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-mg-gold text-black font-semibold hover:shadow-gold-glow transition"
-//                 >
-//                   {step === QUESTIONS.length - 1 ? "See Recommendation" : "Next"}
-//                   <ArrowRight size={16} />
-//                 </button>
-//               </div>
-//             </div>
-//           </motion.div>
-//         </motion.div>
-//       ) : (
-//         <div>
-//           {renderResultCard()}
-//           <div className="mt-8 text-center">
-//             <button onClick={restart} className="px-4 py-2 rounded-md border border-gray-300">
-//               Retake Quiz
-//             </button>
-//           </div>
-//         </div>
-//       )}
-//     </section>
-//   );
-// };
-
-// export default Quiz;
+      {/* MODAL for Free VIP Quiz */}
+      <AnimatePresence>
+        {showFreeVipModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            onClick={() => setShowFreeVipModal(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
+              className="relative w-full max-w-md max-h-[85vh] overflow-y-auto rounded-2xl p-5 shadow-2xl dark:bg-mg-dark-surface bg-mg-light-surface border dark:border-mg-gold/30 border-mg-gold/30"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <motion.button
+                onClick={() => setShowFreeVipModal(false)}
+                className="absolute top-3 right-3 p-1.5 rounded-full bg-mg-dark-surface/50 hover:bg-red-600/50 text-mg-paper/70 hover:text-white transition"
+                aria-label="Close modal"
+              >
+                <X size={16} />
+              </motion.button>
+              <MarketGodQuiz />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+}

@@ -26,6 +26,7 @@ import FAQ from "../Components/Home/FAQ";
 import SeminarHighlight from "../Components/Home/SeminarHighlight";
 import AboutMentor from "../Components/Home/AboutMentor";
 import PlansNavFloating from "../Components/Plans/PlansNav"; 
+import Quiz from "../Components/Quiz/Quiz";
 
 
 const homeSections = [
@@ -69,6 +70,7 @@ const Home = () => {
 
       {/* Sections */}
       <div id="hero"><Hero /></div>
+      <Quiz />
       
       <div id="seminar-highlight"><SeminarHighlight /></div>
 

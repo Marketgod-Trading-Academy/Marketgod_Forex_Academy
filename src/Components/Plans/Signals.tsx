@@ -1,7 +1,7 @@
 // src/components/Plans/Signals.tsx
 import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
-import { Signal, Zap } from "lucide-react";
+import { Signal, Zap, AlertTriangle, ArrowRight, X } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
@@ -21,12 +21,14 @@ interface Plan {
   limited?: string;
   href: string;
   highlight?: boolean;
+  requiresDisclaimer?: boolean;
 }
 
 interface CardInnerProps {
   plan: Plan;
   isDark: boolean;
   onFreeClick: () => void;   // ← NEW
+  onPaidClick: () => void;
 }
 
 const metallicGold = "bg-gradient-to-br from-[#F7E7B5] via-[#D4AF37] to-[#B8860B]";
@@ -65,6 +67,7 @@ const signals = [
     badge: "Best Value",
     href: "https://t.me/paymarketgodbot",
     highlight: true,
+    requiresDisclaimer: true,
   },
   // {
   //   number: "03",
@@ -88,9 +91,13 @@ const Signals = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
   const [open, setOpen] = useState(false); // ← Start closed
+  const [showDisclaimer, setShowDisclaimer] = useState(false);
 
   const handleFreeClick = () => {
     setOpen(true);
+  };
+  const handlePaidClick = () => {
+    setShowDisclaimer(true);
   };
 
   return (
@@ -136,7 +143,7 @@ const Signals = () => {
                       plan.highlight ? metallicGold : "bg-gray-500/30"
                     }`}
                   >
-                    <CardInner plan={plan} isDark={isDark} onFreeClick={handleFreeClick} />
+                    <CardInner plan={plan} isDark={isDark} onFreeClick={handleFreeClick} onPaidClick={handlePaidClick} />
                   </motion.div>
                 </SwiperSlide>
               ))}
@@ -163,7 +170,7 @@ const Signals = () => {
                   plan.highlight ?  "bg-gray-500/30" : metallicGold
                 }`}
               >
-                <CardInner plan={plan} isDark={isDark} onFreeClick={handleFreeClick} />
+                <CardInner plan={plan} isDark={isDark} onFreeClick={handleFreeClick} onPaidClick={handlePaidClick} />
               </motion.div>
             ))}
           </div>
@@ -201,12 +208,65 @@ const Signals = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Disclaimer Popup */}
+      <AnimatePresence>
+        {showDisclaimer && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-xl z-[999] flex items-center justify-center p-6"
+            onClick={() => setShowDisclaimer(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, y: 100, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.8, y: 100, opacity: 0 }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              className="relative max-w-lg w-full p-10 rounded-3xl bg-gradient-to-br from-black/90 to-mg-dark-surface/90 border-2 border-mg-gold/40 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setShowDisclaimer(false)}
+                className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 transition"
+              >
+                <X size={24} className="text-mg-gold" />
+              </button>
+
+              <div className="text-center mb-8">
+                <div className="inline-flex p-5 rounded-full bg-mg-gold/10 mb-6">
+                  <AlertTriangle size={48} className="text-mg-gold" />
+                </div>
+                <h3 className="text-3xl font-black text-mg-gold mb-4">
+                  Risk Disclaimer
+                </h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Trading Forex involves significant risk and is not suitable for all investors. Past performance is not indicative of future results. Signals are for educational purposes and should not be considered financial advice.
+                  Trading involves substantial risk and is not suitable for every investor. While we provide our specific trade setups (entry, stop loss, and take profit), you are solely responsible for the trades you execute in your own account. We are not liable for any profits or losses.
+                </p>
+              </div>
+
+              <motion.a
+                href="https://t.me/paymarketgodbot"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                className="w-full flex items-center justify-center gap-3 py-4 rounded-full font-bold uppercase tracking-wider transition-all duration-300 bg-mg-gold text-black hover:shadow-gold-glow-lg"
+              >
+                I Understand, Proceed
+                <ArrowRight size={18} />
+              </motion.a>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
 
 // Reusable inner card component
-const CardInner: React.FC<CardInnerProps> = ({ plan, isDark, onFreeClick }) => {
+const CardInner: React.FC<CardInnerProps> = ({ plan, isDark, onFreeClick, onPaidClick }) => {
   const isFree = plan.price === "Free";
 
   return (
@@ -284,21 +344,31 @@ const CardInner: React.FC<CardInnerProps> = ({ plan, isDark, onFreeClick }) => {
       {isFree ? (
         <button
           onClick={onFreeClick}
-          className="border-mg-goldmt-6 block w-full text-center mt-6 py-3 rounded-full font-semibold transition-all bg-mg-gold text-black hover:brightness-110 shadow-lg hover:shadow-mg-gold/30"
+          className="mt-6 block w-full text-center py-3 rounded-full font-semibold transition-all bg-mg-gold text-black hover:brightness-110 shadow-lg hover:shadow-mg-gold/30"
         >
           Claim Your Free Spot
+        </button>
+      ) : plan.requiresDisclaimer ? (
+        <button
+          onClick={onPaidClick}
+          className={`
+            mt-6 block w-full text-center py-3 rounded-full font-semibold transition-all border-2
+            ${plan.highlight
+              ? ` ${isDark ? "border-mg-paper/30 bg-mg-paper text-black" : " border-mg-black/30 bg-black text-white"}`
+              : "bg-mg-gold text-black border-mg-gold hover:brightness-110"
+            }`}
+        >
+          Get Started
         </button>
       ) : (
         <motion.a
         whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
           whileTap={{ scale: 0.95 }}
           href={plan.href}
-          target="_blank"
-          rel="noopener noreferrer"
           className={`
-            mt-6 block text-center py-3 rounded-full font-semibold transition-all border-2
+            mt-6 block w-full text-center py-3 rounded-full font-semibold transition-all border-2
             ${plan.highlight
-              ? ` ${isDark ? "text-mg-pape border-mg-paper/30 bg-mg-paper text-black" : " border-mg-black/30 bg-black text-white"}`
+              ? ` ${isDark ? "border-mg-paper/30 bg-mg-paper text-black" : " border-mg-black/30 bg-black text-white"}`
               : "bg-mg-gold text-black border-mg-gold hover:brightness-110"
             }`}
         >
