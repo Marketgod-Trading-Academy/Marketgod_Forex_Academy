@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, ArrowRight, Zap, Crown, Signal, X } from "lucide-react";
-import { useTheme } from "../../context/ThemeContext";
 import MarketGodQuiz from "../Plans/MarketGodQuiz";
 
 // -------------------------
@@ -215,7 +214,6 @@ const IntroPanel = ({ onStart }: IntroPanelProps) => {
       desc: "Get a clear, actionable recommendation in under 60 seconds. No more guessing what to do next.",
     },
   ];
-  const { theme } = useTheme();
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

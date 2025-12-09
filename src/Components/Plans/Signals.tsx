@@ -93,7 +93,7 @@ const Signals = () => {
   const [open, setOpen] = useState(false); // ← Start closed
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [isRedirecting, setIsRedirecting] = useState(false);
-  const redirectTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const redirectTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleFreeClick = () => {
     setOpen(true);

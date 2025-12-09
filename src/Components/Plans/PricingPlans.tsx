@@ -18,7 +18,7 @@ const PricingPlans = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
   const [isRedirecting, setIsRedirecting] = useState(false);
-  const redirectTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const redirectTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -158,7 +158,7 @@ const PricingPlans = () => {
               onClick={handleJoinClick}
               whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
               whileTap={{ scale: 0.95 }}
-              className="block text-center mt-10 py-4 rounded-full font-bold bg-black text-mg-white dark:bg-mg-white dark:text-black hover:brightness-110 transition-all relative z-10 shadow-lg "
+              className="block w-full text-center mt-10 py-4 rounded-full font-bold bg-black text-mg-white dark:bg-mg-white dark:text-black hover:brightness-110 transition-all relative z-10 shadow-lg "
             >
               Join Sniper Mentorship
             </motion.button>
