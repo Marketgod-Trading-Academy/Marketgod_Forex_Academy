@@ -1,7 +1,9 @@
 // src/Components/Plans/SniperMentorship.tsx
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import { Check } from "lucide-react";
+import { AnimatePresence } from "framer-motion";
+import { Check, Send } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
+import { useState, useRef, useEffect } from "react";
 
 const features = [
   "Gold Strategy",
@@ -15,6 +17,8 @@ const features = [
 const PricingPlans = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
+  const [isRedirecting, setIsRedirecting] = useState(false);
+  const redirectTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -23,8 +27,31 @@ const PricingPlans = () => {
   const glowX = useTransform(x, [-50, 50], [-20, 20]);
   const glowY = useTransform(y, [-50, 50], [-20, 20]);
 
+  const handleJoinClick = () => {
+    setIsRedirecting(true);
+    redirectTimeoutRef.current = setTimeout(() => {
+      window.location.href = "https://t.me/paymarketgodbot";
+      setIsRedirecting(false);
+    }, 5000); // Wait 5 seconds
+  };
+
+  const cancelRedirect = () => {
+    if (redirectTimeoutRef.current) {
+      clearTimeout(redirectTimeoutRef.current);
+    }
+    setIsRedirecting(false);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (redirectTimeoutRef.current) {
+        clearTimeout(redirectTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section id="pricing" className="py-24 relative">
+    <section id="pricing-plans" className="py-24 relative">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -127,18 +154,44 @@ const PricingPlans = () => {
               ))}
             </ul>
 
-            <motion.a
-            whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
-          whileTap={{ scale: 0.95 }}
-              href="https://t.me/paymarketgodbot"
-              target="_blank"
+            <motion.button
+              onClick={handleJoinClick}
+              whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+              whileTap={{ scale: 0.95 }}
               className="block text-center mt-10 py-4 rounded-full font-bold bg-black text-mg-white dark:bg-mg-white dark:text-black hover:brightness-110 transition-all relative z-10 shadow-lg "
             >
               Join Sniper Mentorship
-            </motion.a>
+            </motion.button>
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Redirecting Popup */}
+      <AnimatePresence>
+        {isRedirecting && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[1000] flex items-center justify-center p-6"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 20, stiffness: 200 }}
+              className="flex flex-col items-center gap-4 p-8 rounded-2xl bg-mg-dark-surface border border-mg-gold/50 w-full max-w-sm"
+            >
+              <Send size={32} className="text-mg-gold" />
+              <h3 className="font-bold text-mg-paper text-lg">Redirecting to Telegram...</h3>
+              <p className="text-mg-dark-textSecondary text-sm">Please complete your payment securely.</p>
+              <button onClick={cancelRedirect} className="mt-4 px-6 py-2 text-xs font-semibold text-mg-paper rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+                Cancel
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

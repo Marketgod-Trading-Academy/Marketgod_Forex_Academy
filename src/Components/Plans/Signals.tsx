@@ -1,13 +1,13 @@
 // src/components/Plans/Signals.tsx
 import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
-import { Signal, Zap, AlertTriangle, ArrowRight, X } from "lucide-react";
+import { Signal, Zap, AlertTriangle, ArrowRight, X, Send } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import MarketGodQuiz from "./MarketGodQuiz";
-import { useState } from "react";
+import MarketGodQuiz from "./MarketGodQuiz"; 
+import { useState, useRef, useEffect } from "react";
 
 interface Plan {
   number: string;
@@ -92,6 +92,8 @@ const Signals = () => {
   const isDark = theme === "dark";
   const [open, setOpen] = useState(false); // ← Start closed
   const [showDisclaimer, setShowDisclaimer] = useState(false);
+  const [isRedirecting, setIsRedirecting] = useState(false);
+  const redirectTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleFreeClick = () => {
     setOpen(true);
@@ -99,6 +101,31 @@ const Signals = () => {
   const handlePaidClick = () => {
     setShowDisclaimer(true);
   };
+
+  const handleProceedToPayment = () => {
+    setIsRedirecting(true);
+    setShowDisclaimer(false);
+    redirectTimeoutRef.current = setTimeout(() => {
+      window.location.href = "https://t.me/paymarketgodbot";
+      setIsRedirecting(false);
+    }, 5000); // Wait 5 seconds before redirecting
+  };
+
+  const cancelRedirect = () => {
+    if (redirectTimeoutRef.current) {
+      clearTimeout(redirectTimeoutRef.current);
+    }
+    setIsRedirecting(false);
+  };
+
+  useEffect(() => {
+    // Cleanup timeout on component unmount
+    return () => {
+      if (redirectTimeoutRef.current) {
+        clearTimeout(redirectTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -247,16 +274,41 @@ const Signals = () => {
                 </p>
               </div>
 
-              <motion.a
-                href="https://t.me/paymarketgodbot"
-                target="_blank"
-                rel="noopener noreferrer"
+              <motion.button
+                onClick={handleProceedToPayment}
                 whileHover={{ scale: 1.05 }}
                 className="w-full flex items-center justify-center gap-3 py-4 rounded-full font-bold uppercase tracking-wider transition-all duration-300 bg-mg-gold text-black hover:shadow-gold-glow-lg"
               >
                 I Understand, Proceed
                 <ArrowRight size={18} />
-              </motion.a>
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Redirecting Popup */}
+      <AnimatePresence>
+        {isRedirecting && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[1000] flex items-center justify-center p-6"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 20, stiffness: 200 }}
+              className="flex flex-col items-center gap-4 p-8 rounded-2xl bg-mg-dark-surface border border-mg-gold/50 w-full max-w-sm"
+            >
+              <Send size={32} className="text-mg-gold" />
+              <h3 className="font-bold text-mg-paper text-lg">Redirecting to Telegram...</h3>
+              <p className="text-mg-dark-textSecondary text-sm">Please complete your payment securely.</p>
+              <button onClick={cancelRedirect} className="mt-4 px-6 py-2 text-xs font-semibold text-mg-paper rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+                Cancel
+              </button>
             </motion.div>
           </motion.div>
         )}
