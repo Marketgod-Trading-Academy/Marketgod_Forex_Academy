@@ -1,10 +1,88 @@
 // src/components/Header.tsx
 import { useState, useEffect } from "react";
 import { Sun, Moon, Menu, Home, Info, Layers, BookOpen, Phone } from "lucide-react";
-import { useLocation, useNavigate } from "react-router-dom"; // ← Added useNavigate + Link
+import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Drawer from "../MobileMenuDrawer/MobileMenuDrawer";
+
+// Typewriter Component
+const TypewriterText: React.FC = () => {
+  const [h1Text, setH1Text] = useState("");
+  const [pText, setPText] = useState("");
+  const [phase, setPhase] = useState<"typing-h1" | "typing-p" | "deleting-p" | "deleting-h1">("typing-h1");
+  const [loop, setLoop] = useState(0);
+
+  const phrases = [
+    { h1: "MarketGod", p: "Academy" }, // Keep this as the first phrase
+    { h1: "MarketGod", p: "Learn Today ,Learn Forever" },
+  ];
+
+  const current = phrases[loop % 2];
+
+  useEffect(() => {
+    const typingSpeed = 120;
+    const deletingSpeed = 60;
+    const pauseDuration = 5000;
+
+    // let timer: NodeJS.Timeout;
+    let timer: ReturnType<typeof setTimeout>;
+
+    if (phase === "typing-h1") {
+      if (h1Text.length < current.h1.length) {
+        timer = setTimeout(() => {
+          setH1Text(current.h1.slice(0, h1Text.length + 1));
+        }, typingSpeed);
+      } else {
+        setPhase("typing-p");
+      }
+    } 
+    else if (phase === "typing-p") {
+      if (pText.length < current.p.length) {
+        timer = setTimeout(() => {
+          setPText(current.p.slice(0, pText.length + 1));
+        }, typingSpeed);
+      } else {
+        timer = setTimeout(() => setPhase("deleting-p"), pauseDuration);
+      }
+    } 
+    else if (phase === "deleting-p") {
+      if (pText.length > 0) {
+        timer = setTimeout(() => {
+          setPText(current.p.slice(0, pText.length - 1));
+        }, deletingSpeed);
+      } else {
+        setPhase("deleting-h1");
+      }
+    } 
+    else if (phase === "deleting-h1") {
+      if (h1Text.length > 0) {
+        timer = setTimeout(() => {
+          setH1Text(current.h1.slice(0, h1Text.length - 1));
+        }, deletingSpeed);
+      } else {
+        setLoop(loop + 1);
+        setPhase("typing-h1");
+      }
+    }
+
+    return () => clearTimeout(timer);
+  }, [h1Text, pText, phase, loop, current]);
+
+  return (
+    <div className="flex flex-col leading-tight -mt-1">
+      <h1 className="text-sm font-black text-mg-gold tracking-tighter overflow-hidden whitespace-nowrap">
+        Market<span className="dark:text-mg-paper text-mg-light-text">God</span>
+        {phase === "typing-h1" && <span className="inline-block w-0.5 h-4 bg-mg-gold ml-1 animate-pulse" />}
+      </h1>
+      <p className="text-[.5rem] md:text-xs uppercase tracking-widest dark:text-mg-dark-textSecondary text-mg-light-textSecondary flex items-center gap-1 mt-0.5">
+        {pText}
+        {phase === "typing-p" && <span className="inline-block w-0.5 h-3 bg-mg-gold ml-1 animate-pulse" />}
+      </p>
+    </div>
+  );
+};
+
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme();
@@ -70,7 +148,7 @@ const Header = () => {
         `}
       >
         {/* LOGO */}
-        <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleNavClick("/")}>
+        <div className="flex items-center gap-3 cursor-pointer w-1/4 border" onClick={() => handleNavClick("/")}>
           <div className="relative bg-black rounded-full">
             <img
               src="/logo-2.png"
@@ -82,14 +160,7 @@ const Header = () => {
             <div className="absolute -top-1 -right-1 w-4 h-4 bg-mg-gold rounded-full animate-ping opacity-75" />
             <div className="absolute -top-1 -right-1 w-4 h-4 bg-mg-gold rounded-full" />
           </div>
-          <div>
-            <h1 className="text-sm font-black text-mg-gold tracking-tighter">
-             <span className={theme === "light" ? "text-mg-light-text" : "text-mg-paper"}>Market</span>God
-            </h1>
-            <p className={`text-xs uppercase tracking-widest ${theme === "light" ? "text-mg-light-textSecondary" : "text-mg-dark-textSecondary"}`}>
-              Academy
-            </p>
-          </div>
+          <TypewriterText />
         </div>
 
         {/* DESKTOP NAV */}
@@ -185,14 +256,7 @@ const Header = () => {
               theme === "light" ? "border-mg-black/70" : "border-mg-white"
             }`}
           />
-             <div>
-            <h1 className="text-sm font-black text-mg-gold tracking-tighter">
-             <span className={theme === "light" ? "text-mg-light-text" : "text-mg-paper"}>Market</span>God
-            </h1>
-            <p className={`text-xs uppercase tracking-widest ${theme === "light" ? "text-mg-light-textSecondary" : "text-mg-dark-textSecondary"}`}>
-              Academy
-            </p>
-          </div>
+          <TypewriterText />
         </div>
 
         {/* CONTROLS */}
