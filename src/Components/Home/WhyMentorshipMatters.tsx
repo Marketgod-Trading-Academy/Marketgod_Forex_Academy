@@ -32,7 +32,7 @@ const WhyMentorshipMatters = () => {
         >
           <img
             src="https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/SnapInsta.to_475855951_18485769310003421_2639630250731726422_n_ov7o6i.jpg"
-            alt="MarketGod Mentorship"
+            alt="Marketgod Mentorship"
             className="rounded-3xl shadow-2xl w-full object-cover border-8 border-mg-gold/20"
           />
         </motion.div>

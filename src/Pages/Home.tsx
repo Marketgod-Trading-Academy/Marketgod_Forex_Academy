@@ -33,6 +33,7 @@ const homeSections = [
   { id: "hero", label: "Hero" },
   { id: "seminar-highlight", label: "Seminar Highlight" },
   { id: "about", label: "About" },
+  { id: "quiz", label: "Quiz" },
   { id: "services", label: "Services" },
   { id: "what-is-forex", label: "What Is Forex?" },
   { id: "why-forex", label: "Why Forex?" },
@@ -70,7 +71,7 @@ const Home = () => {
 
       {/* Sections */}
       <div id="hero"><Hero /></div>
-      <Quiz />
+      <div id="quiz"><Quiz /></div>
       
       <div id="seminar-highlight"><SeminarHighlight /></div>
 

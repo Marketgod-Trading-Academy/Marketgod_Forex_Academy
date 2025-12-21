@@ -66,10 +66,10 @@ const AboutMentor = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-4 text-mg-light-text dark:text-mg-dark-text">
-            Meet the <span className="text-mg-gold">MarketGod</span>
+            Meet the <span className="text-mg-gold">Marketgod</span>
           </h2>
           <p className="text-xl md:text-2xl max-w-2xl mx-auto text-mg-light-textSecondary dark:text-mg-dark-textSecondary">
-            Empowering African traders with pure price action mastery — no AI, no bots, just discipline and results.
+            Empowering traders worldwide with pure price action mastery — no AI, no bots, just discipline and results.
           </p>
         </motion.div>
 
@@ -85,7 +85,7 @@ const AboutMentor = () => {
           <motion.div className="order-2 md:order-1" variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }} transition={{ duration: 0.7 }}>
             <img
               src="https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522352/SnapInsta.to_511469271_18512807728003421_2788928110292631837_n_shzro3.jpg"
-              alt="Eyram Dela - The MarketGod"
+              alt="Eyram Dela - The Marketgod"
               className="w-full h-96 object-cover rounded-3xl shadow-2xl border-4 border-mg-gold/30"
             />
           </motion.div>
@@ -93,7 +93,7 @@ const AboutMentor = () => {
           {/* Text */}
           <motion.div className="space-y-6 order-1 md:order-2" variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
             <motion.h3 variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0 } }} className="text-3xl font-bold text-mg-light-text dark:text-mg-dark-text">
-              Eyram Dela – The MarketGod
+              Eyram Dela – The Marketgod
             </motion.h3>
 
             <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg leading-relaxed text-mg-light-text dark:text-mg-dark-text">
@@ -108,7 +108,7 @@ const AboutMentor = () => {
               className="overflow-hidden"
             >
               <p className="text-lg leading-relaxed mt-4 text-mg-light-text dark:text-mg-dark-text">
-                From humble beginnings in Accra, Eyram turned his passion into a proven system. He’s traded live in front of thousands, built the <span className="font-bold text-mg-gold">Sniper MarketGod Strategy</span>, and now teaches it step-by-step. His mission? To prove that <span className="font-bold text-mg-gold">Ghanaian traders can dominate global markets</span> — without AI, without shortcuts.
+                From humble beginnings in Accra, Eyram turned his passion into a proven system. He’s traded live in front of thousands, built the <span className="font-bold text-mg-gold">Marketgod Strategy</span>, and now teaches it step-by-step. His mission? To prove that <span className="font-bold text-mg-gold">Ghanaian traders can dominate global markets</span> — without AI, without shortcuts.
               </p>
               <p className="text-lg italic mt-4 text-mg-light-textSecondary dark:text-mg-dark-textSecondary">
                 “I don’t sell dreams. I sell results.”
@@ -175,7 +175,7 @@ const AboutMentor = () => {
             </h3>
             <ul className="text-left space-y-4 max-w-md mx-auto">
               {[
-                { icon: Award, text: "Beginners seeking structure in Ghana's fast-paced economy" },
+                { icon: Award, text: "Beginners seeking structure in a fast-paced economy" },
                 { icon: Users, text: "Side hustlers and entrepreneurs building wealth" },
                 { icon: GraduationCap, text: "Students and young professionals starting early" },
                 { icon: Zap, text: "Intermediate traders needing discipline and consistency" },

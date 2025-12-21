@@ -23,9 +23,9 @@ const Webinars = () => {
     },
     {
       type: "Sniper Seminar",
-      title: "Sniper MarketGod Strategy Workshop",
+      title: "Sniper Marketgod Strategy Workshop",
       date: "Scheduled Periodically (Virtual)",
-      desc: "An intensive virtual workshop covering the Sniper MarketGod Strategy. Includes live simulations and Q&A. Spots are limited.",
+      desc: "An intensive virtual workshop covering the Sniper Marketgod Strategy. Includes live simulations and Q&A. Spots are limited.",
       topics: ["Building trading systems", "Psychology mastery", "Ghana case studies"],
       price: "Paid Workshop",
       join: "Get Notified",

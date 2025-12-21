@@ -61,7 +61,7 @@ function GlobeWithLogos({ logos }: { logos: string[] }) {
 function OrbitingText() {
   const { theme } = useTheme();
   const ref = useRef<THREE.Group>(null);
-  const words = "MARKETGODACADEMY".split("");
+  const words = "MarketgodAcademy".split("");
   const radius = 2.3;
 
   useFrame((state) => {
@@ -134,7 +134,7 @@ const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-black text-mg-black dark:text-mg-white mb-4">
-            Join <span className="text-mg-gold">MarketGod</span> Community
+            Join <span className="text-mg-gold">Marketgod</span> Community
           </h2>
           <p className="max-w-3xl mx-auto text-lg sm:text-xl text-mg-light-textSecondary dark:text-mg-dark-textSecondary">
             Connect with traders from across Africa and the world. All from the heart of Ghana.
@@ -165,10 +165,10 @@ const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
             <div className="relative z-10">
               <h3 className="text-4xl md:text-5xl font-black text-mg-white mb-6">
-                Connect with MarketGod Academy
+                Connect with Marketgod Academy
               </h3>
               <p className="text-xl text-gray-300 mb-10 leading-relaxed">
-                VIP signals, mentorship, webinars — all guided by MarketGod experts.
+                VIP signals, mentorship, webinars — all guided by Marketgod experts.
               </p>
 
               {/* Social Links */}

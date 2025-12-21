@@ -22,7 +22,7 @@ interface RecommendationCard {
 
 const recommendations: Record<RecommendationKey, RecommendationCard> = {
   mentorship: {
-    title: "Sniper Mentorship",
+    title: "Marketgod Mentorship",
     price: "$547",
     priceUsd: 547,
     features: [
@@ -33,10 +33,10 @@ const recommendations: Record<RecommendationKey, RecommendationCard> = {
       "Free Access to VIP Signals",
     ],
     href: "/plans#pricing",
-    ctaText: "Join Sniper Mentorship",
+    ctaText: "Join Marketgod Mentorship",
   },
   paidVIP: {
-    title: "VIP Signals (Paid)",
+    title: "VIP Signals (Most Purchased)",
     subtitle: "Accelerated Growth Edition",
     price: "$99/mo",
     features: [
@@ -49,8 +49,8 @@ const recommendations: Record<RecommendationKey, RecommendationCard> = {
     ctaText: "Get VIP Access",
   },
   freeVIP: {
-    title: "VIP Signals (Free)",
-    subtitle: "Trade Like MarketGod",
+    title: "Live Trading with Marketgod",
+    subtitle: "Trade Like Marketgod",
     price: "Free",
     features: ["87% Win Rate Signals", "Instant Telegram Alerts", "Entry/Exit Breakdowns", "24/7 Support"],
     href: "/plans#signals", // Link to the section with the quiz modal
@@ -170,13 +170,13 @@ function useMarketGodQuiz() {
 
     if (goal === "I want full guidance (Mentorship)" && readyToInvest === "Yes" && investmentAmount !== "$0–$100" && timeCommitment !== "0–3 hours") {
       recommendationKey = "mentorship";
-      description = "You’re ready to take your trading to the next level with Sniper Mentorship.";
+      description = "You’re ready to take your trading to the next level with Marketgod Mentorship.";
     } else if (goal === "I want fast signals (VIP)" && readyToInvest === "Yes" && (investmentAmount === "$101–$500" || investmentAmount === "$501+")) {
       recommendationKey = "paidVIP";
-      description = "VIP Signals (Paid) is perfect for you — get fast, high-probability alerts.";
+      description = "VIP Signals (Most Purchased) is perfect for you — get fast, high-probability alerts.";
     } else if (goal === "I want fast signals (VIP)" && (readyToInvest === "No" || investmentAmount === "$0–$100")) {
       recommendationKey = "freeVIP";
-      description = "Join VIP Signals (Free) via our partnership link and start trading immediately.";
+      description = "Join Live Trading with Marketgod via our partnership link and start trading immediately.";
     } else {
       recommendationKey = "community";
       description = "Start learning with our Free Learning Community and grow your trading skills.";
@@ -223,7 +223,7 @@ const IntroPanel = ({ onStart }: IntroPanelProps) => {
     >
       <h3 className="text-3xl font-bold text-center dark:text-mg-white text-mg-black mb-4">Why Take This Quiz?</h3>
       <p className="text-center dark:text-mg-dark-textSecondary text-mg-light-textSecondary mb-10 max-w-2xl mx-auto">
-        Your trading journey is unique. Instead of guessing, let our smart quiz analyze your goals, experience, and commitment to recommend the perfect MarketGod program for you.
+        Your trading journey is unique. Instead of guessing, let our smart quiz analyze your goals, experience, and commitment to recommend the perfect Marketgod program for you.
       </p>
 
       <div className="grid md:grid-cols-3 gap-6 mb-10">
@@ -318,7 +318,7 @@ const ResultPanel = ({ result, onRetake, onClaimFreeVip }: ResultPanelProps) => 
         )}
       </div>
 
-      <div className="flex flex-wrap justify-center items-center gap-4 mt-8">
+      <div className="md:flex grid grid-cols-2 flex-wrap justify-center items-center gap-4 mt-8">
         <button onClick={onRetake} className="px-5 py-2 border dark:border-mg-dark-border border-mg-light-border dark:text-mg-dark-textSecondary text-mg-light-textSecondary rounded-full dark:hover:bg-mg-dark-surface hover:bg-mg-light-surface transition">Retake Quiz</button>
         <a
           href="/contact"
@@ -326,10 +326,10 @@ const ResultPanel = ({ result, onRetake, onClaimFreeVip }: ResultPanelProps) => 
         >
           Contact Us
         </a>
+      </div>
         <a href="/plans" className="px-5 py-2 dark:bg-mg-dark-surface bg-mg-light-surface dark:text-mg-dark-text text-mg-light-text rounded-full dark:hover:bg-mg-dark-surface/80 hover:bg-mg-light-surface/80 transition font-black">
           View All Plans
         </a>
-      </div>
     </motion.div>
   );
 };
@@ -354,7 +354,7 @@ export default function MarketGodSmartQuiz() {
             AI-Powered Matching
           </div>
           <h2 className="text-5xl md:text-6xl font-bold dark:text-mg-white text-mg-black mb-4">
-            Which <span className="text-mg-gold">MarketGod Program</span> Fits You?
+            Which <span className="text-mg-gold">Marketgod Program</span> Fits You?
           </h2>
           <p className="text-xl dark:text-mg-dark-textSecondary text-mg-light-textSecondary max-w-3xl mx-auto">
             Answer a few questions to get your personalized plan.

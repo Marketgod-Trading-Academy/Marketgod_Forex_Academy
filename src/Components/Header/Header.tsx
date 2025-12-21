@@ -14,15 +14,15 @@ const TypewriterText: React.FC = () => {
   const [loop, setLoop] = useState(0);
 
   const phrases = [
-    { h1: "MarketGod", p: "Academy" }, // Keep this as the first phrase
-    { h1: "MarketGod", p: "Learn Today ,Learn Forever" },
+    { h1: "Marketgod", p: "Academy" }, // Keep this as the first phrase
+    { h1: "Marketgod", p: "Where Markets Meets Mastery" },
   ];
 
   const current = phrases[loop % 2];
 
   useEffect(() => {
-    const typingSpeed = 120;
-    const deletingSpeed = 60;
+    const typingSpeed = 150;
+    const deletingSpeed = 100;
     const pauseDuration = 5000;
 
     // let timer: NodeJS.Timeout;
@@ -72,7 +72,7 @@ const TypewriterText: React.FC = () => {
   return (
     <div className="flex flex-col leading-tight -mt-1">
       <h1 className="text-sm font-black text-mg-gold tracking-tighter overflow-hidden whitespace-nowrap">
-        Market<span className="dark:text-mg-paper text-mg-light-text">God</span>
+        Market<span className="dark:text-mg-paper text-mg-light-text">god</span>
         {phase === "typing-h1" && <span className="inline-block w-0.5 h-4 bg-mg-gold ml-1 animate-pulse" />}
       </h1>
       <p className="text-[.5rem] md:text-xs uppercase tracking-widest dark:text-mg-dark-textSecondary text-mg-light-textSecondary flex items-center gap-1 mt-0.5">
@@ -114,10 +114,10 @@ const Header = () => {
 
   const navLinks = [
     { name: "Home", icon: <Home size={22} />, id: "/" },
-    { name: "About", icon: <Info size={22} />, id: "/about" },
     { name: "Plans", icon: <Layers size={22} />, id: "/plans" },
     { name: "Blog", icon: <BookOpen size={22} />, id: "/blog" },
     { name: "Contact", icon: <Phone size={22} />, id: "/contact" },
+    { name: "About", icon: <Info size={22} />, id: "/about" },
   ];
 
   const pulse = useSpring(1, { stiffness: 200, damping: 10 });
@@ -140,7 +140,7 @@ const Header = () => {
         style={headerStyle}
         className={`
           hidden lg:flex items-center fixed top-0 left-0 w-full z-40 
-          px-6 py-3 backdrop-blur-md border-b shadow-lg transition-all duration-300
+          px-6 py-3 backdrop-blur-md bordr-b shadow-lg transition-all duration-300
           ${theme === "light"
             ? "bg-mg-light-surface/90 border-mg-light-border"
             : "bg-mg-dark-surface/95 border-mg-dark-border"
@@ -148,11 +148,11 @@ const Header = () => {
         `}
       >
         {/* LOGO */}
-        <div className="flex items-center gap-3 cursor-pointer w-1/4 border" onClick={() => handleNavClick("/")}>
+        <div className="flex items-center gap-3 cursor-pointer w-1/4" onClick={() => handleNavClick("/")}>
           <div className="relative bg-black rounded-full">
             <img
               src="/logo-2.png"
-              alt="MarketGod"
+              alt="Marketgod"
               className={`w-12 h-12 rounded-full object-cover border-2 
                 ${theme === "light" ? "border-mg-black/70 shadow-gold-glow-light" : "border-mg-white shadow-gold-glow"}
               `}
@@ -251,7 +251,7 @@ const Header = () => {
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleNavClick("/")}>
           <img
             src="/logo-2.png"
-            alt="MarketGod"
+            alt="Marketgod"
             className={`w-10 h-10 rounded-full object-cover border-2 ${
               theme === "light" ? "border-mg-black/70" : "border-mg-white"
             }`}

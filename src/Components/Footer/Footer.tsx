@@ -95,7 +95,7 @@ const Footer = () => {
                 textShadow: "0 0 80px rgba(212,175,55,0.15)"
               }}
             >
-              MarketGod Academy — Built in Ghana. For the World
+              Marketgod Academy — Built For the World
             </div>
           </div>
         </div>
@@ -106,14 +106,14 @@ const Footer = () => {
             {/* BRAND */}
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col gap-6">
               <div className="flex items-center gap-3">
-                <img src="/logo.png" alt="MarketGod Academy" className="w-20 h-20 rounded-full border-4 border-mg-gold shadow-2xl p-1 bg-mg-dark-surface" />
+                <img src="/logo.png" alt="Marketgod Academy" className="w-20 h-20 rounded-full border-4 border-mg-gold shadow-2xl p-1 bg-mg-dark-surface" />
                 <div>
-                  <h3 className="text-2xl font-black text-mg-gold tracking-tight">MarketGod</h3>
+                  <h3 className="text-2xl font-black text-mg-gold tracking-tight">Marketgod</h3>
                   <p className="text-xs text-mg-dark-textSecondary font-semibold">ACADEMY</p>
                 </div>
               </div>
               <p className="text-sm leading-relaxed text-mg-dark-textSecondary">
-                Empowering <span className="text-mg-gold font-bold">African traders</span> with elite mentorship, real-time signals, and battle-tested strategies. From Accra to the world.
+                Empowering <span className="text-mg-gold font-bold">traders worldwide</span> with elite mentorship, real-time signals, and battle-tested strategies.
               </p>
               <div className="flex gap-3 items-center">
                 <div className="flex items-center gap-1 text-xs font-semibold text-mg-dark-textSecondary">
@@ -196,7 +196,7 @@ const Footer = () => {
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }} className="mt-16 pt-8 border-t border-mg-dark-border text-xs text-mg-dark-textSecondary">
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-3 text-center md:text-left">
-                <p className="font-semibold text-mg-white">© {currentYear} <span className="text-mg-gold">MarketGod </span> Academy. All rights reserved.</p>
+                <p className="font-semibold text-mg-white">© {currentYear} <span className="text-mg-gold">Marketgod </span> Academy. All rights reserved.</p>
                 <p className="leading-relaxed italic">
                   <strong>IMPORTANT RISK DISCLOSURE:</strong> Trading foreign exchange, cryptocurrencies, and contracts for difference (CFDs) on margin carries a high level of risk and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to trade any such leveraged products you should carefully consider your investment objectives, level of experience, and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not invest money that you cannot afford to lose. You should be aware of all the risks associated with trading on margin, and seek advice from an independent financial advisor if you have any doubts.
                 </p>

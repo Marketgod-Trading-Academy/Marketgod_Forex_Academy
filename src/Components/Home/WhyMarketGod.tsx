@@ -81,7 +81,7 @@ const WhyMarketGod = () => {
     transition={{ duration: 1, ease: "easeOut" }}
     className="text-5xl md:text-7xl font-black leading-tight"
   >
-    Why Choose <span className="text-mg-gold">MarketGod</span> Academy
+    Why Choose <span className="text-mg-gold">Marketgod</span> Academy
   </motion.h2>
 
   {/* Description */}
@@ -94,7 +94,7 @@ const WhyMarketGod = () => {
       isDark ? "text-mg-dark-textSecondary" : "text-mg-light-textSecondary"
     }`}
   >
-    MarketGod Academy isn’t just a trading school — it’s a legacy.  
+    Marketgod Academy isn’t just a trading school — it’s a legacy.  
     Founded in <span className="text-mg-gold font-bold">Ghana</span>, built for traders across the globe.  
     We combine education, mindset, and market precision to help you trade like a professional — from anywhere.
   </motion.p>

@@ -41,7 +41,7 @@ const ExnessPartner = () => {
             Trade with <span className="text-mg-gold">Exness</span>
           </h2>
           <p className={`text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed ${isDark ? "text-gray-300" : "text-gray-600"}`}>
-            <span className="text-mg-gold font-bold">MarketGod </span> Academy’s Official Broker —  
+            <span className="text-mg-gold font-bold">Marketgod </span> Academy’s Official Broker —  
             Built for Ghana. Trusted by over 2M+ traders worldwide.
           </p>
         </motion.div>
@@ -95,7 +95,7 @@ const ExnessPartner = () => {
           </div>
 
           <h3 className="text-3xl md:text-4xl font-black mb-6 text-mg-black dark:text-white">
-            Open Exness Account via MarketGod
+            Open Exness Account via Marketgod
           </h3>
 
           <p className={`text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed ${isDark ? "text-gray-300" : "text-gray-700"}`}>

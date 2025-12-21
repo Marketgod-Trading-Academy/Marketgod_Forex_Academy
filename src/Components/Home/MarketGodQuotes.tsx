@@ -15,8 +15,8 @@ const quotes: Quote[] = [
   {
     text: "Discipline is the bridge between goals and achievement.",
     img :"https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522352/SnapInsta.to_511469271_18512807728003421_2788928110292631837_n_shzro3.jpg",
-    name : "Eyram Dela - The MarketGod",
-    role: "Founder, MarketGod Academy"
+    name : "Eyram Dela - The Marketgod",
+    role: "Founder, Marketgod Academy"
   },
   {
     text: "Patience and consistency beat emotions and impulsiveness.",
@@ -26,27 +26,27 @@ const quotes: Quote[] = [
   },
   {
     text: "Trade with a plan, not a hope.",
-    role: "Founder, MarketGod Academy",
+    role: "Founder, Marketgod Academy",
       img :"https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522352/SnapInsta.to_511469271_18512807728003421_2788928110292631837_n_shzro3.jpg",
-    name : "Eyram Dela - The MarketGod",
+    name : "Eyram Dela - The Marketgod",
   },
   {
     text: "Every loss is a lesson. Every win is confirmation.",
-   role: "Founder, MarketGod Academy",
+   role: "Founder, Marketgod Academy",
       img :"https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522352/SnapInsta.to_511469271_18512807728003421_2788928110292631837_n_shzro3.jpg",
-    name : "Eyram Dela - The MarketGod",
+    name : "Eyram Dela - The Marketgod",
   },
   {
     text: "Risk management is the difference between success and failure.",
-     role: "Founder, MarketGod Academy",
+     role: "Founder, Marketgod Academy",
       img :"https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522352/SnapInsta.to_511469271_18512807728003421_2788928110292631837_n_shzro3.jpg",
-    name : "Eyram Dela - The MarketGod",
+    name : "Eyram Dela - The Marketgod",
   },
   {
     text: "Consistency compounds like interest. Trade smart, not often.",
-    role: "Founder, MarketGod Academy",
+    role: "Founder, Marketgod Academy",
       img :"https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522352/SnapInsta.to_511469271_18512807728003421_2788928110292631837_n_shzro3.jpg",
-    name : "Eyram Dela - The MarketGod",
+    name : "Eyram Dela - The Marketgod",
   },
 ];
 
@@ -109,7 +109,7 @@ const MarketGodQuotes = () => {
         : "text-mg-paper/70"
     }`}
   >
-    Insights, principles, and trading philosophy from the MarketGod Academy —
+    Insights, principles, and trading philosophy from the Marketgod Academy —
     crafted to guide you toward discipline, consistency, and mastery in the markets.
   </motion.p>
 </div>

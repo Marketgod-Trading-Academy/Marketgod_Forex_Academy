@@ -15,7 +15,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, url, image, type = "websi
   const structuredDataOrg = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "MarketGod Academy",
+    "name": "Marketgod Academy",
     "url": "https://www.marketgodacademy.com",
     "logo": "https://www.marketgodacademy.com/images/logo.png",
     "sameAs": [
@@ -35,7 +35,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, url, image, type = "websi
     "image": image,
     "datePublished": datePublished,
     "author": { "@type": "Person", "name": author },
-    "publisher": { "@type": "Organization", "name": "MarketGod Academy", "logo": { "@type": "ImageObject", "url": "https://www.marketgodacademy.com/images/logo.png" } }
+    "publisher": { "@type": "Organization", "name": "Marketgod Academy", "logo": { "@type": "ImageObject", "url": "https://www.marketgodacademy.com/images/logo.png" } }
   } : null;
 
   return (
@@ -50,7 +50,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, url, image, type = "websi
       <meta property="og:description" content={description} />
       {url && <meta property="og:url" content={url} />}
       {image && <meta property="og:image" content={image} />}
-      <meta property="og:site_name" content="MarketGod Academy" />
+      <meta property="og:site_name" content="Marketgod Academy" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />

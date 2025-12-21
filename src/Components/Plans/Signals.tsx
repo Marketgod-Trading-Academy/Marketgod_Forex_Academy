@@ -36,8 +36,8 @@ const metallicGold = "bg-gradient-to-br from-[#F7E7B5] via-[#D4AF37] to-[#B8860B
 const signals = [
   {
     number: "01",
-    title: "VIP Signals (Free)",
-    subtitle: "Trade Like MarketGod",
+    title: "Live Trading with Marketgod",
+    subtitle: "Trade Like Marketgod",
     desc: "Real-time, high-probability signals delivered straight to your phone. Perfect for beginners getting started.",
     features: [
       "87% Win Rate Signals",
@@ -52,7 +52,7 @@ const signals = [
   },
   {
     number: "02",
-    title: "VIP Signals (Paid)",
+    title: "VIP Signals (Most Purchased)",
     subtitle: "Accelerated Growth Edition",
     desc: "For serious traders who want faster results, deeper insights, and priority alerts.",
     features: [
@@ -243,7 +243,7 @@ const Signals = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 backdrop-blur-xl z-[999] flex items-center justify-center p-6"
+            className="fixed inset-0 bg-black/80 backdrop-blur-xl z-[999] flex items-center justify-center p-6 "
             onClick={() => setShowDisclaimer(false)}
           >
             <motion.div
@@ -251,7 +251,7 @@ const Signals = () => {
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.8, y: 100, opacity: 0 }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="relative max-w-lg w-full p-10 rounded-3xl bg-gradient-to-br from-black/90 to-mg-dark-surface/90 border-2 border-mg-gold/40 shadow-2xl"
+              className="relative max-w-lg w-full p-5 rounded-3xl bg-gradient-to-br from-black/90 to-mg-dark-surface/90 border-2 border-mg-gold/40 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <button
