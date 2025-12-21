@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import MarketGodQuiz from "./MarketGodQuiz"; 
+import MarketgodQuiz from "./MarketGodQuiz"; 
 import { useState, useRef, useEffect } from "react";
 
 interface Plan {
@@ -230,7 +230,7 @@ const Signals = () => {
                 X
               </motion.button>
 
-              <MarketGodQuiz />
+              <MarketgodQuiz />
             </motion.div>
           </motion.div>
         )}

@@ -41,7 +41,7 @@ const sections = [
       icon: Eye,
       gradient: "from-gray-700 to-black",
       desc: "To ignite a global revolution in trading mastery — where every individual, from Accra to Nigeria,Kenya,South Afica,Tokyo, Mumbai to New York, rises through pure skill. We see a world where financial freedom is earned, not inherited — built on discipline, precision, and relentless execution.",
-      highlight: "The World Will Trade Like MarketGods.",
+      highlight: "The World Will Trade Like Marketgods.",
       image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522351/SnapInsta.to_476486638_18486717355003421_7261407871444466837_n_tzqjpz.jpg",
       delay: 0.2
     },
@@ -70,7 +70,7 @@ const sections = [
       title: "The Full Vision",
       body: `
         <p class="text-lg leading-relaxed mb-6">We are building the <span class="text-mg-gold font-bold">global standard</span> in trading education for the <span class="text-mg-gold font-bold">entire world</span>.</p>
-        <p class="text-lg leading-relaxed mb-6">We see traders in London, Tokyo, New York, and Sydney using the same sniper entries. We see funded accounts in 50+ countries. We see <span class="text-mg-gold">MarketGod Academy</span> as the Harvard of trading — respected, replicated, and revered worldwide.</p>
+        <p class="text-lg leading-relaxed mb-6">We see traders in London, Tokyo, New York, and Sydney using the same sniper entries. We see funded accounts in 50+ countries. We see <span class="text-mg-gold">Marketgod Academy</span> as the Harvard of trading — respected, replicated, and revered worldwide.</p>
         <ul class="space-y-4 mb-8">
           <li class="flx items-center gap-3"><Globe class="w-5 h-5 text-mg-gold" /> 10,000+ traders trained by 2035</li>
           <li class="flx items-center gap-3"><Globe class="w-5 h-5 text-mg-gold" /> Students in 10+ countries</li>

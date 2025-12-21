@@ -104,13 +104,18 @@ const Header = () => {
 
   useEffect(() => {
     const onScroll = () => {
-      if (window.scrollY > lastY && window.scrollY > 100) setVisible(false);
-      else setVisible(true);
+      if (location.pathname.startsWith("/blog")) {
+        setVisible(true);
+      } else if (window.scrollY > lastY && window.scrollY > 100) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
       setLastY(window.scrollY);
     };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, [lastY]);
+  }, [lastY, location.pathname]);
 
   const navLinks = [
     { name: "Home", icon: <Home size={22} />, id: "/" },

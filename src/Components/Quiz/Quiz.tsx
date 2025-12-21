@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, ArrowRight, Zap, Crown, Signal, X } from "lucide-react";
-import MarketGodQuiz from "../Plans/MarketGodQuiz";
+import MarketgodQuiz from "../Plans/MarketGodQuiz";
 
 // -------------------------
 // Service Cards
@@ -123,7 +123,7 @@ const steps: Step[] = [
 // -------------------------
 // Quiz Hook
 // -------------------------
-function useMarketGodQuiz() {
+function useMarketgodQuiz() {
   const [started, setStarted] = useState(false);
   const [stepIndex, setStepIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -337,8 +337,8 @@ const ResultPanel = ({ result, onRetake, onClaimFreeVip }: ResultPanelProps) => 
 // -------------------------
 // Main Component
 // -------------------------
-export default function MarketGodSmartQuiz() {
-  const { started, stepIndex, showResult, steps, result, startQuiz, selectOption, goBack } = useMarketGodQuiz();
+export default function MarketgodSmartQuiz() {
+  const { started, stepIndex, showResult, steps, result, startQuiz, selectOption, goBack } = useMarketgodQuiz();
   const [showFreeVipModal, setShowFreeVipModal] = useState(false);
 
   const handleClaimFreeVip = () => {
@@ -392,7 +392,7 @@ export default function MarketGodSmartQuiz() {
               >
                 <X size={16} />
               </motion.button>
-              <MarketGodQuiz />
+              <MarketgodQuiz />
             </motion.div>
           </motion.div>
         )}

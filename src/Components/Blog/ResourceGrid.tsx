@@ -213,7 +213,7 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({
                 `}>
                   <div className="flex items-center gap-1.5 ">
                     <User size={14} className="text-mg-gold" />
-                    <span>{resource.author ?? "MarketGod"}</span>
+                    <span>{resource.author ?? "Marketgod"}</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <Calendar size={14} className="text-mg-green" />

@@ -85,7 +85,7 @@ const StillNotSurePremium: React.FC = () => {
 
           <img
             src="https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522351/SnapInsta.to_322660411_898835291127050_9203872977349659886_n_bdajly.jpg"
-            alt="MarketGod Workshop"
+            alt="Marketgod Workshop"
             className={`relative w-full rounded-3xl object-cover shadow-2xl border-2 ${
               isDark 
                 ? "border-mg-gold/20 shadow-mg-gold/10" 

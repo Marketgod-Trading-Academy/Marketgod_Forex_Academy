@@ -34,7 +34,7 @@ const AboutHero = () => {
             viewport={{ once: true }}
             className="text-5xl md:text-7xl font-black tracking-tight mb-6 drop-shadow-2xl"
           >
-            The <span className="text-mg-green">MarketGod</span> Story
+            The <span className="text-mg-green">Marketgod</span> Story
           </motion.h1>
 
           <motion.p
@@ -61,7 +61,7 @@ const AboutHero = () => {
               <div className="absolute inset-0 w-72 h-72 rounded-full blur-3xl bg-mg-gold/30 -z-10" />
               <img
                 src="https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/SnapInsta.to_320260939_5672262492849628_1617341641572155430_n_1_zsx8li.jpg"
-                alt="MarketGod - Eyram Dela"
+                alt="Marketgod - Eyram Dela"
                 className="w-64 h-64 rounded-full object-cover border-8 border-mg-gold shadow-2xl"
               />
               <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-mg-green text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg">
@@ -83,7 +83,7 @@ const AboutHero = () => {
                 Now, I teach <span className="text-mg-green font-bold">10,000+ Ghanaians</span> how to win."
               </p>
               <footer className="text-mg-green font-bold text-right drop-shadow">
-                — MarketGod (Eyram Dela)
+                — Marketgod (Eyram Dela)
               </footer>
             </motion.blockquote>
           </div>

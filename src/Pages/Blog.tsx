@@ -47,7 +47,7 @@ const Blog: React.FC = () => {
         : "bg-gradient-to-r from-mg-black via-mg-black to-mg-gold"
       }`}
     >
-      MarketGod Blog
+      Marketgod Blog
     </h1>
 
     {/* SUBTITLE — SOCIAL, VIDEOS, SIGNALS, IDEAS */}
@@ -116,7 +116,7 @@ const Blog: React.FC = () => {
       isDark 
         ? "bg-gradient-to-b from-mg-black via-mg-charcoal to-mg-black text-mg-paper" 
         : "bg-gradient-to-b from-white via-gray-50 to-white text-mg-charcoal z-50"}
-     sticky top-0 md:pt-5  w-full `}>
+     sticky top-16 md:pt-5  w-full `}>
                   <div
                   className={`hidden md:flex items-center justify-center gap-2 text-sm font-medium mb-4 ${
                     isDark ? "text-mg-paper/60" : "text-mg-charcoal/60"
@@ -142,7 +142,7 @@ const Blog: React.FC = () => {
               <input
                 value={rawQuery}
             onChange={(e) => setRawQuery(e.target.value)}
-            placeholder="Search MarketGod resources..."
+            placeholder="Search Marketgod resources..."
                 className={`
                   w-full pl-10 pr-4 py-3 rounded-full text-sm transition-all
                   focus:outline-none focus:ring-2 focus:ring-mg-green/50 

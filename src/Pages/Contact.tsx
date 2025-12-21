@@ -32,7 +32,7 @@ export default function MarketGodContactHero() {
         <div className="absolute inset-0">
           <img
             src="https://res.cloudinary.com/djeorsh5d/image/upload/v1761804514/06f5adb8-b5f4-4516-ba21-82078fb4cb98.png"
-            alt="MarketGod Trading Academy"
+            alt="Marketgod Trading Academy"
             className="w-full h-full object-cover opacity-30"
             loading="lazy"
           />
@@ -63,7 +63,7 @@ export default function MarketGodContactHero() {
             whileInView={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-6xl font-bold text-mg-white mb-4"
           >
-            Contact <span className="text-mg-gold">MarketGod</span> Support
+            Contact <span className="text-mg-gold">Marketgod</span> Support
           </motion.h1>
 
           <motion.p
@@ -73,7 +73,7 @@ export default function MarketGodContactHero() {
             className="text-lg md:text-xl text-[#ffffffcc] mb-8 leading-relaxed max-w-3xl mx-auto"
           >
             Whether you're a trader, mentorship student, or signals member — the 
-            <strong className="text-mg-gold"> MarketGod Team</strong> is always ready to assist.
+            <strong className="text-mg-gold"> Marketgod Team</strong> is always ready to assist.
             <br />
             <span className="text-mg-gold">Fast replies </span>within 1–3 hours via Telegram, Call, or Support Ticket.
           </motion.p>
@@ -110,7 +110,7 @@ export default function MarketGodContactHero() {
                 className="flex items-center gap-3 px-8 py-4 bg-white text-black font-bold rounded-full shadow-xl hover:shadow-2xl hover:shadow-white/70 transition-all"
               >
                 <MessageSquare className="w-6 h-6" />
-                Contact MarketGod
+                Contact Marketgod
               </motion.button>
 
               <AnimatePresence>

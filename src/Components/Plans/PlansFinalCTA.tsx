@@ -36,7 +36,7 @@ const PlansFinalCTA: React.FC = () => {
           Ready to Transform Your Forex Journey?
         </h2>
         <p className="text-[1rem] md:text-xl max-w-2xl m-auto mb-8 text-white/90 text-center">
-          Join the MarketGod Mentorship and VIP Signals now. Learn, trade, and build
+          Join the Marketgod Mentorship and VIP Signals now. Learn, trade, and build
           your trading system with proven strategies.
         </p>
         <motion.button

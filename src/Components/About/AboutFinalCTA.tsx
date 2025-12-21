@@ -51,7 +51,7 @@ const FinalCTA = () => {
           transition={{ delay: 0.2, duration: 0.8 }}
           className={`text-xl md:text-2xl mb-12 ${isDark ? "text-mg-paper/80" : "text-mg-white/80"}`}
         >
-          Trade like a <span className="text-mg-gold font-bold underline decoration-mg-gold decoration-4">MarketGod</span> and join thousands of successful traders.
+          Trade like a <span className="text-mg-gold font-bold underline decoration-mg-gold decoration-4">Marketgod</span> and join thousands of successful traders.
         </motion.p>
 
         {/* CTA Button */}

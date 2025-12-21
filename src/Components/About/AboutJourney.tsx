@@ -217,7 +217,7 @@ const AboutJourney = () => {
             Your Journey Starts Now
           </h3>
           <p className={`mb-8 text-lg ${isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"}`}>
-            Join the <span className="text-mg-gold font-bold">MarketGod Academy</span> and start mastering the charts.
+            Join the <span className="text-mg-gold font-bold">Marketgod Academy</span> and start mastering the charts.
           </p>
 
           {/* CTA Button */}

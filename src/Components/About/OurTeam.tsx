@@ -195,7 +195,7 @@ const OurTeam: React.FC = () => {
               isDark ? "text-mg-paper/70" : "text-mg-charcoal/70"
             }`}
           >
-            The brains and mentors driving the MarketGod Academy.
+            The brains and mentors driving the Marketgod Academy.
           </p>
         </motion.div>
 

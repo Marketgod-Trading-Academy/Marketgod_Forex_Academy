@@ -5,7 +5,7 @@ import { useTheme } from "../../context/ThemeContext";
 import { Check } from "lucide-react";
 
 const highlights = [
-  "🎯 The Sniper MarketGod Strategy",
+  "🎯 The  Marketgod Strategy",
   "📊 How to Build A Personal Trading System From Scratch",
   "👨🏽‍💼 My Proven Risk Management Formula",
   "📚 Real-World Case Studies & Live Breakdowns",
@@ -56,7 +56,7 @@ const WhyThisCourse: React.FC = () => {
             }`}
           >
             This course is your fast track to mastering Forex trading the
-            MarketGod way — with systems, risk management and real breakdowns
+            Marketgod way — with systems, risk management and real breakdowns
             that create actual results.
           </p>
         </motion.div>

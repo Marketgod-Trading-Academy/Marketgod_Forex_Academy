@@ -46,7 +46,7 @@ const BlogPostPage: React.FC = () => {
               {post.title}
             </h1>
             <div className={`flex items-center space-x-4 text-sm ${isDark ? "text-mg-paper/60" : "text-mg-charcoal/60"}`}>
-              <span>By {post.author || "MarketGod"}</span>
+              <span>By {post.author || "Marketgod"}</span>
               <span>&bull;</span>
               <time dateTime={post.date}>{formatDate(post.date)}</time>
               <span>&bull;</span>

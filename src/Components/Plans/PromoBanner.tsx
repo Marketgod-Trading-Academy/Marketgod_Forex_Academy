@@ -21,7 +21,7 @@ const PromoBanner = () => {
         <div className="text-center">
           <h2 className={`text-2xl md:text-3xl font-black mb-3`}>
             <span className={isDark ? "text-mg-paper" : "text-mg-black"}>
-              Trade with <span className="text-mg-gold">MarketGod</span>
+              Trade with <span className="text-mg-gold">Marketgod</span>
             </span>
             <span className="block text-mg-gold">For <span className="underline decoration-mg-gold">FREE</span></span>
           </h2>

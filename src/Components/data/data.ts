@@ -83,7 +83,7 @@ Focus on taking the best trades at the best possible times. It's not about the n
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-author: "Eyram Dela(MarketGod)",
+author: "Eyram Dela(Marketgod)",
   date: "2024-01-27",
   platform: "youtube",
   image: "https://img.youtube.com/vi/dkzZAr64oW8/hqdefault.jpg",
@@ -128,7 +128,7 @@ This approach helps you gather precise data on what works, avoid low-quality set
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela(MarketGod)",
+  author: "Eyram Dela(Marketgod)",
   date: "2022-09-29",
   platform: "youtube",
   image: "https://img.youtube.com/vi/e3dinV9FiOM/hqdefault.jpg",
@@ -174,7 +174,7 @@ This video serves as a cautionary tale for traders evaluating prop firms, emphas
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela(MarketGod)",
+  author: "Eyram Dela(Marketgod)",
   date: "2023-09-25",
   platform: "youtube",
   image: "https://img.youtube.com/vi/LaGwSAdp7nk/hqdefault.jpg",
@@ -232,7 +232,7 @@ In this essential video, Eyram Dela emphasizes that trading success is 80% psych
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela(MarketGod)",
+  author: "Eyram Dela(Marketgod)",
   date: "2022-09-13",
   platform: "youtube",
   image: "https://img.youtube.com/vi/49k7iFSwl58/hqdefault.jpg",
@@ -282,7 +282,7 @@ This conversation is packed with gems for both new and experienced traders, high
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela(MarketGod)",
+  author: "Eyram Dela(Marketgod)",
   date: "2023-09-05",
   platform: "youtube",
   image: "https://img.youtube.com/vi/_Oo7Zo9WNdA/hqdefault.jpg",
@@ -346,7 +346,7 @@ The video concludes with a simple, effective strategy combining trend identifica
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela(MarketGod)",
+  author: "Eyram Dela(Marketgod)",
   date: "2023-08-10",
   platform: "youtube",
   image: "https://img.youtube.com/vi/TDDPHx9G8dQ/hqdefault.jpg",
@@ -362,11 +362,11 @@ The video concludes with a simple, effective strategy combining trend identifica
   id: 7,
   title: "Meet My Students in Takoradi | Real Forex Wins, Real People",
   category: "Community",
-  description: "Join Eyram Dela on the MarketGod Forex Tour in Takoradi. This video captures the energy of the live event and features real testimonials from students on their trading journey.",
+  description: "Join Eyram Dela on the Marketgod Forex Tour in Takoradi. This video captures the energy of the live event and features real testimonials from students on their trading journey.",
   fullText: `
-## The MarketGod Tour: Takoradi Highlights
+## The Marketgod Tour: Takoradi Highlights
 
-This video offers a behind-the-scenes look at the MarketGod Forex Tour stop in Takoradi, showcasing the mission to educate and inspire traders across Ghana. It captures the excitement of the event and the real-world impact of mentorship.
+This video offers a behind-the-scenes look at the Marketgod Forex Tour stop in Takoradi, showcasing the mission to educate and inspire traders across Ghana. It captures the excitement of the event and the real-world impact of mentorship.
 
 ### Key Themes & Takeaways:
 
@@ -374,7 +374,7 @@ This video offers a behind-the-scenes look at the MarketGod Forex Tour stop in T
 
 *   **Defining a Profitable Trader:** A profitable trader isn't someone who never loses. They are someone who consistently executes their strategy (their "edge") over time, ensuring their wins outweigh their losses in the long run.
 
-*   **The Power of Experience:** The journey to becoming a "MarketGod" took five years, but that experience is shared to shorten the learning curve for others. As Eyram states, "My experience is not your prophecy." With mentorship, a new trader's journey can be much faster.
+*   **The Power of Experience:** The journey to becoming a "Marketgod" took five years, but that experience is shared to shorten the learning curve for others. As Eyram states, "My experience is not your prophecy." With mentorship, a new trader's journey can be much faster.
 
 ### Student Testimonials
 
@@ -394,7 +394,7 @@ This event highlights the core message that with passion, consistency, and the r
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela(MarketGod)",
+  author: "Eyram Dela(Marketgod)",
   date: "2023-04-15",
   platform: "youtube",
   image: "https://img.youtube.com/vi/Wq7yXqwU6e8/hqdefault.jpg",
@@ -410,11 +410,11 @@ This event highlights the core message that with passion, consistency, and the r
   id: 8,
   title: "We Taught over 500 people How to Trade the Forex Markets in Ghana",
   category: "Community",
-  description: "Highlights from the first stop of the MarketGod Tour in Ho, Ghana, where over 500 aspiring traders gathered to learn about Forex, mentorship, and financial freedom.",
+  description: "Highlights from the first stop of the Marketgod ForexTour in Ho, Ghana, where over 500 aspiring traders gathered to learn about Forex, mentorship, and financial freedom.",
   fullText: `
-## The MarketGod Tour: Ho City Highlights
+## The Marketgod ForexTour: Ho City Highlights
 
-This video captures the energy and excitement of the first stop on the MarketGod Tour in Ho, Ghana. The mission was to demystify Forex trading and empower the youth of Africa with a skill that can lead to financial independence.
+This video captures the energy and excitement of the first stop on the Marketgod ForexTour in Ho, Ghana. The mission was to demystify Forex trading and empower the youth of Africa with a skill that can lead to financial independence.
 
 ### The Vision
 The tour was created to combat the stereotype that Africa is left behind in the global wealth transfer. It aims to position the youth to take advantage of the opportunities in the financial markets by providing accessible, high-quality education.
@@ -439,7 +439,7 @@ The event was praised for being inspiring and eye-opening, providing attendees w
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela(MarketGod)",
+  author: "Eyram Dela(Marketgod)",
   date: "2023-04-12",
   platform: "youtube",
   image: "https://img.youtube.com/vi/gtj-gYgf0Ls/hqdefault.jpg",
@@ -489,7 +489,7 @@ This video is a testament to the idea that your journey in trading is not just a
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela(MarketGod)",
+  author: "Eyram Dela(Marketgod)",
   date: "2022-11-26",
   platform: "youtube",
   image: "https://img.youtube.com/vi/GdvwFjctAu4/hqdefault.jpg",
@@ -538,7 +538,7 @@ This structured approach helps maintain discipline and keeps your trading decisi
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela(MarketGod)",
+  author: "Eyram Dela(Marketgod)",
   date: "2024-04-22",
   platform: "youtube",
   image: "https://img.youtube.com/vi/EsQT8aHKR-k/hqdefault.jpg",
@@ -584,7 +584,7 @@ By using this rule, you can avoid being trapped in false breakouts and instead p
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela(MarketGod)",
+  author: "Eyram Dela(Marketgod)",
   date: "2024-05-30",
   platform: "youtube",
   image: "https://img.youtube.com/vi/Bjbml8VH07o/hqdefault.jpg",
@@ -624,7 +624,7 @@ Don't miss this opportunity to invest in your trading education and secure your 
 *   **Telegram Channel:** https://t.me/marketgodcommunity
 *   **Prop Firm (Funding Pips):** https://app.fundingpips.com/register?...
 `,
-  author: "Eyram Dela(MarketGod)",
+  author: "Eyram Dela(Marketgod)",
   date: "2024-06-10",
   platform: "telegram",
   image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/mentorhip_card_ynedl1.jpg?auto=format&fit=crop&w=800&q=80", // Placeholder image
@@ -638,7 +638,7 @@ Don't miss this opportunity to invest in your trading education and secure your 
 },
 {
   id: 12,
-  title: "A Tribute to Motherly Love: The Fuel Behind MarketGod",
+  title: "A Tribute to Motherly Love: The Fuel Behind Marketgod",
   category: "Mindset",
   description: "A heartfelt tribute to his mother on her 60th birthday, highlighting her love as the fuel that enables a normal human being to do the impossible.",
   fullText: `
@@ -648,7 +648,7 @@ In this personal post, Eyram Dela shares a powerful message about the source of 
 
 This tribute highlights the human side of a trader's journey and the importance of acknowledging the people who make it all possible.
 `,
-  author: "Eyram Dela(MarketGod)",
+  author: "Eyram Dela(Marketgod)",
   date: "2022-12-28",
   platform: "instagram",
   image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763532513/SnapInsta.to_321797694_856108169002885_9045583581530635678_n_px3ggb.jpg", // Placeholder image
@@ -676,7 +676,7 @@ When major assets like Gold hit all-time highs, volatility can be your best frie
 *   **What to Look For:** A reliable broker maintains stable, low spreads even during peak market events. This demonstrates robust liquidity and a commitment to fair trading conditions.
 *   **What to Expect:** By choosing a broker with better spread management, you can trade with more confidence during volatile periods, knowing that your execution costs are controlled and your profits are better protected.
 `,
-  author: "Eyram Dela(MarketGod)",
+  author: "Eyram Dela(Marketgod)",
   date: "2017-11-07",
   platform: "instagram",
   image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/SnapInsta.to_285991748_3240193386223050_1023995396682830775_n_j2rm79.jpg", // Placeholder image
@@ -690,13 +690,13 @@ When major assets like Gold hit all-time highs, volatility can be your best frie
 },
 {
   id: 14,
-  title: "Breaking Stereotypes: The MarketGod Tour in Ho",
+  title: "Breaking Stereotypes: The Marketgod Tour in Ho",
   category: "Community",
-  description: "Announcing the MarketGod Tour stop in Ho, Ghana, with a mission to empower the youth of Africa with the knowledge of 'new money' through Forex trading.",
+  description: "Announcing the Marketgod Tour stop in Ho, Ghana, with a mission to empower the youth of Africa with the knowledge of 'new money' through Forex trading.",
   fullText: `
 > Super excited to be positioned to break the stereotypes. It’s about time we position the youth of Africa, especially sub Saharan Africa into the new era of “new money” if you’re in the city of Ho meet me tomorrow the 25/01/2025 @ Sky plus Hotel.
 
-This post captures the excitement and mission behind the MarketGod Tour, shared from a radio interview at Swiss FM.
+This post captures the excitement and mission behind the Marketgod Tour, shared from a radio interview at Swiss FM.
 
 ### The Mission:
 
@@ -704,7 +704,7 @@ The goal is to break stereotypes and empower the youth of Africa by introducing 
 
 This event is a call to action for aspiring traders to learn, connect, and position themselves for financial independence.
 `,
-  author: "Eyram Dela(MarketGod)",
+  author: "Eyram Dela(Marketgod)",
   date: "2023-01-24",
   platform: "instagram",
   image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522356/SnapInsta.to_474859260_18484062667003421_7213063944480426565_n_t6f0nh.jpg", // Placeholder image
@@ -737,7 +737,7 @@ Once we hit 1,000 members, we’re dedicating a full LIVE TRADING DAY just for t
 
 Let’s go, family — this is your time! 💪✨
 `,
-  author: "Eyram Dela(MarketGod)",
+  author: "Eyram Dela(Marketgod)",
   date: "2025-11-14",
   platform: "telegram",
   image: "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?auto=format&fit=crop&w=800&q=80", // Placeholder image
@@ -768,7 +768,7 @@ This post celebrates the success of a community member, Kenzie, who turned a pro
 *   **Value of Knowledge:** Specialized, hard-won knowledge (especially on Gold) has immense value and is a premium offering.
 *   **Upcoming Ebook:** An ebook focused on strategies for flipping small accounts is in the works, aimed at helping traders with smaller capital.
 `,
-  author: "Eyram Dela(MarketGod)",
+  author: "Eyram Dela(Marketgod)",
   date: "2024-02-15",
   platform: "telegram",
   image: "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?auto=format&fit=crop&w=800&q=80", // Placeholder image
