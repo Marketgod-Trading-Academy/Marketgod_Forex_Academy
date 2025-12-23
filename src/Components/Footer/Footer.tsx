@@ -32,7 +32,7 @@ const Footer = () => {
     { Icon: Twitter, href: "https://x.com/eyramdela", label: "X (Twitter)" },
     { Icon: Youtube, href: "https://www.youtube.com/@marketgodcommunity", label: "YouTube" },
     { Icon: Send, href: "https://t.me/marketgodcommunity", label: "Telegram" },
-    { Icon: LucideFacebook, href: "https://web.facebook.com/eyram.akpey", label: "Facebook" },
+    { Icon: LucideFacebook, href: "https://www.facebook.com/share/1E24KkebYt/?mibextid=wwXIfr", label: "Facebook" },
     { Icon: TikTokIcon, href: "https://www.tiktok.com/@eyramdela_?_r=1&_t=ZM-9229kTUvSTT", label: "Tictok" },
    
   ];

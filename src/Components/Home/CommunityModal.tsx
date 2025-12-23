@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Instagram, Send, Twitter, X, Youtube } from "lucide-react";
+import { Facebook, Instagram, Send, Twitter, X, Youtube } from "lucide-react";
 
 type LinkItem = { name: string; href: string; icon: React.ReactNode; subtitle?: string; };
 
@@ -15,6 +15,7 @@ const links: LinkItem[] =  [
       { name: "Instagram", href: "https://www.instagram.com/eyram_dela", icon: <Instagram /> },
       { name: "YouTube", href: "https://www.youtube.com/@marketgodcommunity", icon: <Youtube /> },
       { name: "Twitter (X)", href: "https://x.com/eyramdela ", icon: <Twitter /> },
+      { name: "Facebook", href: "https://web.facebook.com/eyram.akpey", icon: <Facebook /> },
       { name: "TikTok", href: "https://www.tiktok.com/@eyramdela_?_r=1&_t=ZM-9229kTUvSTT", icon: <TikTokIcon  className={`w-7 h-7 `} /> },
 ];
 

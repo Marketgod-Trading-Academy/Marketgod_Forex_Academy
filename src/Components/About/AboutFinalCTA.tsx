@@ -11,7 +11,7 @@ const FinalCTA = () => {
   const socials = [
     { name: "Twitter", icon: <Twitter  className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, link: "https://x.com/eyramdela" },
     { name: "Instagram", icon: <Instagram  className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, link: "https://www.instagram.com/eyram_dela" },
-    { name: "Facebook", icon: <Facebook  className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`}/>, link: "https://web.facebook.com/eyram.akpey" },
+    { name: "Facebook", icon: <Facebook  className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`}/>, link: "https://www.facebook.com/share/1E24KkebYt/?mibextid=wwXIfr" },
     { name: "YouTube", icon: <Youtube  className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, link: "https://www.youtube.com/@marketgodcommunity" },
     { name: "TikTok", icon: <TikTokIcon className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`}/>, link: "https://www.tiktok.com/@eyramdela_?_r=1&_t=ZM-9229kTUvSTT" },
     { name: "Telegram", icon: <Send  className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`}/>, link: "https://t.me/marketgodcommunity" },

@@ -4,7 +4,7 @@ import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { OrbitControls, Stars, Billboard, Text } from "@react-three/drei";
 import { motion } from "framer-motion";
 import CommunityModal from "./CommunityModal";
-import { Instagram, Youtube, Send, Twitter } from "lucide-react";
+import { Instagram, Youtube, Send, Twitter, Facebook } from "lucide-react";
 import * as THREE from "three";
 import MarketGodStars from "./MarketGodStars";
 import { useTheme } from "../../context/ThemeContext";
@@ -112,6 +112,7 @@ const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
       { name: "YouTube", href: "https://www.youtube.com/@marketgodcommunity", icon: <Youtube /> },
       { name: "Twitter (X)", href: "https://x.com/eyramdela ", icon: <Twitter /> },
       { name: "TikTok", href: "https://www.tiktok.com/@eyramdela_", icon: <TikTokIcon /> },
+      { name: "Facebook", href: "https://www.facebook.com/share/1E24KkebYt/?mibextid=wwXIfr", icon: <Facebook /> },
 
     ],
     []
