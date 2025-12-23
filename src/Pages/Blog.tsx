@@ -97,8 +97,6 @@ const Blog: React.FC = () => {
   }`} />
 </section>
 
-      <div className="max-w-7xl mx-auto md:px-2 space-y-16">
-        {/* Featured Academy */}
         <FeaturedResource
           resource={{
             title: "Mentorship Slots Are Open! Lock In With Eyram Dela",
@@ -107,16 +105,18 @@ const Blog: React.FC = () => {
             link: "https://t.me/delatrades",
           }}
         />
+      <div className="max-w-7xl mx-auto md:px-2 space-y-16">
+        {/* Featured Academy */}
 
         {/* Filter + Search */}
 
-        <div className="">
+        <div className=" ">
          
                 <div className={`${
       isDark 
         ? "bg-gradient-to-b from-mg-black via-mg-charcoal to-mg-black text-mg-paper" 
-        : "bg-gradient-to-b from-white via-gray-50 to-white text-mg-charcoal z-50"}
-     sticky top-16 md:pt-5  w-full `}>
+        : "bg-gradient-to-b from-white via-gray-50 to-white text-mg-charcoal"}
+     sticky top-[4.5rem] md:top-[4rem] md:pt-5  w-full z-40`}>
                   <div
                   className={`hidden md:flex items-center justify-center gap-2 text-sm font-medium mb-4 ${
                     isDark ? "text-mg-paper/60" : "text-mg-charcoal/60"
@@ -125,7 +125,7 @@ const Blog: React.FC = () => {
                   <Filter size={18} className="text-mg-green" />
                   <span>Filter by Category</span>
                 </div>
-       <div className="grid md:grid-flow-col  items-cente  ">
+       <div className="grid md:grid-flow-col  items-cente  z-50  ">
          
           <ResourceFilter 
             selectedCategory={selectedCategory} 
