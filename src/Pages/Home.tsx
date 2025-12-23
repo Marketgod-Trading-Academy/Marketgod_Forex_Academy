@@ -71,7 +71,6 @@ const Home = () => {
 
       {/* Sections */}
       <div id="hero"><Hero /></div>
-      <div id="quiz"><Quiz /></div>
       
       <div id="seminar-highlight"><SeminarHighlight /></div>
 
@@ -82,6 +81,7 @@ const Home = () => {
       <div id="why-marketgod"><WhyMarketGod /></div>
       <div id="webinars"><Webinars /></div>
       <div id="mentorship"><WhyMentorshipMatters /></div>
+      <div id="quiz"><Quiz /></div>
       <div id="plans"><Plans /></div>
       <div id="exness"><ExnessPartner /></div>
       <div id="testimonials"><Testimonials /></div>

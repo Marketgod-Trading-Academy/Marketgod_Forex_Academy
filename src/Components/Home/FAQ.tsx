@@ -16,7 +16,7 @@ const faqs: FAQItem[] = [
   {
     question: "What is Marketgod Academy?",
     answer:
-      "Marketgod Academy is a trading mentorship platform focused on price action and institutional order flow for African traders.",
+      "Marketgod Academy is a trading mentorship platform focused on price action and institutional order flow for traders worldwide.",
   },
   {
     question: "Do I need prior trading experience?",

@@ -131,6 +131,10 @@ const PricingPlans = () => {
               </span>
             </div>
 
+            <p className={`mt-4 text-lg relative z-10 ${isDark ? "text-mg-paper/80" : "text-mg-charcoal/80"}`}>
+              A complete roadmap to trading mastery. This mentorship covers everything from foundational concepts to advanced institutional strategies.
+            </p>
+
             <h4 className="mt-8 mb-4 font-bold text-lg text-mg-gold uppercase tracking-wide relative z-10">
               What you will get:
             </h4>
