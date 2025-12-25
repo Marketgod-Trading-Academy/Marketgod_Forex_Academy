@@ -52,7 +52,7 @@ const AboutStats = () => {
     { name: "Telegram", icon: <Send className="w-7 h-7 text-cyan-500" />, followers: 13000, link: "https://t.me/marketgodcommunity" },
     { name: "TikTok", icon: <TikTokIcon className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 10000, link: "https://www.tiktok.com/@eyramdela_?_r=1&_t=ZM-9229kTUvSTT" },
     { name: "X (Twitter)", icon: <Twitter className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 5200, link: "https://x.com/eyramdela" },
-    { name: "Facebook", icon: <FacebookIcon className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 5200, link: "https://www.facebook.com/share/1E24KkebYt/?mibextid=wwXIfr" },
+    { name: "Facebook", icon: <FacebookIcon className={`w-7 h-7 ${isDark ? 'text-white' : 'text-black'}`} />, followers: 2000, link: "https://www.facebook.com/share/1E24KkebYt/?mibextid=wwXIfr" },
   ];
 
   return (

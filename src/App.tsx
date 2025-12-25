@@ -20,6 +20,7 @@ import { SEOData } from "./Components/SEO/SEOData";
 import BlogPostPage from "./Components/Blog/BlogPostPage";
 import { getBlogSEO } from "./Components/SEO/SEOData";
 import SEO from "./Components/SEO/SEO";
+import FacebookPixel from "./Components/SEO/FacebookPixel";
 
 
 
@@ -48,6 +49,7 @@ const AppContent = () => {
 
   return (
     <div className={`min-h-screen flex flex-col ${theme === "light" ? "bg-mg-light-b" : "bg-mg-dark-bg"}`}>
+      <FacebookPixel />
       <SEO {...seo} />
       <Header />
       <main className="flex-1 ">

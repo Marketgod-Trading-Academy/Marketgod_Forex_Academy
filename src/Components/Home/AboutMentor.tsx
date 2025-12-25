@@ -160,9 +160,10 @@ const AboutMentor = () => {
             <h3 className="text-2xl font-bold text-mg-light-text dark:text-mg-dark-text">
               Our Mission
             </h3>
-            <p className="text-lg text-mg-light-text dark:text-mg-dark-text">
-              To bridge the gap between African ambition and global markets. We equip traders in Ghana and across the continent with timeless skills — price action, risk management, and psychological discipline — to achieve financial independence through real trading.
-            </p>
+           <p className="text-lg text-mg-light-text dark:text-mg-dark-text">
+  Our mission is to connect ambition with global financial markets. We provide traders worldwide with a structured, skill-based education grounded in price action, risk management, and psychological discipline, supporting sustainable participation and long-term financial independence through real trading.
+</p>
+
             <div className="flex justify-center">
               <div className="w-24 h-1 bg-mg-gold"></div>
             </div>

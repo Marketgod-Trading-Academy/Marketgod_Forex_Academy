@@ -54,7 +54,7 @@ const SeminarCarousel = () => {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-4 text-mg-light-text dark:text-mg-dark-text">
-            Seminar Highlights – <span className="text-mg-gold">Accra 2024</span>
+            Seminar Highlights – <span className="text-mg-gold">Accra 2025</span>
           </h2>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto text-mg-light-textSecondary dark:text-mg-dark-textSecondary">
             Relive the biggest Forex event in Ghana — live trading, expert insights, and Exness magic.

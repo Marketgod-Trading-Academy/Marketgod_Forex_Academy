@@ -26,7 +26,7 @@ const FAQCTA = () => {
         <p className={`text-sm md:text-base ${
           theme === "light" ? "text-mg-light-textSecondary" : "text-mg-dark-textSecondary"
         }`}>
-          Reach out to our team or connect with the MarketGod Academy community on social media.
+          Reach out to our team or connect with the Marketgod Academy community on social media.
         </p>
 
         <motion.a

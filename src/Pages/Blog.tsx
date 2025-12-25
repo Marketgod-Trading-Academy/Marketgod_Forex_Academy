@@ -10,7 +10,7 @@ import Testimonials from "../Components/Home/Testimonials";
 import FAQ from "../Components/Home/FAQ";
 import { resources } from "../Components/data/data";
 
-const Blog: React.FC = () => {
+const  Blog: React.FC = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
   const [selectedCategory, setSelectedCategory] = useState("All");
