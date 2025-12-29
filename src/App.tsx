@@ -1,10 +1,7 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useTheme } from "./context/ThemeContext";
 import Header from "./Components/Header/Header";
 import AnnouncementPopup from "./Components/Plans/AnnouncementPopup";
-
-
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // COMPONENTS
 import Footer from "./Components/Footer/Footer";

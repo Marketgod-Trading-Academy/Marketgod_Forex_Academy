@@ -1,6 +1,7 @@
 // Eugene Afriyie UEB3502023
 // src/components/HeroCarousel/HeroCarousel.tsx
 import React, { useEffect, useRef, useState } from "react";
+// Eugene Afriyie UEB3502023
 import {
   motion,
   AnimatePresence,
@@ -12,7 +13,6 @@ import {
   ArrowRight,
   ChevronLeft,
   ChevronRight,
-  Globe,
   Clock,
 } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
@@ -69,6 +69,79 @@ const slides: Slide[] = [
 
 const AUTOPLAY_MS = 7000;
 const DRAG_THRESHOLD = 80;
+
+
+
+const getMarketSession = (hour: number) => {
+  if (hour >= 0 && hour < 7) return "Asia Session";
+  if (hour >= 7 && hour < 16) return "London Session";
+  if (hour >= 13 && hour < 21) return "New York Session";
+  return "Off Session";
+};
+
+const LiveMarketTime = () => {
+  const [time, setTime] = useState("");
+  const [session, setSession] = useState("");
+  const [isOpen, setIsOpen] = useState(true);
+
+  useEffect(() => {
+    const update = () => {
+      const now = new Date();
+      const utc = new Date(now.toISOString());
+      const hour = utc.getUTCHours();
+      const day = utc.getUTCDay();
+
+      setTime(
+        utc.toLocaleTimeString("en-GB", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        })
+      );
+
+      setSession(getMarketSession(hour));
+      setIsOpen(day !== 0 && day !== 6);
+    };
+
+    update();
+    const interval = setInterval(update, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div
+      className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-wide backdrop-blur-lg ring-1
+        ${
+          isOpen
+            ? "bg-black/30 text-white ring-white/10"
+            : "bg-black/20 text-white/50 ring-white/5 grayscale"
+        }`}
+    >
+      <span className={isOpen ? "text-green-400" : "text-red-400"}>
+        {isOpen ? "Market Open" : "Market Closed"}
+      </span>
+
+      <span className="text-white/30">•</span>
+
+      <span className="text-white/80">{session}</span>
+
+      <span className="text-white/30">•</span>
+
+      <Clock size={14} className="text-mg-gold" />
+
+      <time className="tabular-nums font-semibold">
+        {time || "--:--:--"}
+      </time>
+
+      <span className="text-[10px] px-1.5 py-0.5 rounded bg-white/10 text-white/60">
+        GMT
+      </span>
+    </div>
+  );
+};
+
+
+
 
 const HeroCarousel: React.FC = () => {
   const { theme } = useTheme();
@@ -222,9 +295,7 @@ const HeroCarousel: React.FC = () => {
             className="space-y-6"
           >
             {/* label bar */}
-            <div className="inline-flex items-center gap-3 bg-white/6 backdrop-blur px-4 py-2 rounded-full text-xs text-white/90 uppercase tracking-wider">
-              <Globe size={14} /> GMT <Clock size={14} className="animate-pulse" />
-            </div>
+            <LiveMarketTime />
 
             {/* headline */}
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white drop-shadow-lg">
