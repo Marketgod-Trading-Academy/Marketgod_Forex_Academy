@@ -188,7 +188,7 @@ const Header = () => {
                   `}
                 >
                   <motion.span
-                    whileHover={{ y: -4, scale: 1.08, x: 2, color: "#D4AF37", transition: { type: "spring", stiffness: 400 } }}
+                    whileHover={{ y: -4, scale: 1.08, x: 2, transition: { type: "spring", stiffness: 400 } }}
                     className="inline-block"
                   >
                     {link.name}
