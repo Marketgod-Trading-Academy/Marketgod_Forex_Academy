@@ -1,73 +1,88 @@
-# React + TypeScript + Vite
+# MarketGod Forex Academy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**MarketGod Academy** is a comprehensive platform dedicated to Forex trading education, providing live trading signals, mentorship, and VIP access to proven strategies. The application is built with modern web technologies to ensure high performance, SEO optimization, and a seamless user experience.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Educational Platform**: Access to trading courses and mentorship programs.
+- **Trading Signals**: Real-time updates for VIP members.
+- **Dark Mode Support**: Automatically detects system preference or user selection (persisted via `localStorage`).
+- **SEO Optimized**:
+  - Fully configured Meta tags for Google Search.
+  - Open Graph (OG) tags for beautiful link previews on Facebook/WhatsApp.
+  - Twitter Card integration.
+  - `sitemap.xml` and `robots.txt` for search engine indexing.
+- **Analytics**: Integrated Facebook Pixel for conversion tracking.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React with TypeScript
+- **Build Tool**: Vite
+- **Styling**: CSS / Tailwind CSS (implied by dark mode logic)
+- **Hosting**: Firebase Hosting (implied by `web.app` domain) / Custom Domain
 
-## Expanding the ESLint configuration
+## 📦 Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Before you begin, ensure you have the following installed:
+- Node.js (v16 or higher recommended)
+- npm or yarn
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 💻 Installation & Setup
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/marketgod-forex-academy.git
+   cd marketgod-forex-academy
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+   Open your browser and navigate to `http://localhost:5173` (or the port shown in your terminal).
+
+## 🏗️ Building for Production
+
+To create an optimized production build:
+
+```bash
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The output will be generated in the `dist/` folder, ready for deployment.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🔍 SEO & Metadata
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+The project includes a robust SEO setup located in `index.html` and `public/`.
+
+- **Sitemap**: Located at `/sitemap.xml`.
+- **Robots**: Configured in `public/robots.txt` to allow crawling and point to the sitemap.
+- **Verification**: Google Site Verification is implemented for Search Console.
+
+### Updating Meta Tags
+To update how the site looks when shared on social media, edit the `<head>` section in `index.html`:
+
+```html
+<meta property="og:title" content="Your New Title" />
+<meta property="og:description" content="Your New Description" />
+<meta property="og:image" content="URL_TO_YOUR_IMAGE" />
 ```
+
+## 🤝 Contributing
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
