@@ -1,4 +1,3 @@
-// src/components/Plans/Signals.tsx
 import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { Signal, Zap, AlertTriangle, ArrowRight, X, Send } from "lucide-react";

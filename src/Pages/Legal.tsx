@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useTheme } from "../../context/ThemeContext";
+import { useTheme } from "../context/ThemeContext";
 
 const Legal = () => {
   const { hash } = useLocation();

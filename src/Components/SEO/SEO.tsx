@@ -1,4 +1,3 @@
-// src/Components/Shared/SEO.tsx
 import React from "react";
 
 interface SEOProps {

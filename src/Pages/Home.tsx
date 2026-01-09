@@ -59,10 +59,7 @@ const Home = () => {
      
     <div className={`min-h-screen transition-colors duration-300 ${theme === "light" ? "bg-mg-light-bg" : "bg-mg-dark-bg"}`}>
       
-      {/* Section Navigation */}
-        {/* Section Navigation */}
-       
-  
+      {/* Section Navigation */}     
 
         {/* Mobile Dropdown Nav */}
         <div className=" sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-md">

@@ -1,5 +1,3 @@
-// Eugene Afriyie UEB3502023
-// src/components/Footer/Footer.tsx
 import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import './Footer.css';
@@ -210,7 +208,7 @@ const Footer = () => {
                 <div className="text-center md:text-right">
                   <p className="text-mg-dark-textSecondary font-semibold ">Site proudly crafted & designed by</p>
                   <a href="https://wa.me/233551217385" target="_blank" rel="noopener noreferrer" className="text-mg-gold font-bold text-[.5rem] tracking-wider hover:underline">Eugene Afriyie</a>
-                  {/* <p className="text-xs text-mg-dark-textSecondary">Web Developer • Student • Beginner Trader</p> */}
+              
                 </div>
               </div>
             </div>

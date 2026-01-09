@@ -1,6 +1,3 @@
-// Eugene Afriyie UEB3502023
-// src/components/HeroCarousel/HeroCarousel.tsx
-
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence, wrap } from "framer-motion";
 import { BookOpen, TrendingUp, Zap, UserCheck, PlayCircle, Rocket } from "lucide-react";

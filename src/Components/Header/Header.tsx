@@ -14,7 +14,7 @@ const TypewriterText: React.FC = () => {
   const [loop, setLoop] = useState(0);
 
   const phrases = [
-    { h1: "Marketgod", p: "Academy" }, // Keep this as the first phrase
+    { h1: "Marketgod", p: "Academy" }, 
     { h1: "Marketgod", p: "Where Markets Meets Mastery" },
   ];
 

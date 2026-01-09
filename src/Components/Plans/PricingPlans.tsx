@@ -1,4 +1,3 @@
-// src/Components/Plans/SniperMentorship.tsx
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import { Check, Send } from "lucide-react";

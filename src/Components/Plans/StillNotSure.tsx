@@ -1,4 +1,3 @@
-// src/components/StillNotSurePremium.tsx
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle } from "lucide-react";

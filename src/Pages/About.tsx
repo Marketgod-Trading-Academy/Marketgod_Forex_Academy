@@ -7,7 +7,6 @@ import AboutStats from "../Components/About/AboutStats";
 import AboutJourney from "../Components/About/AboutJourney";
 import AboutMentor from "../Components/Home/AboutMentor";
 import AboutValues from "../Components/About/AboutValues";
-// import OurTeam from "../Components/About/OurTeam";
 import FeaturedIn from "../Components/About/FeaturedIn";
 import FinalCTA from "../Components/About/AboutFinalCTA";
 import Testimonials from "../Components/Home/Testimonials";

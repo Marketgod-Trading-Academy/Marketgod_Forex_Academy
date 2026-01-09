@@ -1,5 +1,3 @@
-// src/SEOData.ts
-
 const ogImg = "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763578745/Black_White_Gradient_Digital_Marketing_Instagram_Post_f2zh1x.png"
 
 interface SEOInfo {

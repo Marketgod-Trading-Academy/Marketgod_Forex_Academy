@@ -1,4 +1,3 @@
-// src/components/Quiz/Quiz.tsx
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";

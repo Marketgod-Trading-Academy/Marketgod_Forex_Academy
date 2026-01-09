@@ -1,4 +1,3 @@
-// src/components/MobileMenuDrawer/MobileMenuDrawer.tsx
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronRight, Instagram, Send, MessageCircle, Facebook, Mail } from "lucide-react";

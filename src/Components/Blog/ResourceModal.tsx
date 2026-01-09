@@ -631,9 +631,3 @@ const StructuredData = ({ resource }: { resource: Resource }) => {
 }
 
 
-
-
-
-
-
-// q/

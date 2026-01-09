@@ -8,7 +8,7 @@ interface SearchInputProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   className?: string; // optional extra classes
-  width?: string; // optional width, e.g., "w-full", "md:w-80"
+  width?: string; // optional width class
 }
 
 const SearchInput: React.FC<SearchInputProps> = ({

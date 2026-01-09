@@ -21,7 +21,7 @@ interface SupportTicketProps {
    ------------------------------------------------- */
 const DEFAULT_CONFIG = {
   serviceId: "service_dn1tgt5",
-  templateId: "template_5xoflno",      // ADMIN: To Email = support@roadmoneyacademy.com
+  templateId: "template_5xoflno",      // ADMIN: To Email = support@marketgodacademy.com
   userTemplateId: "template_xl2wqxw",  // USER:  To Email = {{email}}
   publicKey: "90H-S_Yy2-bFrluTr",
 };
@@ -204,11 +204,11 @@ export default function MarketGodSupportTicketModal({
       date,
       time,
       current_year,
-      ticket_url: `https://roadmoneyacademy.com/ticket/${newId}`,
+      ticket_url: `https://marketgodacademy.com/ticket/${newId}`,
     };
 
     try {
-      // 1. ADMIN EMAIL (To: support@roadmoneyacademy.com)
+      // 1. ADMIN EMAIL (To: support@marketgodacademy.com)
       await emailjs.send(
         emailjsConfig.serviceId,
         emailjsConfig.templateId,

@@ -18,7 +18,7 @@ import BlogPostPage from "./Components/Blog/BlogPostPage";
 import { getBlogSEO } from "./Components/SEO/SEOData";
 import SEO from "./Components/SEO/SEO";
 import FacebookPixel from "./Components/SEO/FacebookPixel";
-import Legal from "./Components/Footer/Legal";
+import Legal from "./Pages/Legal";
 
 
 

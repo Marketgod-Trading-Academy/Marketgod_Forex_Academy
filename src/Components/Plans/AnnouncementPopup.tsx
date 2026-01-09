@@ -1,4 +1,3 @@
-// src/components/Shared/AnnouncementPopup.tsx
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Zap } from 'lucide-react';

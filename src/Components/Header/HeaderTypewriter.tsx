@@ -1,6 +1,3 @@
-// Eugene Afriyie UEB3502023
-// Ultra‑Premium Typewriter Animation — Slow Cinematic Timing + Cursor + Glow + Responsive
-
 import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
