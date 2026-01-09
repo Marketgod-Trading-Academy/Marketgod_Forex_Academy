@@ -18,6 +18,7 @@ import BlogPostPage from "./Components/Blog/BlogPostPage";
 import { getBlogSEO } from "./Components/SEO/SEOData";
 import SEO from "./Components/SEO/SEO";
 import FacebookPixel from "./Components/SEO/FacebookPixel";
+import Legal from "./Components/Footer/Legal";
 
 
 
@@ -67,6 +68,9 @@ const AppContent = () => {
 
           {/* CONTACT */}
           <Route path="/contact" element={<Contact />} />
+
+          {/* LEGAL */}
+          <Route path="/legal" element={<Legal />} />
 
           {/* 404 */}
           <Route path="*" element={<NotFound />} />

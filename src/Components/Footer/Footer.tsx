@@ -203,13 +203,13 @@ const Footer = () => {
               </div>
               <div className="flex flex-col items-center md:items-end gap-4">
                 <div className="flex gap-4 text-xs">
-                  <a href="#terms" className="hover:text-mg-gold transition">Terms of Service</a>
-                  <a href="#privacy" className="hover:text-mg-gold transition">Privacy Policy</a>
-                  <a href="#disclaimer" className="hover:text-mg-gold transition">Risk Disclaimer</a>
+                  <a href="/legal#terms" className="hover:text-mg-gold transition">Terms of Service</a>
+                  <a href="/legal#privacy" className="hover:text-mg-gold transition">Privacy Policy</a>
+                  <a href="/legal#disclaimer" className="hover:text-mg-gold transition">Risk Disclaimer</a>
                 </div>
                 <div className="text-center md:text-right">
                   <p className="text-mg-dark-textSecondary font-semibold ">Site proudly crafted & designed by</p>
-                  <p className="text-mg-gold font-bold text-[.5rem] tracking-wider">Eugene Afriyie</p>
+                  <a href="https://wa.me/233551217385" target="_blank" rel="noopener noreferrer" className="text-mg-gold font-bold text-[.5rem] tracking-wider hover:underline">Eugene Afriyie</a>
                   {/* <p className="text-xs text-mg-dark-textSecondary">Web Developer • Student • Beginner Trader</p> */}
                 </div>
               </div>
