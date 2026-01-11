@@ -30,18 +30,7 @@ const SeminarCarousel = () => {
   const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % media.length);
   const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + media.length) % media.length);
 
-  // Speaker Data
-  const speakers = [
-    { name: "Eyram Dela", avatar: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522351/SnapInsta.to_320260939_5672262492849628_1617341641572155430_n_ruuewh.jpg" },
-    { name: "Freeman Forex", avatar: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763524386/SnapInsta.to_574035044_18199291999320144_2690177713676601397_n_mpnj3u.jpg" },
-    { name: "Coffie FX", avatar: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1762302725/SnapInsta.to_566350257_18076755302161244_5110453254266395074_n_ttu6vw.jpg" },
-    { name: "Cwesi4rex", avatar: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763524387/SnapInsta.to_486789163_18453841771079946_2830125092578146791_n_yyzbbv.jpg" },
-    { name: "Stanley Forex", avatar: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763524385/SnapInsta.to_363418876_18279355348179504_5968346792387616560_n_xlzxuy.jpg" },
-   
-    { name: "Kommon Forex", avatar: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763524385/SnapInsta.to_574230747_18101788825632546_3954020213374966873_n_elos1b.jpg" },
-    { name: "Rick FX", avatar: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763524385/SnapInsta.to_461250841_1225534388640246_7146829018733467744_n_omytpf.jpg" },
-  ];
-
+ 
   return (
     <section id="seminar-carousel" className="py-20 relative overflow-hidden">
 
