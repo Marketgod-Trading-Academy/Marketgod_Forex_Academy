@@ -16,7 +16,7 @@ const faqs: FAQItem[] = [
   {
     question: "What is Marketgod Academy?",
     answer:
-      "Marketgod Academy is a trading mentorship platform focused on price action and institutional order flow for traders worldwide.",
+      "Marketgod Academy is a trading mentorship platform focused on price action and institutional order flow. We prioritize pure market analysis—no AI, no bots, just discipline and results.",
   },
   {
     question: "Do I need prior trading experience?",
@@ -74,7 +74,7 @@ const FAQ: React.FC = () => {
               theme === "light" ? "text-mg-light-text" : "text-mg-white"
             }`}
           >
-            Frequently Asked Questions
+            Frequently Asked <span className="text-mg-gold">Questions</span>
           </h2>
           <p
             className={`text-lg md:text-xl mb-8 text-center lg:text-left ${
@@ -160,7 +160,7 @@ const FAQ: React.FC = () => {
               href="https://t.me/marketgodcommunity"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 px-8 py-4 dark:bg-mg-white bg-mg-black text-mg-white dark:text-mg-black rounded-full font-bold  tracking-wide shadow-xl"
+              className="inline-flex items-center gap-3 px-8 py-4 dark:bg-mg-white bg-mg-black text-mg-white dark:text-mg-black rounded-full font-bold tracking-wide shadow-xl hover:shadow-gold-glow transition-shadow duration-300"
             >
               Join Marketgod Community
               <TrendingUp size={20} />
