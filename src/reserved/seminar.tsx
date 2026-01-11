@@ -128,7 +128,46 @@ const SeminarCarousel = () => {
           </button>
         </div>
 
-     
+        {/* Speakers Gallery with HOVER/TOUCH TO REVEAL NAME */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+          className="text-center mt-16"
+        >
+          <h3 className="text-2xl font-bold mb-8 text-mg-light-text dark:text-mg-dark-text">
+            Featuring Top Ghanaian Experts
+          </h3>
+          <div className="grid grid-cols-8 sm:grid-cols-6 md:grid-cols-8 gap-4 sm:gap-6">
+            {speakers.map((speaker, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group relative cursor-pointer"
+              >
+                {/* Avatar */}
+                <div className="relative w-full aspect-square">
+                  <img
+                    src={speaker.avatar}
+                    alt={speaker.name}
+                    className="w-full h-full rounded-full object-cover border-2 border-mg-gold shadow-lg group-hover:shadow-gold-glow transition-all duration-300"
+                  />
+
+                  {/* Name Overlay — HOVER/TOUCH */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent rounded-full opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-2">
+                    <p className="text-white text-xs sm:text-sm font-bold tracking-wide px-2 text-center">
+                      {speaker.name}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* CTA */}
         <motion.div
