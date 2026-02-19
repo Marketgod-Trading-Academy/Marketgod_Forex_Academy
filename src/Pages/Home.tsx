@@ -27,7 +27,8 @@ import SeminarHighlight from "../Components/Home/SeminarHighlight";
 import AboutMentor from "../Components/Home/AboutMentor";
 import PlansNavFloating from "../Components/Plans/PlansNav"; 
 import Quiz from "../Components/Quiz/Quiz";
-import TourSection from "../../Tour/TourSection";
+import TourSection from "../Components/Tour/TourSection";
+import EventPreHeader from "../Components/Tour/EventPreHeader";
 
 
 const homeSections = [
@@ -70,6 +71,7 @@ const Home = () => {
       {/* Sections */}
       <div id="hero"><Hero /></div>
       <TourSection />
+      <EventPreHeader/>
       
       <div id="seminar-highlight"><SeminarHighlight /></div>
 

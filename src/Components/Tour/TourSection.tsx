@@ -35,7 +35,7 @@ export default function TourSectionVideoLeft() {
   return (
     <section
       ref={ref}
-      className="relative w-full flex flex-col lg:flex-row items-center gap-8 py-16 px-4 lg:px-24 overflow-hidden"
+      className="relative w-full flex flex-col lg:flex-row items-center gap-8 py-16 px-4 lg:px-24 overflow-hidden "
     >
       {/* Left Video Section */}
 <div className="lg:w-1/2 w-full h-80 lg:h-[500px] relative rounded-2xl overflow-hidden shadow-2xl">

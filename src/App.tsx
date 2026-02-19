@@ -19,7 +19,8 @@ import { getBlogSEO } from "./Components/SEO/SEOData";
 import SEO from "./Components/SEO/SEO";
 import FacebookPixel from "./Components/SEO/FacebookPixel";
 import Legal from "./Pages/Legal";
-import TourPopup from "../Tour/TourPopup";
+import TourPopup from "./Components/Tour/TourPopup";
+import EventPreHeader from "./Components/Tour/EventPreHeader";
 
 
 
@@ -51,6 +52,8 @@ const AppContent = () => {
     <TourPopup />
       <FacebookPixel />
       <SEO {...seo} />
+          
+
       <Header />
       <main className="flex-1 ">
         <AnnouncementPopup />
