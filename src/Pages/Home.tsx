@@ -65,15 +65,15 @@ const Home = () => {
 
         {/* Mobile Dropdown Nav */}
         <div className=" sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-md">
-          <PlansNavFloating sections={homeSections}  />
+          {/* <PlansNavFloating sections={homeSections}  /> */}
         </div>
 
       {/* Sections */}
       <div id="hero"><Hero /></div>
       <TourSection />
-      <EventPreHeader/>
+      {/* <EventPreHeader/> */}
       
-      <div id="seminar-highlight"><SeminarHighlight /></div>
+      {/* <div id="seminar-highlight"><SeminarHighlight /></div> */}
 
       <div id="about"><AboutMentor /></div>
       <div id="services"><Services /></div>

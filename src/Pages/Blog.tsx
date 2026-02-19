@@ -97,14 +97,15 @@ const  Blog: React.FC = () => {
   }`} />
 </section>
 
-        <FeaturedResource
-          resource={{
-            title: "Mentorship Slots Are Open! Lock In With Eyram Dela",
-            description: "Online mentorship with 1-year access, sniper entry strategy, live trading, signals, risk management & more. First 5 get a discount!",
-            image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1763522350/mentorhip_card_ynedl1.jpg",
-            link: "https://t.me/delatrades",
-          }}
-        />
+       <FeaturedResource
+  resource={{
+    title: "Marketgod 2026 Tour — Live Trading Experience",
+    description:
+      "Join Eyram Dela live in your city. Real market breakdowns, sniper entries, mindset training, and powerful networking. Limited seats available.",
+    image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1771486217/kumasi_ocr0pl.webp", // replace with tour banner image
+    link: "https://mainstack.com/s/marketgod", 
+  }}
+/>
       <div className="max-w-7xl mx-auto md:px-2 space-y-16">
         {/* Featured Academy */}
 

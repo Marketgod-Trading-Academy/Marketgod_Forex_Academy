@@ -35,7 +35,7 @@ export default function TourSectionVideoLeft() {
   return (
     <section
       ref={ref}
-      className="relative w-full flex flex-col lg:flex-row items-center gap-8 py-16 px-4 lg:px-24 overflow-hidden "
+      className="relative w-full flex flex-col lg:flex-row items-center gap-8 py-16 px-4 lg:px-24 overflow-hidden bg-mg-dark-bg"
     >
       {/* Left Video Section */}
 <div className="lg:w-1/2 w-full h-80 lg:h-[500px] relative rounded-2xl overflow-hidden shadow-2xl">
@@ -131,6 +131,7 @@ export default function TourSectionVideoLeft() {
     className="mt-6 self-start bg-mg-gold text-mg-black font-semibold py-3 px-6 rounded-xl shadow-gold-glow transition-all duration-300"
   >
     Reserve Your Spot
+    <a href="https://mainstack.com/s/marketgod" target="_blank" rel="noopener noreferrer" className="absolute inset-0"></a>
   </motion.button>
 </motion.div>
 

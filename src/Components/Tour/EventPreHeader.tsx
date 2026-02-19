@@ -1,5 +1,5 @@
-import { motion, useAnimation, useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 const tourDates = [
   { city: "Ho", date: "21 Feb" },
@@ -11,49 +11,67 @@ const tourDates = [
 ];
 
 export default function EventPreHeader() {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
-  const controls = useAnimation();
+  const [visible, setVisible] = useState(true);
 
-  useEffect(() => {
-    if (inView) controls.start("visible");
-  }, [inView, controls]);
+  if (!visible) return null;
 
   return (
     <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: -20 }}
-      animate={controls}
-      variants={{
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-      }}
-      className="w-full bg-mg-blue-dark py-3 px-4 shadow-lg flex justify-center overflow-hidden relative z-[60]"
+      initial={{ opacity: 0, y: -40 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -40 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="w-full bg-mg-black py-1.5 px-3 shadow-lg fex justify-center overflow-hidden relative z-[40]"
     >
-      <div className="max-w-7xl w-full flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-6">
+      
+        {/* CLOSE BUTTON */}
+       <div className="flex justify-end">
+         <button
+          onClick={() => setVisible(false)}
+          className=" text-mg-white hover:text-mg-gold transition-colors duration-300 text-[.5rem] sm:text-base border border-transparent hover:border-mg-gold rounded-full p-1 focus:outline-none focus:ring-2 focus:ring-mg-gold focus:ring-offset-2 "
+          aria-label="Close banner"
+        >
+          ✕
+        </button>
+       </div>
 
-        {/* Marketgod 2026 Tour Badge */}
-        <div className="flex items-center gap-2">
-          <div className="bg-mg-gold text-mg-black font-bold text-xs sm:text-sm px-3 py-1 rounded-full shadow-gold-glow uppercase">
+      <div className="max-w-7xl w-full flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-6 relative">
+
+        {/* LEFT SECTION */}
+        <div className="flex items-center justify-between gap-2 w-full lg:w-auto">
+          <div className="bg-mg-gold text-mg-black font-bold text-[0.55rem] sm:text-sm px-3 py-1 rounded-full shadow-gold-glow uppercase">
             Marketgod 2026 Tour
           </div>
+
+           {/* CTA */}
+        <div className="flex-shrink-0  lg:hidden">
+          <motion.a
+            href="https://mainstack.com/s/marketgod"
+            className="relative overflow-hidden px-2 py-1 rounded-full font-bold uppercase tracking-wide text-[.5rem] flex items-center justify-center shadow-lg bg-mg-gold text-mg-black"
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 0 25px rgba(212,175,55,0.5)",
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Reserve Spot Now
+          </motion.a>
         </div>
 
-        {/* Tagline */}
-        <div className="text-xs sm:text-sm text-mg-white italic whitespace-nowrap flex-1 text-center sm:text-left">
-          Next up: Serious traders will level up 🚀
+          
         </div>
 
-        {/* Auto-scrolling tour dates */}
-        <div className="relative flex-1 overflow-hidden min-h-[40px] sm:min-h-[30px]">
+        {/* TOUR DATES */}
+        <div className="relative flex-1 overflow-hidden min-h-[24px] sm:min-h-[30px]">
           <motion.div
-            className="flex gap-3 whitespace-normal sm:whitespace-nowrap sm:absolute"
+            className="flex gap-3 whitespace-nowrap"
             animate={{ x: ["0%", "-100%"] }}
-            transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
+            transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
           >
             {tourDates.concat(tourDates).map((item, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 border border-mg-gold rounded-full px-3 py-1 text-xs sm:text-sm font-medium text-mg-white shadow-gold-glow hover:scale-105 hover:shadow-gold-glow-lg transition-all duration-300"
+                className="flex-shrink-0 border border-mg-gold rounded-full px-3 py-1 text-[0.6rem] sm:text-sm font-medium text-mg-white shadow-gold-glow transition-all duration-300"
               >
                 {item.city} — {item.date}
               </div>
@@ -61,23 +79,21 @@ export default function EventPreHeader() {
           </motion.div>
         </div>
 
-        {/* CTA Button */}
-        <div className="flex-shrink-0">
+        {/* CTA */}
+        <div className="flex-shrink-0 hidden lg:flex">
           <motion.a
-            href="/plans" // Link to your plans or join page
-            className="relative overflow-hidden px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-bold uppercase tracking-wide text-xs sm:text-sm flex items-center justify-center shadow-lg bg-mg-gold text-mg-black"
-            whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(212,175,55,0.5)" }}
+            href="https://mainstack.com/s/marketgod"
+            className="relative overflow-hidden px-4 py-2 rounded-full font-bold uppercase tracking-wide text-xs flex items-center justify-center shadow-lg bg-mg-gold text-mg-black"
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 0 25px rgba(212,175,55,0.5)",
+            }}
             whileTap={{ scale: 0.95 }}
           >
-            Join Now
-            <motion.div
-              className="absolute inset-0 bg-mg-gold/50"
-              initial={{ x: "-120%" }}
-              whileHover={{ x: "120%" }}
-              transition={{ duration: 0.6 }}
-            />
+           Reserve Spot Now
           </motion.a>
         </div>
+
       </div>
     </motion.div>
   );

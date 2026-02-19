@@ -20,7 +20,6 @@ import SEO from "./Components/SEO/SEO";
 import FacebookPixel from "./Components/SEO/FacebookPixel";
 import Legal from "./Pages/Legal";
 import TourPopup from "./Components/Tour/TourPopup";
-import EventPreHeader from "./Components/Tour/EventPreHeader";
 
 
 

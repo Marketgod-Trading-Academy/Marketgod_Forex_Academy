@@ -45,6 +45,32 @@ type Slide = {
 
 const slides: Slide[] = [
   {
+  id: "tour-2026",
+  type: "image",
+  src: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1771486216/ho_fnlyhk.webp", // replace with your tour image
+  title: (
+    <>
+      Marketgod <span className="text-mg-gold">2026 Tour</span>
+    </>
+  ),
+  subtitle: "Live. Physical. Real Trading Experience.",
+  desc: (
+    <>
+      The journey continues across Ghana.
+      <br />
+      <span className="text-mg-gold font-semibold">
+        Next Stop: Ho — 21 February
+      </span>
+      <br />
+      Limited seats. Serious traders only.
+    </>
+  ),
+  ctas: [
+    { label: "Reserve Your Seat", href: "https://mainstack.com/s/marketgod", primary: true },
+    { label: "View All Cities", href: "https://mainstack.com/s/marketgod" }
+  ],
+},
+  {
     id: "video",
     type: "video",
     src:
