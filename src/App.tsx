@@ -19,6 +19,7 @@ import { getBlogSEO } from "./Components/SEO/SEOData";
 import SEO from "./Components/SEO/SEO";
 import FacebookPixel from "./Components/SEO/FacebookPixel";
 import Legal from "./Pages/Legal";
+import TourPopup from "../Tour/TourPopup";
 
 
 
@@ -47,6 +48,7 @@ const AppContent = () => {
 
   return (
     <div className={`min-h-screen flex flex-col ${theme === "light" ? "bg-mg-light-b" : "bg-mg-dark-bg"}`}>
+    <TourPopup />
       <FacebookPixel />
       <SEO {...seo} />
       <Header />
