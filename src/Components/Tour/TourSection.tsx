@@ -126,13 +126,15 @@ export default function TourSectionVideoLeft() {
 
 
   {/* CTA Button */}
-  <motion.button
+  <motion.a
+    href="https://mainstack.com/s/marketgod"
+    target="_blank"
+    rel="noopener noreferrer"
     whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(212,175,55,0.6)" }}
-    className="mt-6 self-start bg-mg-gold text-mg-black font-semibold py-3 px-6 rounded-xl shadow-gold-glow transition-all duration-300"
+    className="mt-6 self-start bg-mg-gold text-mg-black font-semibold py-3 px-6 rounded-xl shadow-gold-glow transition-all duration-300 inline-block"
   >
     Reserve Your Spot
-    <a href="https://mainstack.com/s/marketgod" target="_blank" rel="noopener noreferrer" className="absolute inset-0"></a>
-  </motion.button>
+  </motion.a>
 </motion.div>
 
     </section>
