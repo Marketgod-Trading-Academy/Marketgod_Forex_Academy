@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { X } from "lucide-react";
+import { X, Check } from "lucide-react";
 
 export default function TourPopup() {
   const [open, setOpen] = useState(false);
@@ -13,7 +13,7 @@ export default function TourPopup() {
     { city: "Techiman", date: "25 Apr" },
   ];
 
-  const firstUpcoming = 0; // Highlight first city
+  const firstUpcoming = 1; // Highlight first city
 
   // Open popup after 3 seconds
   useEffect(() => {
@@ -87,12 +87,13 @@ export default function TourPopup() {
       {tourDates.map((item, index) => (
         <div
           key={index}
-          className={`border rounded-lg px-3 py-2 text-mg-dark-textSecondary ${
+          className={`border rounded-lg px-3 py-2 text-mg-dark-textSecondary flex items-center justify-center gap-2 ${
             index === firstUpcoming
               ? "border-mg-gold font-semibold text-mg-white shadow-gold-glow"
               : "border-mg-dark-border"
           }`}
         >
+          {index < firstUpcoming && <Check size={14} className="text-mg-gold" />}
           {item.city} — {item.date}
         </div>
       ))}

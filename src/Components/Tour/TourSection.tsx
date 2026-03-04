@@ -1,6 +1,7 @@
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import { Check } from "lucide-react";
 
 export default function TourSectionVideoLeft() {
   const tourDates = [
@@ -12,7 +13,7 @@ export default function TourSectionVideoLeft() {
     { city: "Techiman", date: "25 Apr" },
   ];
 
-  const firstUpcoming = 0;
+  const firstUpcoming = 1;
 
   // Scroll-trigger animation
   const controls = useAnimation();
@@ -93,9 +94,10 @@ export default function TourSectionVideoLeft() {
         initial="hidden"
         animate={controls}
         variants={datesVariants}
-        className={`border rounded-lg px-3 py-2 text-xs sm:text-sm
+        className={`border rounded-lg px-3 py-2 text-xs sm:text-sm flex items-center justify-center gap-2
           ${index === firstUpcoming ? "border-mg-gold font-semibold text-mg-white shadow-gold-glow" : "border-mg-dark-border text-mg-dark-textSecondary"}`}
       >
+        {index < firstUpcoming && <Check size={14} className="text-mg-gold" />}
         {item.city} — {item.date}
       </motion.div>
     ))}

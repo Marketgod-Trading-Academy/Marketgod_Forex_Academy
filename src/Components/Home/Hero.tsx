@@ -59,7 +59,7 @@ const slides: Slide[] = [
       The journey continues across Ghana.
       <br />
       <span className="text-mg-gold font-semibold">
-        Next Stop: Ho — 21 February
+        Next Stop: Takoradi — 7 Mar
       </span>
       <br />
       Limited seats. Serious traders only.
