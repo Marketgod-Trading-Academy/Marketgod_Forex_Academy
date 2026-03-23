@@ -13,9 +13,9 @@ export default function TourPopup() {
     { city: "Techiman", date: "25 Apr" },
   ];
 
-  const firstUpcoming = 2; // Highlight first city
+  const firstUpcoming = 3; // Highlight upcomin city
 
-  // Open popup after 3 seconds
+  // Open popup 
   useEffect(() => {
     const timer = setTimeout(() => setOpen(true), 3000);
     return () => clearTimeout(timer);

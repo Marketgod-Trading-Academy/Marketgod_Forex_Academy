@@ -44,7 +44,7 @@ const slides: Slide[] = [
       The journey continues across Ghana.
       <br />
       <span className="text-mg-gold font-semibold">
-        Next Stop: Kumasi — 21 Mar
+        Next Stop: Tamale — 28 Mar
       </span>
       <br />
       Limited seats. Serious traders only.
@@ -61,7 +61,7 @@ const slides: Slide[] = [
     src: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1771783834/d45de409-00cf-4b60-8f90-4d84964836aa.png",
     title: (
       <>
-        Thank You <span className="text-mg-gold">Ho & Takoradi </span>
+        Thank You <span className="text-mg-gold">Ho Takoradi & Kumasi</span>
       </>
     ),
     subtitle: "The energy was unmatched.",
@@ -69,7 +69,7 @@ const slides: Slide[] = [
       <>
         We appreciate every trader who showed up.
         <br />
-        History was made. Now we move to Takoradi.
+        History was made. Now we move to Tamale.
       </>
     ),
     ctas: [
