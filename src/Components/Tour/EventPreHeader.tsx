@@ -11,7 +11,7 @@ const tourDates = [
   { city: "Techiman", date: "25 Apr" },
 ];
 
-const firstUpcoming = 3;
+const firstUpcoming = 4;
 
 export default function EventPreHeader() {
   const [visible, setVisible] = useState(true);

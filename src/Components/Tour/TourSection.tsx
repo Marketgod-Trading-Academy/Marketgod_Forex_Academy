@@ -13,7 +13,7 @@ export default function TourSectionVideoLeft() {
     { city: "Techiman", date: "25 Apr" },
   ];
 
-  const firstUpcoming = 3;
+  const firstUpcoming = 4;
 
   // Scroll-trigger animation
   const controls = useAnimation();
