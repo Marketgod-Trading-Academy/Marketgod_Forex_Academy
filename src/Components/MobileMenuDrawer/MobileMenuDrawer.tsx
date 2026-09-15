@@ -40,7 +40,7 @@ const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ menuOpen, setMenuOp
   const socials = [
     { icon: Instagram, link: "https://instagram.com/marketgodacademy", label: "Instagram" },
     { icon: Send, link: "https://t.me/marketgodcommunity", label: "Telegram" },
-    { icon: MessageCircle, link: "https://wa.me/233557560380", label: "WhatsApp" },
+    { icon: MessageCircle, link: "https://wa.me/233599002863", label: "WhatsApp" },
     { icon: Facebook, link: "https://web.facebook.com/eyram.akpey", label: "Facebook" },
     { icon: Mail, link: "mailto:support@marketgodtrading.com", label: "Email" },
   ];

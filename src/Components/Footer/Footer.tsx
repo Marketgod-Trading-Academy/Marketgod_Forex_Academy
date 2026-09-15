@@ -178,8 +178,7 @@ const Footer = () => {
                 </a>
                 <a href="tel:+233599002863" className="flex items-center gap-2 text-mg-dark-textSecondary hover:text-mg-gold transition">
                   <Phone size={16} />
-                  +233 59 900 28637 (WhatsApp)
-
+                  +233 59 900 2863 (WhatsApp)
                 </a>
               </div>
 
@@ -206,9 +205,8 @@ const Footer = () => {
                   <a href="/legal#disclaimer" className="hover:text-mg-gold transition">Risk Disclaimer</a>
                 </div>
                 <div className="text-center md:text-right">
-                  <p className="text-mg-dark-textSecondary font-semibold ">Site proudly crafted & designed by</p>
-                  <a href="https://wa.me/233551217385" target="_blank" rel="noopener noreferrer" className="text-mg-gold font-bold text-[.5rem] tracking-wider hover:underline">Eugene Afriyie</a>
-              
+                  <p className="text-mg-dark-textSecondary font-semibold">Site proudly crafted & designed by</p>
+                  <a href="https://eugene-afriyie-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-mg-gold font-bold text-xs tracking-wider hover:underline">Eugene Afriyie</a>
                 </div>
               </div>
             </div>
