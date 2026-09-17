@@ -30,54 +30,6 @@ type Slide = {
 
 const slides: Slide[] = [
   {
-  id: "tour-2026",
-  type: "image",
-  src: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1771486217/kumasi_ocr0pl.webp", 
-  title: (
-    <>
-      Marketgod <span className="text-mg-gold">2026 Tour</span>
-    </>
-  ),
-  subtitle: "Live. Physical. Real Trading Experience.",
-  desc: (
-    <>
-      The journey continues across Ghana.
-      <br />
-      <span className="text-mg-gold font-semibold">
-        Next Stop: Koforidua — 11 Apr
-      </span>
-      <br />
-      Limited seats. Serious traders only.
-    </>
-  ),
-  ctas: [
-    { label: "Reserve Your Seat", href: "https://mainstack.com/s/marketgod", primary: true },
-    { label: "View All Cities", href: "https://mainstack.com/s/marketgod" }
-  ],
-},
-  {
-    id: "appreciation",
-    type: "image",
-    src: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1771783834/d45de409-00cf-4b60-8f90-4d84964836aa.png",
-    title: (
-      <>
-        Thank You <span className="text-mg-gold">Ho Takoradi, Kumasi & Tamale</span>
-      </>
-    ),
-    subtitle: "The energy was unmatched.",
-    desc: (
-      <>
-        We appreciate every trader who showed up.
-        <br />
-        History was made. Now we move to Tamale.
-      </>
-    ),
-    ctas: [
-      { label: "View Highlights", href: "https://www.instagram.com/eyram_dela", primary: true },
-      { label: "Join Next City", href: "https://mainstack.com/s/marketgod" },
-    ],
-  },
-  {
     id: "video",
     type: "video",
     src:

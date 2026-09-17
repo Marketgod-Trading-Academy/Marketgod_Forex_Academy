@@ -1,7 +1,7 @@
 import { useLocation, BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useTheme } from "./context/ThemeContext";
 import Header from "./Components/Header/Header";
-// import AnnouncementPopup from "./Components/Plans/AnnouncementPopup";
+import AnnouncementPopup from "./Components/Plans/AnnouncementPopup";
 
 // COMPONENTS
 import Footer from "./Components/Footer/Footer";
@@ -19,7 +19,6 @@ import { getBlogSEO } from "./Components/SEO/SEOData";
 import SEO from "./Components/SEO/SEO";
 import FacebookPixel from "./Components/SEO/FacebookPixel";
 import Legal from "./Pages/Legal";
-import TourPopup from "./Components/Tour/TourPopup";
 
 
 
@@ -48,7 +47,6 @@ const AppContent = () => {
 
   return (
     <div className={`min-h-screen flex flex-col ${theme === "light" ? "bg-mg-light-b" : "bg-mg-dark-bg"}`}>
-    <TourPopup />
       <FacebookPixel />
       <SEO {...seo} />
           
@@ -56,8 +54,7 @@ const AppContent = () => {
       <Header />
       <main className="flex-1 ">
 
-        {/* Bring it back after the tour */}
-        {/* <AnnouncementPopup /> */}
+        <AnnouncementPopup />
         <Routes>
           {/* HOME */}
           <Route path="/" element={<Home />} />

@@ -99,11 +99,11 @@ const  Blog: React.FC = () => {
 
        <FeaturedResource
   resource={{
-    title: "Marketgod 2026 Tour — Live Trading Experience",
+    title: "Marketgod Academy — Mentorship & Signals",
     description:
-      "Join Eyram Dela live in your city. Real market breakdowns, sniper entries, mindset training, and powerful networking. Limited seats available.",
-    image: "https://res.cloudinary.com/dzqdfaghg/image/upload/v1771486217/kumasi_ocr0pl.webp", // replace with tour banner image
-    link: "https://mainstack.com/s/marketgod", 
+      "In-person mentorship, live signals, prop lab, and 1-on-1 guidance with Marketgod. Build consistent trading skills with pure price action.",
+    image: "https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?auto=format&fit=crop&w=1200&q=80",
+    link: "/plans", 
   }}
 />
       <div className="max-w-7xl mx-auto md:px-2 space-y-16">

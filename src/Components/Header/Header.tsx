@@ -5,7 +5,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Drawer from "../MobileMenuDrawer/MobileMenuDrawer";
-import EventPreHeader from "../Tour/EventPreHeader";
 
 // Typewriter Component
 const TypewriterText: React.FC = () => {
@@ -142,7 +141,6 @@ const Header = () => {
      
      <div className="fixed top-0 left-0 w-full z-40 flex flex-col">
 
-    <EventPreHeader />
       {/* DESKTOP HEADER */}
       <motion.header
         animate={{ y: visible ? 0 : -190 }}
